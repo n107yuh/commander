@@ -6,47 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		7805A1972FE44E5B004B1DBE /* Commander Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7805A1962FE44E5B004B1DBE /* Commander Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7805A1A12FE44E5B004B1DBE /* Commander Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7805A1A02FE44E5B004B1DBE /* Commander Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7805A1982FE44E5B004B1DBE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7805A15D2FE44E5A004B1DBE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7805A1952FE44E5B004B1DBE;
-			remoteInfo = "Commander Extension (iOS)";
-		};
-		7805A1A22FE44E5B004B1DBE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7805A15D2FE44E5A004B1DBE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7805A19F2FE44E5B004B1DBE;
-			remoteInfo = "Commander Extension (macOS)";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		7805A1C92FE44E5B004B1DBE /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				7805A1972FE44E5B004B1DBE /* Commander Extension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7805A1D32FE44E5B004B1DBE /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7805A1A12FE44E5B004B1DBE /* Commander Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,39 +20,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7805A1792FE44E5B004B1DBE /* Commander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Commander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7805A18B2FE44E5B004B1DBE /* Commander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Commander.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7805A1962FE44E5B004B1DBE /* Commander Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Commander Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7805A1A02FE44E5B004B1DBE /* Commander Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Commander Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7805A1C42FE44E5B004B1DBE /* Exceptions for "Shared (App)" folder in "Commander (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"/Localized: Resources/Main.html",
-				Assets.xcassets,
-				Resources/Icon.png,
-				Resources/Script.js,
-				Resources/Style.css,
-				ViewController.swift,
-			);
-			target = 7805A1782FE44E5B004B1DBE /* Commander (iOS) */;
-		};
-		7805A1C82FE44E5B004B1DBE /* Exceptions for "iOS (Extension)" folder in "Commander Extension (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 7805A1952FE44E5B004B1DBE /* Commander Extension (iOS) */;
-		};
-		7805A1CD2FE44E5B004B1DBE /* Exceptions for "iOS (App)" folder in "Commander (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 7805A1782FE44E5B004B1DBE /* Commander (iOS) */;
-		};
 		7805A1CE2FE44E5B004B1DBE /* Exceptions for "Shared (App)" folder in "Commander (macOS)" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -99,50 +36,12 @@
 			);
 			target = 7805A18A2FE44E5B004B1DBE /* Commander (macOS) */;
 		};
-		7805A1D22FE44E5B004B1DBE /* Exceptions for "macOS (Extension)" folder in "Commander Extension (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 7805A19F2FE44E5B004B1DBE /* Commander Extension (macOS) */;
-		};
-		7805A1D72FE44E5B004B1DBE /* Exceptions for "Shared (Extension)" folder in "Commander Extension (iOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/_locales,
-				Resources/background.js,
-				Resources/content.js,
-				Resources/images,
-				Resources/manifest.json,
-				Resources/popup.css,
-				Resources/popup.html,
-				Resources/popup.js,
-				SafariWebExtensionHandler.swift,
-			);
-			target = 7805A1952FE44E5B004B1DBE /* Commander Extension (iOS) */;
-		};
-		7805A1D82FE44E5B004B1DBE /* Exceptions for "Shared (Extension)" folder in "Commander Extension (macOS)" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/_locales,
-				Resources/background.js,
-				Resources/content.js,
-				Resources/images,
-				Resources/manifest.json,
-				Resources/popup.css,
-				Resources/popup.html,
-				Resources/popup.js,
-				SafariWebExtensionHandler.swift,
-			);
-			target = 7805A19F2FE44E5B004B1DBE /* Commander Extension (macOS) */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7805A1612FE44E5A004B1DBE /* Shared (App) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				7805A1C42FE44E5B004B1DBE /* Exceptions for "Shared (App)" folder in "Commander (iOS)" target */,
 				7805A1CE2FE44E5B004B1DBE /* Exceptions for "Shared (App)" folder in "Commander (macOS)" target */,
 			);
 			path = "Shared (App)";
@@ -150,22 +49,11 @@
 		};
 		7805A16A2FE44E5B004B1DBE /* Shared (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7805A1D72FE44E5B004B1DBE /* Exceptions for "Shared (Extension)" folder in "Commander Extension (iOS)" target */,
-				7805A1D82FE44E5B004B1DBE /* Exceptions for "Shared (Extension)" folder in "Commander Extension (macOS)" target */,
-			);
-			explicitFolders = (
-				Resources/_locales,
-				Resources/images,
-			);
 			path = "Shared (Extension)";
 			sourceTree = "<group>";
 		};
 		7805A17B2FE44E5B004B1DBE /* iOS (App) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7805A1CD2FE44E5B004B1DBE /* Exceptions for "iOS (App)" folder in "Commander (iOS)" target */,
-			);
 			path = "iOS (App)";
 			sourceTree = "<group>";
 		};
@@ -176,45 +64,18 @@
 		};
 		7805A19A2FE44E5B004B1DBE /* iOS (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7805A1C82FE44E5B004B1DBE /* Exceptions for "iOS (Extension)" folder in "Commander Extension (iOS)" target */,
-			);
 			path = "iOS (Extension)";
 			sourceTree = "<group>";
 		};
 		7805A1A42FE44E5B004B1DBE /* macOS (Extension) */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7805A1D22FE44E5B004B1DBE /* Exceptions for "macOS (Extension)" folder in "Commander Extension (macOS)" target */,
-			);
 			path = "macOS (Extension)";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7805A1762FE44E5B004B1DBE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7805A1882FE44E5B004B1DBE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7805A1932FE44E5B004B1DBE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7805A19D2FE44E5B004B1DBE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,10 +101,7 @@
 		7805A17A2FE44E5B004B1DBE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7805A1792FE44E5B004B1DBE /* Commander.app */,
 				7805A18B2FE44E5B004B1DBE /* Commander.app */,
-				7805A1962FE44E5B004B1DBE /* Commander Extension.appex */,
-				7805A1A02FE44E5B004B1DBE /* Commander Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,30 +109,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7805A1782FE44E5B004B1DBE /* Commander (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7805A1CA2FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander (iOS)" */;
-			buildPhases = (
-				7805A1752FE44E5B004B1DBE /* Sources */,
-				7805A1762FE44E5B004B1DBE /* Frameworks */,
-				7805A1772FE44E5B004B1DBE /* Resources */,
-				7805A1C92FE44E5B004B1DBE /* Embed Foundation Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7805A1992FE44E5B004B1DBE /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				7805A17B2FE44E5B004B1DBE /* iOS (App) */,
-			);
-			name = "Commander (iOS)";
-			packageProductDependencies = (
-			);
-			productName = "Commander (iOS)";
-			productReference = 7805A1792FE44E5B004B1DBE /* Commander.app */;
-			productType = "com.apple.product-type.application";
-		};
 		7805A18A2FE44E5B004B1DBE /* Commander (macOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7805A1D42FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander (macOS)" */;
@@ -287,7 +121,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7805A1A32FE44E5B004B1DBE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				7805A18C2FE44E5B004B1DBE /* macOS (App) */,
@@ -299,50 +132,6 @@
 			productReference = 7805A18B2FE44E5B004B1DBE /* Commander.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7805A1952FE44E5B004B1DBE /* Commander Extension (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7805A1C52FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander Extension (iOS)" */;
-			buildPhases = (
-				7805A1922FE44E5B004B1DBE /* Sources */,
-				7805A1932FE44E5B004B1DBE /* Frameworks */,
-				7805A1942FE44E5B004B1DBE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				7805A19A2FE44E5B004B1DBE /* iOS (Extension) */,
-			);
-			name = "Commander Extension (iOS)";
-			packageProductDependencies = (
-			);
-			productName = "Commander Extension (iOS)";
-			productReference = 7805A1962FE44E5B004B1DBE /* Commander Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		7805A19F2FE44E5B004B1DBE /* Commander Extension (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7805A1CF2FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander Extension (macOS)" */;
-			buildPhases = (
-				7805A19C2FE44E5B004B1DBE /* Sources */,
-				7805A19D2FE44E5B004B1DBE /* Frameworks */,
-				7805A19E2FE44E5B004B1DBE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				7805A1A42FE44E5B004B1DBE /* macOS (Extension) */,
-			);
-			name = "Commander Extension (macOS)";
-			packageProductDependencies = (
-			);
-			productName = "Commander Extension (macOS)";
-			productReference = 7805A1A02FE44E5B004B1DBE /* Commander Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -351,18 +140,9 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2650;
-				LastUpgradeCheck = 2650;
+				LastUpgradeCheck = 2660;
 				TargetAttributes = {
-					7805A1782FE44E5B004B1DBE = {
-						CreatedOnToolsVersion = 26.5;
-					};
 					7805A18A2FE44E5B004B1DBE = {
-						CreatedOnToolsVersion = 26.5;
-					};
-					7805A1952FE44E5B004B1DBE = {
-						CreatedOnToolsVersion = 26.5;
-					};
-					7805A19F2FE44E5B004B1DBE = {
 						CreatedOnToolsVersion = 26.5;
 					};
 				};
@@ -381,37 +161,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7805A1782FE44E5B004B1DBE /* Commander (iOS) */,
 				7805A18A2FE44E5B004B1DBE /* Commander (macOS) */,
-				7805A1952FE44E5B004B1DBE /* Commander Extension (iOS) */,
-				7805A19F2FE44E5B004B1DBE /* Commander Extension (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7805A1772FE44E5B004B1DBE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7805A1892FE44E5B004B1DBE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7805A1942FE44E5B004B1DBE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7805A19E2FE44E5B004B1DBE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -421,28 +177,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7805A1752FE44E5B004B1DBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7805A1872FE44E5B004B1DBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7805A1922FE44E5B004B1DBE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7805A19C2FE44E5B004B1DBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -451,259 +186,39 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		7805A1992FE44E5B004B1DBE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7805A1952FE44E5B004B1DBE /* Commander Extension (iOS) */;
-			targetProxy = 7805A1982FE44E5B004B1DBE /* PBXContainerItemProxy */;
-		};
-		7805A1A32FE44E5B004B1DBE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7805A19F2FE44E5B004B1DBE /* Commander Extension (macOS) */;
-			targetProxy = 7805A1A22FE44E5B004B1DBE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		7805A1C62FE44E5B004B1DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Commander Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dingus.Commander.Extension;
-				PRODUCT_NAME = "Commander Extension";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		7805A1C72FE44E5B004B1DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Commander Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dingus.Commander.Extension;
-				PRODUCT_NAME = "Commander Extension";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		7805A1CB2FE44E5B004B1DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Commander;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-					"-framework",
-					WebKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dingus.Commander;
-				PRODUCT_NAME = Commander;
-				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		7805A1CC2FE44E5B004B1DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = Commander;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-					"-framework",
-					WebKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dingus.Commander;
-				PRODUCT_NAME = Commander;
-				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		7805A1D02FE44E5B004B1DBE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Commander Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dingus.Commander.Extension;
-				PRODUCT_NAME = "Commander Extension";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		7805A1D12FE44E5B004B1DBE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Commander Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = dingus.Commander.Extension;
-				PRODUCT_NAME = "Commander Extension";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		7805A1D52FE44E5B004B1DBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Commander;
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -728,22 +243,33 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Commander;
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -797,6 +323,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -819,6 +346,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -858,6 +386,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -873,6 +402,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -885,33 +415,6 @@
 			buildConfigurations = (
 				7805A1D92FE44E5B004B1DBE /* Debug */,
 				7805A1DA2FE44E5B004B1DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7805A1C52FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander Extension (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7805A1C62FE44E5B004B1DBE /* Debug */,
-				7805A1C72FE44E5B004B1DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7805A1CA2FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7805A1CB2FE44E5B004B1DBE /* Debug */,
-				7805A1CC2FE44E5B004B1DBE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7805A1CF2FE44E5B004B1DBE /* Build configuration list for PBXNativeTarget "Commander Extension (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7805A1D02FE44E5B004B1DBE /* Debug */,
-				7805A1D12FE44E5B004B1DBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

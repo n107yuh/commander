@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
+import { AchievementPill } from '@/components/AchievementPill'
+import type { AchievementData } from '@/lib/types'
 
 export default function CommanderDetail({ params }: { params: { name: string } }) {
   const name = decodeURIComponent(params.name)
@@ -33,6 +35,17 @@ export default function CommanderDetail({ params }: { params: { name: string } }
     if (partner) partnerMap[partner] = (partnerMap[partner] ?? 0) + 1
   }
   const partners = Object.entries(partnerMap).sort((a, b) => b[1] - a[1])
+
+  // Achievements earned while piloting this commander
+  const achievementMap: Record<string, AchievementData> = {}
+  for (const game of cmdGames) {
+    const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
+    if (!part) continue
+    for (const a of part.triggeredAchievements) {
+      achievementMap[a.id] = a
+    }
+  }
+  const achievements = Object.values(achievementMap)
 
   const images = cmd.imageURLs ?? []
 
@@ -70,6 +83,16 @@ export default function CommanderDetail({ params }: { params: { name: string } }
               </div>
             ))}
           </div>
+
+          {/* Achievements */}
+          {achievements.length > 0 && (
+            <div>
+              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Achievements</div>
+              <div className="flex flex-wrap gap-2">
+                {achievements.map(a => <AchievementPill key={a.id} a={a} />)}
+              </div>
+            </div>
+          )}
 
           {/* Partners */}
           {partners.length > 0 && (
@@ -134,6 +157,11 @@ export default function CommanderDetail({ params }: { params: { name: string } }
                 {others.length > 0 && (
                   <div className="text-slate-500 text-xs mt-1">
                     vs {others.map(o => `${o.playerName} (${commanderLabel(o)})`).join(', ')}
+                  </div>
+                )}
+                {part.triggeredAchievements.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mt-2">
+                    {part.triggeredAchievements.map(a => <AchievementPill key={a.id} a={a} />)}
                   </div>
                 )}
               </div>

@@ -5,7 +5,7 @@ import { ColorDots } from '@/components/ColorDots'
 
 export default function CommandersPage() {
   const { commanders } = loadData()
-  const sorted = [...commanders].sort((a, b) => b.totalGames - a.totalGames || b.winRate - a.winRate)
+  const sorted = [...commanders].sort((a, b) => a.name.localeCompare(b.name))
 
   return (
     <div className="space-y-6">

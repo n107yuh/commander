@@ -6,7 +6,7 @@ export default function Dashboard() {
   const data = loadData()
   const { players, games } = data
 
-  const recentGames = [...games].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8)
+  const recentGames = [...games].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3)
   const standings = playerStandings(players)
 
   return (

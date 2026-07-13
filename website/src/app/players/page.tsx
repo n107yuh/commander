@@ -26,8 +26,6 @@ export default function PlayersPage() {
               <tr><td colSpan={6} className="px-4 py-8 text-center text-slate-500">No players yet. Export data from the app.</td></tr>
             )}
             {standings.map((p, i) => {
-              const inPerson = games.filter(g => g.isInPerson && g.participants.some(x => x.playerName === p.name && x.didWin)).length
-              const remote = games.filter(g => !g.isInPerson && g.participants.some(x => x.playerName === p.name && x.didWin)).length
               const winStreak = currentWinStreak(games, p.name)
               const lossStreak = currentLossStreak(games, p.name)
               return (
@@ -41,16 +39,11 @@ export default function PlayersPage() {
                       {p.name}
                     </Link>
                     {winStreak > 0 && (
-                      <span className="ml-2 text-xs text-orange-400 font-mono">🔥{winStreak}</span>
+                      <span className="ml-2 text-sm text-orange-400 font-mono">🔥{winStreak}</span>
                     )}
                     {lossStreak > 0 && (
-                      <span className="ml-2 text-xs text-slate-500 font-mono">📉{lossStreak}</span>
+                      <span className="ml-2 text-sm text-slate-500 font-mono">❄️{lossStreak}</span>
                     )}
-                    <div className="text-slate-500 text-xs mt-0.5">
-                      {inPerson > 0 && <span>🏠 {inPerson} IRL</span>}
-                      {inPerson > 0 && remote > 0 && <span className="mx-1">·</span>}
-                      {remote > 0 && <span>💻 {remote} Remote</span>}
-                    </div>
                   </td>
                   <td className="text-right px-4 py-3 text-emerald-400 font-mono font-medium">{p.wins}</td>
                   <td className="text-right px-4 py-3 text-red-400 font-mono font-medium">{p.losses}</td>

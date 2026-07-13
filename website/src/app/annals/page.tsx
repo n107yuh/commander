@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { loadData, formatDate, commanderLabel } from '@/lib/data'
+import { loadData, formatDate, formatTime, formatDuration, commanderLabel } from '@/lib/data'
 import { AchievementPill } from '@/components/AchievementPill'
 import { ColorDots } from '@/components/ColorDots'
 
@@ -35,10 +35,17 @@ export default function AnnalsPage() {
             <div key={i} className="bg-slate-900 border border-slate-800 rounded-lg p-4">
               {/* Header */}
               <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2 text-sm">
+                <div className="flex items-center gap-2 text-sm flex-wrap">
                   <span className="font-medium text-white">{formatDate(game.date)}</span>
+                  <span className="text-slate-500 text-xs">{formatTime(game.date)}</span>
                   <span className="text-slate-600">·</span>
                   <span className="text-slate-400">{game.isInPerson ? '🏠 In Person' : '💻 Remote'}</span>
+                  {game.durationSeconds && (
+                    <>
+                      <span className="text-slate-600">·</span>
+                      <span className="text-slate-400">⏱ {formatDuration(game.durationSeconds)}</span>
+                    </>
+                  )}
                   {winner && (
                     <>
                       <span className="text-slate-600">·</span>

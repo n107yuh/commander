@@ -17,10 +17,23 @@ export function formatWinRate(rate: number): string {
   return `${Math.round(rate * 100)}%`
 }
 
+// Game timestamps are exported as UTC ISO strings; without an explicit timezone
+// here, formatting falls back to the server's local time (UTC on Vercel), which
+// can shift a late-night game onto the next calendar day. Render in the pod's
+// timezone so dates/times match what the Mac app shows.
+const POD_TIMEZONE = 'America/New_York'
+
 export function formatDate(iso: string): string {
   if (!iso) return ''
   return new Date(iso).toLocaleDateString('en-US', {
-    month: 'short', day: 'numeric', year: 'numeric',
+    month: 'short', day: 'numeric', year: 'numeric', timeZone: POD_TIMEZONE,
+  })
+}
+
+export function formatTime(iso: string): string {
+  if (!iso) return ''
+  return new Date(iso).toLocaleTimeString('en-US', {
+    hour: 'numeric', minute: '2-digit', timeZone: POD_TIMEZONE,
   })
 }
 

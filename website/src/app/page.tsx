@@ -6,8 +6,19 @@ export default function Dashboard() {
   const data = loadData()
   const { players, games } = data
 
-  const recentGames = [...games].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3)
+  const sorted = [...games].sort((a, b) => b.date.localeCompare(a.date))
+  const recentGames = sorted.slice(0, 3)
   const standings = playerStandings(players)
+
+  // Mirrors digichampion/irlchampion/ultimateChampion in the Mac app's
+  // GamesView.swift: whoever most recently won a remote/in-person game holds
+  // that crown until someone else wins one; holding both simultaneously makes
+  // you the Ultimate Champion.
+  const digiChampion = sorted.find(g => !g.isInPerson && g.participants.some(p => p.didWin))
+    ?.participants.find(p => p.didWin)?.playerName ?? null
+  const irlChampion = sorted.find(g => g.isInPerson && g.participants.some(p => p.didWin))
+    ?.participants.find(p => p.didWin)?.playerName ?? null
+  const ultimateChampion = digiChampion && digiChampion === irlChampion ? digiChampion : null
 
   return (
     <div className="space-y-8">
@@ -22,6 +33,51 @@ export default function Dashboard() {
           )}
         </div>
       </div>
+
+      {/* Champion Banner */}
+      {(digiChampion || irlChampion) && (
+        <div className="bg-slate-900 border border-slate-800 rounded-lg p-4">
+          {ultimateChampion ? (
+            <div className="flex flex-col items-center gap-1.5 py-2">
+              <span className="text-4xl">🌈</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Ultimate Champion</span>
+              <Link
+                href={`/players/${encodeURIComponent(ultimateChampion)}`}
+                className="text-lg font-bold text-white hover:text-violet-400"
+              >
+                {ultimateChampion}
+              </Link>
+            </div>
+          ) : (
+            <div className="flex items-start justify-center gap-16">
+              {digiChampion && (
+                <div className="flex flex-col items-center gap-1.5">
+                  <span className="text-3xl">👑</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-400">Digichampion</span>
+                  <Link
+                    href={`/players/${encodeURIComponent(digiChampion)}`}
+                    className="font-semibold text-white hover:text-violet-400"
+                  >
+                    {digiChampion}
+                  </Link>
+                </div>
+              )}
+              {irlChampion && (
+                <div className="flex flex-col items-center gap-1.5">
+                  <span className="text-3xl">👑</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-300">IRLchampion</span>
+                  <Link
+                    href={`/players/${encodeURIComponent(irlChampion)}`}
+                    className="font-semibold text-white hover:text-violet-400"
+                  >
+                    {irlChampion}
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       <div className="grid md:grid-cols-2 gap-6">
         {/* Player Standings */}

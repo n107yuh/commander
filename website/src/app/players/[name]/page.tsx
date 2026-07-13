@@ -30,7 +30,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   }
   const cmdList = Object.entries(cmdMap)
     .map(([label, s]) => ({ label, ...s, winRate: s.games > 0 ? s.wins / s.games : 0 }))
-    .sort((a, b) => b.games - a.games)
+    .sort((a, b) => b.winRate - a.winRate || a.label.localeCompare(b.label))
 
   // Per-format breakdown
   const iplWins = playerGames.filter(g => g.isInPerson && g.participants.find(p => p.playerName === name)?.didWin).length

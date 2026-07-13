@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames } from '@/lib/data'
+import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderAchievementCounts } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 import type { AchievementData } from '@/lib/types'
@@ -46,6 +46,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
     }
   }
   const achievements = Object.values(achievementMap)
+  const achievementCounts = commanderAchievementCounts(games, name)
 
   const images = cmd.imageURLs ?? []
 
@@ -89,7 +90,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
             <div>
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Achievements</div>
               <div className="flex flex-wrap gap-2">
-                {achievements.map(a => <AchievementPill key={a.id} a={a} />)}
+                {achievements.map(a => <AchievementPill key={a.id} a={a} count={achievementCounts[a.id]} />)}
               </div>
             </div>
           )}

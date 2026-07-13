@@ -14,12 +14,9 @@ export default function AnnalsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-white">The Annals</h1>
-          <p className="text-slate-400 text-sm mt-1">Notable moments, game by game</p>
-        </div>
-        <span className="text-slate-500 text-sm">{annalGames.length} notable games</span>
+      <div>
+        <h1 className="text-2xl font-bold text-white">The Annals</h1>
+        <p className="text-slate-400 text-sm mt-1">Notable moments, game by game</p>
       </div>
 
       {annalGames.length === 0 && (

@@ -17,3 +17,11 @@ xcuserdata/
 
 # CocoaPods (not used, but just in case)
 Pods/
+
+# Node.js / website
+node_modules/
+.next/
+next-env.d.ts
+
+# Claude Code local settings (machine-specific, not shared)
+.claude/settings.local.json

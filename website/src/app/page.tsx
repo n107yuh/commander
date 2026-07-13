@@ -4,10 +4,8 @@ import { ColorDots } from '@/components/ColorDots'
 
 export default function Dashboard() {
   const data = loadData()
-  const { players, commanders, games } = data
+  const { players, games } = data
 
-  const totalInPerson = games.filter(g => g.isInPerson).length
-  const totalRemote = games.filter(g => !g.isInPerson).length
   const recentGames = [...games].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8)
   const standings = playerStandings(players)
 
@@ -23,21 +21,6 @@ export default function Dashboard() {
             </p>
           )}
         </div>
-      </div>
-
-      {/* Pod stats */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {[
-          { label: 'Total Games', value: games.length },
-          { label: 'Players', value: players.length },
-          { label: 'Commanders', value: commanders.length },
-          { label: 'In Person / Remote', value: `${totalInPerson} / ${totalRemote}` },
-        ].map(s => (
-          <div key={s.label} className="bg-slate-900 border border-slate-800 rounded-lg p-4">
-            <div className="text-2xl font-bold text-white">{s.value}</div>
-            <div className="text-slate-400 text-sm mt-0.5">{s.label}</div>
-          </div>
-        ))}
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -84,7 +67,7 @@ export default function Dashboard() {
         <section>
           <div className="flex items-center justify-between mb-3">
             <h2 className="font-semibold text-slate-300 uppercase text-xs tracking-wider">Recent Games</h2>
-            <Link href="/games" className="text-xs text-violet-400 hover:text-violet-300">View all →</Link>
+            <Link href="/annals" className="text-xs text-violet-400 hover:text-violet-300">View all →</Link>
           </div>
           <div className="space-y-2">
             {recentGames.length === 0 && (
@@ -111,7 +94,7 @@ export default function Dashboard() {
                     </div>
                   )}
                   <div className="text-slate-500 text-xs mt-0.5">
-                    {game.participants.filter(p => !p.didWin).map(p => p.playerName).join(', ')}
+                    {game.participants.filter(p => !p.didWin).map(p => `${p.playerName} (${commanderLabel(p)})`).join(', ')}
                   </div>
                 </div>
               )

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "commander-website",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd website && npm run dev"],
+      "port": 3000
+    }
+  ]
+}

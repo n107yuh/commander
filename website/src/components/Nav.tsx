@@ -4,7 +4,6 @@ const links = [
   { href: '/',            label: 'Dashboard' },
   { href: '/players',     label: 'Players' },
   { href: '/commanders',  label: 'Commanders' },
-  { href: '/games',       label: 'Games' },
   { href: '/annals',      label: 'Annals' },
 ]
 

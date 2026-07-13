@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { loadData, formatWinRate, playerStandings } from '@/lib/data'
+import { loadData, formatWinRate, playerStandings, currentWinStreak, currentLossStreak } from '@/lib/data'
 
 export default function PlayersPage() {
   const { players, games } = loadData()
@@ -28,6 +28,8 @@ export default function PlayersPage() {
             {standings.map((p, i) => {
               const inPerson = games.filter(g => g.isInPerson && g.participants.some(x => x.playerName === p.name && x.didWin)).length
               const remote = games.filter(g => !g.isInPerson && g.participants.some(x => x.playerName === p.name && x.didWin)).length
+              const winStreak = currentWinStreak(games, p.name)
+              const lossStreak = currentLossStreak(games, p.name)
               return (
                 <tr key={p.name} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/20">
                   <td className="px-4 py-3 text-slate-500">{i + 1}</td>
@@ -38,6 +40,12 @@ export default function PlayersPage() {
                     >
                       {p.name}
                     </Link>
+                    {winStreak > 0 && (
+                      <span className="ml-2 text-xs text-orange-400 font-mono">🔥{winStreak}</span>
+                    )}
+                    {lossStreak > 0 && (
+                      <span className="ml-2 text-xs text-slate-500 font-mono">📉{lossStreak}</span>
+                    )}
                     <div className="text-slate-500 text-xs mt-0.5">
                       {inPerson > 0 && <span>🏠 {inPerson} IRL</span>}
                       {inPerson > 0 && remote > 0 && <span className="mx-1">·</span>}

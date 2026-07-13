@@ -36,15 +36,17 @@ const ICON: Record<string, string> = {
   'max-zeus': '🐱',
 }
 
-export function AchievementPill({ a }: { a: AchievementData }) {
+export function AchievementPill({ a, count }: { a: AchievementData; count?: number }) {
   const icon = ICON[a.id] ?? '🏆'
   return (
-    <span
-      title={`${a.title} — ${a.description}`}
-      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap"
-    >
-      <span>{icon}</span>
-      <span>{a.title}</span>
+    <span className="relative group/pill inline-block">
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap">
+        <span>{icon}</span>
+        <span>{a.title}{count && count >= 2 ? ` ×${count}` : ''}</span>
+      </span>
+      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover/pill:block w-56 z-20 rounded-md bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-xs leading-snug text-slate-200 shadow-lg whitespace-normal">
+        <span className="font-semibold text-white">{a.title}</span> — {a.description}
+      </span>
     </span>
   )
 }

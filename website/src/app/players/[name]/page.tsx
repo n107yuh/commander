@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames } from '@/lib/data'
-import { ColorDots } from '@/components/ColorDots'
+import {
+  loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames, playerAchievementCounts,
+  colorMasteryProgress, MONO_COMBOS, DUAL_COMBOS, TRI_COMBOS,
+} from '@/lib/data'
+import { ColorDots, ColorComboChip } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 
 export default function PlayerDetail({ params }: { params: { name: string } }) {
@@ -34,6 +37,14 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const iplGames = playerGames.filter(g => g.isInPerson).length
   const remWins = playerGames.filter(g => !g.isInPerson && g.participants.find(p => p.playerName === name)?.didWin).length
   const remGames = playerGames.filter(g => !g.isInPerson).length
+
+  const achievementCounts = playerAchievementCounts(games, name)
+  const mastery = colorMasteryProgress(games, name)
+  const masteryRows = [
+    { title: 'Mono-Master', combos: MONO_COMBOS, won: mastery.mono },
+    { title: 'Dual-Master', combos: DUAL_COMBOS, won: mastery.dual },
+    { title: 'Tri-Master', combos: TRI_COMBOS, won: mastery.tri },
+  ]
 
   return (
     <div className="space-y-8">
@@ -78,10 +89,30 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
         <section>
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Achievements</h2>
           <div className="flex flex-wrap gap-2">
-            {player.achievements.map(a => <AchievementPill key={a.id} a={a} />)}
+            {player.achievements.map(a => <AchievementPill key={a.id} a={a} count={achievementCounts[a.id]} />)}
           </div>
         </section>
       )}
+
+      {/* Color mastery progress */}
+      <section>
+        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Color Mastery</h2>
+        <div className="space-y-3">
+          {masteryRows.map(m => (
+            <div key={m.title}>
+              <div className="flex items-baseline gap-2 mb-1.5">
+                <span className="text-sm font-medium text-white">{m.title}</span>
+                <span className="text-xs text-slate-500">{m.won.size} of {m.combos.length} won</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {m.combos.map(c => (
+                  <ColorComboChip key={c} combo={c} achieved={m.won.has(c)} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Commander records */}
       {cmdList.length > 0 && (

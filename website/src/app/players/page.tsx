@@ -29,10 +29,13 @@ export default function PlayersPage() {
               const inPerson = games.filter(g => g.isInPerson && g.participants.some(x => x.playerName === p.name && x.didWin)).length
               const remote = games.filter(g => !g.isInPerson && g.participants.some(x => x.playerName === p.name && x.didWin)).length
               return (
-                <tr key={p.name} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/20">
+                <tr key={p.name} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/20">
                   <td className="px-4 py-3 text-slate-500">{i + 1}</td>
                   <td className="px-4 py-3">
-                    <Link href={`/players/${encodeURIComponent(p.name)}`} className="text-white hover:text-violet-400 font-semibold">
+                    <Link
+                      href={`/players/${encodeURIComponent(p.name)}`}
+                      className="text-white hover:text-violet-400 font-semibold after:absolute after:inset-0"
+                    >
                       {p.name}
                     </Link>
                     <div className="text-slate-500 text-xs mt-0.5">

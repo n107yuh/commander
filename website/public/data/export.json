@@ -636,7 +636,7 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-13T23:26:29Z",
+  "exportedAt" : "2026-07-13T23:37:36Z",
   "games" : [
     {
       "date" : "2026-07-13T03:34:32Z",
@@ -745,7 +745,7 @@
             {
               "description" : "Drop your cards on the floor.",
               "id" : "52pickup",
-              "title" : "52 Pickup"
+              "title" : "Oops, Butterfingers"
             },
             {
               "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
@@ -1241,7 +1241,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Justin skullclamps a rat.",
+              "id" : "justin-rat",
+              "title" : "Clamp Me Daddy"
+            }
           ],
           "turnOrder" : 1
         }
@@ -1414,6 +1418,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Justin skullclamps a rat.",
+              "id" : "justin-rat",
+              "title" : "Clamp Me Daddy"
             }
           ],
           "turnOrder" : 0
@@ -1945,6 +1954,11 @@
           "description" : "Win a game after going first.",
           "id" : "firstblood",
           "title" : "First Blood"
+        },
+        {
+          "description" : "Justin skullclamps a rat.",
+          "id" : "justin-rat",
+          "title" : "Clamp Me Daddy"
         }
       ],
       "losses" : 8,

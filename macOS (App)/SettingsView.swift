@@ -4,15 +4,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var modelContext
     private let settings = AchievementTriggerSettings.shared
 
     @State private var addingTo: String? = nil
     @State private var draftPhrase: String = ""
     @State private var editingTarget: EditingTarget? = nil
     @State private var editDraft: String = ""
+
+    @AppStorage("webExportRepoPath") private var repoPath: String = ""
+    @State private var isExporting = false
+    @State private var exportMessage: String? = nil
+    @State private var exportIsError = false
 
     private struct EditingTarget: Equatable {
         let defId: String
@@ -33,8 +40,10 @@ struct SettingsView: View {
                     }
                 }
             }
+            Divider()
+            webExportSection
         }
-        .frame(width: 680, height: 580)
+        .frame(width: 680, height: 700)
     }
 
     // MARK: - Header
@@ -269,6 +278,96 @@ struct SettingsView: View {
             }
         }()
         return AchievementBadge(achievement: badge)
+    }
+
+    // MARK: - Web Export
+
+    private var webExportSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Web Export")
+                        .font(.subheadline.weight(.semibold))
+                    Text("Export all pod data to your local GitHub repo and push to GitHub so Vercel rebuilds the site.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+            }
+
+            HStack(spacing: 8) {
+                Text(repoPath.isEmpty ? "No repo selected" : repoPath)
+                    .font(.caption)
+                    .foregroundStyle(repoPath.isEmpty ? .tertiary : .secondary)
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Button("Choose Repo…") {
+                    let panel = NSOpenPanel()
+                    panel.canChooseFiles = false
+                    panel.canChooseDirectories = true
+                    panel.allowsMultipleSelection = false
+                    panel.prompt = "Select Repo"
+                    if panel.runModal() == .OK, let url = panel.url {
+                        repoPath = url.path
+                        exportMessage = nil
+                    }
+                }
+                .controlSize(.small)
+            }
+
+            HStack(spacing: 10) {
+                Button {
+                    runExport()
+                } label: {
+                    if isExporting {
+                        HStack(spacing: 6) {
+                            ProgressView().controlSize(.small)
+                            Text("Exporting…")
+                        }
+                    } else {
+                        Label("Export & Push to GitHub", systemImage: "paperplane.fill")
+                    }
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.regular)
+                .disabled(repoPath.isEmpty || isExporting)
+
+                if let msg = exportMessage {
+                    Text(msg)
+                        .font(.caption)
+                        .foregroundStyle(exportIsError ? .red : .green)
+                        .lineLimit(2)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(Color.secondary.opacity(0.04))
+    }
+
+    private func runExport() {
+        guard !repoPath.isEmpty else { return }
+        isExporting = true
+        exportMessage = nil
+        let ctx = modelContext
+        let path = repoPath
+        Task {
+            do {
+                try await WebExportService.exportAndPush(context: ctx, repoPath: path)
+                await MainActor.run {
+                    exportMessage = "Exported and pushed successfully."
+                    exportIsError = false
+                    isExporting = false
+                }
+            } catch {
+                await MainActor.run {
+                    exportMessage = error.localizedDescription
+                    exportIsError = true
+                    isExporting = false
+                }
+            }
+        }
     }
 
     // MARK: - Actions

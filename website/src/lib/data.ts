@@ -2,6 +2,7 @@ import { cache } from 'react'
 import fs from 'fs'
 import path from 'path'
 import type { ExportData, GameData, PlayerData } from './types'
+import { commanderLabel } from './format'
 
 export { formatWinRate, formatDate, formatTime, formatDuration, commanderLabel } from './format'
 
@@ -90,6 +91,9 @@ export interface ColorMasteryProgress {
   mono: Set<string>
   dual: Set<string>
   tri: Set<string>
+  // combo key -> commander(s) used in the first win that completed it, mirroring
+  // firstWinningCommanderByComboKey(in:) in the Mac app's Achievements.swift.
+  comboCommander: Record<string, string>
 }
 
 // Mirrors wonColorCombinations(in:) in the Mac app's Achievements.swift: for each
@@ -100,22 +104,30 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
   const mono = new Set<string>()
   const dual = new Set<string>()
   const tri = new Set<string>()
+  const comboCommander: Record<string, string> = {}
 
-  for (const game of getPlayerGames(games, playerName)) {
+  // Oldest first, so the first win to complete a combo is the one recorded.
+  const sortedAsc = getPlayerGames(games, playerName).sort((a, b) => a.date.localeCompare(b.date))
+
+  for (const game of sortedAsc) {
     const part = game.participants.find(p => p.playerName === playerName)
     if (!part || !part.didWin || !part.resolvedColorIdentity) continue
     const colors = part.resolvedColorIdentity.filter(c => WUBRG.includes(c))
     const key = WUBRG.filter(c => colors.includes(c)).join('')
+    let bucketKey: string | null = null
     switch (colors.length) {
-      case 0: mono.add('C'); break
-      case 1: mono.add(key); break
-      case 2: dual.add(key); break
-      case 3: tri.add(key); break
+      case 0: mono.add('C'); bucketKey = 'C'; break
+      case 1: mono.add(key); bucketKey = key; break
+      case 2: dual.add(key); bucketKey = key; break
+      case 3: tri.add(key); bucketKey = key; break
       default: break
+    }
+    if (bucketKey && !comboCommander[bucketKey]) {
+      comboCommander[bucketKey] = commanderLabel(part)
     }
   }
 
-  return { mono, dual, tri }
+  return { mono, dual, tri, comboCommander }
 }
 
 export function playerStandings(players: PlayerData[]): PlayerData[] {

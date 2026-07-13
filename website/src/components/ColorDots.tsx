@@ -35,18 +35,25 @@ export function ColorDots({ colors, size = 'sm' }: Props) {
 
 // A small chip for a mono/dual/tri color combo (e.g. "W", "WU", "BRG"), used to
 // show progress toward color-mastery achievements — dim/outlined when not yet won.
-export function ColorComboChip({ combo, achieved }: { combo: string; achieved: boolean }) {
+// Tooltip shows the commander used to win it once achieved, otherwise the colors.
+export function ColorComboChip({ combo, achieved, commander }: { combo: string; achieved: boolean; commander?: string }) {
   const letters = combo === 'C' ? ['C'] : combo.split('')
+  const colorNames = letters.map(c => LABEL[c] ?? c).join(', ')
+  const tooltip = achieved && commander ? commander : colorNames
   return (
-    <div
-      title={letters.map(c => LABEL[c] ?? c).join(', ')}
-      className={`flex items-center gap-0.5 rounded-md border px-1.5 py-1 ${
-        achieved ? 'bg-slate-800 border-slate-600' : 'bg-slate-900 border-slate-800 opacity-40'
-      }`}
-    >
-      {letters.map((c, i) => (
-        <div key={i} className={`w-2.5 h-2.5 rounded-full shrink-0 ${DOT[c] ?? 'bg-slate-400'}`} />
-      ))}
+    <div className="relative group/chip inline-block">
+      <div
+        className={`flex items-center gap-0.5 rounded-md border px-1.5 py-1 ${
+          achieved ? 'bg-slate-800 border-slate-600' : 'bg-slate-900 border-slate-800 opacity-40'
+        }`}
+      >
+        {letters.map((c, i) => (
+          <div key={i} className={`w-2.5 h-2.5 rounded-full shrink-0 ${DOT[c] ?? 'bg-slate-400'}`} />
+        ))}
+      </div>
+      <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover/chip:block whitespace-nowrap z-20 rounded-md bg-slate-950 border border-slate-700 px-2 py-1 text-xs text-slate-200 shadow-lg">
+        {tooltip}
+      </span>
     </div>
   )
 }

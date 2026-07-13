@@ -106,7 +106,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {m.combos.map(c => (
-                  <ColorComboChip key={c} combo={c} achieved={m.won.has(c)} />
+                  <ColorComboChip key={c} combo={c} achieved={m.won.has(c)} commander={mastery.comboCommander[c]} />
                 ))}
               </div>
             </div>

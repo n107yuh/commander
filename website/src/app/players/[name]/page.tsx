@@ -4,11 +4,6 @@ import { loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames } f
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 
-export async function generateStaticParams() {
-  const { players } = loadData()
-  return players.map(p => ({ name: encodeURIComponent(p.name) }))
-}
-
 export default function PlayerDetail({ params }: { params: { name: string } }) {
   const name = decodeURIComponent(params.name)
   const { players, games, commanders } = loadData()

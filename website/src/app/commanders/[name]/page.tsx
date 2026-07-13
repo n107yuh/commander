@@ -3,11 +3,6 @@ import { notFound } from 'next/navigation'
 import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 
-export async function generateStaticParams() {
-  const { commanders } = loadData()
-  return commanders.map(c => ({ name: encodeURIComponent(c.name) }))
-}
-
 export default function CommanderDetail({ params }: { params: { name: string } }) {
   const name = decodeURIComponent(params.name)
   const { commanders, players, games } = loadData()

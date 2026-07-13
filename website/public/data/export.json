@@ -1,6 +1,2203 @@
 {
-  "exportedAt": "",
-  "players": [],
-  "commanders": [],
-  "games": []
+  "commanders" : [
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/9\/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1768940591"
+      ],
+      "losses" : 1,
+      "name" : "Ashling, the Limitless",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/0\/e0dbbdcf-84e1-494f-8b8c-0a094f603fa9.jpg?1782681871",
+        "https:\/\/cards.scryfall.io\/normal\/back\/e\/0\/e0dbbdcf-84e1-494f-8b8c-0a094f603fa9.jpg?1782681871"
+      ],
+      "losses" : 2,
+      "name" : "Bruce Banner \/\/ The Incredible Hulk",
+      "totalGames" : 2,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/9\/a\/9a1ee042-6713-4e9e-9901-9b94d99d33f1.jpg?1782696182"
+      ],
+      "losses" : 1,
+      "name" : "Clara Oswald",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/7\/07b4e4f8-6a31-4533-be51-668ce3ddc84f.jpg?1782686054"
+      ],
+      "losses" : 1,
+      "name" : "Cloud, Ex-SOLDIER",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/4\/c4f23d68-d0de-4b57-b0f9-9c0ca770c3c1.jpg?1686964171"
+      ],
+      "losses" : 0,
+      "name" : "Círdan the Shipwright",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/a\/3a14d6c5-cfd1-4860-834a-5a0dc9df0320.jpg?1782725974"
+      ],
+      "losses" : 0,
+      "name" : "Deadpool, Trading Card",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/1\/8\/18602e92-69be-4626-a28a-463913108f42.jpg?1752535694"
+      ],
+      "losses" : 1,
+      "name" : "Dr. Eggman",
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/5\/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1782726695"
+      ],
+      "losses" : 0,
+      "name" : "Edgar Markov",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/a\/dae9ee75-30b8-4e24-af8b-031c816d3221.jpg?1782690881"
+      ],
+      "losses" : 1,
+      "name" : "Ezio Auditore da Firenze",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/a\/8ae6fc26-cfad-4da8-98d9-49c27c24d293.jpg?1730489128"
+      ],
+      "losses" : 6,
+      "name" : "Giada, Font of Hope",
+      "totalGames" : 7,
+      "winRate" : 0.14285714285714285,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/b\/ab8935b1-ec87-4330-9952-9ef8cd344531.jpg?1782709989"
+      ],
+      "losses" : 2,
+      "name" : "Grothama, All-Devouring",
+      "totalGames" : 2,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/6\/b\/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1754673442"
+      ],
+      "losses" : 0,
+      "name" : "Hearthhull, the Worldseed",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/e\/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1673481644"
+      ],
+      "losses" : 1,
+      "name" : "Henzie \"Toolbox\" Torre",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/b\/fbdb68cc-5516-481a-94c5-59f6c69b8a17.jpg?1782686423"
+      ],
+      "losses" : 1,
+      "name" : "Hope Estheim",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/0\/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1782702184"
+      ],
+      "losses" : 3,
+      "name" : "Isshin, Two Heavens as One",
+      "totalGames" : 4,
+      "winRate" : 0.25,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/1\/c1f5bcc4-3ec7-42ae-8e4b-80a9b9135ff0.jpg?1744152961"
+      ],
+      "losses" : 0,
+      "name" : "Jasmine Boreal of the Seven",
+      "totalGames" : 0,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/6\/c697548f-925b-405e-970a-4e78067d5c8e.jpg?1782705441",
+        "https:\/\/cards.scryfall.io\/normal\/back\/c\/6\/c697548f-925b-405e-970a-4e78067d5c8e.jpg?1782705441"
+      ],
+      "losses" : 1,
+      "name" : "Jorn, God of Winter \/\/ Kaldring, the Rimestaff",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/7\/f7c41011-a9eb-451c-a76d-67d2dcf47c52.jpg?1782731073"
+      ],
+      "losses" : 0,
+      "name" : "Karlov of the Ghost Council",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/0\/b0a18f8b-7364-4375-b2e1-e2f15978517f.jpg?1782684489"
+      ],
+      "losses" : 1,
+      "name" : "Katara, the Fearless",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/f\/8fcf3fbb-1ddd-437e-81c1-f5a3133f5ee8.jpg?1782686419",
+        "https:\/\/cards.scryfall.io\/normal\/back\/8\/f\/8fcf3fbb-1ddd-437e-81c1-f5a3133f5ee8.jpg?1782686419"
+      ],
+      "losses" : 1,
+      "name" : "Kefka, Court Mage \/\/ Kefka, Ruler of Ruin",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1782708123"
+      ],
+      "losses" : 1,
+      "name" : "Marisi, Breaker of the Coil",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/7\/2\/72e4548b-c171-4f10-b896-af37543dcf0f.jpg?1579203069"
+      ],
+      "losses" : 3,
+      "name" : "Marrow-Gnawer",
+      "totalGames" : 4,
+      "winRate" : 0.25,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/4\/2\/42bbedc1-6b83-46b4-8b3b-a4e05ce77d87.jpg?1721428140"
+      ],
+      "losses" : 1,
+      "name" : "Ms. Bumbleflower",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/9\/a98a2fa9-82d6-4cf7-adb4-65b187cd9cda.jpg?1691497812"
+      ],
+      "losses" : 0,
+      "name" : "Narci, Fable Singer",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/6\/f61ea59a-1db0-4e6b-bcde-19787c76a49b.jpg?1562946915"
+      ],
+      "losses" : 1,
+      "name" : "Norin the Wary",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891",
+        "https:\/\/cards.scryfall.io\/normal\/back\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891"
+      ],
+      "losses" : 0,
+      "name" : "Norman Osborn \/\/ Green Goblin",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/5\/d53ee8c0-b27c-4556-b610-ff64edb7a18f.jpg?1562937757"
+      ],
+      "losses" : 1,
+      "name" : "Okaun, Eye of Chaos",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/f\/0fdae05f-7bdc-45fb-b9b9-e5ec3766f965.jpg?1712354769"
+      ],
+      "losses" : 1,
+      "name" : "Queen Marchesa",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/7\/0742f19d-179c-43c4-ab95-4160c56b4384.jpg?1782683381"
+      ],
+      "losses" : 0,
+      "name" : "Quintorius, History Chaser",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/1\/011374c3-f69d-4573-8c32-5bd0fe083d6a.jpg?1752947475"
+      ],
+      "losses" : 0,
+      "name" : "Ragost, Deft Gastronaut",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/6\/d67be074-cdd4-41d9-ac89-0a0456c4e4b2.jpg?1782700489"
+      ],
+      "losses" : 0,
+      "name" : "Sheoldred, the Apocalypse",
+      "totalGames" : 2,
+      "winRate" : 1,
+      "wins" : 2
+    },
+    {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347",
+        "https:\/\/cards.scryfall.io\/normal\/back\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347"
+      ],
+      "losses" : 1,
+      "name" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/4\/9\/49554198-549b-4066-86ce-77a03fda0a2f.jpg?1782685423"
+      ],
+      "losses" : 1,
+      "name" : "Syr Vondam, Sunstar Exemplar",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/2\/52498b7b-0389-4e7b-b29f-7ac86aab9229.jpg?1782685422"
+      ],
+      "losses" : 1,
+      "name" : "Tannuk, Memorial Ensign",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/6\/06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87.jpg?1782708431"
+      ],
+      "losses" : 2,
+      "name" : "The First Sliver",
+      "totalGames" : 2,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/7\/c78c2713-39e7-4a6e-a132-027099a89665.jpg?1782733316"
+      ],
+      "losses" : 0,
+      "name" : "The Prismatic Piper",
+      "totalGames" : 0,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/6\/568c2687-4381-4954-9cab-f669d1fe6306.jpg?1782696080"
+      ],
+      "losses" : 1,
+      "name" : "The Second Doctor",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/f\/cfb80c75-4b1b-4f25-923a-933855e7345c.jpg?1769163701"
+      ],
+      "losses" : 1,
+      "name" : "The Wise Mothman",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/f\/ff3d85bc-ef2d-4251-baf4-a14bd0cee61e.jpg?1782689205"
+      ],
+      "losses" : 0,
+      "name" : "Tinybones, Bauble Burglar",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/4\/0\/4063be5b-bfd9-43c5-bc39-09a40bc793bf.jpg?1782706759"
+      ],
+      "losses" : 5,
+      "name" : "Tinybones, Trinket Thief",
+      "totalGames" : 5,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/5\/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1745970982"
+      ],
+      "losses" : 0,
+      "name" : "Ureni of the Unwritten",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/d\/5dd13a6c-23d3-44ce-a628-cb1c19d777c4.jpg?1779732615"
+      ],
+      "losses" : 1,
+      "name" : "Winota, Joiner of Forces",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/0\/30f23588-5064-48d9-a271-039df757f8d2.jpg?1782689973"
+      ],
+      "losses" : 1,
+      "name" : "Zimone, Mystery Unraveler",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/7\/6\/76c33402-a022-4d2f-9a83-4b8ddc04e971.jpg?1562918785"
+      ],
+      "losses" : 1,
+      "name" : "Zndrsplt, Eye of Wisdom",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    }
+  ],
+  "exportedAt" : "2026-07-13T16:11:40Z",
+  "games" : [
+    {
+      "date" : "2026-07-13T03:34:32Z",
+      "durationSeconds" : 3420,
+      "isInPerson" : false,
+      "notes" : "Everyone ganged up on Pertman so he didn’t get a hat trick. Margolis played a good game",
+      "participants" : [
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Syr Vondam, Sunstar Exemplar",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Ezio Auditore da Firenze",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-13T02:07:51Z",
+      "durationSeconds" : 4740,
+      "isInPerson" : false,
+      "notes" : "Noah was more honorable than ever. He flashed his cards and reminded the table that Margolis gained 25 life. Pertman did yell “wait” many times on someone else’s turn. Pertman dropped his deck while shuffling",
+      "participants" : [
+        {
+          "commanderName" : "Karlov of the Ghost Council",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "52 Pickup"
+            },
+            {
+              "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
+              "id" : "pertman-wait",
+              "title" : "WAIT!"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Cloud, Ex-SOLDIER",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "The First Sliver",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-13T00:49:06Z",
+      "durationSeconds" : 4200,
+      "isInPerson" : false,
+      "notes" : "Jake was a pacifist. Noah cheated by accident, but was honorable and walked it back. Pertman’s boardwipe won him the game",
+      "participants" : [
+        {
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "The Second Doctor",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Clara Oswald",
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "The First Sliver",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play an entire game without attacking another player.",
+              "id" : "pacifist",
+              "title" : "Pacifist"
+            }
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-08T04:16:34Z",
+      "durationSeconds" : 3480,
+      "isInPerson" : false,
+      "notes" : "Jake wished for “Sora and Donald Fuck”. Pertman killed himself to enjoy the sweet release of death and sleep. Matthew woke up and absolutely ruined the end of the game",
+      "participants" : [
+        {
+          "commanderName" : "Sheoldred, the Apocalypse",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "Hope Estheim",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Matthew wakes up and ruins the last game of the evening.",
+              "id" : "noah-matthew",
+              "title" : "404 Error: Thumb Not Found"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Marisi, Breaker of the Coil",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-08T03:21:04Z",
+      "durationSeconds" : 2820,
+      "isInPerson" : false,
+      "notes" : "Justin swung 12 rat damage at Pertman and punished him with his own haste. Justin will play “Swiftfoot boats”. Noah believed in the heart of the dice and absolutely shit the bed",
+      "participants" : [
+        {
+          "commanderName" : "Isshin, Two Heavens as One",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Okaun, Eye of Chaos",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Zndrsplt, Eye of Wisdom",
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "Tinybones, Trinket Thief",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-08T02:07:28Z",
+      "durationSeconds" : 3840,
+      "isInPerson" : false,
+      "notes" : "Jake did choose to discard a Teferi’s Protection, which was very honorable. Justin rankled nonstop, forcing everyone to constantly sacrifice creatures",
+      "participants" : [
+        {
+          "commanderName" : "Quintorius, History Chaser",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Isshin, Two Heavens as One",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Tinybones, Trinket Thief",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-06T03:30:36Z",
+      "durationSeconds" : 4920,
+      "isInPerson" : false,
+      "notes" : "Hat trick for Jake. Matthew woke up and ruined the end of the game",
+      "participants" : [
+        {
+          "commanderName" : "Deadpool, Trading Card",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Tinybones, Trinket Thief",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Isshin, Two Heavens as One",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            },
+            {
+              "description" : "Matthew wakes up and ruins the last game of the evening.",
+              "id" : "noah-matthew",
+              "title" : "404 Error: Thumb Not Found"
+            }
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-06T02:48:46Z",
+      "durationSeconds" : 2280,
+      "isInPerson" : false,
+      "notes" : "Jake’s opening turn he played a land into a sol ring into an arcane signet. The other two never stood a chance. Justin loves to skullclamp his rats",
+      "participants" : [
+        {
+          "commanderName" : "Edgar Markov",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Tannuk, Memorial Ensign",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Tinybones, Trinket Thief",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-06T01:27:42Z",
+      "durationSeconds" : 4560,
+      "isInPerson" : false,
+      "notes" : "Jake had his way with everyone. Noah thought he was going to win on turn 4 but was sorely mistaken",
+      "participants" : [
+        {
+          "commanderName" : "Sheoldred, the Apocalypse",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Tinybones, Trinket Thief",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-03T03:22:28Z",
+      "durationSeconds" : 5820,
+      "isInPerson" : true,
+      "notes" : "Josh punted the game via oversimplification. Josh jumpscared many times. Max copied Tinybones. We listened to ABBA",
+      "participants" : [
+        {
+          "commanderName" : "Tinybones, Bauble Burglar",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Zimone, Mystery Unraveler",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Dr. Eggman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Katara, the Fearless",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-01T03:13:30Z",
+      "durationSeconds" : 5220,
+      "isInPerson" : false,
+      "notes" : "Justin skullclamped his rats and was really tickled. Italian Justin sucessfully brought out every rat with his thrumming stone. He fumbled terribly by not attacking and killing Jake and Noah. In the end (roughly an hour later) he was victorious",
+      "participants" : [
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Jorn, God of Winter \/\/ Kaldring, the Rimestaff",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Kefka, Court Mage \/\/ Kefka, Ruler of Ruin",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-01T02:00:54Z",
+      "durationSeconds" : 4200,
+      "isInPerson" : false,
+      "notes" : "Jake grasp of fated Noah’s grasp of fate. Noah destroyed Jake’s grasp of fate to do another grasp of fate. Noah copied a grasp of fate three more times",
+      "participants" : [
+        {
+          "commanderName" : "Narci, Fable Singer",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Isshin, Two Heavens as One",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        }
+      ]
+    },
+    {
+      "date" : "2026-06-24T01:15:10Z",
+      "durationSeconds" : 1620,
+      "isInPerson" : true,
+      "notes" : "Pertman cheats in his own home",
+      "participants" : [
+        {
+          "commanderName" : "Ureni of the Unwritten",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Ashling, the Limitless",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        }
+      ]
+    },
+    {
+      "date" : "2026-06-24T00:35:45Z",
+      "durationSeconds" : 2220,
+      "isInPerson" : true,
+      "notes" : "Pertman was only trying to get the achievement, and he succeeded",
+      "participants" : [
+        {
+          "commanderName" : "Hearthhull, the Worldseed",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Henzie \"Toolbox\" Torre",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-06-21T18:40:27Z",
+      "durationSeconds" : 5100,
+      "isInPerson" : false,
+      "notes" : "Pertman cheated the entire game saying his arcane signet was a sol ring",
+      "participants" : [
+        {
+          "commanderName" : "Dr. Eggman",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Norin the Wary",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        }
+      ]
+    },
+    {
+      "date" : "2026-06-17T03:00:03Z",
+      "durationSeconds" : 5400,
+      "isInPerson" : false,
+      "notes" : "Justin was able to play Thrumming Stone and get all of his rats out, but it was far too late",
+      "participants" : [
+        {
+          "commanderName" : "Ragost, Deft Gastronaut",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Winota, Joiner of Forces",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        }
+      ]
+    },
+    {
+      "date" : "2026-06-17T01:15:15Z",
+      "durationSeconds" : 5400,
+      "isInPerson" : false,
+      "notes" : "Noah almost won with Triskaidekaphile but Margolis stopped it with a split-second spell that prevented anyone else from winning the game that turn",
+      "participants" : [
+        {
+          "commanderName" : "Círdan the Shipwright",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Queen Marchesa",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        },
+        {
+          "commanderName" : "Ms. Bumbleflower",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : -1
+        }
+      ]
+    }
+  ],
+  "players" : [
+    {
+      "achievements" : [
+        {
+          "description" : "Win 5 games.",
+          "id" : "wins-5",
+          "title" : "5 Wins"
+        },
+        {
+          "description" : "Lose 5 games.",
+          "id" : "losses-5",
+          "title" : "5 Losses"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win a game after going last.",
+          "id" : "comefrombehind",
+          "title" : "Come From Behind"
+        },
+        {
+          "description" : "Play an entire game without attacking another player.",
+          "id" : "pacifist",
+          "title" : "Pacifist"
+        },
+        {
+          "description" : "Win three games in a row.",
+          "id" : "hattrick",
+          "title" : "Hat Trick"
+        },
+        {
+          "description" : "Play 5+ distinct commanders.",
+          "id" : "connoisseur",
+          "title" : "Connoisseur"
+        }
+      ],
+      "losses" : 8,
+      "name" : "Jake",
+      "totalGames" : 13,
+      "winRate" : 0.38461538461538464,
+      "wins" : 5
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Lose 5 games.",
+          "id" : "losses-5",
+          "title" : "5 Losses"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win a game after going first.",
+          "id" : "firstblood",
+          "title" : "First Blood"
+        }
+      ],
+      "losses" : 8,
+      "name" : "Justin",
+      "totalGames" : 9,
+      "winRate" : 0.1111111111111111,
+      "wins" : 1
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Lose 5 games.",
+          "id" : "losses-5",
+          "title" : "5 Losses"
+        },
+        {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
+        },
+        {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win a game after going last.",
+          "id" : "comefrombehind",
+          "title" : "Come From Behind"
+        }
+      ],
+      "losses" : 7,
+      "name" : "Margolis",
+      "totalGames" : 8,
+      "winRate" : 0.125,
+      "wins" : 1
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Max graces the table with his presence.",
+          "id" : "max-zeus",
+          "title" : "Look What the Zeus Dragged In"
+        }
+      ],
+      "losses" : 1,
+      "name" : "Max",
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
+        },
+        {
+          "description" : "Win the pod's longest game on record.",
+          "id" : "marathonwinner",
+          "title" : "Marathon Winner"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win an in-person game.",
+          "id" : "irlchampion",
+          "title" : "IRL Champion"
+        },
+        {
+          "description" : "Win in both in-person and remote games.",
+          "id" : "formatdiplomat",
+          "title" : "Format Diplomat"
+        },
+        {
+          "description" : "Win a game after going first.",
+          "id" : "firstblood",
+          "title" : "First Blood"
+        },
+        {
+          "description" : "Go first but finish last.",
+          "id" : "botchedit",
+          "title" : "Botched It"
+        },
+        {
+          "description" : "Play 5+ distinct commanders.",
+          "id" : "connoisseur",
+          "title" : "Connoisseur"
+        },
+        {
+          "description" : "Matthew wakes up and ruins the last game of the evening.",
+          "id" : "noah-matthew",
+          "title" : "404 Error: Thumb Not Found"
+        }
+      ],
+      "losses" : 14,
+      "name" : "Noah",
+      "totalGames" : 17,
+      "winRate" : 0.17647058823529413,
+      "wins" : 3
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Win 5 games.",
+          "id" : "wins-5",
+          "title" : "5 Wins"
+        },
+        {
+          "description" : "Lose 5 games.",
+          "id" : "losses-5",
+          "title" : "5 Losses"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Win the pod's fastest game on record.",
+          "id" : "quickwin",
+          "title" : "Quickest Win"
+        },
+        {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win an in-person game.",
+          "id" : "irlchampion",
+          "title" : "IRL Champion"
+        },
+        {
+          "description" : "Win in both in-person and remote games.",
+          "id" : "formatdiplomat",
+          "title" : "Format Diplomat"
+        },
+        {
+          "description" : "Win a game after going first.",
+          "id" : "firstblood",
+          "title" : "First Blood"
+        },
+        {
+          "description" : "Go first but finish last.",
+          "id" : "botchedit",
+          "title" : "Botched It"
+        },
+        {
+          "description" : "Drop your cards on the floor.",
+          "id" : "52pickup",
+          "title" : "Oops, Butterfingers"
+        },
+        {
+          "description" : "Play 5+ distinct commanders.",
+          "id" : "connoisseur",
+          "title" : "Connoisseur"
+        },
+        {
+          "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
+          "id" : "pertman-wait",
+          "title" : "WAIT!"
+        }
+      ],
+      "losses" : 6,
+      "name" : "Pertman",
+      "totalGames" : 12,
+      "winRate" : 0.5,
+      "wins" : 6
+    }
+  ]
 }

@@ -48,6 +48,16 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   const achievements = Object.values(achievementMap)
   const achievementCounts = commanderAchievementCounts(games, name)
 
+  // Colors come from resolvedColorIdentity on participants, not the static
+  // cmd.colorIdentity — some commanders (e.g. Clara Oswald) are printed
+  // colorless but get a chosen color identity per game.
+  const resolvedColors = new Set<string>()
+  for (const game of cmdGames) {
+    const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
+    for (const c of part?.resolvedColorIdentity ?? []) resolvedColors.add(c)
+  }
+  const colorIdentity = resolvedColors.size > 0 ? Array.from(resolvedColors) : cmd.colorIdentity
+
   const images = cmd.imageURLs ?? []
 
   return (
@@ -67,7 +77,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
         <div className="space-y-4">
           <div>
             <h1 className="text-3xl font-bold text-white">{cmd.name}</h1>
-            <div className="mt-2"><ColorDots colors={cmd.colorIdentity} size="md" /></div>
+            <div className="mt-2"><ColorDots colors={colorIdentity} size="md" /></div>
           </div>
 
           {/* Overall record */}

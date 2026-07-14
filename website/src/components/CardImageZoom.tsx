@@ -18,7 +18,6 @@ export function CardImageZoom({ src, alt, className }: { src: string; alt: strin
         src={src}
         alt={alt}
         className={`${className ?? ''} cursor-zoom-in`}
-        onMouseEnter={() => setVisible(true)}
         onClick={() => setVisible(true)}
       />
       {visible && (

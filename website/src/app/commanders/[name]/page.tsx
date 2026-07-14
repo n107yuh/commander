@@ -70,11 +70,11 @@ export default function CommanderDetail({ params }: { params: { name: string } }
     <div className="space-y-8">
       <Link href="/commanders" className="text-sm text-slate-400 hover:text-white">← Commanders</Link>
 
-      <div className="flex gap-6 flex-wrap">
+      <div className="flex gap-6 flex-wrap items-start">
         {/* Card images */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-start">
           {images.length > 0 ? images.map((img, i) => (
-            <img key={i} src={img.url} alt={img.alt} className="w-44 rounded-xl shadow-lg" />
+            <img key={i} src={img.url} alt={img.alt} className="w-44 h-auto rounded-xl shadow-lg" />
           )) : (
             <div className="w-44 h-[245px] rounded-xl bg-slate-800 flex items-center justify-center text-slate-500 text-4xl">⚔️</div>
           )}

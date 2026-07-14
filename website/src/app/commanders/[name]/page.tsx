@@ -67,6 +67,12 @@ export default function CommanderDetail({ params }: { params: { name: string } }
     if (partnerImage) images.push({ url: partnerImage, alt: partnerName })
   }
 
+  // With exactly one partner, treat the pairing as its own unique commander —
+  // show both names in the title instead of a separate "Partnered With" line.
+  // With multiple distinct partners across different games, that's ambiguous,
+  // so fall back to listing them individually below.
+  const displayName = partners.length === 1 ? `${cmd.name} + ${partners[0][0]}` : cmd.name
+
   return (
     <div className="space-y-8">
       <Link href="/commanders" className="text-sm text-slate-400 hover:text-white">← Commanders</Link>
@@ -83,7 +89,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
 
         <div className="space-y-4">
           <div>
-            <h1 className="text-3xl font-bold text-white">{cmd.name}</h1>
+            <h1 className="text-3xl font-bold text-white">{displayName}</h1>
             <div className="mt-2"><ColorDots colors={colorIdentity} size="md" /></div>
           </div>
 
@@ -112,8 +118,10 @@ export default function CommanderDetail({ params }: { params: { name: string } }
             </div>
           )}
 
-          {/* Partners */}
-          {partners.length > 0 && (
+          {/* Partners (only ambiguous when there's more than one distinct
+              partner across different games — a single partner is already
+              shown in the title above) */}
+          {partners.length > 1 && (
             <div>
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Partnered With</div>
               <div className="flex flex-wrap gap-2">

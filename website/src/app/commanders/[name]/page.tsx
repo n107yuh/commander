@@ -58,7 +58,13 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   }
   const colorIdentity = resolvedColors.size > 0 ? Array.from(resolvedColors) : cmd.colorIdentity
 
-  const images = cmd.imageURLs ?? []
+  // Show this commander's own card image(s) plus the first image of each
+  // partner it's been played with, so a partner pairing displays both cards.
+  const images: { url: string; alt: string }[] = (cmd.imageURLs ?? []).map(url => ({ url, alt: cmd.name }))
+  for (const [partnerName] of partners) {
+    const partnerImage = commanders.find(c => c.name === partnerName)?.imageURLs?.[0]
+    if (partnerImage) images.push({ url: partnerImage, alt: partnerName })
+  }
 
   return (
     <div className="space-y-8">
@@ -67,8 +73,8 @@ export default function CommanderDetail({ params }: { params: { name: string } }
       <div className="flex gap-6 flex-wrap">
         {/* Card images */}
         <div className="flex gap-3">
-          {images.length > 0 ? images.map((url, i) => (
-            <img key={i} src={url} alt={cmd.name} className="w-44 rounded-xl shadow-lg" />
+          {images.length > 0 ? images.map((img, i) => (
+            <img key={i} src={img.url} alt={img.alt} className="w-44 rounded-xl shadow-lg" />
           )) : (
             <div className="w-44 h-[245px] rounded-xl bg-slate-800 flex items-center justify-center text-slate-500 text-4xl">⚔️</div>
           )}

@@ -850,7 +850,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     if !playerName.isEmpty &&
        AchievementTriggerSettings.shared.matches(notes: notes, id: "52pickup", playerName: playerName) {
         result.append(Achievement(
-            id: "52pickup", title: "52 Pickup",
+            id: "52pickup", title: "Oops, Butterfingers",
             description: "Drop your cards on the floor.",
             progress: "Earned this game",
             display: .icon("hand.raised.slash.fill"),

@@ -39,10 +39,10 @@ export default function PlayersPage() {
                       {p.name}
                     </Link>
                     {winStreak > 0 && (
-                      <span className="ml-2 text-sm text-orange-400 font-mono">🔥{winStreak}</span>
+                      <span className="ml-2 text-sm text-orange-400 font-mono">🔥 {winStreak}</span>
                     )}
                     {lossStreak > 0 && (
-                      <span className="ml-2 text-sm text-slate-500 font-mono">❄️{lossStreak}</span>
+                      <span className="ml-2 text-sm text-slate-500 font-mono">❄️ {lossStreak}</span>
                     )}
                   </td>
                   <td className="text-right px-4 py-3 text-emerald-400 font-mono font-medium">{p.wins}</td>

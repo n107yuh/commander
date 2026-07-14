@@ -3,6 +3,7 @@ import { Nav } from '@/components/Nav'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://commander-amber.vercel.app'),
   title: 'Commander Tracker',
   description: 'MTG Commander pod game tracker',
 }

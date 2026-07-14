@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderAchievementCounts } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
+import { CardImageZoom } from '@/components/CardImageZoom'
 import type { AchievementData } from '@/lib/types'
 
 export default function CommanderDetail({ params }: { params: { name: string } }) {
@@ -74,7 +75,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
         {/* Card images */}
         <div className="flex gap-3 items-start">
           {images.length > 0 ? images.map((img, i) => (
-            <img key={i} src={img.url} alt={img.alt} className="w-44 h-auto rounded-xl shadow-lg" />
+            <CardImageZoom key={i} src={img.url} alt={img.alt} className="w-44 h-auto rounded-xl shadow-lg" />
           )) : (
             <div className="w-44 h-[245px] rounded-xl bg-slate-800 flex items-center justify-center text-slate-500 text-4xl">⚔️</div>
           )}

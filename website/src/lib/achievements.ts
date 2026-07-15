@@ -295,7 +295,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       if (!connoisseurDate && seenCombos.size >= 5) connoisseurDate = x.date
     }
     result.push({
-      id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Legacy',
+      id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders',
       isEarned: seenCombos.size >= 5, progress: seenCombos.size >= 5 ? `Unlocked (${seenCombos.size} commanders)` : `${seenCombos.size} of 5 distinct commanders`,
       earnedDate: connoisseurDate,
     })
@@ -311,7 +311,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     }
     const loyalMax = Object.values(comboCounts).reduce((max, n) => Math.max(max, n), 0)
     result.push({
-      id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Legacy',
+      id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Commanders',
       isEarned: loyalMax >= 10, progress: loyalMax >= 10 ? `Unlocked (${loyalMax} games)` : `${loyalMax} games with favorite commander`,
       earnedDate: loyalDate,
     })
@@ -370,7 +370,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       if (!lowerName.includes(p.match)) continue
       const info = triggeredInfo(asc, p.id)
       result.push({
-        id: p.id, title: p.title, description: p.description, category: 'Personal',
+        id: p.id, title: p.title, description: p.description, category: 'Individual',
         isEarned: info.count > 0, progress: info.count > 0 ? `Earned ${info.count} time${info.count === 1 ? '' : 's'}` : 'Not yet earned.',
         earnedDate: info.firstDate,
       })
@@ -384,7 +384,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       if (!popularDate && seenPilots.size >= 3) popularDate = x.date
     }
     result.push({
-      id: 'popularcommander', title: 'Popular Commander', description: 'Be piloted by 3+ different players.', category: 'Legacy',
+      id: 'popularcommander', title: 'Popular Commander', description: 'Be piloted by 3+ different players.', category: 'Commanders',
       isEarned: seenPilots.size >= 3, progress: seenPilots.size >= 3 ? `Unlocked (${seenPilots.size} pilots)` : `${seenPilots.size} of 3 distinct pilots`,
       earnedDate: popularDate,
     })
@@ -431,17 +431,17 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),
-  { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Legacy' },
-  { id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Legacy' },
-  { id: 'popularcommander', title: 'Popular Commander', description: 'Be piloted by 3+ different players.', category: 'Legacy' },
+  { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders' },
+  { id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Commanders' },
+  { id: 'popularcommander', title: 'Popular Commander', description: 'Be piloted by 3+ different players.', category: 'Commanders' },
   { id: 'monomaster', title: 'Mono-Master', description: 'Win with a commander of each of the 6 mono-color identities (W/U/B/R/G/Colorless).', category: 'Color Mastery' },
   { id: 'dualmaster', title: 'Dual-Master', description: 'Win with all 10 dual-color commander combinations.', category: 'Color Mastery' },
   { id: 'trimaster', title: 'Tri-Master', description: 'Win with all 10 tri-color commander combinations.', category: 'Color Mastery' },
   { id: 'tastetherainbow', title: 'Taste the Rainbow', description: 'Win a game with a 5-color (WUBRG) commander.', category: 'Color Mastery' },
-  { id: 'jake-wizard', title: 'Wizard, You Shall Not Cast', description: "Jake doesn't cast a spell in his first three turns.", category: 'Personal' },
-  { id: 'margolis-graveyard', title: 'Graveyard!?', description: 'Margolis mixes up his hand and graveyard.', category: 'Personal' },
-  { id: 'pertman-wait', title: 'WAIT!', description: 'Pertman yells "wait" after his turn more than once in a single game.', category: 'Personal' },
-  { id: 'noah-matthew', title: '404 Error: Thumb Not Found', description: 'Matthew wakes up and ruins the last game of the evening.', category: 'Personal' },
-  { id: 'justin-rat', title: 'Clamp Me Daddy', description: 'Justin skullclamps a rat.', category: 'Personal' },
-  { id: 'max-zeus', title: 'Look What the Zeus Dragged In', description: 'Max graces the table with his presence.', category: 'Personal' },
+  { id: 'jake-wizard', title: 'Wizard, You Shall Not Cast', description: "Jake doesn't cast a spell in his first three turns.", category: 'Individual' },
+  { id: 'margolis-graveyard', title: 'Graveyard!?', description: 'Margolis mixes up his hand and graveyard.', category: 'Individual' },
+  { id: 'pertman-wait', title: 'WAIT!', description: 'Pertman yells "wait" after his turn more than once in a single game.', category: 'Individual' },
+  { id: 'noah-matthew', title: '404 Error: Thumb Not Found', description: 'Matthew wakes up and ruins the last game of the evening.', category: 'Individual' },
+  { id: 'justin-rat', title: 'Clamp Me Daddy', description: 'Justin skullclamps a rat.', category: 'Individual' },
+  { id: 'max-zeus', title: 'Look What the Zeus Dragged In', description: 'Max graces the table with his presence.', category: 'Individual' },
 ]

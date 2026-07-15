@@ -102,10 +102,10 @@ export default function Dashboard() {
                   <tr><td colSpan={5} className="px-4 py-6 text-center text-slate-500 text-sm">No data yet</td></tr>
                 )}
                 {standings.map((p, i) => (
-                  <tr key={p.name} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
+                  <tr key={p.name} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
                     <td className="px-4 py-3 text-slate-500">{i + 1}</td>
                     <td className="px-4 py-3">
-                      <Link href={`/players/${encodeURIComponent(p.name)}`} className="text-white hover:text-violet-400 font-medium">
+                      <Link href={`/players/${encodeURIComponent(p.name)}`} className="text-white hover:text-violet-400 font-medium after:absolute after:inset-0">
                         {p.name}
                       </Link>
                     </td>

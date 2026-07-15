@@ -246,9 +246,12 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', prompt: 'Win a game going first.' },
     { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', prompt: 'Win from the last turn position.' },
     { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', prompt: 'Go first and finish last.' },
+    // Pacifist and Fly On The Wall are checked per-participation (whoever
+    // piloted that game), so unlike 52 Pickup/Nice below they apply equally
+    // to commander catalogs, not just player ones.
+    { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
+    { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
     ...(showPlayerOnly ? [
-      { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
-      { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
       { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
       { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
     ] : []),

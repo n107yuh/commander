@@ -339,48 +339,47 @@ func computeAchievementCatalog(
         isEarned: botchedCount > 0
     ))
 
-    // Pacifist — never attacked another player (player name + keyword in notes)
-    if showPlayerAchievements {
-        let pacifistName = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
-        let pacifistCount: Int = pacifistName.isEmpty ? 0 : noteCount(in: participations) { notes in
-            AchievementTriggerSettings.shared.matches(notes: notes, id: "pacifist", playerName: pacifistName)
-        }
-        result.append(Achievement(
-            id: "pacifist",
-            title: "Pacifist",
-            description: "Play an entire game without attacking another player.",
-            progress: pacifistCount > 0
-                ? "Earned \(pacifistCount) time\(pacifistCount == 1 ? "" : "s")"
-                : "Play a game without attacking anyone.",
-            display: .icon("peacesign"),
-            tint: Color(red: 0.35, green: 0.65, blue: 0.40),
-            isEarned: pacifistCount > 0
-        ))
+    // Pacifist — never attacked another player (pilot's name + keyword in notes).
+    // Checked per-participation (not a single fixed player) so this also works
+    // for commander catalogs, where each participation may have a different pilot.
+    let pacifistCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return AchievementTriggerSettings.shared.matches(notes: notes, id: "pacifist", playerName: pname)
     }
+    result.append(Achievement(
+        id: "pacifist",
+        title: "Pacifist",
+        description: "Play an entire game without attacking another player.",
+        progress: pacifistCount > 0
+            ? "Earned \(pacifistCount) time\(pacifistCount == 1 ? "" : "s")"
+            : "Play a game without attacking anyone.",
+        display: .icon("peacesign"),
+        tint: Color(red: 0.35, green: 0.65, blue: 0.40),
+        isEarned: pacifistCount > 0
+    ))
 
-    // Fly On The Wall — never dealt any damage (player name + keyword in notes)
-    if showPlayerAchievements {
-        let flyName = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
-        let flyCount: Int = flyName.isEmpty ? 0 : noteCount(in: participations) { notes in
-            AchievementTriggerSettings.shared.matches(notes: notes, id: "flyonthewall", playerName: flyName)
-        }
-        result.append(Achievement(
-            id: "flyonthewall",
-            title: "Fly On The Wall",
-            description: "Play an entire game without dealing any damage.",
-            progress: flyCount > 0
-                ? "Earned \(flyCount) time\(flyCount == 1 ? "" : "s")"
-                : "Play a game without dealing any damage.",
-            display: .icon("eye.fill"),
-            tint: Color(red: 0.50, green: 0.55, blue: 0.70),
-            isEarned: flyCount > 0
-        ))
+    // Fly On The Wall — never dealt any damage (pilot's name + keyword in notes).
+    // Checked per-participation, same reasoning as Pacifist above.
+    let flyCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return AchievementTriggerSettings.shared.matches(notes: notes, id: "flyonthewall", playerName: pname)
     }
+    result.append(Achievement(
+        id: "flyonthewall",
+        title: "Fly On The Wall",
+        description: "Play an entire game without dealing any damage.",
+        progress: flyCount > 0
+            ? "Earned \(flyCount) time\(flyCount == 1 ? "" : "s")"
+            : "Play a game without dealing any damage.",
+        display: .icon("eye.fill"),
+        tint: Color(red: 0.50, green: 0.55, blue: 0.70),
+        isEarned: flyCount > 0
+    ))
 
     // 52 Pickup — dropped cards on the floor (player name + keyword in notes)
     if showPlayerAchievements {
         let pickupName = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
-        let pickupCount: Int = pickupName.isEmpty ? 0 : noteCount(in: participations) { notes in
+        let pickupCount: Int = pickupName.isEmpty ? 0 : noteCount(in: participations) { _, notes in
             AchievementTriggerSettings.shared.matches(notes: notes, id: "52pickup", playerName: pickupName)
         }
         result.append(Achievement(
@@ -417,7 +416,7 @@ func computeAchievementCatalog(
     // Nice — ended the game with 69 life (player name + "69" in notes)
     if showPlayerAchievements {
         let niceName = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
-        let niceCount: Int = niceName.isEmpty ? 0 : noteCount(in: participations) { notes in
+        let niceCount: Int = niceName.isEmpty ? 0 : noteCount(in: participations) { _, notes in
             AchievementTriggerSettings.shared.matches(notes: notes, id: "nice", playerName: niceName)
         }
         result.append(Achievement(
@@ -582,7 +581,7 @@ func computeAchievementCatalog(
         let thisPlayer = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
 
         if thisPlayer.contains("jake") {
-            let count = noteCount(in: participations) { notes in
+            let count = noteCount(in: participations) { _, notes in
                 AchievementTriggerSettings.shared.matches(notes: notes, id: "jake-wizard", playerName: thisPlayer)
             }
             result.append(Achievement(
@@ -597,7 +596,7 @@ func computeAchievementCatalog(
         }
 
         if thisPlayer.contains("margolis") {
-            let count = noteCount(in: participations) { notes in
+            let count = noteCount(in: participations) { _, notes in
                 AchievementTriggerSettings.shared.matches(notes: notes, id: "margolis-graveyard", playerName: thisPlayer)
             }
             result.append(Achievement(
@@ -612,7 +611,7 @@ func computeAchievementCatalog(
         }
 
         if thisPlayer.contains("pertman") {
-            let count = noteCount(in: participations) { notes in
+            let count = noteCount(in: participations) { _, notes in
                 AchievementTriggerSettings.shared.matches(notes: notes, id: "pertman-wait", playerName: thisPlayer)
             }
             result.append(Achievement(
@@ -627,7 +626,7 @@ func computeAchievementCatalog(
         }
 
         if thisPlayer.contains("noah") {
-            let count = noteCount(in: participations) { notes in
+            let count = noteCount(in: participations) { _, notes in
                 AchievementTriggerSettings.shared.matches(notes: notes, id: "noah-matthew", playerName: thisPlayer)
             }
             result.append(Achievement(
@@ -642,7 +641,7 @@ func computeAchievementCatalog(
         }
 
         if thisPlayer.contains("justin") {
-            let count = noteCount(in: participations) { notes in
+            let count = noteCount(in: participations) { _, notes in
                 AchievementTriggerSettings.shared.matches(notes: notes, id: "justin-rat", playerName: thisPlayer)
             }
             result.append(Achievement(
@@ -1101,13 +1100,13 @@ private func distinctPilotCount(in participations: [GameParticipant]) -> Int {
     Set(participations.compactMap { $0.player?.persistentModelID }).count
 }
 
-private func noteCount(in participations: [GameParticipant], match: (String) -> Bool) -> Int {
+private func noteCount(in participations: [GameParticipant], match: (GameParticipant, String) -> Bool) -> Int {
     var seen = Set<PersistentIdentifier>()
     var count = 0
     for p in participations {
         guard let game = p.game,
               seen.insert(game.persistentModelID).inserted else { continue }
-        if match(game.notes.lowercased()) { count += 1 }
+        if match(p, game.notes.lowercased()) { count += 1 }
     }
     return count
 }

@@ -5,6 +5,7 @@ import {
   type PendingGame, type PendingParticipant, type PendingGamesFile,
   needsColorIdentityChoice, formatIsoNoMillis, newEmptyParticipant, newEmptyGame,
 } from '@/lib/logSchema'
+import { CommanderCombobox } from './CommanderCombobox'
 
 const STORAGE_KEY = 'commander-lite-log-queue-v1'
 const COLORS = ['W', 'U', 'B', 'R', 'G', 'C']
@@ -41,6 +42,22 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
   const [current, setCurrent] = useState<PendingGame>(newEmptyGame)
   const [loaded, setLoaded] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
+  // Names confirmed to be real commander-legal cards — seeded with everyone
+  // the pod has already played, and grown as Scryfall confirms new ones this
+  // session. Shared across every commander field so a name only ever needs
+  // checking once.
+  const [confirmedValid, setConfirmedValid] = useState<Set<string>>(
+    () => new Set(knownCommanders.map(n => n.toLowerCase()))
+  )
+  function confirmValid(name: string) {
+    setConfirmedValid(prev => {
+      const lower = name.trim().toLowerCase()
+      if (prev.has(lower)) return prev
+      const next = new Set(prev)
+      next.add(lower)
+      return next
+    })
+  }
 
   useEffect(() => {
     try {
@@ -81,7 +98,15 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
   }
 
   const namedCount = current.participants.filter(p => p.playerName.trim()).length
-  const canQueue = namedCount >= 2
+  const namedParticipants = current.participants.filter(p => p.playerName.trim())
+  const allCommandersValid = namedParticipants.every(p => {
+    const main = p.commanderName.trim()
+    const partner = p.partnerCommanderName?.trim()
+    const mainOk = !main || confirmedValid.has(main.toLowerCase())
+    const partnerOk = !partner || confirmedValid.has(partner.toLowerCase())
+    return mainOk && partnerOk
+  })
+  const canQueue = namedCount >= 2 && allCommandersValid
 
   function queueGame() {
     if (!canQueue) return
@@ -231,6 +256,8 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
                 onMoveUp={i > 0 ? () => move(i, -1) : undefined}
                 onMoveDown={i < current.participants.length - 1 ? () => move(i, 1) : undefined}
                 onRemove={current.participants.length > 2 ? () => removeParticipant(i) : undefined}
+                confirmedValid={confirmedValid}
+                onConfirmValid={confirmValid}
               />
             ))}
           </div>
@@ -242,9 +269,6 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
 
         <datalist id="known-players">
           {knownPlayers.map(n => <option key={n} value={n} />)}
-        </datalist>
-        <datalist id="known-commanders">
-          {knownCommanders.map(n => <option key={n} value={n} />)}
         </datalist>
 
         <label className="block">
@@ -264,13 +288,18 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
         >
           Add Game to Queue
         </button>
+        {namedCount >= 2 && !allCommandersValid && (
+          <p className="text-xs text-red-400 text-center -mt-3">
+            Fix the commander names marked in red before queueing this game.
+          </p>
+        )}
       </section>
     </div>
   )
 }
 
 function ParticipantRow({
-  index, total, participant, takenTurnOrders, onChange, onMoveUp, onMoveDown, onRemove,
+  index, total, participant, takenTurnOrders, onChange, onMoveUp, onMoveDown, onRemove, confirmedValid, onConfirmValid,
 }: {
   index: number
   total: number
@@ -280,6 +309,8 @@ function ParticipantRow({
   onMoveUp?: () => void
   onMoveDown?: () => void
   onRemove?: () => void
+  confirmedValid: Set<string>
+  onConfirmValid: (name: string) => void
 }) {
   const placementLabel = index === 0 ? 'Winner' : ordinal(index + 1)
   const showColorPicker = needsColorIdentityChoice(participant.commanderName)
@@ -338,24 +369,26 @@ function ParticipantRow({
           </select>
         </div>
 
-        <input
-          list="known-commanders"
-          placeholder="Commander"
+        <CommanderCombobox
           value={participant.commanderName}
-          onChange={e => onChange({ commanderName: e.target.value })}
-          className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-sm text-white"
+          onChange={name => onChange({ commanderName: name })}
+          placeholder="Commander"
+          confirmedValid={confirmedValid}
+          onConfirm={onConfirmValid}
         />
 
         {participant.partnerCommanderName !== null ? (
-          <div className="flex gap-2">
-            <input
-              list="known-commanders"
-              placeholder="Partner commander"
-              value={participant.partnerCommanderName}
-              onChange={e => onChange({ partnerCommanderName: e.target.value })}
-              className="flex-1 min-w-0 bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-sm text-white"
-            />
-            <button type="button" onClick={() => onChange({ partnerCommanderName: null })} className="text-slate-500 hover:text-red-400 text-xs shrink-0">
+          <div className="flex gap-2 items-start">
+            <div className="flex-1 min-w-0">
+              <CommanderCombobox
+                value={participant.partnerCommanderName}
+                onChange={name => onChange({ partnerCommanderName: name })}
+                placeholder="Partner commander"
+                confirmedValid={confirmedValid}
+                onConfirm={onConfirmValid}
+              />
+            </div>
+            <button type="button" onClick={() => onChange({ partnerCommanderName: null })} className="text-slate-500 hover:text-red-400 text-xs shrink-0 pt-1.5">
               Remove
             </button>
           </div>

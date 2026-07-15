@@ -35,8 +35,8 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
     const winRate = e.games > 0 ? (e.wins / e.games) * 100 : 0
     if (winRate < minWinRate || winRate > maxWinRate) return false
     if (selectedColors.size > 0) {
-      const entryColors = e.colors.length > 0 ? e.colors : ['C']
-      if (!entryColors.some(c => selectedColors.has(c))) return false
+      const entryColors = new Set(e.colors.length > 0 ? e.colors : ['C'])
+      if (!Array.from(selectedColors).every(c => entryColors.has(c))) return false
     }
     return true
   }), [entries, selectedColors, minWinRate, maxWinRate])

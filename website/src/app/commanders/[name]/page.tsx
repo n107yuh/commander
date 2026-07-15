@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderAchievementCounts } from '@/lib/data'
+import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
+import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
 import { CardImageZoom } from '@/components/CardImageZoom'
-import type { AchievementData } from '@/lib/types'
+import { computeCommanderAchievementCatalog } from '@/lib/achievements'
 
 export default function CommanderDetail({ params }: { params: { name: string } }) {
   const name = decodeURIComponent(params.name)
@@ -37,17 +38,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   }
   const partners = Object.entries(partnerMap).sort((a, b) => b[1] - a[1])
 
-  // Achievements earned while piloting this commander
-  const achievementMap: Record<string, AchievementData> = {}
-  for (const game of cmdGames) {
-    const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
-    if (!part) continue
-    for (const a of part.triggeredAchievements) {
-      achievementMap[a.id] = a
-    }
-  }
-  const achievements = Object.values(achievementMap)
-  const achievementCounts = commanderAchievementCounts(games, name)
+  const achievementCatalog = computeCommanderAchievementCatalog(games, name)
 
   // Colors come from resolvedColorIdentity on participants, not the static
   // cmd.colorIdentity — some commanders (e.g. Clara Oswald) are printed
@@ -109,14 +100,10 @@ export default function CommanderDetail({ params }: { params: { name: string } }
           </div>
 
           {/* Achievements */}
-          {achievements.length > 0 && (
-            <div>
-              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Achievements</div>
-              <div className="flex flex-wrap gap-2">
-                {achievements.map(a => <AchievementPill key={a.id} a={a} count={achievementCounts[a.id]} />)}
-              </div>
-            </div>
-          )}
+          <div>
+            <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Achievements</div>
+            <AchievementCatalogGrid items={achievementCatalog} />
+          </div>
 
           {/* Partners (only ambiguous when there's more than one distinct
               partner across different games — a single partner is already

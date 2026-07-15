@@ -1,11 +1,12 @@
 // Ports computeAchievementCatalog/achievementEarnedDates from the Mac app's
-// Achievements.swift so the website can show a player's FULL achievement
-// catalog (earned + unearned) with progress text and unlock dates, not just
-// the compact earned-only list the export already carries. Everything here
-// is derived purely from already-exported GameData — no export shape changes
-// needed, since perGameTriggeredAchievements already bakes the keyword/note
-// -matched achievements (Pacifist, 52 Pickup, the player-specific jokes,
-// etc.) into each participant's triggeredAchievements for every game.
+// Achievements.swift so the website can show a player's or commander's FULL
+// achievement catalog (earned + unearned) with progress text and unlock
+// dates, not just the compact earned-only list the export already carries.
+// Everything here is derived purely from already-exported GameData — no
+// export shape changes needed, since perGameTriggeredAchievements already
+// bakes the keyword/note-matched achievements (Pacifist, 52 Pickup, the
+// player-specific jokes, etc.) into each participant's triggeredAchievements
+// for every game.
 import type { GameData, ParticipantData } from './types'
 import { formatDuration } from './format'
 
@@ -27,10 +28,19 @@ interface Dated {
 
 const WUBRG = ['W', 'U', 'B', 'R', 'G']
 
-function participations(games: GameData[], playerName: string): Dated[] {
+function playerParticipations(games: GameData[], playerName: string): Dated[] {
   const result: Dated[] = []
   for (const game of games) {
     const part = game.participants.find(p => p.playerName === playerName)
+    if (part) result.push({ date: game.date, game, part })
+  }
+  return result
+}
+
+function commanderParticipations(games: GameData[], commanderName: string): Dated[] {
+  const result: Dated[] = []
+  for (const game of games) {
+    const part = game.participants.find(p => p.commanderName === commanderName || p.partnerCommanderName === commanderName)
     if (part) result.push({ date: game.date, game, part })
   }
   return result
@@ -57,9 +67,43 @@ function clean(progress: string): string {
   return progress.endsWith('.') ? progress.slice(0, -1) : progress
 }
 
-export function computePlayerAchievementCatalog(games: GameData[], playerName: string): CatalogAchievement[] {
-  const asc = [...participations(games, playerName)].sort((a, b) => a.date.localeCompare(b.date))
-  const desc = [...asc].sort((a, b) => b.date.localeCompare(a.date))
+function ownDurations(asc: Dated[], winning: boolean): { date: string; duration: number }[] {
+  return asc
+    .filter(x => x.part.didWin === winning && x.game.durationSeconds && x.game.durationSeconds > 0)
+    .map(x => ({ date: x.date, duration: x.game.durationSeconds as number }))
+}
+
+function recordAchievement(
+  id: string, title: string, description: string,
+  mineList: { date: string; duration: number }[], record: number | null, pick: 'min' | 'max',
+  myFormat: (s: number) => string, recordFormat: (s: number) => string, bothFormat: (mine: number, rec: number) => string,
+  noMyData: string, noAnyData: string,
+): CatalogAchievement {
+  const mine = mineList.length
+    ? mineList.reduce((best, x) => (pick === 'min' ? x.duration < best.duration : x.duration > best.duration) ? x : best)
+    : null
+  let isEarned = false, progress: string, earnedDate: string | null = null
+  if (mine && record != null) {
+    if (Math.abs(mine.duration - record) < 1) { isEarned = true; progress = myFormat(mine.duration); earnedDate = mine.date }
+    else { isEarned = false; progress = bothFormat(mine.duration, record) }
+  } else if (!mine && record != null) {
+    isEarned = false; progress = `${noMyData} ${recordFormat(record)}`
+  } else if (mine && record == null) {
+    isEarned = true; progress = myFormat(mine.duration); earnedDate = mine.date
+  } else {
+    isEarned = false; progress = noAnyData
+  }
+  return { id, title, description, category: 'Speed & Endurance', isEarned, progress, earnedDate }
+}
+
+// Shared engine behind both computePlayerAchievementCatalog and
+// computeCommanderAchievementCatalog, mirroring computeAchievementCatalog's
+// showPlayerAchievements branch in the Mac app: player-only sections
+// (Pacifist/Fly On The Wall/52 Pickup/Nice/Hat Trick, Connoisseur/Loyal
+// Pilot, color mastery, the named personal jokes) are swapped for the
+// commander-only Popular Commander achievement.
+function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName: string | null): CatalogAchievement[] {
+  const showPlayerOnly = playerName !== null
   const result: CatalogAchievement[] = []
 
   // Win/loss/games milestone tiers
@@ -105,19 +149,19 @@ export function computePlayerAchievementCatalog(games: GameData[], playerName: s
   }
 
   result.push({
-    id: 'winstreak', title: 'Win Streak', description: 'Consecutive wins since your last loss.', category: 'Streaks',
+    id: 'winstreak', title: 'Win Streak', description: 'Consecutive wins since the last loss.', category: 'Streaks',
     isEarned: curWin > 0, progress: curWin > 0 ? `${curWin} wins in a row` : 'No active win streak.', earnedDate: curWinStart,
   })
   result.push({
-    id: 'bestwinstreak', title: 'Best Win Streak', description: 'Your longest winning streak ever.', category: 'Streaks',
+    id: 'bestwinstreak', title: 'Best Win Streak', description: 'The longest winning streak ever.', category: 'Streaks',
     isEarned: bestWin > 0, progress: bestWin > 0 ? `${bestWin} wins in a row (all time)` : 'No wins yet.', earnedDate: bestWinDate,
   })
   result.push({
-    id: 'lossstreak', title: 'Loss Streak', description: 'Consecutive losses since your last win.', category: 'Streaks',
+    id: 'lossstreak', title: 'Loss Streak', description: 'Consecutive losses since the last win.', category: 'Streaks',
     isEarned: curLoss > 0, progress: curLoss > 0 ? `${curLoss} losses in a row` : 'No active loss streak.', earnedDate: curLossStart,
   })
   result.push({
-    id: 'bestlossstreak', title: 'Worst Loss Streak', description: 'Your longest losing streak ever.', category: 'Streaks',
+    id: 'bestlossstreak', title: 'Worst Loss Streak', description: 'The longest losing streak ever.', category: 'Streaks',
     isEarned: bestLoss > 0, progress: bestLoss > 0 ? `${bestLoss} losses in a row (all time)` : 'No losses yet.', earnedDate: bestLossDate,
   })
 
@@ -128,61 +172,32 @@ export function computePlayerAchievementCatalog(games: GameData[], playerName: s
   const podQuickest = podDurations.length ? Math.min(...podDurations) : null
   const podLongest = podDurations.length ? Math.max(...podDurations) : null
 
-  function ownDurations(winning: boolean): { date: string; duration: number }[] {
-    return asc
-      .filter(x => x.part.didWin === winning && x.game.durationSeconds && x.game.durationSeconds > 0)
-      .map(x => ({ date: x.date, duration: x.game.durationSeconds as number }))
-  }
-
-  function recordAchievement(
-    id: string, title: string, description: string,
-    mineList: { date: string; duration: number }[], record: number | null, pick: 'min' | 'max',
-    myFormat: (s: number) => string, recordFormat: (s: number) => string, bothFormat: (mine: number, rec: number) => string,
-    noMyData: string, noAnyData: string,
-  ): CatalogAchievement {
-    const mine = mineList.length
-      ? mineList.reduce((best, x) => (pick === 'min' ? x.duration < best.duration : x.duration > best.duration) ? x : best)
-      : null
-    let isEarned = false, progress: string, earnedDate: string | null = null
-    if (mine && record != null) {
-      if (Math.abs(mine.duration - record) < 1) { isEarned = true; progress = myFormat(mine.duration); earnedDate = mine.date }
-      else { isEarned = false; progress = bothFormat(mine.duration, record) }
-    } else if (!mine && record != null) {
-      isEarned = false; progress = `${noMyData} ${recordFormat(record)}`
-    } else if (mine && record == null) {
-      isEarned = true; progress = myFormat(mine.duration); earnedDate = mine.date
-    } else {
-      isEarned = false; progress = noAnyData
-    }
-    return { id, title, description, category: 'Speed & Endurance', isEarned, progress, earnedDate }
-  }
-
   result.push(recordAchievement(
     'quickwin', 'Quickest Win', "Win the pod's fastest game on record.",
-    ownDurations(true), podQuickest, 'min',
+    ownDurations(asc, true), podQuickest, 'min',
     s => `Won in ${formatDuration(s)}`, s => `Record: ${formatDuration(s)}`,
-    (m, r) => `Your best: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
+    (m, r) => `Best: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
     'No timed wins yet.', 'No timed games yet.',
   ))
   result.push(recordAchievement(
     'quickloss', 'Quickest Loss', "Lose the pod's fastest game on record.",
-    ownDurations(false), podQuickest, 'min',
+    ownDurations(asc, false), podQuickest, 'min',
     s => `Lost in ${formatDuration(s)}`, s => `Record: ${formatDuration(s)}`,
-    (m, r) => `Your best: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
+    (m, r) => `Best: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
     'No timed losses yet.', 'No timed games yet.',
   ))
   result.push(recordAchievement(
     'marathonwinner', 'Marathon Winner', "Win the pod's longest game on record.",
-    ownDurations(true), podLongest, 'max',
+    ownDurations(asc, true), podLongest, 'max',
     s => `Won a ${formatDuration(s)} game`, s => `Record: ${formatDuration(s)}`,
-    (m, r) => `Your longest win: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
+    (m, r) => `Longest win: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
     'No timed wins yet.', 'No timed games yet.',
   ))
   result.push(recordAchievement(
     'marathonsurvivor', 'Marathon Defeat', "Lose the pod's longest game on record.",
-    ownDurations(false), podLongest, 'max',
+    ownDurations(asc, false), podLongest, 'max',
     s => `Defeated in a ${formatDuration(s)} game`, s => `Record: ${formatDuration(s)}`,
-    (m, r) => `Your longest loss: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
+    (m, r) => `Longest loss: ${formatDuration(m)} • Record: ${formatDuration(r)}`,
     'No timed losses yet.', 'No timed games yet.',
   ))
 
@@ -225,15 +240,18 @@ export function computePlayerAchievementCatalog(games: GameData[], playerName: s
     earnedDate: ultimateDate,
   })
 
-  // Game moments (per-game triggered / note-matched)
+  // Game moments (per-game triggered / note-matched) — Pacifist/Fly On The
+  // Wall/52 Pickup/Nice are player-only, same as the Mac app.
   const moments: { id: string; title: string; description: string; prompt: string }[] = [
     { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', prompt: 'Win a game going first.' },
     { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', prompt: 'Win from the last turn position.' },
     { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', prompt: 'Go first and finish last.' },
-    { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
-    { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
-    { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
-    { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
+    ...(showPlayerOnly ? [
+      { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
+      { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
+      { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
+      { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
+    ] : []),
   ]
   for (const m of moments) {
     const info = triggeredInfo(asc, m.id)
@@ -244,12 +262,14 @@ export function computePlayerAchievementCatalog(games: GameData[], playerName: s
     })
   }
 
-  result.push({
-    id: 'hattrick', title: 'Hat Trick', description: 'Win three games in a row.', category: 'Streaks',
-    isEarned: bestWin >= 3,
-    progress: bestWin >= 3 ? `Unlocked (best streak: ${bestWin})` : bestWin === 0 ? 'No win streak yet.' : `Best win streak: ${bestWin} of 3`,
-    earnedDate: hattrickDate,
-  })
+  if (showPlayerOnly) {
+    result.push({
+      id: 'hattrick', title: 'Hat Trick', description: 'Win three games in a row.', category: 'Streaks',
+      isEarned: bestWin >= 3,
+      progress: bestWin >= 3 ? `Unlocked (best streak: ${bestWin})` : bestWin === 0 ? 'No win streak yet.' : `Best win streak: ${bestWin} of 3`,
+      earnedDate: hattrickDate,
+    })
+  }
 
   // Veteran tiers
   for (const n of [25, 50, 75, 100]) {
@@ -261,98 +281,125 @@ export function computePlayerAchievementCatalog(games: GameData[], playerName: s
     })
   }
 
-  // Connoisseur / Loyal Pilot
-  let connoisseurDate: string | null = null
-  const seenCombos = new Set<string>()
-  for (const x of asc) {
-    const key = comboKey(x.part)
-    if (!key) continue
-    seenCombos.add(key)
-    if (!connoisseurDate && seenCombos.size >= 5) connoisseurDate = x.date
-  }
-  result.push({
-    id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Legacy',
-    isEarned: seenCombos.size >= 5, progress: seenCombos.size >= 5 ? `Unlocked (${seenCombos.size} commanders)` : `${seenCombos.size} of 5 distinct commanders`,
-    earnedDate: connoisseurDate,
-  })
-
-  let loyalDate: string | null = null
-  let loyalAchieved = false
-  const comboCounts: Record<string, number> = {}
-  for (const x of asc) {
-    const key = comboKey(x.part)
-    if (!key) continue
-    comboCounts[key] = (comboCounts[key] ?? 0) + 1
-    if (!loyalAchieved && comboCounts[key] >= 10) { loyalAchieved = true; loyalDate = x.date }
-  }
-  const loyalMax = Object.values(comboCounts).reduce((max, n) => Math.max(max, n), 0)
-  result.push({
-    id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Legacy',
-    isEarned: loyalMax >= 10, progress: loyalMax >= 10 ? `Unlocked (${loyalMax} games)` : `${loyalMax} games with favorite commander`,
-    earnedDate: loyalDate,
-  })
-
-  // Color mastery
-  const mono = new Set<string>(), dual = new Set<string>(), tri = new Set<string>()
-  let monoDate: string | null = null, dualDate: string | null = null, triDate: string | null = null, rainbowDate: string | null = null
-  for (const x of asc) {
-    if (!x.part.didWin || !x.part.resolvedColorIdentity) continue
-    const colors = x.part.resolvedColorIdentity.filter(c => WUBRG.includes(c))
-    const key = WUBRG.filter(c => colors.includes(c)).join('')
-    if (colors.length === 5 && !rainbowDate) rainbowDate = x.date
-    switch (colors.length) {
-      case 0: mono.add('C'); break
-      case 1: mono.add(key); break
-      case 2: dual.add(key); break
-      case 3: tri.add(key); break
-      default: break
+  if (showPlayerOnly) {
+    // Connoisseur / Loyal Pilot
+    let connoisseurDate: string | null = null
+    const seenCombos = new Set<string>()
+    for (const x of asc) {
+      const key = comboKey(x.part)
+      if (!key) continue
+      seenCombos.add(key)
+      if (!connoisseurDate && seenCombos.size >= 5) connoisseurDate = x.date
     }
-    if (mono.size === 6 && !monoDate) monoDate = x.date
-    if (dual.size === 10 && !dualDate) dualDate = x.date
-    if (tri.size === 10 && !triDate) triDate = x.date
-  }
-  result.push({
-    id: 'monomaster', title: 'Mono-Master', description: 'Win with a commander of each of the 6 mono-color identities (W/U/B/R/G/Colorless).', category: 'Color Mastery',
-    isEarned: mono.size === 6, progress: mono.size === 6 ? 'Unlocked' : `${mono.size} of 6 mono-color identities won`,
-    earnedDate: monoDate,
-  })
-  result.push({
-    id: 'dualmaster', title: 'Dual-Master', description: 'Win with all 10 dual-color commander combinations.', category: 'Color Mastery',
-    isEarned: dual.size === 10, progress: dual.size === 10 ? 'Unlocked (all 10 combos)' : `${dual.size} of 10 dual-color combinations won`,
-    earnedDate: dualDate,
-  })
-  result.push({
-    id: 'trimaster', title: 'Tri-Master', description: 'Win with all 10 tri-color commander combinations.', category: 'Color Mastery',
-    isEarned: tri.size === 10, progress: tri.size === 10 ? 'Unlocked (all 10 combos)' : `${tri.size} of 10 tri-color combinations won`,
-    earnedDate: triDate,
-  })
-  result.push({
-    id: 'tastetherainbow', title: 'Taste the Rainbow', description: 'Win a game with a 5-color (WUBRG) commander.', category: 'Color Mastery',
-    isEarned: !!rainbowDate, progress: rainbowDate ? 'Unlocked' : 'Win with a 5-color commander.',
-    earnedDate: rainbowDate,
-  })
-
-  // Player-specific achievements — only shown for the matching player, same as the Mac app.
-  const lowerName = playerName.toLowerCase()
-  const personal: { match: string; id: string; title: string; description: string }[] = [
-    { match: 'jake', id: 'jake-wizard', title: 'Wizard, You Shall Not Cast', description: "Jake doesn't cast a spell in his first three turns." },
-    { match: 'margolis', id: 'margolis-graveyard', title: 'Graveyard!?', description: 'Margolis mixes up his hand and graveyard.' },
-    { match: 'pertman', id: 'pertman-wait', title: 'WAIT!', description: 'Pertman yells "wait" after his turn more than once in a single game.' },
-    { match: 'noah', id: 'noah-matthew', title: '404 Error: Thumb Not Found', description: 'Matthew wakes up and ruins the last game of the evening.' },
-    { match: 'justin', id: 'justin-rat', title: 'Clamp Me Daddy', description: 'Justin skullclamps a rat.' },
-    { match: 'max', id: 'max-zeus', title: 'Look What the Zeus Dragged In', description: 'Max graces the table with his presence.' },
-  ]
-  for (const p of personal) {
-    if (!lowerName.includes(p.match)) continue
-    const info = triggeredInfo(asc, p.id)
     result.push({
-      id: p.id, title: p.title, description: p.description, category: 'Personal',
-      isEarned: info.count > 0, progress: info.count > 0 ? `Earned ${info.count} time${info.count === 1 ? '' : 's'}` : 'Not yet earned.',
-      earnedDate: info.firstDate,
+      id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Legacy',
+      isEarned: seenCombos.size >= 5, progress: seenCombos.size >= 5 ? `Unlocked (${seenCombos.size} commanders)` : `${seenCombos.size} of 5 distinct commanders`,
+      earnedDate: connoisseurDate,
+    })
+
+    let loyalDate: string | null = null
+    let loyalAchieved = false
+    const comboCounts: Record<string, number> = {}
+    for (const x of asc) {
+      const key = comboKey(x.part)
+      if (!key) continue
+      comboCounts[key] = (comboCounts[key] ?? 0) + 1
+      if (!loyalAchieved && comboCounts[key] >= 10) { loyalAchieved = true; loyalDate = x.date }
+    }
+    const loyalMax = Object.values(comboCounts).reduce((max, n) => Math.max(max, n), 0)
+    result.push({
+      id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Legacy',
+      isEarned: loyalMax >= 10, progress: loyalMax >= 10 ? `Unlocked (${loyalMax} games)` : `${loyalMax} games with favorite commander`,
+      earnedDate: loyalDate,
+    })
+
+    // Color mastery
+    const mono = new Set<string>(), dual = new Set<string>(), tri = new Set<string>()
+    let monoDate: string | null = null, dualDate: string | null = null, triDate: string | null = null, rainbowDate: string | null = null
+    for (const x of asc) {
+      if (!x.part.didWin || !x.part.resolvedColorIdentity) continue
+      const colors = x.part.resolvedColorIdentity.filter(c => WUBRG.includes(c))
+      const key = WUBRG.filter(c => colors.includes(c)).join('')
+      if (colors.length === 5 && !rainbowDate) rainbowDate = x.date
+      switch (colors.length) {
+        case 0: mono.add('C'); break
+        case 1: mono.add(key); break
+        case 2: dual.add(key); break
+        case 3: tri.add(key); break
+        default: break
+      }
+      if (mono.size === 6 && !monoDate) monoDate = x.date
+      if (dual.size === 10 && !dualDate) dualDate = x.date
+      if (tri.size === 10 && !triDate) triDate = x.date
+    }
+    result.push({
+      id: 'monomaster', title: 'Mono-Master', description: 'Win with a commander of each of the 6 mono-color identities (W/U/B/R/G/Colorless).', category: 'Color Mastery',
+      isEarned: mono.size === 6, progress: mono.size === 6 ? 'Unlocked' : `${mono.size} of 6 mono-color identities won`,
+      earnedDate: monoDate,
+    })
+    result.push({
+      id: 'dualmaster', title: 'Dual-Master', description: 'Win with all 10 dual-color commander combinations.', category: 'Color Mastery',
+      isEarned: dual.size === 10, progress: dual.size === 10 ? 'Unlocked (all 10 combos)' : `${dual.size} of 10 dual-color combinations won`,
+      earnedDate: dualDate,
+    })
+    result.push({
+      id: 'trimaster', title: 'Tri-Master', description: 'Win with all 10 tri-color commander combinations.', category: 'Color Mastery',
+      isEarned: tri.size === 10, progress: tri.size === 10 ? 'Unlocked (all 10 combos)' : `${tri.size} of 10 tri-color combinations won`,
+      earnedDate: triDate,
+    })
+    result.push({
+      id: 'tastetherainbow', title: 'Taste the Rainbow', description: 'Win a game with a 5-color (WUBRG) commander.', category: 'Color Mastery',
+      isEarned: !!rainbowDate, progress: rainbowDate ? 'Unlocked' : 'Win with a 5-color commander.',
+      earnedDate: rainbowDate,
+    })
+
+    // Player-specific achievements — only shown for the matching player, same as the Mac app.
+    const lowerName = (playerName as string).toLowerCase()
+    const personal: { match: string; id: string; title: string; description: string }[] = [
+      { match: 'jake', id: 'jake-wizard', title: 'Wizard, You Shall Not Cast', description: "Jake doesn't cast a spell in his first three turns." },
+      { match: 'margolis', id: 'margolis-graveyard', title: 'Graveyard!?', description: 'Margolis mixes up his hand and graveyard.' },
+      { match: 'pertman', id: 'pertman-wait', title: 'WAIT!', description: 'Pertman yells "wait" after his turn more than once in a single game.' },
+      { match: 'noah', id: 'noah-matthew', title: '404 Error: Thumb Not Found', description: 'Matthew wakes up and ruins the last game of the evening.' },
+      { match: 'justin', id: 'justin-rat', title: 'Clamp Me Daddy', description: 'Justin skullclamps a rat.' },
+      { match: 'max', id: 'max-zeus', title: 'Look What the Zeus Dragged In', description: 'Max graces the table with his presence.' },
+    ]
+    for (const p of personal) {
+      if (!lowerName.includes(p.match)) continue
+      const info = triggeredInfo(asc, p.id)
+      result.push({
+        id: p.id, title: p.title, description: p.description, category: 'Personal',
+        isEarned: info.count > 0, progress: info.count > 0 ? `Earned ${info.count} time${info.count === 1 ? '' : 's'}` : 'Not yet earned.',
+        earnedDate: info.firstDate,
+      })
+    }
+  } else {
+    // Popular Commander — commander-only, based on distinct pilots.
+    let popularDate: string | null = null
+    const seenPilots = new Set<string>()
+    for (const x of asc) {
+      seenPilots.add(x.part.playerName)
+      if (!popularDate && seenPilots.size >= 3) popularDate = x.date
+    }
+    result.push({
+      id: 'popularcommander', title: 'Popular Commander', description: 'Be piloted by 3+ different players.', category: 'Legacy',
+      isEarned: seenPilots.size >= 3, progress: seenPilots.size >= 3 ? `Unlocked (${seenPilots.size} pilots)` : `${seenPilots.size} of 3 distinct pilots`,
+      earnedDate: popularDate,
     })
   }
 
   return result.map(a => ({ ...a, progress: clean(a.progress) }))
+}
+
+export function computePlayerAchievementCatalog(games: GameData[], playerName: string): CatalogAchievement[] {
+  const asc = [...playerParticipations(games, playerName)].sort((a, b) => a.date.localeCompare(b.date))
+  const desc = [...asc].sort((a, b) => b.date.localeCompare(a.date))
+  return buildCatalog(games, asc, desc, playerName)
+}
+
+export function computeCommanderAchievementCatalog(games: GameData[], commanderName: string): CatalogAchievement[] {
+  const asc = [...commanderParticipations(games, commanderName)].sort((a, b) => a.date.localeCompare(b.date))
+  const desc = [...asc].sort((a, b) => b.date.localeCompare(a.date))
+  return buildCatalog(games, asc, desc, null)
 }
 
 // Static reference list of every achievement type, for the standalone
@@ -360,10 +407,10 @@ export function computePlayerAchievementCatalog(games: GameData[], playerName: s
 export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: string; category: string }[] = [
   ...[5, 10, 15, 20].map(n => ({ id: `wins-${n}`, title: `${n} Wins`, description: `Win ${n} games.`, category: 'Win Milestones' })),
   ...[5, 10, 15, 20].map(n => ({ id: `losses-${n}`, title: `${n} Losses`, description: `Lose ${n} games.`, category: 'Loss Milestones' })),
-  { id: 'winstreak', title: 'Win Streak', description: 'Consecutive wins since your last loss.', category: 'Streaks' },
-  { id: 'bestwinstreak', title: 'Best Win Streak', description: 'Your longest winning streak ever.', category: 'Streaks' },
-  { id: 'lossstreak', title: 'Loss Streak', description: 'Consecutive losses since your last win.', category: 'Streaks' },
-  { id: 'bestlossstreak', title: 'Worst Loss Streak', description: 'Your longest losing streak ever.', category: 'Streaks' },
+  { id: 'winstreak', title: 'Win Streak', description: 'Consecutive wins since the last loss.', category: 'Streaks' },
+  { id: 'bestwinstreak', title: 'Best Win Streak', description: 'The longest winning streak ever.', category: 'Streaks' },
+  { id: 'lossstreak', title: 'Loss Streak', description: 'Consecutive losses since the last win.', category: 'Streaks' },
+  { id: 'bestlossstreak', title: 'Worst Loss Streak', description: 'The longest losing streak ever.', category: 'Streaks' },
   { id: 'hattrick', title: 'Hat Trick', description: 'Win three games in a row.', category: 'Streaks' },
   { id: 'quickwin', title: 'Quickest Win', description: "Win the pod's fastest game on record.", category: 'Speed & Endurance' },
   { id: 'quickloss', title: 'Quickest Loss', description: "Lose the pod's fastest game on record.", category: 'Speed & Endurance' },

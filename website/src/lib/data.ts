@@ -50,37 +50,6 @@ export function currentLossStreak(games: GameData[], playerName: string): number
   return currentStreak(games, playerName, false)
 }
 
-// Tally how many times each achievement id was triggered across a set of games.
-// Milestone achievements (e.g. "5 Wins") never appear in triggeredAchievements,
-// so this naturally only produces counts for the repeatable per-game ones
-// (First Blood, Pacifist, the player-specific ones, etc.) — same set the Mac
-// app tracks with an "Earned N times" progress string.
-function tallyAchievements(games: GameData[], part: (g: GameData) => { triggeredAchievements: { id: string }[] } | undefined): Record<string, number> {
-  const counts: Record<string, number> = {}
-  for (const game of games) {
-    const p = part(game)
-    if (!p) continue
-    for (const a of p.triggeredAchievements) {
-      counts[a.id] = (counts[a.id] ?? 0) + 1
-    }
-  }
-  return counts
-}
-
-export function playerAchievementCounts(games: GameData[], playerName: string): Record<string, number> {
-  return tallyAchievements(
-    getPlayerGames(games, playerName),
-    g => g.participants.find(p => p.playerName === playerName)
-  )
-}
-
-export function commanderAchievementCounts(games: GameData[], commanderName: string): Record<string, number> {
-  return tallyAchievements(
-    getCommanderGames(games, commanderName),
-    g => g.participants.find(p => p.commanderName === commanderName || p.partnerCommanderName === commanderName)
-  )
-}
-
 const WUBRG = ['W', 'U', 'B', 'R', 'G']
 
 export const MONO_COMBOS = ['W', 'U', 'B', 'R', 'G', 'C']

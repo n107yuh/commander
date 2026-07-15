@@ -15,7 +15,7 @@ export function AchievementCatalogGrid({ items }: { items: CatalogAchievement[] 
       {items.map(a => (
         <div
           key={a.id}
-          className={`flex items-start gap-3 rounded-lg border px-3 py-2.5 ${
+          className={`relative group/cat flex items-start gap-3 rounded-lg border px-3 py-2.5 ${
             a.isEarned ? 'bg-slate-900 border-slate-800' : 'bg-slate-900/40 border-slate-800/60'
           }`}
         >
@@ -27,6 +27,9 @@ export function AchievementCatalogGrid({ items }: { items: CatalogAchievement[] 
               <div className="text-[11px] text-slate-600 mt-0.5">{formatDate(a.earnedDate)}</div>
             )}
           </div>
+          <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover/cat:block w-56 z-20 rounded-md bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-xs leading-snug text-slate-200 shadow-lg whitespace-normal">
+            <span className="font-semibold text-white">{a.title}</span> — {a.description}
+          </span>
         </div>
       ))}
     </div>

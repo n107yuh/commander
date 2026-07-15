@@ -5,6 +5,7 @@
 
 import SwiftUI
 import SwiftData
+import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
@@ -20,6 +21,11 @@ struct SettingsView: View {
     @State private var isExporting = false
     @State private var exportMessage: String? = nil
     @State private var exportIsError = false
+
+    @State private var importMessage: String? = nil
+    @State private var importIsError = false
+    @State private var pendingImportFile: GameImportService.PendingGamesFile?
+    @State private var showImportPreview = false
 
     private struct EditingTarget: Equatable {
         let defId: String
@@ -42,8 +48,24 @@ struct SettingsView: View {
             }
             Divider()
             webExportSection
+            Divider()
+            importGamesSection
         }
         .frame(width: 680, height: 700)
+        .sheet(isPresented: $showImportPreview) {
+            if let file = pendingImportFile {
+                ImportPreviewSheet(
+                    file: file,
+                    onCancel: {
+                        pendingImportFile = nil
+                        showImportPreview = false
+                    },
+                    onConfirm: {
+                        commitImport(file)
+                    }
+                )
+            }
+        }
     }
 
     // MARK: - Header
@@ -370,6 +392,74 @@ struct SettingsView: View {
         }
     }
 
+    // MARK: - Import Games
+
+    private var importGamesSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Import Games")
+                        .font(.subheadline.weight(.semibold))
+                    Text("Import a game log file exported from the website's \"Log a Game\" page — for games logged while you weren't around to use the app directly.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+            }
+
+            HStack(spacing: 10) {
+                Button {
+                    chooseImportFile()
+                } label: {
+                    Label("Choose File…", systemImage: "square.and.arrow.down")
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.regular)
+
+                if let msg = importMessage {
+                    Text(msg)
+                        .font(.caption)
+                        .foregroundStyle(importIsError ? .red : .green)
+                        .lineLimit(2)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(Color.secondary.opacity(0.04))
+    }
+
+    private func chooseImportFile() {
+        importMessage = nil
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.allowedContentTypes = [.json]
+        panel.prompt = "Import"
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+
+        do {
+            let data = try Data(contentsOf: url)
+            let file = try GameImportService.parse(data: data)
+            pendingImportFile = file
+            showImportPreview = true
+        } catch {
+            importMessage = error.localizedDescription
+            importIsError = true
+        }
+    }
+
+    private func commitImport(_ file: GameImportService.PendingGamesFile) {
+        let count = GameImportService.importGames(file, into: modelContext)
+        pendingImportFile = nil
+        showImportPreview = false
+        importMessage = "Imported \(count) game\(count == 1 ? "" : "s")."
+        importIsError = false
+        let ctx = modelContext
+        Task { await PodStore.fetchMissingCardData(in: ctx) }
+    }
+
     // MARK: - Actions
 
     private func commitAdd(for id: String) {
@@ -393,5 +483,73 @@ struct SettingsView: View {
         settings.setConfig(cfg, for: id)
         editingTarget = nil
         editDraft = ""
+    }
+}
+
+// MARK: - Import Preview Sheet
+
+private struct ImportPreviewSheet: View {
+    let file: GameImportService.PendingGamesFile
+    let onCancel: () -> Void
+    let onConfirm: () -> Void
+
+    private var games: [GameImportService.PreviewGame] {
+        GameImportService.preview(file)
+    }
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Import \(games.count) Game\(games.count == 1 ? "" : "s")")
+                        .font(.title3.bold())
+                    Text("These will be added as new games. Players and commanders not already in your pod will be created automatically.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+            }
+            .padding()
+
+            Divider()
+
+            ScrollView {
+                VStack(spacing: 8) {
+                    ForEach(games) { game in
+                        HStack(alignment: .top, spacing: 10) {
+                            Image(systemName: game.isInPerson ? "person.2.fill" : "wifi")
+                                .foregroundStyle(.secondary)
+                                .frame(width: 16)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(game.date, format: .dateTime.month().day().year().hour().minute())
+                                    .font(.caption.weight(.semibold))
+                                Text("\(game.winnerName) won · \(game.participantNames.joined(separator: ", "))")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .background(Color.secondary.opacity(0.06))
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                    }
+                }
+                .padding()
+            }
+
+            Divider()
+
+            HStack {
+                Spacer()
+                Button("Cancel", role: .cancel) { onCancel() }
+                    .keyboardShortcut(.cancelAction)
+                Button("Import \(games.count) Game\(games.count == 1 ? "" : "s")") { onConfirm() }
+                    .buttonStyle(.borderedProminent)
+                    .keyboardShortcut(.defaultAction)
+            }
+            .padding()
+        }
+        .frame(width: 480, height: 500)
     }
 }

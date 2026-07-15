@@ -1,4 +1,4 @@
-const DOT: Record<string, string> = {
+export const DOT: Record<string, string> = {
   W: 'bg-amber-100',
   U: 'bg-blue-500',
   B: 'bg-black ring-1 ring-slate-700',
@@ -7,7 +7,7 @@ const DOT: Record<string, string> = {
   C: 'bg-slate-400',
 }
 
-const LABEL: Record<string, string> = {
+export const LABEL: Record<string, string> = {
   W: 'White', U: 'Blue', B: 'Black', R: 'Red', G: 'Green', C: 'Colorless',
 }
 

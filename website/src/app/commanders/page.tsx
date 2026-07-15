@@ -1,9 +1,8 @@
-import Link from 'next/link'
-import { loadData, formatWinRate } from '@/lib/data'
-import { ColorDots } from '@/components/ColorDots'
+import { loadData } from '@/lib/data'
+import { CommandersList, type ComboEntry } from '@/components/CommandersList'
 import type { CommanderData } from '@/lib/types'
 
-interface ComboEntry {
+interface ComboAccum {
   key: string
   names: string[]
   wins: number
@@ -25,7 +24,7 @@ export default function CommandersPage() {
   // CommanderData.colorIdentity — some commanders (e.g. Clara Oswald) are
   // printed colorless but get a chosen color identity per game, which only
   // shows up on the participant record.
-  const comboMap: Record<string, ComboEntry> = {}
+  const comboMap: Record<string, ComboAccum> = {}
   for (const game of games) {
     for (const part of game.participants) {
       const names = [part.commanderName, part.partnerCommanderName]
@@ -50,48 +49,21 @@ export default function CommandersPage() {
       for (const c of part.resolvedColorIdentity ?? []) comboMap[key].colorSet.add(c)
     }
   }
-  const sorted = Object.values(comboMap).sort((a, b) => a.key.localeCompare(b.key))
+  const sorted: ComboEntry[] = Object.values(comboMap)
+    .sort((a, b) => a.key.localeCompare(b.key))
+    .map(({ colorSet, ...e }) => ({ ...e, colors: Array.from(colorSet) }))
 
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-white">Commander Records</h1>
 
-      {sorted.length === 0 && (
+      {sorted.length === 0 ? (
         <div className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-10 text-center text-slate-500">
           No commanders yet. Export data from the app.
         </div>
+      ) : (
+        <CommandersList entries={sorted} />
       )}
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {sorted.map(entry => {
-          const winRate = entry.games > 0 ? entry.wins / entry.games : 0
-          return (
-            <Link
-              key={entry.key}
-              href={`/commanders/${encodeURIComponent(entry.names[0])}`}
-              className="bg-slate-900 border border-slate-800 rounded-lg p-4 hover:border-slate-600 hover:bg-slate-800/50 transition-colors flex gap-3"
-            >
-              {/* Card thumbnail */}
-              {entry.image ? (
-                <div className="shrink-0 w-12 h-[66px] rounded overflow-hidden bg-slate-800">
-                  <img src={entry.image} alt={entry.key} className="w-full h-full object-cover object-top" />
-                </div>
-              ) : (
-                <div className="shrink-0 w-12 h-[66px] rounded bg-slate-800 flex items-center justify-center text-slate-600 text-xl">⚔️</div>
-              )}
-              <div className="min-w-0 flex-1">
-                <div className="font-semibold text-white text-sm leading-tight line-clamp-2">{entry.key}</div>
-                <div className="mt-1.5"><ColorDots colors={entry.colorSet.size > 0 ? Array.from(entry.colorSet) : null} /></div>
-                <div className="flex gap-2 mt-1.5 text-xs font-mono">
-                  <span className="text-emerald-400">{entry.wins}W</span>
-                  <span className="text-red-400">{entry.games - entry.wins}L</span>
-                  <span className="text-slate-400">{formatWinRate(winRate)}</span>
-                </div>
-              </div>
-            </Link>
-          )
-        })}
-      </div>
     </div>
   )
 }

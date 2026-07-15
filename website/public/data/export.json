@@ -636,7 +636,7 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-14T02:37:40Z",
+  "exportedAt" : "2026-07-15T00:55:19Z",
   "games" : [
     {
       "date" : "2026-07-13T03:34:32Z",
@@ -809,7 +809,7 @@
       "date" : "2026-07-13T00:49:06Z",
       "durationSeconds" : 4200,
       "isInPerson" : false,
-      "notes" : "Jake was a pacifist. Noah cheated by accident, but was honorable and walked it back. Pertman’s boardwipe won him the game",
+      "notes" : "Jake did not deal damage to anyone. Jake was a pacifist. Noah did not attack anyone. Noah cheated by accident, but was honorable and walked it back. Pertman’s boardwipe won him the game",
       "participants" : [
         {
           "commanderName" : "Norman Osborn \/\/ Green Goblin",
@@ -832,6 +832,20 @@
           "turnOrder" : 1
         },
         {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
           "commanderName" : "The First Sliver",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -849,6 +863,11 @@
               "description" : "Play an entire game without attacking another player.",
               "id" : "pacifist",
               "title" : "Pacifist"
+            },
+            {
+              "description" : "Play an entire game without dealing any damage.",
+              "id" : "flyonthewall",
+              "title" : "Fly On The Wall"
             }
           ],
           "turnOrder" : 3
@@ -866,23 +885,13 @@
             "R"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Play an entire game without attacking another player.",
+              "id" : "pacifist",
+              "title" : "Pacifist"
+            }
           ],
           "turnOrder" : 2
-        },
-        {
-          "commanderName" : "Giada, Font of Hope",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Margolis",
-          "resolvedColorIdentity" : [
-            "W"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0
         }
       ]
     },
@@ -1908,6 +1917,11 @@
           "title" : "Pacifist"
         },
         {
+          "description" : "Play an entire game without dealing any damage.",
+          "id" : "flyonthewall",
+          "title" : "Fly On The Wall"
+        },
+        {
           "description" : "Win three games in a row.",
           "id" : "hattrick",
           "title" : "Hat Trick"
@@ -2112,6 +2126,11 @@
           "description" : "Go first but finish last.",
           "id" : "botchedit",
           "title" : "Botched It"
+        },
+        {
+          "description" : "Play an entire game without attacking another player.",
+          "id" : "pacifist",
+          "title" : "Pacifist"
         },
         {
           "description" : "Play 5+ distinct commanders.",

@@ -1,6 +1,6 @@
 import type { AchievementData } from '@/lib/types'
 
-const ICON: Record<string, string> = {
+export const ICON: Record<string, string> = {
   'firstblood': '🩸',
   'comefrombehind': '🐢',
   'botchedit': '💀',

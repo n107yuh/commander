@@ -36,6 +36,14 @@ export function Nav() {
             )
           })}
         </nav>
+        <Link
+          href="/log"
+          className={`ml-auto shrink-0 px-3 py-1.5 rounded-md text-sm font-semibold transition-colors whitespace-nowrap ${
+            pathname.startsWith('/log') ? 'bg-violet-600 text-white' : 'bg-violet-600/20 text-violet-300 hover:bg-violet-600/30'
+          }`}
+        >
+          Log a Game
+        </Link>
       </div>
     </header>
   )

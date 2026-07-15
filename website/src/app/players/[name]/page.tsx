@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
-  loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames, playerAchievementCounts,
-  colorMasteryProgress, MONO_COMBOS, DUAL_COMBOS, TRI_COMBOS,
+  loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames,
+  colorMasteryProgress, MONO_COMBOS, DUAL_COMBOS, TRI_COMBOS, headToHead,
 } from '@/lib/data'
 import { ColorDots, ColorComboChip } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
+import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
+import { computePlayerAchievementCatalog } from '@/lib/achievements'
 
 export default function PlayerDetail({ params }: { params: { name: string } }) {
   const name = decodeURIComponent(params.name)
@@ -38,7 +40,8 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const remWins = playerGames.filter(g => !g.isInPerson && g.participants.find(p => p.playerName === name)?.didWin).length
   const remGames = playerGames.filter(g => !g.isInPerson).length
 
-  const achievementCounts = playerAchievementCounts(games, name)
+  const achievementCatalog = computePlayerAchievementCatalog(games, name)
+  const h2h = headToHead(games, name)
   const mastery = colorMasteryProgress(games, name)
   const masteryRows = [
     { title: 'Mono-Master', combos: MONO_COMBOS, won: mastery.mono },
@@ -85,14 +88,10 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
       )}
 
       {/* Achievements */}
-      {player.achievements.length > 0 && (
-        <section>
-          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Achievements</h2>
-          <div className="flex flex-wrap gap-2">
-            {player.achievements.map(a => <AchievementPill key={a.id} a={a} count={achievementCounts[a.id]} />)}
-          </div>
-        </section>
-      )}
+      <section>
+        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Achievements</h2>
+        <AchievementCatalogGrid items={achievementCatalog} />
+      </section>
 
       {/* Color mastery progress */}
       <section>
@@ -145,6 +144,39 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                     <td className="text-right px-3 py-3 text-emerald-400 font-mono">{c.wins}</td>
                     <td className="text-right px-3 py-3 text-red-400 font-mono">{c.games - c.wins}</td>
                     <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(c.winRate)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {/* Head to head */}
+      {h2h.length > 0 && (
+        <section>
+          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Head to Head</h2>
+          <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-800 bg-slate-800/30">
+                  <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Opponent</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Games Together</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Your Wins</th>
+                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Their Wins</th>
+                </tr>
+              </thead>
+              <tbody>
+                {h2h.map(h => (
+                  <tr key={h.opponent} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
+                    <td className="px-4 py-2.5">
+                      <Link href={`/players/${encodeURIComponent(h.opponent)}`} className="text-white hover:text-violet-400 font-medium after:absolute after:inset-0">
+                        {h.opponent}
+                      </Link>
+                    </td>
+                    <td className="text-right px-3 py-2.5 text-slate-300 font-mono">{h.gamesTogether}</td>
+                    <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{h.myWins}</td>
+                    <td className="text-right px-4 py-2.5 text-red-400 font-mono">{h.theirWins}</td>
                   </tr>
                 ))}
               </tbody>

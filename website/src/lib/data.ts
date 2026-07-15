@@ -130,6 +130,35 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
   return { mono, dual, tri, comboCommander }
 }
 
+export interface HeadToHeadEntry {
+  opponent: string
+  gamesTogether: number
+  myWins: number
+  theirWins: number
+}
+
+// For every other player who has shared a pod with playerName, tally games
+// played together and how many of those each side won. In free-for-all
+// Commander a third player can win a game both were in, so myWins + theirWins
+// don't necessarily sum to gamesTogether.
+export function headToHead(games: GameData[], playerName: string): HeadToHeadEntry[] {
+  const stats: Record<string, HeadToHeadEntry> = {}
+  for (const game of games) {
+    const me = game.participants.find(p => p.playerName === playerName)
+    if (!me) continue
+    for (const opp of game.participants) {
+      if (opp.playerName === playerName) continue
+      if (!stats[opp.playerName]) {
+        stats[opp.playerName] = { opponent: opp.playerName, gamesTogether: 0, myWins: 0, theirWins: 0 }
+      }
+      stats[opp.playerName].gamesTogether++
+      if (me.didWin) stats[opp.playerName].myWins++
+      if (opp.didWin) stats[opp.playerName].theirWins++
+    }
+  }
+  return Object.values(stats).sort((a, b) => b.gamesTogether - a.gamesTogether || a.opponent.localeCompare(b.opponent))
+}
+
 export function playerStandings(players: PlayerData[]): PlayerData[] {
   return [...players].sort((a, b) => {
     if (b.totalGames === 0 && a.totalGames === 0) return 0

@@ -19,8 +19,13 @@ const COLOR_OPTIONS = ['W', 'U', 'B', 'R', 'G', 'C']
 export function CommandersList({ entries }: { entries: ComboEntry[] }) {
   const [view, setView] = useState<'grid' | 'list'>('grid')
   const [selectedColors, setSelectedColors] = useState<Set<string>>(new Set())
-  const [minWinRate, setMinWinRate] = useState(0)
-  const [maxWinRate, setMaxWinRate] = useState(100)
+  // Kept as raw strings (not numbers) so the field can be fully cleared while
+  // typing — coercing through Number() on every keystroke re-adds a leading
+  // "0" the user just deleted, so e.g. typing "25" over a "0" produces "025".
+  const [minWinRateStr, setMinWinRateStr] = useState('0')
+  const [maxWinRateStr, setMaxWinRateStr] = useState('100')
+  const minWinRate = minWinRateStr === '' ? 0 : Number(minWinRateStr)
+  const maxWinRate = maxWinRateStr === '' ? 100 : Number(maxWinRateStr)
 
   function toggleColor(c: string) {
     setSelectedColors(prev => {
@@ -71,14 +76,16 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
         <div className="flex items-center gap-2">
           <span className="text-xs text-slate-500">Win%</span>
           <input
-            type="number" min={0} max={100} value={minWinRate}
-            onChange={e => setMinWinRate(Math.min(Number(e.target.value), maxWinRate))}
+            type="number" min={0} max={100} value={minWinRateStr}
+            onChange={e => setMinWinRateStr(e.target.value)}
+            onBlur={() => setMinWinRateStr(String(Math.min(Math.max(minWinRate, 0), 100)))}
             className="w-14 bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white"
           />
           <span className="text-slate-600 text-xs">–</span>
           <input
-            type="number" min={0} max={100} value={maxWinRate}
-            onChange={e => setMaxWinRate(Math.max(Number(e.target.value), minWinRate))}
+            type="number" min={0} max={100} value={maxWinRateStr}
+            onChange={e => setMaxWinRateStr(e.target.value)}
+            onBlur={() => setMaxWinRateStr(String(Math.min(Math.max(maxWinRate, 0), 100)))}
             className="w-14 bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white"
           />
         </div>

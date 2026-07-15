@@ -22,6 +22,7 @@ Pods/
 node_modules/
 .next/
 next-env.d.ts
+*.tsbuildinfo
 
 # Claude Code local settings (machine-specific, not shared)
 .claude/settings.local.json

@@ -498,7 +498,7 @@ func computeAchievementCatalog(
     }
     result.append(Achievement(
         id: "commanderdamagedeath",
-        title: "Eliminated By Commander Damage",
+        title: "Life Totals Don't Matter",
         description: "Get eliminated by 21+ commander damage.",
         progress: commanderDamageDeathCount > 0
             ? "Earned \(commanderDamageDeathCount) time\(commanderDamageDeathCount == 1 ? "" : "s")"
@@ -1054,7 +1054,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     }
     if triggeredCommanderDamage(for: participation, asKiller: false) {
         result.append(Achievement(
-            id: "commanderdamagedeath", title: "Eliminated By Commander Damage",
+            id: "commanderdamagedeath", title: "Life Totals Don't Matter",
             description: "Get eliminated by 21+ commander damage.",
             progress: "Earned this game",
             display: .icon("shield.slash.fill"),

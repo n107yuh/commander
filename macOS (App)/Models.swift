@@ -153,6 +153,21 @@ enum PodStore {
         return new
     }
 
+    /// Deletes any of the given players left with zero recorded games — e.g. a
+    /// player only created for a since-deleted test game. Call after removing
+    /// a game or editing a roster, passing the players who were on it before
+    /// the change; anyone still at 0-0 afterward gets cleaned up automatically.
+    static func pruneOrphanedPlayers(_ players: [Player], in context: ModelContext) {
+        try? context.save()
+        var seen = Set<PersistentIdentifier>()
+        for player in players {
+            guard seen.insert(player.persistentModelID).inserted else { continue }
+            if player.participations.isEmpty {
+                context.delete(player)
+            }
+        }
+    }
+
     static func findOrCreateCommander(named rawName: String, in context: ModelContext) -> MTGCommander? {
         let name = rawName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !name.isEmpty else { return nil }

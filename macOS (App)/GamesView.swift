@@ -188,7 +188,9 @@ struct GamesView: View {
                     .contextMenu {
                         Button("Edit") { editingGame = game }
                         Button("Delete", role: .destructive) {
+                            let players = game.participants.compactMap { $0.player }
                             context.delete(game)
+                            PodStore.pruneOrphanedPlayers(players, in: context)
                         }
                     }
                 }
@@ -198,9 +200,12 @@ struct GamesView: View {
     }
 
     private func deleteGames(at offsets: IndexSet) {
+        var players: [Player] = []
         for index in offsets {
+            players.append(contentsOf: games[index].participants.compactMap { $0.player })
             context.delete(games[index])
         }
+        PodStore.pruneOrphanedPlayers(players, in: context)
     }
 }
 
@@ -521,7 +526,9 @@ struct GameEditorView: View {
 
     private func deleteGame() {
         if case .edit(let game) = mode {
+            let players = game.participants.compactMap { $0.player }
             context.delete(game)
+            PodStore.pruneOrphanedPlayers(players, in: context)
             dismiss()
         }
     }
@@ -628,6 +635,7 @@ struct GameEditorView: View {
 
         // Phase 2: prepare the game and delete old participants.
         let game: Game
+        var oldPlayers: [Player] = []
         switch mode {
         case .create:
             game = Game(date: date, endTime: resolvedEnd, notes: notes, isInPerson: format)
@@ -638,6 +646,7 @@ struct GameEditorView: View {
             existing.notes = notes
             existing.isInPerson = format
             let oldParticipants = existing.participants.map { $0 }
+            oldPlayers = oldParticipants.compactMap { $0.player }
             print("📝 Edit — deleting \(oldParticipants.count) old participant(s)")
             for old in oldParticipants {
                 context.delete(old)
@@ -674,6 +683,10 @@ struct GameEditorView: View {
         } catch {
             print("⚠️ Phase 3 save failed: \(error)")
         }
+
+        // Clean up any player who was dropped from this game's roster (or
+        // renamed away) and now has no games left at all.
+        PodStore.pruneOrphanedPlayers(oldPlayers, in: context)
 
         print("📝 After save — game has \(game.participants.count) participant(s)")
 

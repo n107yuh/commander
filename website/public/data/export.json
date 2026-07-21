@@ -757,7 +757,7 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-21T04:38:58Z",
+  "exportedAt" : "2026-07-21T05:08:43Z",
   "games" : [
     {
       "date" : "2026-07-21T02:53:40Z",
@@ -786,6 +786,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Roll a natural 20 at the start of the game and win.",
+              "id" : "nat20-win",
+              "title" : "Critical Success"
             }
           ],
           "turnOrder" : 0
@@ -865,6 +870,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             }
           ],
           "turnOrder" : 1
@@ -1006,6 +1016,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
             }
           ],
           "turnOrder" : 2
@@ -1021,7 +1036,16 @@
             "G"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Roll a natural 20 at the start of the game and still lose.",
+              "id" : "nat20-loss",
+              "title" : "Rolled Well, Played Poorly"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
           ],
           "turnOrder" : 0
         },
@@ -2341,6 +2365,21 @@
           "title" : "Hat Trick"
         },
         {
+          "description" : "Roll a natural 20 at the start of the game and still lose.",
+          "id" : "nat20-loss",
+          "title" : "Rolled Well, Played Poorly"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and win the game.",
+          "id" : "solring1-win",
+          "title" : "Sol Ring, GG"
+        },
+        {
+          "description" : "Get eliminated by 21+ commander damage.",
+          "id" : "commanderdamagedeath",
+          "title" : "Life Totals Don't Matter"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -2562,6 +2601,11 @@
           "title" : "Pacifist"
         },
         {
+          "description" : "Eliminate another player with 21+ commander damage.",
+          "id" : "commanderdamagekill",
+          "title" : "Commander Damage!"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -2649,6 +2693,11 @@
           "description" : "Drop your cards on the floor.",
           "id" : "52pickup",
           "title" : "Oops, Butterfingers"
+        },
+        {
+          "description" : "Roll a natural 20 at the start of the game and win.",
+          "id" : "nat20-win",
+          "title" : "Critical Success"
         },
         {
           "description" : "Play 5+ distinct commanders.",

@@ -938,6 +938,18 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
         ))
     }
 
+    // Taste the Rainbow — win with a 5-color (WUBRG) commander. Unlike Mono/Dual/Tri-Master
+    // (which need the whole set completed across history), this is decidable from this game alone.
+    if participation.didWin, let colorSet = resolvedWUBRGColors(for: participation), colorSet.count == 5 {
+        result.append(Achievement(
+            id: "tastetherainbow", title: "Taste the Rainbow",
+            description: "Win a game with a 5-color (WUBRG) commander.",
+            progress: "Earned this game",
+            display: .colorWheel(["W", "U", "B", "R", "G"]),
+            tint: .purple, isEarned: true
+        ))
+    }
+
     // Botched It
     let placements = allParts.map { $0.placement }
     if participation.turnOrder == 0 && placements.count >= 2,
@@ -1374,6 +1386,26 @@ private let triCombosPerColor: [String: Set<String>] = [
     "G": ["WUG", "WBG", "WRG", "UBG", "URG", "BRG"]
 ]
 
+/// The winning-relevant WUBRG color set for a participation: the chosen identity merged with any
+/// fixed (non-variable) commanders' colors, or the commanders' own identity otherwise. Returns nil
+/// when color data isn't available yet (e.g. Scryfall lookup hasn't backfilled a commander), which
+/// callers should treat as "skip" — distinct from an empty set, which means genuinely colorless.
+private func resolvedWUBRGColors(for p: GameParticipant) -> Set<String>? {
+    let allColors: [String]
+    if let chosen = p.chosenColorIdentity, !chosen.isEmpty {
+        let fixedColors = p.commanders
+            .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
+            .compactMap(\.colorIdentity)
+            .flatMap { $0 }
+        allColors = chosen + fixedColors
+    } else {
+        guard !p.commanders.isEmpty,
+              p.commanders.allSatisfy({ $0.colorIdentity != nil }) else { return nil }
+        allColors = p.commanders.compactMap(\.colorIdentity).flatMap { $0 }
+    }
+    return Set(allColors.filter { colorOrder.contains($0) })
+}
+
 private func wonColorCombinations(
     in participations: [GameParticipant]
 ) -> (mono: Set<String>, dual: Set<String>, tri: Set<String>, fiveColor: Bool) {
@@ -1383,20 +1415,7 @@ private func wonColorCombinations(
     var fiveColor = false
 
     for p in participations where p.didWin {
-        let allColors: [String]
-        if let chosen = p.chosenColorIdentity, !chosen.isEmpty {
-            // Merge chosen identity with fixed (non-variable) commanders' colors.
-            let fixedColors = p.commanders
-                .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
-                .compactMap(\.colorIdentity)
-                .flatMap { $0 }
-            allColors = chosen + fixedColors
-        } else {
-            guard !p.commanders.isEmpty,
-                  p.commanders.allSatisfy({ $0.colorIdentity != nil }) else { continue }
-            allColors = p.commanders.compactMap(\.colorIdentity).flatMap { $0 }
-        }
-        let colorSet  = Set(allColors.filter { colorOrder.contains($0) })
+        guard let colorSet = resolvedWUBRGColors(for: p) else { continue }
         let key = colorOrder.filter { colorSet.contains($0) }.joined()
         switch colorSet.count {
         case 0: mono.insert("C")
@@ -1418,19 +1437,7 @@ private func firstWinningCommanderByComboKey(in participations: [GameParticipant
     }.sorted { $0.0 < $1.0 }
 
     for (_, p) in sorted where p.didWin {
-        let allColors: [String]
-        if let chosen = p.chosenColorIdentity, !chosen.isEmpty {
-            let fixedColors = p.commanders
-                .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
-                .compactMap(\.colorIdentity)
-                .flatMap { $0 }
-            allColors = chosen + fixedColors
-        } else {
-            guard !p.commanders.isEmpty,
-                  p.commanders.allSatisfy({ $0.colorIdentity != nil }) else { continue }
-            allColors = p.commanders.compactMap(\.colorIdentity).flatMap { $0 }
-        }
-        let colorSet  = Set(allColors.filter { colorOrder.contains($0) })
+        guard let colorSet = resolvedWUBRGColors(for: p) else { continue }
         let key: String = colorSet.isEmpty ? "C" : colorOrder.filter { colorSet.contains($0) }.joined()
         if result[key] == nil {
             result[key] = p.commanders.sorted { $0.name < $1.name }.map(\.name).joined(separator: " + ")

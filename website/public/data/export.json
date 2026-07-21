@@ -2,6 +2,20 @@
   "commanders" : [
     {
       "colorIdentity" : [
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/1\/81dc3d00-97cd-4549-b5a4-15a1e08767f5.jpg?1783935939"
+      ],
+      "losses" : 2,
+      "name" : "Arahbo, Roar of the World",
+      "totalGames" : 2,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "B",
         "G",
         "R",
@@ -18,6 +32,27 @@
       "wins" : 0
     },
     {
+      "losses" : 0,
+      "name" : "Bob Commander",
+      "totalGames" : 0,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/9\/390c96b3-68da-4a42-89ab-d9ccc79ce0dd.jpg?1783910745"
+      ],
+      "losses" : 1,
+      "name" : "Bria, Riptide Rogue",
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
+    },
+    {
       "colorIdentity" : [
         "G",
         "R",
@@ -29,7 +64,14 @@
       ],
       "losses" : 2,
       "name" : "Bruce Banner \/\/ The Incredible Hulk",
-      "totalGames" : 2,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
+    },
+    {
+      "losses" : 0,
+      "name" : "Carol Commander",
+      "totalGames" : 0,
       "winRate" : 0,
       "wins" : 0
     },
@@ -74,6 +116,13 @@
       "totalGames" : 1,
       "winRate" : 1,
       "wins" : 1
+    },
+    {
+      "losses" : 0,
+      "name" : "Dave Commander",
+      "totalGames" : 0,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -148,6 +197,21 @@
       "totalGames" : 7,
       "winRate" : 0.14285714285714285,
       "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "G",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/c\/bc4a65de-23b5-48f0-b8b7-94608eaced3e.jpg?1783913733"
+      ],
+      "losses" : 1,
+      "name" : "Gishath, Sun's Avatar",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -276,9 +340,9 @@
       ],
       "losses" : 1,
       "name" : "Katara, the Fearless",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -318,10 +382,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/7\/2\/72e4548b-c171-4f10-b896-af37543dcf0f.jpg?1579203069"
       ],
-      "losses" : 3,
+      "losses" : 5,
       "name" : "Marrow-Gnawer",
-      "totalGames" : 4,
-      "winRate" : 0.25,
+      "totalGames" : 6,
+      "winRate" : 0.16666666666666666,
       "wins" : 1
     },
     {
@@ -441,6 +505,19 @@
     },
     {
       "colorIdentity" : [
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/2\/d224c50f-8146-4c91-9401-04e5bd306d02.jpg?1783944135"
+      ],
+      "losses" : 1,
+      "name" : "Sasaya, Orochi Ascendant \/\/ Sasaya's Essence",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "B"
       ],
       "imageURLs" : [
@@ -488,8 +565,21 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/2\/52498b7b-0389-4e7b-b29f-7ac86aab9229.jpg?1782685422"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Tannuk, Memorial Ensign",
+      "totalGames" : 2,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/a\/fa1b63ce-47d3-4633-9062-3fecd810e85f.jpg?1783910989"
+      ],
+      "losses" : 1,
+      "name" : "The Capitoline Triad",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -537,6 +627,23 @@
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/1\/0\/10d42b35-844f-4a64-9981-c6118d45e826.jpg?1783915607"
+      ],
+      "losses" : 0,
+      "name" : "The Ur-Dragon",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -596,6 +703,20 @@
     },
     {
       "colorIdentity" : [
+        "B",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/d\/8d7c1f6c-af45-4449-8cf8-e13830b3df8a.jpg?1783909662"
+      ],
+      "losses" : 1,
+      "name" : "Valgavoth, Harrower of Souls",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "R",
         "W"
       ],
@@ -636,8 +757,291 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-15T00:55:19Z",
+  "exportedAt" : "2026-07-21T04:38:58Z",
   "games" : [
+    {
+      "date" : "2026-07-21T02:53:40Z",
+      "durationSeconds" : 6180,
+      "isInPerson" : false,
+      "notes" : "Pertman rolled a nat 20. Justin exiled Jake’s empty graveyard with his bog. Jake is a real damage cuck this game so that Justin can win. Justin did a full send with his Black Market Connections. Justin skullclamped his rat. Pertman had to draw 41 cards. Justin with the greatest Damnation of all time, and then everything was brought back with Living Death, leading to easily the most fucked up turn of all time (Pertman brought back everything he discarded from the 41 cards and then Jake immedaitely killed them all on a stack order technicality). Jake should have won the game but opted to kill himself",
+      "participants" : [
+        {
+          "commanderName" : "Katara, the Fearless",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Valgavoth, Harrower of Souls",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Gishath, Sun's Avatar",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Justin skullclamps a rat.",
+              "id" : "justin-rat",
+              "title" : "Clamp Me Daddy"
+            }
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-21T01:40:40Z",
+      "durationSeconds" : 4260,
+      "isInPerson" : false,
+      "notes" : "Jake had a first turn sol ring. Pertman yelled wait. Jake betrayed his values and played a planeswalker. Pertman: “i’m gonna sit here and eat my nuts” buuuuts. Jake played 10 dragons with one card and obliterated everyone’s breasts",
+      "participants" : [
+        {
+          "commanderName" : "The Ur-Dragon",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3
+        },
+        {
+          "commanderName" : "The Capitoline Triad",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
+              "id" : "pertman-wait",
+              "title" : "WAIT!"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Sasaya, Orochi Ascendant \/\/ Sasaya's Essence",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-21T01:04:57Z",
+      "durationSeconds" : 1920,
+      "isInPerson" : false,
+      "notes" : "Pertman did yell wait. He then did so much math. Justin entered the game late as a viewer but commented that Noah did have the best game overall",
+      "participants" : [
+        {
+          "commanderName" : "Bria, Riptide Rogue",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
+              "id" : "pertman-wait",
+              "title" : "WAIT!"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Arahbo, Roar of the World",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Tannuk, Memorial Ensign",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-21T00:35:33Z",
+      "durationSeconds" : 1620,
+      "isInPerson" : false,
+      "notes" : "Jake rolled a nat 20. Noah should not have kept his 4th muligan. Noah killed Jake with commander damage",
+      "participants" : [
+        {
+          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Arahbo, Roar of the World",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Bria, Riptide Rogue",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
     {
       "date" : "2026-07-13T03:34:32Z",
       "durationSeconds" : 3420,
@@ -1882,9 +2286,9 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 5 games.",
-          "id" : "losses-5",
-          "title" : "5 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -1900,6 +2304,16 @@
           "description" : "Your longest losing streak ever.",
           "id" : "bestlossstreak",
           "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
+        },
+        {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a remote game.",
@@ -1930,20 +2344,25 @@
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
+        },
+        {
+          "description" : "Win a game with a 5-color (WUBRG) commander.",
+          "id" : "tastetherainbow",
+          "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 8,
+      "losses" : 11,
       "name" : "Jake",
-      "totalGames" : 13,
-      "winRate" : 0.38461538461538464,
-      "wins" : 5
+      "totalGames" : 17,
+      "winRate" : 0.35294117647058826,
+      "wins" : 6
     },
     {
       "achievements" : [
         {
-          "description" : "Lose 5 games.",
-          "id" : "losses-5",
-          "title" : "5 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -1961,6 +2380,11 @@
           "title" : "Worst Loss Streak"
         },
         {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
+        },
+        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
@@ -1976,10 +2400,10 @@
           "title" : "Clamp Me Daddy"
         }
       ],
-      "losses" : 8,
+      "losses" : 10,
       "name" : "Justin",
-      "totalGames" : 9,
-      "winRate" : 0.1111111111111111,
+      "totalGames" : 11,
+      "winRate" : 0.09090909090909091,
       "wins" : 1
     },
     {
@@ -2008,11 +2432,6 @@
           "description" : "Lose the pod's fastest game on record.",
           "id" : "quickloss",
           "title" : "Quickest Loss"
-        },
-        {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a remote game.",
@@ -2049,11 +2468,6 @@
           "title" : "Worst Loss Streak"
         },
         {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
-        },
-        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
@@ -2073,93 +2487,9 @@
     {
       "achievements" : [
         {
-          "description" : "Lose 10 games.",
-          "id" : "losses-10",
-          "title" : "10 Losses"
-        },
-        {
-          "description" : "Your longest winning streak ever.",
-          "id" : "bestwinstreak",
-          "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
-        },
-        {
-          "description" : "Your longest losing streak ever.",
-          "id" : "bestlossstreak",
-          "title" : "Worst Loss Streak"
-        },
-        {
-          "description" : "Lose the pod's fastest game on record.",
-          "id" : "quickloss",
-          "title" : "Quickest Loss"
-        },
-        {
-          "description" : "Win the pod's longest game on record.",
-          "id" : "marathonwinner",
-          "title" : "Marathon Winner"
-        },
-        {
-          "description" : "Win a remote game.",
-          "id" : "digitalchampion",
-          "title" : "Digital Champion"
-        },
-        {
-          "description" : "Win an in-person game.",
-          "id" : "irlchampion",
-          "title" : "IRL Champion"
-        },
-        {
-          "description" : "Win in both in-person and remote games.",
-          "id" : "formatdiplomat",
-          "title" : "Format Diplomat"
-        },
-        {
-          "description" : "Win a game after going first.",
-          "id" : "firstblood",
-          "title" : "First Blood"
-        },
-        {
-          "description" : "Go first but finish last.",
-          "id" : "botchedit",
-          "title" : "Botched It"
-        },
-        {
-          "description" : "Play an entire game without attacking another player.",
-          "id" : "pacifist",
-          "title" : "Pacifist"
-        },
-        {
-          "description" : "Play 5+ distinct commanders.",
-          "id" : "connoisseur",
-          "title" : "Connoisseur"
-        },
-        {
-          "description" : "Matthew wakes up and ruins the last game of the evening.",
-          "id" : "noah-matthew",
-          "title" : "404 Error: Thumb Not Found"
-        }
-      ],
-      "losses" : 14,
-      "name" : "Noah",
-      "totalGames" : 17,
-      "winRate" : 0.17647058823529413,
-      "wins" : 3
-    },
-    {
-      "achievements" : [
-        {
-          "description" : "Win 5 games.",
-          "id" : "wins-5",
-          "title" : "5 Wins"
-        },
-        {
-          "description" : "Lose 5 games.",
-          "id" : "losses-5",
-          "title" : "5 Losses"
+          "description" : "Lose 15 games.",
+          "id" : "losses-15",
+          "title" : "15 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -2182,9 +2512,113 @@
           "title" : "Quickest Win"
         },
         {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
+        },
+        {
           "description" : "Lose the pod's longest game on record.",
           "id" : "marathonsurvivor",
           "title" : "Marathon Defeat"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win an in-person game.",
+          "id" : "irlchampion",
+          "title" : "IRL Champion"
+        },
+        {
+          "description" : "Win in both in-person and remote games.",
+          "id" : "formatdiplomat",
+          "title" : "Format Diplomat"
+        },
+        {
+          "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
+          "id" : "ultimatechampion",
+          "title" : "Ultimate Champion"
+        },
+        {
+          "description" : "Win a game after going first.",
+          "id" : "firstblood",
+          "title" : "First Blood"
+        },
+        {
+          "description" : "Win a game after going last.",
+          "id" : "comefrombehind",
+          "title" : "Come From Behind"
+        },
+        {
+          "description" : "Go first but finish last.",
+          "id" : "botchedit",
+          "title" : "Botched It"
+        },
+        {
+          "description" : "Play an entire game without attacking another player.",
+          "id" : "pacifist",
+          "title" : "Pacifist"
+        },
+        {
+          "description" : "Play 5+ distinct commanders.",
+          "id" : "connoisseur",
+          "title" : "Connoisseur"
+        },
+        {
+          "description" : "Matthew wakes up and ruins the last game of the evening.",
+          "id" : "noah-matthew",
+          "title" : "404 Error: Thumb Not Found"
+        }
+      ],
+      "losses" : 17,
+      "name" : "Noah",
+      "totalGames" : 21,
+      "winRate" : 0.19047619047619047,
+      "wins" : 4
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Win 5 games.",
+          "id" : "wins-5",
+          "title" : "5 Wins"
+        },
+        {
+          "description" : "Lose 5 games.",
+          "id" : "losses-5",
+          "title" : "5 Losses"
+        },
+        {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Win the pod's fastest game on record.",
+          "id" : "quickwin",
+          "title" : "Quickest Win"
+        },
+        {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
+        },
+        {
+          "description" : "Win the pod's longest game on record.",
+          "id" : "marathonwinner",
+          "title" : "Marathon Winner"
         },
         {
           "description" : "Win a remote game.",
@@ -2227,11 +2661,11 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 6,
+      "losses" : 8,
       "name" : "Pertman",
-      "totalGames" : 12,
+      "totalGames" : 16,
       "winRate" : 0.5,
-      "wins" : 6
+      "wins" : 8
     }
   ]
 }

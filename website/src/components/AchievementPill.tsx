@@ -39,6 +39,9 @@ export const ICON: Record<string, string> = {
   'nat1-win': '🎲',
   'nat1-loss': '🎲',
   'commanderdamagekill': '⚔️',
+  'commanderdamagedeath': '🛡️',
+  'solring1-win': '💍',
+  'solring1-loss': '💍',
 }
 
 // The Mac app's export inconsistently titles some achievements depending on

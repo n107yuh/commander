@@ -258,6 +258,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'solring1-win', title: 'Sol Ring, GG', description: 'Play Sol Ring on turn 1 and win the game.', prompt: 'Play a turn-1 Sol Ring and win.' },
     { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', prompt: 'Play a turn-1 Sol Ring and lose anyway.' },
     { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', prompt: 'Kill someone with commander damage.' },
+    { id: 'commanderdamagedeath', title: 'Eliminated By Commander Damage', description: 'Get eliminated by 21+ commander damage.', prompt: 'Get eliminated by commander damage.' },
     ...(showPlayerOnly ? [
       { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
       { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
@@ -442,6 +443,7 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'solring1-win', title: 'Sol Ring, GG', description: 'Play Sol Ring on turn 1 and win the game.', category: 'Game Moments' },
   { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', category: 'Game Moments' },
   { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Game Moments' },
+  { id: 'commanderdamagedeath', title: 'Eliminated By Commander Damage', description: 'Get eliminated by 21+ commander damage.', category: 'Game Moments' },
   { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),

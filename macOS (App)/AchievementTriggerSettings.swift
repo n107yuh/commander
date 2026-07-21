@@ -126,6 +126,57 @@ final class AchievementTriggerSettings {
             namePlaceholderHint: false,
             defaultConfig: TriggerConfig(phrases: ["rat clamp", "rat skull"], matchAll: false)
         ),
+        TriggerDef(
+            id: "nat20",
+            title: "Natural 20",
+            icon: "die.face.6.fill",
+            tint: Color(red: 0.86, green: 0.70, blue: 0.11),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} rolled a nat 20", "{name} rolled a natural 20",
+                          "{name} nat 20", "{name} natural 20"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "nat1",
+            title: "Natural 1",
+            icon: "die.face.1.fill",
+            tint: Color(red: 0.65, green: 0.15, blue: 0.15),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} rolled a nat 1", "{name} rolled a natural 1",
+                          "{name} nat 1", "{name} natural 1"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "solring-t1",
+            title: "Turn 1 Sol Ring",
+            icon: "bolt.circle.fill",
+            tint: Color(red: 0.80, green: 0.60, blue: 0.15),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} turn 1 sol ring", "{name} sol ring turn 1", "{name} t1 sol ring"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "commanderdamagekill",
+            title: "Commander Damage Kill",
+            icon: "burst.fill",
+            tint: Color(red: 0.70, green: 0.15, blue: 0.15),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} commander damage kill", "{name} killed with commander damage",
+                          "{name} kill with commander damage"],
+                matchAll: false
+            )
+        ),
     ]
 
     private var configs: [String: TriggerConfig] = [:]

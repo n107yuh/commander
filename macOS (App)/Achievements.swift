@@ -376,6 +376,123 @@ func computeAchievementCatalog(
         isEarned: flyCount > 0
     ))
 
+    // Nat 20 at the start of the game — split by win/loss (pilot's name + keyword in notes).
+    // Checked per-participation, same reasoning as Pacifist above.
+    let nat20WinCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "nat20", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "nat20-win",
+        title: "Critical Success",
+        description: "Roll a natural 20 at the start of the game and win.",
+        progress: nat20WinCount > 0
+            ? "Earned \(nat20WinCount) time\(nat20WinCount == 1 ? "" : "s")"
+            : "Roll a nat 20 and win the game.",
+        display: .icon("die.face.6.fill"),
+        tint: goldTint,
+        isEarned: nat20WinCount > 0
+    ))
+
+    let nat20LossCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return !p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "nat20", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "nat20-loss",
+        title: "Rolled Well, Played Poorly",
+        description: "Roll a natural 20 at the start of the game and still lose.",
+        progress: nat20LossCount > 0
+            ? "Earned \(nat20LossCount) time\(nat20LossCount == 1 ? "" : "s")"
+            : "Roll a nat 20 and lose anyway.",
+        display: .icon("die.face.6.fill"),
+        tint: Color(red: 0.55, green: 0.30, blue: 0.30),
+        isEarned: nat20LossCount > 0
+    ))
+
+    // Nat 1 at the start of the game — split by win/loss.
+    let nat1WinCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "nat1", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "nat1-win",
+        title: "Cursed But Clutch",
+        description: "Roll a natural 1 at the start of the game and still win.",
+        progress: nat1WinCount > 0
+            ? "Earned \(nat1WinCount) time\(nat1WinCount == 1 ? "" : "s")"
+            : "Roll a nat 1 and win anyway.",
+        display: .icon("die.face.1.fill"),
+        tint: Color(red: 0.35, green: 0.65, blue: 0.40),
+        isEarned: nat1WinCount > 0
+    ))
+
+    let nat1LossCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return !p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "nat1", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "nat1-loss",
+        title: "Critical Failure",
+        description: "Roll a natural 1 at the start of the game and lose.",
+        progress: nat1LossCount > 0
+            ? "Earned \(nat1LossCount) time\(nat1LossCount == 1 ? "" : "s")"
+            : "Roll a nat 1 and lose.",
+        display: .icon("die.face.1.fill"),
+        tint: Color(red: 0.55, green: 0.15, blue: 0.15),
+        isEarned: nat1LossCount > 0
+    ))
+
+    // Turn 1 Sol Ring — split by win/loss.
+    let solRingWinCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "solring-t1", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "solring1-win",
+        title: "Sol Ring, GG",
+        description: "Play Sol Ring on turn 1 and win the game.",
+        progress: solRingWinCount > 0
+            ? "Earned \(solRingWinCount) time\(solRingWinCount == 1 ? "" : "s")"
+            : "Play a turn-1 Sol Ring and win.",
+        display: .icon("bolt.circle.fill"),
+        tint: Color(red: 0.80, green: 0.60, blue: 0.15),
+        isEarned: solRingWinCount > 0
+    ))
+
+    let solRingLossCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return !p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "solring-t1", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "solring1-loss",
+        title: "Sol Ring Wasn't Enough",
+        description: "Play Sol Ring on turn 1 and still lose.",
+        progress: solRingLossCount > 0
+            ? "Earned \(solRingLossCount) time\(solRingLossCount == 1 ? "" : "s")"
+            : "Play a turn-1 Sol Ring and lose anyway.",
+        display: .icon("bolt.circle.fill"),
+        tint: Color(red: 0.55, green: 0.30, blue: 0.30),
+        isEarned: solRingLossCount > 0
+    ))
+
+    // Commander Damage Kill — no win/loss split, just needs a kill via commander damage.
+    let commanderDamageKillCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return AchievementTriggerSettings.shared.matches(notes: notes, id: "commanderdamagekill", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "commanderdamagekill",
+        title: "Commander Damage!",
+        description: "Eliminate another player with 21+ commander damage.",
+        progress: commanderDamageKillCount > 0
+            ? "Earned \(commanderDamageKillCount) time\(commanderDamageKillCount == 1 ? "" : "s")"
+            : "Kill someone with commander damage.",
+        display: .icon("burst.fill"),
+        tint: Color(red: 0.70, green: 0.15, blue: 0.15),
+        isEarned: commanderDamageKillCount > 0
+    ))
+
     // 52 Pickup — dropped cards on the floor (player name + keyword in notes)
     if showPlayerAchievements {
         let pickupName = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
@@ -737,7 +854,8 @@ func computeEarnedAchievements(
     if let a = catalog.first(where: { $0.id == "marathonsurvivor" && $0.isEarned })    { result.append(a) }
 
     for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion",
-               "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "52pickup", "hattrick", "nice"] {
+               "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "52pickup", "hattrick", "nice",
+               "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss", "commanderdamagekill"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
     }
 
@@ -842,6 +960,81 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             display: .icon("eye.fill"),
             tint: Color(red: 0.50, green: 0.55, blue: 0.70),
             isEarned: true
+        ))
+    }
+
+    // Nat 20 (win/loss split)
+    if !playerName.isEmpty && AchievementTriggerSettings.shared.matches(notes: notes, id: "nat20", playerName: playerName) {
+        if participation.didWin {
+            result.append(Achievement(
+                id: "nat20-win", title: "Critical Success",
+                description: "Roll a natural 20 at the start of the game and win.",
+                progress: "Earned this game",
+                display: .icon("die.face.6.fill"),
+                tint: goldTint, isEarned: true
+            ))
+        } else {
+            result.append(Achievement(
+                id: "nat20-loss", title: "Rolled Well, Played Poorly",
+                description: "Roll a natural 20 at the start of the game and still lose.",
+                progress: "Earned this game",
+                display: .icon("die.face.6.fill"),
+                tint: Color(red: 0.55, green: 0.30, blue: 0.30), isEarned: true
+            ))
+        }
+    }
+
+    // Nat 1 (win/loss split)
+    if !playerName.isEmpty && AchievementTriggerSettings.shared.matches(notes: notes, id: "nat1", playerName: playerName) {
+        if participation.didWin {
+            result.append(Achievement(
+                id: "nat1-win", title: "Cursed But Clutch",
+                description: "Roll a natural 1 at the start of the game and still win.",
+                progress: "Earned this game",
+                display: .icon("die.face.1.fill"),
+                tint: Color(red: 0.35, green: 0.65, blue: 0.40), isEarned: true
+            ))
+        } else {
+            result.append(Achievement(
+                id: "nat1-loss", title: "Critical Failure",
+                description: "Roll a natural 1 at the start of the game and lose.",
+                progress: "Earned this game",
+                display: .icon("die.face.1.fill"),
+                tint: Color(red: 0.55, green: 0.15, blue: 0.15), isEarned: true
+            ))
+        }
+    }
+
+    // Turn 1 Sol Ring (win/loss split)
+    if !playerName.isEmpty && AchievementTriggerSettings.shared.matches(notes: notes, id: "solring-t1", playerName: playerName) {
+        if participation.didWin {
+            result.append(Achievement(
+                id: "solring1-win", title: "Sol Ring, GG",
+                description: "Play Sol Ring on turn 1 and win the game.",
+                progress: "Earned this game",
+                display: .icon("bolt.circle.fill"),
+                tint: Color(red: 0.80, green: 0.60, blue: 0.15), isEarned: true
+            ))
+        } else {
+            result.append(Achievement(
+                id: "solring1-loss", title: "Sol Ring Wasn't Enough",
+                description: "Play Sol Ring on turn 1 and still lose.",
+                progress: "Earned this game",
+                display: .icon("bolt.circle.fill"),
+                tint: Color(red: 0.55, green: 0.30, blue: 0.30), isEarned: true
+            ))
+        }
+    }
+
+    // Commander Damage Kill
+    if !playerName.isEmpty &&
+       AchievementTriggerSettings.shared.matches(notes: notes, id: "commanderdamagekill", playerName: playerName) {
+        result.append(Achievement(
+            id: "commanderdamagekill", title: "Commander Damage!",
+            description: "Eliminate another player with 21+ commander damage.",
+            progress: "Earned this game",
+            display: .icon("burst.fill"),
+            tint: Color(red: 0.70, green: 0.15, blue: 0.15), isEarned: true
         ))
     }
 

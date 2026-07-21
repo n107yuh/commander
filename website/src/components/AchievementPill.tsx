@@ -34,6 +34,11 @@ export const ICON: Record<string, string> = {
   'noah-matthew': '👎',
   'justin-rat': '🐀',
   'max-zeus': '🐱',
+  'nat20-win': '🎲',
+  'nat20-loss': '🎲',
+  'nat1-win': '🎲',
+  'nat1-loss': '🎲',
+  'commanderdamagekill': '⚔️',
 }
 
 // The Mac app's export inconsistently titles some achievements depending on
@@ -43,6 +48,7 @@ export const ICON: Record<string, string> = {
 // regardless of which title string is in the underlying data.
 const TITLE_OVERRIDE: Record<string, string> = {
   '52pickup': 'Oops, Butterfingers',
+  'commanderdamagekill': 'Commander Keen',
 }
 
 export function AchievementPill({ a, count }: { a: AchievementData; count?: number }) {

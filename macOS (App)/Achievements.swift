@@ -1167,6 +1167,33 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     return result
 }
 
+/// All achievements attributable to one specific game for a participation: both the "instant" ones
+/// perGameTriggeredAchievements finds from the game's own data (win/loss, turn order, notes), and
+/// any cumulative achievement (win/loss milestones, streaks, color mastery, connoisseur, quickest
+/// win, etc.) whose earned threshold this game was the one to first cross — found the same way
+/// achievementEarnedDates finds earned dates, but scoped to a single game's before/after delta.
+/// Mirrors the delta AnnalsDetailPanel computes inline in GamesView.swift so every surface (in-app
+/// Annals, the website export) shows the same badges on the same game.
+func allAchievementsEarnedThisGame(for participation: GameParticipant, allGames: [Game]) -> [Achievement] {
+    let instant = perGameTriggeredAchievements(for: participation)
+    guard let player = participation.player, let game = participation.game else { return instant }
+
+    let participationsBefore = player.participations.filter { ($0.game?.date ?? .distantPast) < game.date }
+    let participationsUpTo   = player.participations.filter { ($0.game?.date ?? .distantPast) <= game.date }
+    let contextBefore = computeAchievementContext(from: allGames.filter { $0.date < game.date })
+    let contextUpTo   = computeAchievementContext(from: allGames.filter { $0.date <= game.date })
+
+    let idsBefore = Set(
+        computeEarnedAchievements(from: participationsBefore, context: contextBefore, showPlayerAchievements: true).map(\.id)
+    )
+    let newlyEarned = computeEarnedAchievements(
+        from: participationsUpTo, context: contextUpTo, showPlayerAchievements: true
+    ).filter { !idsBefore.contains($0.id) }
+
+    let newlyEarnedIDs = Set(newlyEarned.map(\.id))
+    return newlyEarned + instant.filter { !newlyEarnedIDs.contains($0.id) }
+}
+
 /// Returns a map of achievement ID → the date that achievement was first earned.
 func achievementEarnedDates(
     for participations: [GameParticipant],

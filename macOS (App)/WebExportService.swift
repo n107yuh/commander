@@ -153,7 +153,7 @@ enum WebExportService {
                 let participants = game.participants
                     .sorted { ($0.didWin ? 0 : 1) < ($1.didWin ? 0 : 1) }
                     .map { part in
-                        let triggered = perGameTriggeredAchievements(for: part)
+                        let triggered = allAchievementsEarnedThisGame(for: part, allGames: games)
                         return ParticipantData(
                             playerName: part.player?.name ?? "",
                             commanderName: part.commander?.name ?? "",

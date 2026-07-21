@@ -1108,14 +1108,6 @@ private struct AnnalsDetailPanel: View {
     let game: Game
     @Query(sort: \Game.date) private var allGames: [Game]
 
-    private var contextBefore: AchievementContext {
-        computeAchievementContext(from: allGames.filter { $0.date < game.date })
-    }
-
-    private var contextUpTo: AchievementContext {
-        computeAchievementContext(from: allGames.filter { $0.date <= game.date })
-    }
-
     private var sortedByPlacement: [GameParticipant] {
         game.participants.sorted { $0.placement < $1.placement }
     }
@@ -1160,24 +1152,8 @@ private struct AnnalsDetailPanel: View {
                                     .foregroundStyle(.secondary)
                                     .italic()
                             }
-                            if let player = p.player {
-                                let participationsBefore = player.participations.filter {
-                                    ($0.game?.date ?? .distantPast) < game.date
-                                }
-                                let participationsUpTo = player.participations.filter {
-                                    ($0.game?.date ?? .distantPast) <= game.date
-                                }
-                                let idsBefore = Set(
-                                    computeEarnedAchievements(from: participationsBefore, context: contextBefore, showPlayerAchievements: true).map(\.id)
-                                )
-                                let newlyEarned = computeEarnedAchievements(
-                                    from: participationsUpTo,
-                                    context: contextUpTo,
-                                    showPlayerAchievements: true
-                                ).filter { !idsBefore.contains($0.id) }
-                                let perGame = perGameTriggeredAchievements(for: p)
-                                let newlyEarnedIDs = Set(newlyEarned.map(\.id))
-                                let toShow = newlyEarned + perGame.filter { !newlyEarnedIDs.contains($0.id) }
+                            if p.player != nil {
+                                let toShow = allAchievementsEarnedThisGame(for: p, allGames: allGames)
                                 if !toShow.isEmpty {
                                     AchievementBadgeRow(achievements: toShow)
                                 }

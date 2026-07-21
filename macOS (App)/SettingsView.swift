@@ -264,7 +264,11 @@ struct SettingsView: View {
                 }
 
                 // Contextual hint
-                if def.namePlaceholderHint {
+                if def.namePlaceholderHint && def.victimPlaceholderHint {
+                    Text("{name} and {victim} are substituted with the two players' names at match time.")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                } else if def.namePlaceholderHint {
                     Text("{name} is substituted with the player's name at match time.")
                         .font(.caption2)
                         .foregroundStyle(.tertiary)

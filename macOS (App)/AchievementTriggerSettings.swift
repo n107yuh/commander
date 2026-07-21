@@ -24,6 +24,8 @@ final class AchievementTriggerSettings {
         let requiresPlayerName: Bool
         /// When true: show a hint that {name} is a placeholder for the player's name.
         let namePlaceholderHint: Bool
+        /// When true: show a hint that {victim} is also available (the other player involved).
+        let victimPlaceholderHint: Bool
         let defaultConfig: TriggerConfig
     }
 
@@ -35,6 +37,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.35, green: 0.65, blue: 0.40),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["{name} did not attack", "{name} was a pacifist"],
                 matchAll: false
@@ -47,6 +50,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.50, green: 0.55, blue: 0.70),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["{name} fly on the wall", "{name} no damage", "{name} zero damage",
                           "{name} dealt no", "{name} didn't deal"],
@@ -60,6 +64,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.72, green: 0.55, blue: 0.35),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["{name} dropped", "{name} butterfingers", "{name} cards on the floor",
                           "{name} 52 pickup"],
@@ -73,6 +78,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.40, green: 0.75, blue: 0.45),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(phrases: ["{name} 69"], matchAll: false)
         ),
         TriggerDef(
@@ -82,6 +88,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.50, green: 0.25, blue: 0.75),
             requiresPlayerName: false,
             namePlaceholderHint: false,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["wizard", "didn't cast", "shall not cast", "no spells"],
                 matchAll: false
@@ -94,6 +101,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.25, green: 0.40, blue: 0.30),
             requiresPlayerName: false,
             namePlaceholderHint: false,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(phrases: ["graveyard", "hand"], matchAll: true)
         ),
         TriggerDef(
@@ -103,6 +111,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.85, green: 0.55, blue: 0.10),
             requiresPlayerName: false,
             namePlaceholderHint: false,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(phrases: ["wait", "pertman"], matchAll: true)
         ),
         TriggerDef(
@@ -112,6 +121,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.55, green: 0.65, blue: 0.90),
             requiresPlayerName: false,
             namePlaceholderHint: false,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["matthew woke", "matthew wake", "matthew asleep"],
                 matchAll: false
@@ -124,6 +134,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.60, green: 0.45, blue: 0.25),
             requiresPlayerName: false,
             namePlaceholderHint: false,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(phrases: ["rat clamp", "rat skull"], matchAll: false)
         ),
         TriggerDef(
@@ -133,6 +144,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.86, green: 0.70, blue: 0.11),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["{name} rolled a nat 20", "{name} rolled a natural 20",
                           "{name} nat 20", "{name} natural 20"],
@@ -146,6 +158,7 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.65, green: 0.15, blue: 0.15),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["{name} rolled a nat 1", "{name} rolled a natural 1",
                           "{name} nat 1", "{name} natural 1"],
@@ -155,10 +168,11 @@ final class AchievementTriggerSettings {
         TriggerDef(
             id: "solring-t1",
             title: "Turn 1 Sol Ring",
-            icon: "bolt.circle.fill",
+            icon: "circle",
             tint: Color(red: 0.80, green: 0.60, blue: 0.15),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: false,
             defaultConfig: TriggerConfig(
                 phrases: ["{name} turn 1 sol ring", "{name} sol ring turn 1", "{name} t1 sol ring"],
                 matchAll: false
@@ -171,9 +185,10 @@ final class AchievementTriggerSettings {
             tint: Color(red: 0.70, green: 0.15, blue: 0.15),
             requiresPlayerName: false,
             namePlaceholderHint: true,
+            victimPlaceholderHint: true,
             defaultConfig: TriggerConfig(
-                phrases: ["{name} commander damage kill", "{name} killed with commander damage",
-                          "{name} kill with commander damage"],
+                phrases: ["{name} killed {victim} with commander damage", "{name} killed {victim} with commander dmg",
+                          "{name} eliminated {victim} with commander damage"],
                 matchAll: false
             )
         ),
@@ -204,11 +219,14 @@ final class AchievementTriggerSettings {
     }
 
     /// Returns true when the given notes (already lowercased) match this achievement's trigger config.
-    func matches(notes: String, id: String, playerName: String = "") -> Bool {
+    /// `victimName` fills in `{victim}` for two-player triggers (e.g. commander damage kills); it's
+    /// ignored by phrases that don't reference it.
+    func matches(notes: String, id: String, playerName: String = "", victimName: String = "") -> Bool {
         let cfg = config(for: id)
         let def = Self.definitions.first { $0.id == id }
         let lower = notes.lowercased()
         let lowerName = playerName.lowercased()
+        let lowerVictim = victimName.lowercased()
 
         if def?.requiresPlayerName == true, !lowerName.isEmpty {
             guard lower.contains(lowerName) else { return false }
@@ -216,7 +234,9 @@ final class AchievementTriggerSettings {
 
         guard !cfg.phrases.isEmpty else { return false }
         let substituted = cfg.phrases.map {
-            $0.replacingOccurrences(of: "{name}", with: lowerName).lowercased()
+            $0.replacingOccurrences(of: "{name}", with: lowerName)
+                .replacingOccurrences(of: "{victim}", with: lowerVictim)
+                .lowercased()
         }
 
         return cfg.matchAll

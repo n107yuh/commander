@@ -455,7 +455,7 @@ func computeAchievementCatalog(
         progress: solRingWinCount > 0
             ? "Earned \(solRingWinCount) time\(solRingWinCount == 1 ? "" : "s")"
             : "Play a turn-1 Sol Ring and win.",
-        display: .icon("bolt.circle.fill"),
+        display: .icon("circle"),
         tint: Color(red: 0.80, green: 0.60, blue: 0.15),
         isEarned: solRingWinCount > 0
     ))
@@ -471,15 +471,15 @@ func computeAchievementCatalog(
         progress: solRingLossCount > 0
             ? "Earned \(solRingLossCount) time\(solRingLossCount == 1 ? "" : "s")"
             : "Play a turn-1 Sol Ring and lose anyway.",
-        display: .icon("bolt.circle.fill"),
+        display: .icon("circle"),
         tint: Color(red: 0.55, green: 0.30, blue: 0.30),
         isEarned: solRingLossCount > 0
     ))
 
-    // Commander Damage Kill — no win/loss split, just needs a kill via commander damage.
-    let commanderDamageKillCount: Int = noteCount(in: participations) { p, notes in
-        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
-        return AchievementTriggerSettings.shared.matches(notes: notes, id: "commanderdamagekill", playerName: pname)
+    // Commander Damage Kill / Eliminated By Commander Damage — no win/loss split, both directions
+    // of the same "{name} killed {victim} with commander damage" trigger phrase.
+    let commanderDamageKillCount: Int = noteCount(in: participations) { p, _ in
+        triggeredCommanderDamage(for: p, asKiller: true)
     }
     result.append(Achievement(
         id: "commanderdamagekill",
@@ -491,6 +491,21 @@ func computeAchievementCatalog(
         display: .icon("burst.fill"),
         tint: Color(red: 0.70, green: 0.15, blue: 0.15),
         isEarned: commanderDamageKillCount > 0
+    ))
+
+    let commanderDamageDeathCount: Int = noteCount(in: participations) { p, _ in
+        triggeredCommanderDamage(for: p, asKiller: false)
+    }
+    result.append(Achievement(
+        id: "commanderdamagedeath",
+        title: "Eliminated By Commander Damage",
+        description: "Get eliminated by 21+ commander damage.",
+        progress: commanderDamageDeathCount > 0
+            ? "Earned \(commanderDamageDeathCount) time\(commanderDamageDeathCount == 1 ? "" : "s")"
+            : "Get eliminated by commander damage.",
+        display: .icon("shield.slash.fill"),
+        tint: Color(red: 0.45, green: 0.20, blue: 0.20),
+        isEarned: commanderDamageDeathCount > 0
     ))
 
     // 52 Pickup — dropped cards on the floor (player name + keyword in notes)
@@ -855,7 +870,8 @@ func computeEarnedAchievements(
 
     for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion",
                "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "52pickup", "hattrick", "nice",
-               "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss", "commanderdamagekill"] {
+               "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss",
+               "commanderdamagekill", "commanderdamagedeath"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
     }
 
@@ -1012,7 +1028,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
                 id: "solring1-win", title: "Sol Ring, GG",
                 description: "Play Sol Ring on turn 1 and win the game.",
                 progress: "Earned this game",
-                display: .icon("bolt.circle.fill"),
+                display: .icon("circle"),
                 tint: Color(red: 0.80, green: 0.60, blue: 0.15), isEarned: true
             ))
         } else {
@@ -1020,21 +1036,29 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
                 id: "solring1-loss", title: "Sol Ring Wasn't Enough",
                 description: "Play Sol Ring on turn 1 and still lose.",
                 progress: "Earned this game",
-                display: .icon("bolt.circle.fill"),
+                display: .icon("circle"),
                 tint: Color(red: 0.55, green: 0.30, blue: 0.30), isEarned: true
             ))
         }
     }
 
-    // Commander Damage Kill
-    if !playerName.isEmpty &&
-       AchievementTriggerSettings.shared.matches(notes: notes, id: "commanderdamagekill", playerName: playerName) {
+    // Commander Damage Kill / Eliminated By Commander Damage
+    if triggeredCommanderDamage(for: participation, asKiller: true) {
         result.append(Achievement(
             id: "commanderdamagekill", title: "Commander Damage!",
             description: "Eliminate another player with 21+ commander damage.",
             progress: "Earned this game",
             display: .icon("burst.fill"),
             tint: Color(red: 0.70, green: 0.15, blue: 0.15), isEarned: true
+        ))
+    }
+    if triggeredCommanderDamage(for: participation, asKiller: false) {
+        result.append(Achievement(
+            id: "commanderdamagedeath", title: "Eliminated By Commander Damage",
+            description: "Get eliminated by 21+ commander damage.",
+            progress: "Earned this game",
+            display: .icon("shield.slash.fill"),
+            tint: Color(red: 0.45, green: 0.20, blue: 0.20), isEarned: true
         ))
     }
 
@@ -1302,6 +1326,25 @@ private func noteCount(in participations: [GameParticipant], match: (GamePartici
         if match(p, game.notes.lowercased()) { count += 1 }
     }
     return count
+}
+
+/// Commander damage kill/death share one trigger phrase ("{name} killed {victim} with commander
+/// damage") checked from two directions: `asKiller: true` looks for `p` as the killer against every
+/// other participant as a possible victim; `asKiller: false` looks for `p` as the victim instead.
+private func triggeredCommanderDamage(for p: GameParticipant, asKiller: Bool) -> Bool {
+    guard let pname = p.player?.name.lowercased(), !pname.isEmpty, let game = p.game else { return false }
+    let notes = game.notes.lowercased()
+    for other in game.participants where other !== p {
+        guard let oname = other.player?.name.lowercased(), !oname.isEmpty else { continue }
+        let killerName = asKiller ? pname : oname
+        let victimName = asKiller ? oname : pname
+        if AchievementTriggerSettings.shared.matches(
+            notes: notes, id: "commanderdamagekill", playerName: killerName, victimName: victimName
+        ) {
+            return true
+        }
+    }
+    return false
 }
 
 private func distinctCommanderCount(in participations: [GameParticipant]) -> Int {

@@ -69,6 +69,21 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1783903303"
+      ],
+      "losses" : 1,
+      "name" : "Captain America, Team Leader",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "losses" : 0,
       "name" : "Carol Commander",
       "totalGames" : 0,
@@ -301,6 +316,21 @@
     },
     {
       "colorIdentity" : [
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978",
+        "https:\/\/cards.scryfall.io\/normal\/back\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978"
+      ],
+      "losses" : 0,
+      "name" : "Jennifer Walters \/\/ The Sensational She-Hulk",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
         "B",
         "G",
         "U"
@@ -356,6 +386,20 @@
       ],
       "losses" : 1,
       "name" : "Kefka, Court Mage \/\/ Kefka, Ruler of Ruin",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/f\/afdab464-3674-449b-be01-1cbd21fced23.jpg?1783905315"
+      ],
+      "losses" : 1,
+      "name" : "Kraven the Hunter",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -441,10 +485,10 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891",
         "https:\/\/cards.scryfall.io\/normal\/back\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Norman Osborn \/\/ Green Goblin",
-      "totalGames" : 1,
-      "winRate" : 1,
+      "totalGames" : 2,
+      "winRate" : 0.5,
       "wins" : 1
     },
     {
@@ -757,8 +801,129 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-21T05:30:17Z",
+  "exportedAt" : "2026-07-27T03:14:21Z",
   "games" : [
+    {
+      "date" : "2026-07-27T00:42:30Z",
+      "durationSeconds" : 8580,
+      "isInPerson" : false,
+      "notes" : "Pertman dropped his cards. Noah dropped his cards. Pertman almost won the game but forced a wheel which let Noah draw his demise. Max pulled it out right at the end with a major win",
+      "participants" : [
+        {
+          "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win the pod's longest game on record.",
+              "id" : "marathonwinner",
+              "title" : "Marathon Winner"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            },
+            {
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "Oops, Butterfingers"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Kraven the Hunter",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "Oops, Butterfingers"
+            }
+          ],
+          "turnOrder" : 3
+        }
+      ]
+    },
     {
       "date" : "2026-07-21T02:53:40Z",
       "durationSeconds" : 6180,
@@ -2759,11 +2924,6 @@
           "title" : "Quickest Loss"
         },
         {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
-        },
-        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
@@ -2843,11 +3003,6 @@
           "title" : "Worst Loss Streak"
         },
         {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
-        },
-        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
@@ -2877,45 +3032,6 @@
           "title" : "5 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
-          "description" : "Your longest winning streak ever.",
-          "id" : "bestwinstreak",
-          "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Your longest losing streak ever.",
-          "id" : "bestlossstreak",
-          "title" : "Worst Loss Streak"
-        },
-        {
-          "description" : "Lose the pod's fastest game on record.",
-          "id" : "quickloss",
-          "title" : "Quickest Loss"
-        },
-        {
-          "description" : "Win a remote game.",
-          "id" : "digitalchampion",
-          "title" : "Digital Champion"
-        },
-        {
-          "description" : "Win a game after going last.",
-          "id" : "comefrombehind",
-          "title" : "Come From Behind"
-        }
-      ],
-      "losses" : 7,
-      "name" : "Margolis",
-      "totalGames" : 8,
-      "winRate" : 0.125,
-      "wins" : 1
-    },
-    {
-      "achievements" : [
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
@@ -2931,9 +3047,63 @@
           "title" : "Worst Loss Streak"
         },
         {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
+        },
+        {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
+        },
+        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win a game after going last.",
+          "id" : "comefrombehind",
+          "title" : "Come From Behind"
+        }
+      ],
+      "losses" : 8,
+      "name" : "Margolis",
+      "totalGames" : 9,
+      "winRate" : 0.1111111111111111,
+      "wins" : 1
+    },
+    {
+      "achievements" : [
+        {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
+          "description" : "Your longest winning streak ever.",
+          "id" : "bestwinstreak",
+          "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Your longest losing streak ever.",
+          "id" : "bestlossstreak",
+          "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Win the pod's longest game on record.",
+          "id" : "marathonwinner",
+          "title" : "Marathon Winner"
+        },
+        {
+          "description" : "Win a remote game.",
+          "id" : "digitalchampion",
+          "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win a game after going first.",
+          "id" : "firstblood",
+          "title" : "First Blood"
         },
         {
           "description" : "Max graces the table with his presence.",
@@ -2943,9 +3113,9 @@
       ],
       "losses" : 1,
       "name" : "Max",
-      "totalGames" : 2,
-      "winRate" : 0.5,
-      "wins" : 1
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
+      "wins" : 2
     },
     {
       "achievements" : [
@@ -3025,6 +3195,11 @@
           "title" : "Pacifist"
         },
         {
+          "description" : "Drop your cards on the floor.",
+          "id" : "52pickup",
+          "title" : "Oops, Butterfingers"
+        },
+        {
           "description" : "Eliminate another player with 21+ commander damage.",
           "id" : "commanderdamagekill",
           "title" : "Commander Damage!"
@@ -3040,10 +3215,10 @@
           "title" : "404 Error: Thumb Not Found"
         }
       ],
-      "losses" : 17,
+      "losses" : 18,
       "name" : "Noah",
-      "totalGames" : 21,
-      "winRate" : 0.19047619047619047,
+      "totalGames" : 22,
+      "winRate" : 0.18181818181818182,
       "wins" : 4
     },
     {
@@ -3059,14 +3234,14 @@
           "title" : "5 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -3084,9 +3259,9 @@
           "title" : "Quickest Loss"
         },
         {
-          "description" : "Win the pod's longest game on record.",
-          "id" : "marathonwinner",
-          "title" : "Marathon Winner"
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a remote game.",
@@ -3134,10 +3309,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 8,
+      "losses" : 9,
       "name" : "Pertman",
-      "totalGames" : 16,
-      "winRate" : 0.5,
+      "totalGames" : 17,
+      "winRate" : 0.47058823529411764,
       "wins" : 8
     }
   ]

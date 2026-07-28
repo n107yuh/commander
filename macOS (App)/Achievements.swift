@@ -376,6 +376,24 @@ func computeAchievementCatalog(
         isEarned: flyCount > 0
     ))
 
+    // And In That Moment... — pulled off an infinite combo (pilot's name + keyword in notes).
+    // Checked per-participation, same reasoning as Pacifist above.
+    let infiniteComboCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return AchievementTriggerSettings.shared.matches(notes: notes, id: "infinitecombo", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "infinitecombo",
+        title: "And In That Moment...",
+        description: "Pull off an infinite combo in a game.",
+        progress: infiniteComboCount > 0
+            ? "Earned \(infiniteComboCount) time\(infiniteComboCount == 1 ? "" : "s")"
+            : "Pull off an infinite combo.",
+        display: .icon("infinity"),
+        tint: Color(red: 0.35, green: 0.70, blue: 0.85),
+        isEarned: infiniteComboCount > 0
+    ))
+
     // Nat 20 at the start of the game — split by win/loss (pilot's name + keyword in notes).
     // Checked per-participation, same reasoning as Pacifist above.
     let nat20WinCount: Int = noteCount(in: participations) { p, notes in
@@ -869,7 +887,7 @@ func computeEarnedAchievements(
     if let a = catalog.first(where: { $0.id == "marathonsurvivor" && $0.isEarned })    { result.append(a) }
 
     for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion",
-               "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "52pickup", "hattrick", "nice",
+               "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "infinitecombo", "52pickup", "hattrick", "nice",
                "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss",
                "commanderdamagekill", "commanderdamagedeath"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
@@ -987,6 +1005,19 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             progress: "Earned this game",
             display: .icon("eye.fill"),
             tint: Color(red: 0.50, green: 0.55, blue: 0.70),
+            isEarned: true
+        ))
+    }
+
+    // And In That Moment...
+    if !playerName.isEmpty &&
+       AchievementTriggerSettings.shared.matches(notes: notes, id: "infinitecombo", playerName: playerName) {
+        result.append(Achievement(
+            id: "infinitecombo", title: "And In That Moment...",
+            description: "Pull off an infinite combo in a game.",
+            progress: "Earned this game",
+            display: .icon("infinity"),
+            tint: Color(red: 0.35, green: 0.70, blue: 0.85),
             isEarned: true
         ))
     }

@@ -58,6 +58,19 @@ final class AchievementTriggerSettings {
             )
         ),
         TriggerDef(
+            id: "infinitecombo",
+            title: "And In That Moment...",
+            icon: "infinity",
+            tint: Color(red: 0.35, green: 0.70, blue: 0.85),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: false,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} pulled off an infinite combo", "{name} infinite combo"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
             id: "52pickup",
             title: "Oops, Butterfingers",
             icon: "hand.raised.slash.fill",

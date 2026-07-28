@@ -64,9 +64,9 @@
       ],
       "losses" : 2,
       "name" : "Bruce Banner \/\/ The Incredible Hulk",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
-      "wins" : 1
+      "totalGames" : 4,
+      "winRate" : 0.5,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -77,9 +77,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1783903303"
       ],
-      "losses" : 1,
+      "losses" : 3,
       "name" : "Captain America, Team Leader",
-      "totalGames" : 1,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -287,6 +287,20 @@
     },
     {
       "colorIdentity" : [
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/e\/2e89ce6a-6bc9-427f-a8b2-c07a9fc3218f.jpg?1783934777"
+      ],
+      "losses" : 1,
+      "name" : "Ishai, Ojutai Dragonspeaker",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "B",
         "R",
         "W"
@@ -294,10 +308,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/0\/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1782702184"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Isshin, Two Heavens as One",
-      "totalGames" : 4,
-      "winRate" : 0.25,
+      "totalGames" : 5,
+      "winRate" : 0.2,
       "wins" : 1
     },
     {
@@ -323,11 +337,11 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978",
         "https:\/\/cards.scryfall.io\/normal\/back\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Jennifer Walters \/\/ The Sensational She-Hulk",
-      "totalGames" : 1,
-      "winRate" : 1,
-      "wins" : 1
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -732,6 +746,20 @@
     },
     {
       "colorIdentity" : [
+        "B",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/c\/bc7cbe9b-324e-42b8-94e2-36e91cb32163.jpg?1783937081"
+      ],
+      "losses" : 1,
+      "name" : "Tymna the Weaver",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "G",
         "R",
         "U"
@@ -801,8 +829,204 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-27T03:14:21Z",
+  "exportedAt" : "2026-07-28T03:43:05Z",
   "games" : [
+    {
+      "date" : "2026-07-28T01:43:59Z",
+      "durationSeconds" : 7140,
+      "isInPerson" : false,
+      "notes" : "Noah almost won the game but Max played “Everybody Lives,” much to his chagrin. Jake killed Noah with commander damage. Jake almost won the game but Max played “Saving Grace,” much to his chagrin, and ultimately winning Max the game.",
+      "participants" : [
+        {
+          "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 10 games.",
+              "id" : "losses-10",
+              "title" : "10 Losses"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Isshin, Two Heavens as One",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Ishai, Ojutai Dragonspeaker",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Tymna the Weaver",
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 3
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-28T00:54:59Z",
+      "durationSeconds" : 2580,
+      "isInPerson" : false,
+      "notes" : "Max rolled a nat 1. Noah made the Hulk a 2billion\/2billion. Breasts were obliterated",
+      "participants" : [
+        {
+          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win 5 games.",
+              "id" : "wins-5",
+              "title" : "5 Wins"
+            },
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
     {
       "date" : "2026-07-27T00:42:30Z",
       "durationSeconds" : 8580,
@@ -2959,6 +3183,11 @@
           "title" : "Sol Ring, GG"
         },
         {
+          "description" : "Eliminate another player with 21+ commander damage.",
+          "id" : "commanderdamagekill",
+          "title" : "Commander Damage!"
+        },
+        {
           "description" : "Get eliminated by 21+ commander damage.",
           "id" : "commanderdamagedeath",
           "title" : "Life Totals Don't Matter"
@@ -2974,10 +3203,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 11,
+      "losses" : 12,
       "name" : "Jake",
-      "totalGames" : 17,
-      "winRate" : 0.35294117647058826,
+      "totalGames" : 18,
+      "winRate" : 0.3333333333333333,
       "wins" : 6
     },
     {
@@ -3027,9 +3256,9 @@
     {
       "achievements" : [
         {
-          "description" : "Lose 5 games.",
-          "id" : "losses-5",
-          "title" : "5 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -3067,10 +3296,10 @@
           "title" : "Come From Behind"
         }
       ],
-      "losses" : 8,
+      "losses" : 10,
       "name" : "Margolis",
-      "totalGames" : 9,
-      "winRate" : 0.1111111111111111,
+      "totalGames" : 11,
+      "winRate" : 0.09090909090909091,
       "wins" : 1
     },
     {
@@ -3106,19 +3335,29 @@
           "title" : "First Blood"
         },
         {
+          "description" : "Roll a natural 1 at the start of the game and lose.",
+          "id" : "nat1-loss",
+          "title" : "Critical Failure"
+        },
+        {
           "description" : "Max graces the table with his presence.",
           "id" : "max-zeus",
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Max",
-      "totalGames" : 3,
-      "winRate" : 0.6666666666666666,
-      "wins" : 2
+      "totalGames" : 5,
+      "winRate" : 0.6,
+      "wins" : 3
     },
     {
       "achievements" : [
+        {
+          "description" : "Win 5 games.",
+          "id" : "wins-5",
+          "title" : "5 Wins"
+        },
         {
           "description" : "Lose 15 games.",
           "id" : "losses-15",
@@ -3205,6 +3444,11 @@
           "title" : "Commander Damage!"
         },
         {
+          "description" : "Get eliminated by 21+ commander damage.",
+          "id" : "commanderdamagedeath",
+          "title" : "Life Totals Don't Matter"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -3215,11 +3459,11 @@
           "title" : "404 Error: Thumb Not Found"
         }
       ],
-      "losses" : 18,
+      "losses" : 19,
       "name" : "Noah",
-      "totalGames" : 22,
-      "winRate" : 0.18181818181818182,
-      "wins" : 4
+      "totalGames" : 24,
+      "winRate" : 0.20833333333333334,
+      "wins" : 5
     },
     {
       "achievements" : [

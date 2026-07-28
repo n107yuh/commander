@@ -255,6 +255,9 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
     { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
     { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', prompt: 'Pull off an infinite combo.' },
+    ...(showPlayerOnly ? [
+      { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
+    ] : []),
     { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', prompt: 'Roll a nat 20 and win the game.' },
     { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', prompt: 'Roll a nat 20 and lose anyway.' },
     { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', prompt: 'Roll a nat 1 and win anyway.' },
@@ -263,9 +266,6 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', prompt: 'Play a turn-1 Sol Ring and lose anyway.' },
     { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', prompt: 'Kill someone with commander damage.' },
     { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', prompt: 'Get eliminated by commander damage.' },
-    ...(showPlayerOnly ? [
-      { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
-    ] : []),
   ]
   for (const m of moments) {
     const info = triggeredInfo(asc, m.id)
@@ -441,6 +441,7 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', category: 'Game Moments' },
   { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', category: 'Game Moments' },
   { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', category: 'Game Moments' },
+  { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', category: 'Game Moments' },
   { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', category: 'Game Moments' },
   { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', category: 'Game Moments' },
@@ -449,7 +450,6 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', category: 'Game Moments' },
   { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Game Moments' },
   { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Game Moments' },
-  { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),
   { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders' },
   { id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Commanders' },

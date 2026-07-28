@@ -246,6 +246,9 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', prompt: 'Win a game going first.' },
     { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', prompt: 'Win from the last turn position.' },
     { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', prompt: 'Go first and finish last.' },
+    ...(showPlayerOnly ? [
+      { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
+    ] : []),
     // Pacifist and Fly On The Wall are checked per-participation (whoever
     // piloted that game), so unlike 52 Pickup/Nice below they apply equally
     // to commander catalogs, not just player ones.
@@ -260,7 +263,6 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', prompt: 'Kill someone with commander damage.' },
     { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', prompt: 'Get eliminated by commander damage.' },
     ...(showPlayerOnly ? [
-      { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
       { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
     ] : []),
   ]
@@ -434,6 +436,7 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', category: 'Game Moments' },
   { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', category: 'Game Moments' },
   { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', category: 'Game Moments' },
+  { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', category: 'Game Moments' },
   { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', category: 'Game Moments' },
   { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', category: 'Game Moments' },
@@ -444,7 +447,6 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', category: 'Game Moments' },
   { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Game Moments' },
   { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Game Moments' },
-  { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),
   { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders' },

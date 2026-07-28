@@ -829,7 +829,7 @@
       "wins" : 0
     }
   ],
-  "exportedAt" : "2026-07-28T03:43:05Z",
+  "exportedAt" : "2026-07-28T04:11:18Z",
   "games" : [
     {
       "date" : "2026-07-28T01:43:59Z",
@@ -943,7 +943,7 @@
       "date" : "2026-07-28T00:54:59Z",
       "durationSeconds" : 2580,
       "isInPerson" : false,
-      "notes" : "Max rolled a nat 1. Noah made the Hulk a 2billion\/2billion. Breasts were obliterated",
+      "notes" : "Max rolled a nat 1. Noah went infinite and made a 2billion\/2billion Hulk. Breasts were obliterated",
       "participants" : [
         {
           "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
@@ -968,6 +968,11 @@
               "title" : "Win Streak"
             },
             {
+              "description" : "Pull off an infinite combo in a game.",
+              "id" : "infinitecombo",
+              "title" : "And In That Moment..."
+            },
+            {
               "description" : "Win a game after going last.",
               "id" : "comefrombehind",
               "title" : "Come From Behind"
@@ -979,22 +984,6 @@
             }
           ],
           "turnOrder" : 2
-        },
-        {
-          "commanderName" : "Captain America, Team Leader",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Margolis",
-          "resolvedColorIdentity" : [
-            "W",
-            "U",
-            "R"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0
         },
         {
           "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
@@ -1024,6 +1013,22 @@
             }
           ],
           "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
         }
       ]
     },
@@ -1294,11 +1299,6 @@
               "title" : "Win Streak"
             },
             {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
-            },
-            {
               "description" : "Win a game with a 5-color (WUBRG) commander.",
               "id" : "tastetherainbow",
               "title" : "Taste the Rainbow"
@@ -1307,6 +1307,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             }
           ],
           "turnOrder" : 1
@@ -2177,7 +2182,7 @@
       "date" : "2026-07-06T02:48:46Z",
       "durationSeconds" : 2280,
       "isInPerson" : false,
-      "notes" : "Jake’s opening turn he played a land into a sol ring into an arcane signet. The other two never stood a chance. Justin loves to skullclamp his rats",
+      "notes" : "Jake played a turn 1 sol ring into an arcane signet. The other two never stood a chance. Justin loves to skullclamp his rats",
       "participants" : [
         {
           "commanderName" : "Edgar Markov",
@@ -2195,6 +2200,11 @@
               "description" : "Win a game after going last.",
               "id" : "comefrombehind",
               "title" : "Come From Behind"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Win a remote game.",
@@ -3432,6 +3442,11 @@
           "description" : "Play an entire game without attacking another player.",
           "id" : "pacifist",
           "title" : "Pacifist"
+        },
+        {
+          "description" : "Pull off an infinite combo in a game.",
+          "id" : "infinitecombo",
+          "title" : "And In That Moment..."
         },
         {
           "description" : "Drop your cards on the floor.",

@@ -254,6 +254,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     // to commander catalogs, not just player ones.
     { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
     { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
+    { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', prompt: 'Pull off an infinite combo.' },
     { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', prompt: 'Roll a nat 20 and win the game.' },
     { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', prompt: 'Roll a nat 20 and lose anyway.' },
     { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', prompt: 'Roll a nat 1 and win anyway.' },
@@ -439,6 +440,7 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', category: 'Game Moments' },
   { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', category: 'Game Moments' },
+  { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', category: 'Game Moments' },
   { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', category: 'Game Moments' },
   { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', category: 'Game Moments' },
   { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', category: 'Game Moments' },

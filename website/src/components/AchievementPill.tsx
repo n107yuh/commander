@@ -6,6 +6,7 @@ export const ICON: Record<string, string> = {
   'botchedit': '💀',
   'pacifist': '☮️',
   'flyonthewall': '👁️',
+  'infinitecombo': '♾️',
   '52pickup': '🤲',
   'hattrick': '🔥',
   'nice': '😏',

@@ -2,6 +2,21 @@
   "commanders" : [
     {
       "colorIdentity" : [
+        "B",
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/b\/8b796a56-1611-4835-ac5b-48b4e9263685.jpg?1783915491"
+      ],
+      "losses" : 1,
+      "name" : "Anikthea, Hand of Erebos",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "G",
         "W"
       ],
@@ -152,6 +167,19 @@
       "totalGames" : 1,
       "winRate" : 1,
       "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/a\/5a3dfd71-9ec0-4842-b99d-c1833679f0c5.jpg?1783908855"
+      ],
+      "losses" : 1,
+      "name" : "Dionus, Elvish Archdruid",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -353,9 +381,9 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/6\/c697548f-925b-405e-970a-4e78067d5c8e.jpg?1782705441",
         "https:\/\/cards.scryfall.io\/normal\/back\/c\/6\/c697548f-925b-405e-970a-4e78067d5c8e.jpg?1782705441"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Jorn, God of Winter \/\/ Kaldring, the Rimestaff",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -440,11 +468,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/7\/2\/72e4548b-c171-4f10-b896-af37543dcf0f.jpg?1579203069"
       ],
-      "losses" : 5,
+      "losses" : 6,
       "name" : "Marrow-Gnawer",
-      "totalGames" : 6,
-      "winRate" : 0.16666666666666666,
-      "wins" : 1
+      "totalGames" : 8,
+      "winRate" : 0.25,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -514,9 +542,9 @@
       ],
       "losses" : 1,
       "name" : "Okaun, Eye of Chaos",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -573,6 +601,21 @@
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/b\/3b964bbe-54cc-425c-9cc6-c877f82af7ba.jpg?1783911437"
+      ],
+      "losses" : 0,
+      "name" : "Satya, Aetherflux Genius",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -712,9 +755,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/f\/cfb80c75-4b1b-4f25-923a-933855e7345c.jpg?1769163701"
       ],
-      "losses" : 1,
+      "losses" : 3,
       "name" : "The Wise Mothman",
-      "totalGames" : 1,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -795,9 +838,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/d\/5dd13a6c-23d3-44ce-a628-cb1c19d777c4.jpg?1779732615"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Winota, Joiner of Forces",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -824,13 +867,257 @@
       ],
       "losses" : 1,
       "name" : "Zndrsplt, Eye of Wisdom",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     }
   ],
-  "exportedAt" : "2026-07-28T04:11:18Z",
+  "exportedAt" : "2026-07-31T04:27:19Z",
   "games" : [
+    {
+      "date" : "2026-07-31T03:48:09Z",
+      "durationSeconds" : 2340,
+      "isInPerson" : false,
+      "notes" : "Justin dealt 34 rat damage to Jake. Justin dealt 20 rat damage to Noah. Chandra exploded Okaun for 48 damage",
+      "participants" : [
+        {
+          "commanderName" : "Okaun, Eye of Chaos",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Zndrsplt, Eye of Wisdom",
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 15 games.",
+              "id" : "losses-15",
+              "title" : "15 Losses"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-31T02:10:51Z",
+      "durationSeconds" : 5520,
+      "isInPerson" : false,
+      "notes" : "Justin dealt 15 rat damage to Jake. Justin wheeled and dealed to not attack anyone for 5 to 15 turns. Justin did sucessfully thrum. He dealt 21 rat damage to Noah. This game was almost VERY controversial. On the one hand, Justin coudl have killed Pertman by breaking their truce, but there was no caveat about the truce ending when it was just the two of them left. They played on and Justin was still able to win with a Living Death that killed Pertman without attacking him. Ultimately, this is the most honorable victory possible.",
+      "participants" : [
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2
+        },
+        {
+          "commanderName" : "Dionus, Elvish Archdruid",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Anikthea, Hand of Erebos",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 10 games.",
+              "id" : "losses-10",
+              "title" : "10 Losses"
+            },
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 3
+        }
+      ]
+    },
+    {
+      "date" : "2026-07-31T01:10:56Z",
+      "durationSeconds" : 2880,
+      "isInPerson" : false,
+      "notes" : "Noah had to mulligan 5 times, but then Noah did play a turn 1 sol ring",
+      "participants" : [
+        {
+          "commanderName" : "Satya, Aetherflux Genius",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1
+        },
+        {
+          "commanderName" : "Winota, Joiner of Forces",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0
+        },
+        {
+          "commanderName" : "Jorn, God of Winter \/\/ Kaldring, the Rimestaff",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 20 games.",
+              "id" : "losses-20",
+              "title" : "20 Losses"
+            },
+            {
+              "description" : "Play 25 total games.",
+              "id" : "games-25",
+              "title" : "25 Games"
+            }
+          ],
+          "turnOrder" : 2
+        }
+      ]
+    },
     {
       "date" : "2026-07-28T01:43:59Z",
       "durationSeconds" : 7140,
@@ -3133,9 +3420,9 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 10 games.",
-          "id" : "losses-10",
-          "title" : "10 Losses"
+          "description" : "Lose 15 games.",
+          "id" : "losses-15",
+          "title" : "15 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -3166,6 +3453,11 @@
           "description" : "Win a game after going last.",
           "id" : "comefrombehind",
           "title" : "Come From Behind"
+        },
+        {
+          "description" : "Go first but finish last.",
+          "id" : "botchedit",
+          "title" : "Botched It"
         },
         {
           "description" : "Play an entire game without attacking another player.",
@@ -3213,10 +3505,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 12,
+      "losses" : 15,
       "name" : "Jake",
-      "totalGames" : 18,
-      "winRate" : 0.3333333333333333,
+      "totalGames" : 21,
+      "winRate" : 0.2857142857142857,
       "wins" : 6
     },
     {
@@ -3257,11 +3549,11 @@
           "title" : "Clamp Me Daddy"
         }
       ],
-      "losses" : 10,
+      "losses" : 11,
       "name" : "Justin",
-      "totalGames" : 11,
-      "winRate" : 0.09090909090909091,
-      "wins" : 1
+      "totalGames" : 13,
+      "winRate" : 0.15384615384615385,
+      "wins" : 2
     },
     {
       "achievements" : [
@@ -3369,19 +3661,19 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 15 games.",
-          "id" : "losses-15",
-          "title" : "15 Losses"
+          "description" : "Lose 20 games.",
+          "id" : "losses-20",
+          "title" : "20 Losses"
+        },
+        {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
         },
         {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -3464,6 +3756,11 @@
           "title" : "Life Totals Don't Matter"
         },
         {
+          "description" : "Play 25 total games.",
+          "id" : "games-25",
+          "title" : "25 Games"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -3474,11 +3771,11 @@
           "title" : "404 Error: Thumb Not Found"
         }
       ],
-      "losses" : 19,
+      "losses" : 21,
       "name" : "Noah",
-      "totalGames" : 24,
-      "winRate" : 0.20833333333333334,
-      "wins" : 5
+      "totalGames" : 27,
+      "winRate" : 0.2222222222222222,
+      "wins" : 6
     },
     {
       "achievements" : [
@@ -3488,9 +3785,9 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 5 games.",
-          "id" : "losses-5",
-          "title" : "5 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -3568,11 +3865,11 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 9,
+      "losses" : 10,
       "name" : "Pertman",
-      "totalGames" : 17,
-      "winRate" : 0.47058823529411764,
-      "wins" : 8
+      "totalGames" : 19,
+      "winRate" : 0.47368421052631576,
+      "wins" : 9
     }
   ]
 }

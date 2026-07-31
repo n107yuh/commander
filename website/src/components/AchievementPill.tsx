@@ -3,6 +3,7 @@ import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 import { TintedEmoji, tintFor } from './TintedEmoji'
 import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
 import { RollBadge, rollShapeFor } from './RollBadge'
+import { EmptyDeck, milledColorFor } from './EmptyDeck'
 
 export const ICON: Record<string, string> = {
   'firstblood': '🩸',
@@ -50,8 +51,6 @@ export const ICON: Record<string, string> = {
   'solring1-win': '⭕',
   'solring1-loss': '⭕',
   'dickswidth': '🍆',
-  'milledkill': '🗃️',
-  'milleddeath': '🗃️',
   'poisonkill': '🩸',
   'poisondeath': '🍷',
   'loophole': '🔓',
@@ -77,6 +76,8 @@ export function AchievementPill({ a, count }: { a: AchievementData; count?: numb
           <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={14} />
         ) : rollShapeFor(a.id) ? (
           <RollBadge id={a.id} size={14} />
+        ) : milledColorFor(a.id) ? (
+          <EmptyDeck color={milledColorFor(a.id)!} size={16} />
         ) : tintFor(a.id) ? (
           <TintedEmoji emoji={icon} tint={tintFor(a.id)!} size={14} />
         ) : (

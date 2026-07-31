@@ -6,6 +6,7 @@ import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
 import { RollBadge, rollShapeFor } from '@/components/RollBadge'
 import { ColorWheel } from '@/components/ColorWheel'
 import { TallyMarks } from '@/components/TallyMarks'
+import { EmptyDeck, milledColorFor } from '@/components/EmptyDeck'
 
 // This page is a static reference (no earned/unearned state), so color-mastery
 // wheels always render fully filled in, as if the achievement had been popped.
@@ -56,6 +57,8 @@ export default function AchievementsPage() {
                     <TallyMarks count={0} tone="win" />
                   ) : rollShapeFor(a.id) ? (
                     <RollBadge id={a.id} size={20} />
+                  ) : milledColorFor(a.id) ? (
+                    <EmptyDeck color={milledColorFor(a.id)!} size={22} />
                   ) : FULL_WHEEL[a.id] ? (
                     <ColorWheel segments={FULL_WHEEL[a.id].segments} completed={FULL_WHEEL[a.id].completed} size={18} />
                   ) : tintFor(a.id) ? (

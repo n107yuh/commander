@@ -21,7 +21,6 @@ const TINT_BY_ID: Record<string, Tint> = {
   'games-25': 'bronze', 'games-50': 'silver', 'games-75': 'gold', 'games-100': 'platinum',
   quickwin: 'green', quickloss: 'red',
   'solring1-win': 'brightgreen', 'solring1-loss': 'red',
-  milledkill: 'green', milleddeath: 'red',
   poisonkill: 'brightgreen',
 }
 

@@ -7,6 +7,7 @@ import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 import { TintedEmoji, tintFor } from './TintedEmoji'
 import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
 import { RollBadge, rollShapeFor } from './RollBadge'
+import { EmptyDeck, milledColorFor } from './EmptyDeck'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -28,6 +29,13 @@ function badgeFor(a: CatalogAchievement) {
     return (
       <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
         <RollBadge id={a.id} size={20} />
+      </span>
+    )
+  }
+  if (milledColorFor(a.id)) {
+    return (
+      <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
+        <EmptyDeck color={milledColorFor(a.id)!} size={22} />
       </span>
     )
   }

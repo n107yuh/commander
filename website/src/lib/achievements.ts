@@ -251,40 +251,53 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
   // Game moments (per-game triggered / note-matched) — Pacifist/Fly On The
   // Wall/52 Pickup/Nice are player-only, same as the Mac app.
   const moments: { id: string; title: string; description: string; prompt: string }[] = [
-    { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', prompt: 'Win a game going first.' },
-    { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', prompt: 'Win from the last turn position.' },
-    { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', prompt: 'Go first and finish last.' },
-    ...(showPlayerOnly ? [
-      { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
-    ] : []),
-    // Pacifist and Fly On The Wall are checked per-participation (whoever
-    // piloted that game), so unlike 52 Pickup/Nice below they apply equally
-    // to commander catalogs, not just player ones.
-    { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
-    { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
-    { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', prompt: 'Pull off an infinite combo.' },
-    ...(showPlayerOnly ? [
-      { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
-    ] : []),
     { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', prompt: 'Roll a nat 20 and win the game.' },
     { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', prompt: 'Roll a nat 20 and lose anyway.' },
     { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', prompt: 'Roll a nat 1 and win anyway.' },
     { id: 'nat1-loss', title: 'Critical Failure', description: 'Roll a natural 1 at the start of the game and lose.', prompt: 'Roll a nat 1 and lose.' },
     { id: 'solring1-win', title: 'Sol Ring, GG', description: 'Play Sol Ring on turn 1 and win the game.', prompt: 'Play a turn-1 Sol Ring and win.' },
     { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', prompt: 'Play a turn-1 Sol Ring and lose anyway.' },
+    // Pacifist and Fly On The Wall are checked per-participation (whoever
+    // piloted that game), so unlike 52 Pickup/Nice below they apply equally
+    // to commander catalogs, not just player ones.
+    { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', prompt: 'Play a game without attacking anyone.' },
+    { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', prompt: 'Play a game without dealing any damage.' },
+    { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', prompt: 'Win a game going first.' },
+    { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', prompt: 'Win from the last turn position.' },
+    { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', prompt: 'Go first and finish last.' },
+    { id: 'wentlast', title: 'Doomed From The Start', description: 'Go last and finish last.', prompt: 'Go last and finish last.' },
+    ...(showPlayerOnly ? [
+      { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
+    ] : []),
+    { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', prompt: 'Win a game with 1 life left.' },
+    { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', prompt: 'Pull off an infinite combo.' },
+    ...(showPlayerOnly ? [
+      { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
+    ] : []),
+  ]
+  for (const m of moments) {
+    const info = triggeredInfo(asc, m.id)
+    result.push({
+      id: m.id, title: m.title, description: m.description, category: 'Game Moments',
+      isEarned: info.count > 0, progress: info.count > 0 ? `Earned ${info.count} time${info.count === 1 ? '' : 's'}` : m.prompt,
+      earnedDate: info.firstDate,
+    })
+  }
+
+  // Win Conditions — unusual ways a game gets won or lost.
+  const winConditions: { id: string; title: string; description: string; prompt: string }[] = [
     { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', prompt: 'Kill someone with commander damage.' },
     { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', prompt: 'Get eliminated by commander damage.' },
-    { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', prompt: 'Win a game with 1 life left.' },
     { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', prompt: 'Mill someone out of cards.' },
     { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', prompt: 'Get milled out of cards.' },
     { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', prompt: 'Kill someone with 10 poison counters.' },
     { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', prompt: 'Get eliminated by 10 poison counters.' },
     { id: 'loophole', title: 'Loophole', description: "Win a game via a card's alternate win condition.", prompt: 'Win via an alternate win condition.' },
   ]
-  for (const m of moments) {
+  for (const m of winConditions) {
     const info = triggeredInfo(asc, m.id)
     result.push({
-      id: m.id, title: m.title, description: m.description, category: 'Game Moments',
+      id: m.id, title: m.title, description: m.description, category: 'Win Conditions',
       isEarned: info.count > 0, progress: info.count > 0 ? `Earned ${info.count} time${info.count === 1 ? '' : 's'}` : m.prompt,
       earnedDate: info.firstDate,
     })
@@ -473,28 +486,29 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'irlchampion', title: 'IRL Champion', description: 'Win an in-person game.', category: 'Format & Champion' },
   { id: 'formatdiplomat', title: 'Format Diplomat', description: 'Win in both in-person and remote games.', category: 'Format & Champion' },
   { id: 'ultimatechampion', title: 'Ultimate Champion', description: 'Simultaneously hold the Digichampion and IRLchampion crowns.', category: 'Format & Champion' },
-  { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', category: 'Game Moments' },
-  { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', category: 'Game Moments' },
-  { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', category: 'Game Moments' },
-  { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
-  { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', category: 'Game Moments' },
-  { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', category: 'Game Moments' },
-  { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', category: 'Game Moments' },
-  { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', category: 'Game Moments' },
   { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', category: 'Game Moments' },
   { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', category: 'Game Moments' },
   { id: 'nat1-loss', title: 'Critical Failure', description: 'Roll a natural 1 at the start of the game and lose.', category: 'Game Moments' },
   { id: 'solring1-win', title: 'Sol Ring, GG', description: 'Play Sol Ring on turn 1 and win the game.', category: 'Game Moments' },
   { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', category: 'Game Moments' },
-  { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Game Moments' },
-  { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Game Moments' },
+  { id: 'pacifist', title: 'Pacifist', description: 'Play an entire game without attacking another player.', category: 'Game Moments' },
+  { id: 'flyonthewall', title: 'Fly On The Wall', description: 'Play an entire game without dealing any damage.', category: 'Game Moments' },
+  { id: 'firstblood', title: 'First Blood', description: 'Win a game after going first.', category: 'Game Moments' },
+  { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', category: 'Game Moments' },
+  { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', category: 'Game Moments' },
+  { id: 'wentlast', title: 'Doomed From The Start', description: 'Go last and finish last.', category: 'Game Moments' },
+  { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
   { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', category: 'Game Moments' },
-  { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', category: 'Game Moments' },
-  { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', category: 'Game Moments' },
-  { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', category: 'Game Moments' },
-  { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', category: 'Game Moments' },
-  { id: 'loophole', title: 'Loophole', description: "Win a game via a card's alternate win condition.", category: 'Game Moments' },
+  { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', category: 'Game Moments' },
+  { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
+  { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Win Conditions' },
+  { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Win Conditions' },
+  { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', category: 'Win Conditions' },
+  { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', category: 'Win Conditions' },
+  { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', category: 'Win Conditions' },
+  { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', category: 'Win Conditions' },
+  { id: 'loophole', title: 'Loophole', description: "Win a game via a card's alternate win condition.", category: 'Win Conditions' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),
   { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders' },
   { id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Commanders' },

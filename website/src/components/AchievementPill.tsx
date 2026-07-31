@@ -4,6 +4,7 @@ export const ICON: Record<string, string> = {
   'firstblood': '🩸',
   'comefrombehind': '🐢',
   'botchedit': '💀',
+  'wentlast': '⬇️',
   'pacifist': '☮️',
   'flyonthewall': '👁️',
   'infinitecombo': '♾️',

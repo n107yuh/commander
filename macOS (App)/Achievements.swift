@@ -497,7 +497,7 @@ func computeAchievementCatalog(
     // Commander Damage Kill / Eliminated By Commander Damage — no win/loss split, both directions
     // of the same "{name} killed {victim} with commander damage" trigger phrase.
     let commanderDamageKillCount: Int = noteCount(in: participations) { p, _ in
-        triggeredCommanderDamage(for: p, asKiller: true)
+        triggeredTwoPlayerEvent(for: p, triggerID: "commanderdamagekill", asInitiator: true)
     }
     result.append(Achievement(
         id: "commanderdamagekill",
@@ -512,7 +512,7 @@ func computeAchievementCatalog(
     ))
 
     let commanderDamageDeathCount: Int = noteCount(in: participations) { p, _ in
-        triggeredCommanderDamage(for: p, asKiller: false)
+        triggeredTwoPlayerEvent(for: p, triggerID: "commanderdamagekill", asInitiator: false)
     }
     result.append(Achievement(
         id: "commanderdamagedeath",
@@ -524,6 +524,104 @@ func computeAchievementCatalog(
         display: .icon("shield.slash.fill"),
         tint: Color(red: 0.45, green: 0.20, blue: 0.20),
         isEarned: commanderDamageDeathCount > 0
+    ))
+
+    // A Dick's Width — win with exactly 1 life remaining (pilot's name + keyword in notes).
+    let dicksWidthCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "dickswidth", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "dickswidth",
+        title: "A Dick's Width",
+        description: "Win a game with only 1 life remaining.",
+        progress: dicksWidthCount > 0
+            ? "Earned \(dicksWidthCount) time\(dicksWidthCount == 1 ? "" : "s")"
+            : "Win a game with 1 life left.",
+        display: .tintedNumber(1, Color(red: 0.85, green: 0.35, blue: 0.20)),
+        tint: .clear,
+        isEarned: dicksWidthCount > 0
+    ))
+
+    // Milled 'em to a Pulp / Library Card: Declined — no win/loss split, both directions of the
+    // same "{name} milled {victim} out" trigger phrase.
+    let milledKillCount: Int = noteCount(in: participations) { p, _ in
+        triggeredTwoPlayerEvent(for: p, triggerID: "milled", asInitiator: true)
+    }
+    result.append(Achievement(
+        id: "milledkill",
+        title: "Milled 'em to a Pulp",
+        description: "Eliminate another player by milling out their deck.",
+        progress: milledKillCount > 0
+            ? "Earned \(milledKillCount) time\(milledKillCount == 1 ? "" : "s")"
+            : "Mill someone out of cards.",
+        display: .icon("books.vertical.fill"),
+        tint: Color(red: 0.55, green: 0.40, blue: 0.20),
+        isEarned: milledKillCount > 0
+    ))
+
+    let milledDeathCount: Int = noteCount(in: participations) { p, _ in
+        triggeredTwoPlayerEvent(for: p, triggerID: "milled", asInitiator: false)
+    }
+    result.append(Achievement(
+        id: "milleddeath",
+        title: "Library Card: Declined",
+        description: "Get eliminated by being milled out of cards.",
+        progress: milledDeathCount > 0
+            ? "Earned \(milledDeathCount) time\(milledDeathCount == 1 ? "" : "s")"
+            : "Get milled out of cards.",
+        display: .icon("books.vertical.fill"),
+        tint: Color(red: 0.40, green: 0.35, blue: 0.30),
+        isEarned: milledDeathCount > 0
+    ))
+
+    // Assassino! / Inconceivable! — no win/loss split, both directions of the same "{name} killed
+    // {victim} with poison" trigger phrase.
+    let poisonKillCount: Int = noteCount(in: participations) { p, _ in
+        triggeredTwoPlayerEvent(for: p, triggerID: "poison", asInitiator: true)
+    }
+    result.append(Achievement(
+        id: "poisonkill",
+        title: "Assassino!",
+        description: "Eliminate another player with 10 poison counters.",
+        progress: poisonKillCount > 0
+            ? "Earned \(poisonKillCount) time\(poisonKillCount == 1 ? "" : "s")"
+            : "Kill someone with 10 poison counters.",
+        display: .icon("cross.vial.fill"),
+        tint: Color(red: 0.25, green: 0.65, blue: 0.30),
+        isEarned: poisonKillCount > 0
+    ))
+
+    let poisonDeathCount: Int = noteCount(in: participations) { p, _ in
+        triggeredTwoPlayerEvent(for: p, triggerID: "poison", asInitiator: false)
+    }
+    result.append(Achievement(
+        id: "poisondeath",
+        title: "Inconceivable!",
+        description: "Get eliminated by 10 poison counters.",
+        progress: poisonDeathCount > 0
+            ? "Earned \(poisonDeathCount) time\(poisonDeathCount == 1 ? "" : "s")"
+            : "Get eliminated by 10 poison counters.",
+        display: .emoji("☠️"),
+        tint: Color(red: 0.30, green: 0.55, blue: 0.30),
+        isEarned: poisonDeathCount > 0
+    ))
+
+    // Loophole — won via a card's alternate win condition (pilot's name + keyword in notes).
+    let loopholeCount: Int = noteCount(in: participations) { p, notes in
+        guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+        return p.didWin && AchievementTriggerSettings.shared.matches(notes: notes, id: "loophole", playerName: pname)
+    }
+    result.append(Achievement(
+        id: "loophole",
+        title: "Loophole",
+        description: "Win a game via a card's alternate win condition.",
+        progress: loopholeCount > 0
+            ? "Earned \(loopholeCount) time\(loopholeCount == 1 ? "" : "s")"
+            : "Win via an alternate win condition.",
+        display: .icon("arrow.triangle.branch"),
+        tint: Color(red: 0.55, green: 0.35, blue: 0.75),
+        isEarned: loopholeCount > 0
     ))
 
     // 52 Pickup — dropped cards on the floor (player name + keyword in notes)
@@ -889,7 +987,8 @@ func computeEarnedAchievements(
     for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion",
                "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "infinitecombo", "52pickup", "hattrick", "nice",
                "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss",
-               "commanderdamagekill", "commanderdamagedeath"] {
+               "commanderdamagekill", "commanderdamagedeath", "dickswidth", "milledkill", "milleddeath",
+               "poisonkill", "poisondeath", "loophole"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
     }
 
@@ -1086,7 +1185,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     }
 
     // Commander Damage Kill / Eliminated By Commander Damage
-    if triggeredCommanderDamage(for: participation, asKiller: true) {
+    if triggeredTwoPlayerEvent(for: participation, triggerID: "commanderdamagekill", asInitiator: true) {
         result.append(Achievement(
             id: "commanderdamagekill", title: "Commander Damage!",
             description: "Eliminate another player with 21+ commander damage.",
@@ -1095,13 +1194,77 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             tint: Color(red: 0.70, green: 0.15, blue: 0.15), isEarned: true
         ))
     }
-    if triggeredCommanderDamage(for: participation, asKiller: false) {
+    if triggeredTwoPlayerEvent(for: participation, triggerID: "commanderdamagekill", asInitiator: false) {
         result.append(Achievement(
             id: "commanderdamagedeath", title: "Life Totals Don't Matter",
             description: "Get eliminated by 21+ commander damage.",
             progress: "Earned this game",
             display: .icon("shield.slash.fill"),
             tint: Color(red: 0.45, green: 0.20, blue: 0.20), isEarned: true
+        ))
+    }
+
+    // A Dick's Width
+    if participation.didWin && !playerName.isEmpty &&
+       AchievementTriggerSettings.shared.matches(notes: notes, id: "dickswidth", playerName: playerName) {
+        result.append(Achievement(
+            id: "dickswidth", title: "A Dick's Width",
+            description: "Win a game with only 1 life remaining.",
+            progress: "Earned this game",
+            display: .tintedNumber(1, Color(red: 0.85, green: 0.35, blue: 0.20)),
+            tint: .clear, isEarned: true
+        ))
+    }
+
+    // Milled 'em to a Pulp / Library Card: Declined
+    if triggeredTwoPlayerEvent(for: participation, triggerID: "milled", asInitiator: true) {
+        result.append(Achievement(
+            id: "milledkill", title: "Milled 'em to a Pulp",
+            description: "Eliminate another player by milling out their deck.",
+            progress: "Earned this game",
+            display: .icon("books.vertical.fill"),
+            tint: Color(red: 0.55, green: 0.40, blue: 0.20), isEarned: true
+        ))
+    }
+    if triggeredTwoPlayerEvent(for: participation, triggerID: "milled", asInitiator: false) {
+        result.append(Achievement(
+            id: "milleddeath", title: "Library Card: Declined",
+            description: "Get eliminated by being milled out of cards.",
+            progress: "Earned this game",
+            display: .icon("books.vertical.fill"),
+            tint: Color(red: 0.40, green: 0.35, blue: 0.30), isEarned: true
+        ))
+    }
+
+    // Assassino! / Inconceivable!
+    if triggeredTwoPlayerEvent(for: participation, triggerID: "poison", asInitiator: true) {
+        result.append(Achievement(
+            id: "poisonkill", title: "Assassino!",
+            description: "Eliminate another player with 10 poison counters.",
+            progress: "Earned this game",
+            display: .icon("cross.vial.fill"),
+            tint: Color(red: 0.25, green: 0.65, blue: 0.30), isEarned: true
+        ))
+    }
+    if triggeredTwoPlayerEvent(for: participation, triggerID: "poison", asInitiator: false) {
+        result.append(Achievement(
+            id: "poisondeath", title: "Inconceivable!",
+            description: "Get eliminated by 10 poison counters.",
+            progress: "Earned this game",
+            display: .emoji("☠️"),
+            tint: Color(red: 0.30, green: 0.55, blue: 0.30), isEarned: true
+        ))
+    }
+
+    // Loophole
+    if participation.didWin && !playerName.isEmpty &&
+       AchievementTriggerSettings.shared.matches(notes: notes, id: "loophole", playerName: playerName) {
+        result.append(Achievement(
+            id: "loophole", title: "Loophole",
+            description: "Win a game via a card's alternate win condition.",
+            progress: "Earned this game",
+            display: .icon("arrow.triangle.branch"),
+            tint: Color(red: 0.55, green: 0.35, blue: 0.75), isEarned: true
         ))
     }
 
@@ -1398,18 +1561,19 @@ private func noteCount(in participations: [GameParticipant], match: (GamePartici
     return count
 }
 
-/// Commander damage kill/death share one trigger phrase ("{name} killed {victim} with commander
-/// damage") checked from two directions: `asKiller: true` looks for `p` as the killer against every
-/// other participant as a possible victim; `asKiller: false` looks for `p` as the victim instead.
-private func triggeredCommanderDamage(for p: GameParticipant, asKiller: Bool) -> Bool {
+/// Shared by every kill/death achievement pair (Commander Damage, Mill, Poison), which all check the
+/// exact same "{name} did X to {victim}" trigger phrase from two directions: `asInitiator: true`
+/// looks for `p` as the one who did it against every other participant as a possible target;
+/// `asInitiator: false` looks for `p` as the target instead.
+private func triggeredTwoPlayerEvent(for p: GameParticipant, triggerID: String, asInitiator: Bool) -> Bool {
     guard let pname = p.player?.name.lowercased(), !pname.isEmpty, let game = p.game else { return false }
     let notes = game.notes.lowercased()
     for other in game.participants where other !== p {
         guard let oname = other.player?.name.lowercased(), !oname.isEmpty else { continue }
-        let killerName = asKiller ? pname : oname
-        let victimName = asKiller ? oname : pname
+        let initiatorName = asInitiator ? pname : oname
+        let targetName    = asInitiator ? oname : pname
         if AchievementTriggerSettings.shared.matches(
-            notes: notes, id: "commanderdamagekill", playerName: killerName, victimName: victimName
+            notes: notes, id: triggerID, playerName: initiatorName, victimName: targetName
         ) {
             return true
         }

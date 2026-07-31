@@ -205,6 +205,60 @@ final class AchievementTriggerSettings {
                 matchAll: false
             )
         ),
+        TriggerDef(
+            id: "dickswidth",
+            title: "A Dick's Width",
+            icon: "1.circle.fill",
+            tint: Color(red: 0.85, green: 0.35, blue: 0.20),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: false,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} won with 1 life", "{name} won at 1 life", "{name} won on 1 life"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "milled",
+            title: "Mill Out",
+            icon: "books.vertical.fill",
+            tint: Color(red: 0.55, green: 0.40, blue: 0.20),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} milled {victim} out", "{name} decked {victim} out", "{name} milled out {victim}"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "poison",
+            title: "Poison Counters",
+            icon: "cross.vial.fill",
+            tint: Color(red: 0.25, green: 0.65, blue: 0.30),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} killed {victim} with poison", "{name} poisoned {victim} out",
+                          "{name} killed {victim} with 10 poison counters"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "loophole",
+            title: "Loophole",
+            icon: "arrow.triangle.branch",
+            tint: Color(red: 0.55, green: 0.35, blue: 0.75),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: false,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} won via alternate win condition", "{name} alternate win con",
+                          "{name} won with an alternate win condition"],
+                matchAll: false
+            )
+        ),
     ]
 
     private var configs: [String: TriggerConfig] = [:]

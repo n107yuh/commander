@@ -3,7 +3,7 @@ import { formatDate } from '@/lib/format'
 import type { CatalogAchievement } from '@/lib/achievements'
 import { TallyMarks } from './TallyMarks'
 import { ColorWheel } from './ColorWheel'
-import { ChampionCrown } from './ChampionCrown'
+import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -13,8 +13,12 @@ function iconFor(id: string): string {
 }
 
 function badgeFor(a: CatalogAchievement) {
-  if (a.id === 'ultimatechampion') {
-    return <span className={a.isEarned ? '' : 'opacity-40 grayscale'}><ChampionCrown size={20} /></span>
+  if (CHAMPION_VARIANT[a.id]) {
+    return (
+      <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
+        <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={20} />
+      </span>
+    )
   }
   if (a.tally !== undefined) {
     return <TallyMarks count={a.tally} tone={a.id.toLowerCase().includes('loss') ? 'loss' : 'win'} />

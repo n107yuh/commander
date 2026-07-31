@@ -1,6 +1,6 @@
 import { ACHIEVEMENT_REFERENCE } from '@/lib/achievements'
 import { ICON } from '@/components/AchievementPill'
-import { ChampionCrown } from '@/components/ChampionCrown'
+import { ChampionCrown, CHAMPION_VARIANT } from '@/components/ChampionCrown'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -31,8 +31,8 @@ export default function AchievementsPage() {
             {byCategory[cat].map(a => (
               <div key={a.id} className="flex items-start gap-3 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2.5">
                 <span className="mt-0.5 shrink-0">
-                  {a.id === 'ultimatechampion'
-                    ? <ChampionCrown size={20} />
+                  {CHAMPION_VARIANT[a.id]
+                    ? <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={20} />
                     : <span className="text-lg leading-none">{iconFor(a.id)}</span>}
                 </span>
                 <div className="min-w-0">

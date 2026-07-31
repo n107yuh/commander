@@ -1,15 +1,35 @@
-// The distinct, more ornate crown used for the Ultimate Champion achievement (vs. the plain 👑
-// emoji used for Digichampion/IRLchampion). Animates through the rainbow via the .champion-hue-cycle
-// class defined in globals.css.
-export function ChampionCrown({ size = 20, animated = true }: { size?: number; animated?: boolean }) {
+// The 👑 crown used for the three champion achievements, tinted to match the dashboard banner's
+// color scheme: Ultimate Champion cycles through the rainbow (.champion-hue-cycle in globals.css),
+// Digital Champion is blue, IRL Champion is silver — done via CSS filter since a full-color emoji
+// glyph ignores the `color` property.
+const FILTER: Record<'blue' | 'silver', string> = {
+  blue: 'hue-rotate(165deg) saturate(1.6)',
+  silver: 'grayscale(1) brightness(1.35)',
+}
+
+export const CHAMPION_VARIANT: Record<string, 'cycle' | 'blue' | 'silver'> = {
+  ultimatechampion: 'cycle',
+  digitalchampion: 'blue',
+  irlchampion: 'silver',
+}
+
+export function ChampionCrown({
+  variant,
+  size = 20,
+}: {
+  variant: 'cycle' | 'blue' | 'silver'
+  size?: number
+}) {
+  if (variant === 'cycle') {
+    return (
+      <span className="champion-hue-cycle inline-block leading-none" style={{ fontSize: size }}>
+        👑
+      </span>
+    )
+  }
   return (
-    <span className={`inline-flex text-amber-400 ${animated ? 'champion-hue-cycle' : ''}`}>
-      <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor">
-        <path d="M4,19 L4,14 L7,6 L9,12 L12,5 L15,12 L17,6 L20,14 L20,19 Z" />
-        <circle cx="7" cy="6" r="1.3" />
-        <circle cx="12" cy="5" r="1.4" />
-        <circle cx="17" cy="6" r="1.3" />
-      </svg>
+    <span className="inline-block leading-none" style={{ fontSize: size, filter: FILTER[variant] }}>
+      👑
     </span>
   )
 }

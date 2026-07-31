@@ -6,6 +6,7 @@ import { ColorWheel } from './ColorWheel'
 import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 import { TintedEmoji, tintFor } from './TintedEmoji'
 import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
+import { DiceIcon, diceShapeFor } from './DiceIcon'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -20,6 +21,13 @@ function badgeFor(a: CatalogAchievement) {
     return (
       <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
         <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={20} />
+      </span>
+    )
+  }
+  if (diceShapeFor(a.id)) {
+    return (
+      <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
+        <DiceIcon id={a.id} size={20} />
       </span>
     )
   }

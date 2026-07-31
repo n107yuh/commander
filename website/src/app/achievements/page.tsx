@@ -3,6 +3,7 @@ import { ICON } from '@/components/AchievementPill'
 import { ChampionCrown, CHAMPION_VARIANT } from '@/components/ChampionCrown'
 import { TintedEmoji, tintFor } from '@/components/TintedEmoji'
 import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
+import { DiceIcon, diceShapeFor } from '@/components/DiceIcon'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -36,6 +37,8 @@ export default function AchievementsPage() {
                 <span className="mt-0.5 shrink-0">
                   {CHAMPION_VARIANT[a.id] ? (
                     <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={20} />
+                  ) : diceShapeFor(a.id) ? (
+                    <DiceIcon id={a.id} size={20} />
                   ) : tintFor(a.id) ? (
                     <TintedEmoji emoji={iconFor(a.id)} tint={tintFor(a.id)!} size={18} />
                   ) : (

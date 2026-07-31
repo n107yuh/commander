@@ -872,7 +872,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-07-31T04:36:01Z",
+  "exportedAt" : "2026-07-31T14:27:33Z",
   "games" : [
     {
       "date" : "2026-07-31T03:48:09Z",
@@ -922,11 +922,6 @@
             "G"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Lose 15 games.",
-              "id" : "losses-15",
-              "title" : "15 Losses"
-            },
             {
               "description" : "Go first but finish last.",
               "id" : "botchedit",
@@ -1109,11 +1104,6 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Lose 20 games.",
-              "id" : "losses-20",
-              "title" : "20 Losses"
-            },
-            {
               "description" : "Play Sol Ring on turn 1 and still lose.",
               "id" : "solring1-loss",
               "title" : "Sol Ring Wasn't Enough"
@@ -1122,6 +1112,11 @@
               "description" : "Play 25 total games.",
               "id" : "games-25",
               "title" : "25 Games"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
             }
           ],
           "turnOrder" : 2
@@ -1618,7 +1613,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
           "turnOrder" : 3
         },
@@ -1727,14 +1726,14 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Lose 15 games.",
-              "id" : "losses-15",
-              "title" : "15 Losses"
-            },
-            {
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
             }
           ],
           "turnOrder" : 2
@@ -2000,7 +1999,11 @@
             "G"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
           "turnOrder" : 3
         },
@@ -2368,7 +2371,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
           "turnOrder" : 3
         },
@@ -2879,7 +2886,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
           "turnOrder" : 2
         }
@@ -3012,7 +3023,11 @@
             "G"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
           "turnOrder" : 2
         },
@@ -3416,9 +3431,9 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 15 games.",
-          "id" : "losses-15",
-          "title" : "15 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -3540,6 +3555,11 @@
           "title" : "First Blood"
         },
         {
+          "description" : "Go last and finish last.",
+          "id" : "wentlast",
+          "title" : "Doomed From The Start"
+        },
+        {
           "description" : "Deal 50+ rat damage in a single game.",
           "id" : "justin-ratking",
           "title" : "Rat King"
@@ -3657,9 +3677,9 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 20 games.",
-          "id" : "losses-20",
-          "title" : "20 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Consecutive wins since your last loss.",
@@ -3725,6 +3745,11 @@
           "description" : "Go first but finish last.",
           "id" : "botchedit",
           "title" : "Botched It"
+        },
+        {
+          "description" : "Go last and finish last.",
+          "id" : "wentlast",
+          "title" : "Doomed From The Start"
         },
         {
           "description" : "Play an entire game without attacking another player.",

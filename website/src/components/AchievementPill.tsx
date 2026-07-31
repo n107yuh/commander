@@ -1,5 +1,6 @@
 import type { AchievementData } from '@/lib/types'
 import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
+import { TintedEmoji, tintFor } from './TintedEmoji'
 
 export const ICON: Record<string, string> = {
   'firstblood': '🩸',
@@ -70,7 +71,13 @@ export function AchievementPill({ a, count }: { a: AchievementData; count?: numb
   return (
     <span className="relative group/pill inline-block">
       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap">
-        {CHAMPION_VARIANT[a.id] ? <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={14} /> : <span>{icon}</span>}
+        {CHAMPION_VARIANT[a.id] ? (
+          <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={14} />
+        ) : tintFor(a.id) ? (
+          <TintedEmoji emoji={icon} tint={tintFor(a.id)!} size={14} />
+        ) : (
+          <span>{icon}</span>
+        )}
         <span>{title}{count && count >= 2 ? ` ×${count}` : ''}</span>
       </span>
       <span className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover/pill:block w-56 z-20 rounded-md bg-slate-950 border border-slate-700 px-2.5 py-1.5 text-xs leading-snug text-slate-200 shadow-lg whitespace-normal">

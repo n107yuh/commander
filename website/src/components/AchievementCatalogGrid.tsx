@@ -4,6 +4,7 @@ import type { CatalogAchievement } from '@/lib/achievements'
 import { TallyMarks } from './TallyMarks'
 import { ColorWheel } from './ColorWheel'
 import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
+import { TintedEmoji, tintFor } from './TintedEmoji'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -17,6 +18,14 @@ function badgeFor(a: CatalogAchievement) {
     return (
       <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
         <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={20} />
+      </span>
+    )
+  }
+  const tint = tintFor(a.id)
+  if (tint) {
+    return (
+      <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
+        <TintedEmoji emoji={iconFor(a.id)} tint={tint} size={18} />
       </span>
     )
   }

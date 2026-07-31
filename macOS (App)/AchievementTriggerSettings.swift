@@ -141,16 +141,6 @@ final class AchievementTriggerSettings {
             )
         ),
         TriggerDef(
-            id: "justin-rat",
-            title: "Clamp Me Daddy",
-            icon: "pawprint.fill",
-            tint: Color(red: 0.60, green: 0.45, blue: 0.25),
-            requiresPlayerName: false,
-            namePlaceholderHint: false,
-            victimPlaceholderHint: false,
-            defaultConfig: TriggerConfig(phrases: ["rat clamp", "rat skull"], matchAll: false)
-        ),
-        TriggerDef(
             id: "nat20",
             title: "Natural 20",
             icon: "die.face.6.fill",

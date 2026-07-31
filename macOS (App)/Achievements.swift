@@ -889,17 +889,36 @@ func computeAchievementCatalog(
         }
 
         if thisPlayer.contains("justin") {
-            let count = noteCount(in: participations) { _, notes in
-                AchievementTriggerSettings.shared.matches(notes: notes, id: "justin-rat", playerName: thisPlayer)
-            }
+            // Rat King — deal 50+ rat damage in a single game (summed from every "N rat damage"
+            // mention in that game's notes).
+            let perGameRatDamage = ratDamagePerGame(in: participations)
+            let bestGame = perGameRatDamage.max() ?? 0
+            let ratKingEarned = bestGame >= 50
             result.append(Achievement(
-                id: "justin-rat",
-                title: "Clamp Me Daddy",
-                description: "Justin skullclamps a rat.",
-                progress: count > 0 ? "Earned \(count) time\(count == 1 ? "" : "s")" : "Not yet earned.",
+                id: "justin-ratking",
+                title: "Rat King",
+                description: "Deal 50+ rat damage in a single game.",
+                progress: ratKingEarned
+                    ? "Unlocked (\(bestGame) rat damage in one game)"
+                    : "\(bestGame) of 50 rat damage in a single game",
                 display: .icon("pawprint.fill"),
-                tint: Color(red: 0.60, green: 0.45, blue: 0.25),
-                isEarned: count > 0
+                tint: Color(red: 0.55, green: 0.30, blue: 0.15),
+                isEarned: ratKingEarned
+            ))
+
+            // Pied Piper — 5,000 lifetime rat damage across all games.
+            let lifetimeRatDamage = perGameRatDamage.reduce(0, +)
+            let piedPiperEarned = lifetimeRatDamage >= 5000
+            result.append(Achievement(
+                id: "justin-piedpiper",
+                title: "Pied Piper",
+                description: "Deal 5,000 total rat damage across all games.",
+                progress: piedPiperEarned
+                    ? "Unlocked (\(lifetimeRatDamage) lifetime rat damage)"
+                    : "\(lifetimeRatDamage) of 5,000 lifetime rat damage",
+                display: .icon("pawprint.fill"),
+                tint: Color(red: 0.65, green: 0.50, blue: 0.15),
+                isEarned: piedPiperEarned
             ))
         }
 
@@ -997,7 +1016,8 @@ func computeEarnedAchievements(
     for id in ["popularcommander",
                "connoisseur", "loyalpilot",
                "monomaster", "dualmaster", "trimaster", "tastetherainbow",
-               "jake-wizard", "margolis-graveyard", "pertman-wait", "noah-matthew", "justin-rat", "max-zeus"] {
+               "jake-wizard", "margolis-graveyard", "pertman-wait", "noah-matthew",
+               "justin-ratking", "justin-piedpiper", "max-zeus"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
     }
     return result
@@ -1337,16 +1357,8 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
         ))
     }
 
-    if playerName.contains("justin") &&
-       AchievementTriggerSettings.shared.matches(notes: notes, id: "justin-rat", playerName: playerName) {
-        result.append(Achievement(
-            id: "justin-rat", title: "Clamp Me Daddy",
-            description: "Justin skullclamps a rat.",
-            progress: "Earned this game",
-            display: .icon("pawprint.fill"),
-            tint: Color(red: 0.60, green: 0.45, blue: 0.25), isEarned: true
-        ))
-    }
+    // Rat King and Pied Piper are cumulative (best single game / lifetime total), so they're picked
+    // up automatically by allAchievementsEarnedThisGame's before/after delta rather than checked here.
 
     if playerName.contains("max") {
         result.append(Achievement(
@@ -1559,6 +1571,33 @@ private func noteCount(in participations: [GameParticipant], match: (GamePartici
         if match(p, game.notes.lowercased()) { count += 1 }
     }
     return count
+}
+
+/// Sums every "<number> rat damage" mention in a game's notes (case-insensitive), e.g. notes reading
+/// "dealt 12 rat damage, then 15 more rat damage" sum to 27. Used by Justin's Rat King/Pied Piper —
+/// unlike the phrase-based triggers, this is a fixed numeric pattern, not user-configurable.
+private func ratDamageInNotes(_ notes: String) -> Int {
+    guard let regex = try? NSRegularExpression(pattern: #"(\d+)\s*rat\s*damage"#, options: .caseInsensitive) else {
+        return 0
+    }
+    let range = NSRange(notes.startIndex..., in: notes)
+    var total = 0
+    regex.enumerateMatches(in: notes, range: range) { match, _, _ in
+        guard let match, let numRange = Range(match.range(at: 1), in: notes) else { return }
+        total += Int(notes[numRange]) ?? 0
+    }
+    return total
+}
+
+/// Per-game rat damage totals across a set of participations, one entry per distinct game.
+private func ratDamagePerGame(in participations: [GameParticipant]) -> [Int] {
+    var seen = Set<PersistentIdentifier>()
+    var totals: [Int] = []
+    for p in participations {
+        guard let game = p.game, seen.insert(game.persistentModelID).inserted else { continue }
+        totals.append(ratDamageInNotes(game.notes))
+    }
+    return totals
 }
 
 /// Shared by every kill/death achievement pair (Commander Damage, Mill, Poison), which all check the

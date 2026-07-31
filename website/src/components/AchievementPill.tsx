@@ -1,11 +1,12 @@
 import type { AchievementData } from '@/lib/types'
 import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 import { TintedEmoji, tintFor } from './TintedEmoji'
+import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
 
 export const ICON: Record<string, string> = {
   'firstblood': '🩸',
   'comefrombehind': '🐢',
-  'botchedit': '💀',
+  'botchedit': '🔪',
   'wentlast': '🪦',
   'pacifist': '☮️',
   'flyonthewall': '👁️',
@@ -66,7 +67,7 @@ const TITLE_OVERRIDE: Record<string, string> = {
 }
 
 export function AchievementPill({ a, count }: { a: AchievementData; count?: number }) {
-  const icon = ICON[a.id] ?? '🏆'
+  const icon = LOSS_TIER_EMOJI[a.id] ?? ICON[a.id] ?? '🏆'
   const title = TITLE_OVERRIDE[a.id] ?? a.title
   return (
     <span className="relative group/pill inline-block">

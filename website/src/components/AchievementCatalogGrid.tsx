@@ -5,9 +5,11 @@ import { TallyMarks } from './TallyMarks'
 import { ColorWheel } from './ColorWheel'
 import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 import { TintedEmoji, tintFor } from './TintedEmoji'
+import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
+  if (LOSS_TIER_EMOJI[id]) return LOSS_TIER_EMOJI[id]
   if (id.startsWith('losses-')) return '💀'
   if (id.startsWith('games-')) return '🎖️'
   return ICON[id] ?? '🏆'

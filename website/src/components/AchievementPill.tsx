@@ -2,7 +2,7 @@ import type { AchievementData } from '@/lib/types'
 import { ChampionCrown, CHAMPION_VARIANT } from './ChampionCrown'
 import { TintedEmoji, tintFor } from './TintedEmoji'
 import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
-import { DiceIcon, diceShapeFor } from './DiceIcon'
+import { RollBadge, rollShapeFor } from './RollBadge'
 
 export const ICON: Record<string, string> = {
   'firstblood': '🩸',
@@ -17,7 +17,7 @@ export const ICON: Record<string, string> = {
   'nice': '😏',
   'digitalchampion': '👑',
   'irlchampion': '👑',
-  'formatdiplomat': '🌐',
+  'formatdiplomat': '🌍',
   'ultimatechampion': '👑',
   'winstreak': '📈',
   'bestwinstreak': '📈',
@@ -75,8 +75,8 @@ export function AchievementPill({ a, count }: { a: AchievementData; count?: numb
       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-slate-800 border border-slate-700 text-slate-300 whitespace-nowrap">
         {CHAMPION_VARIANT[a.id] ? (
           <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={14} />
-        ) : diceShapeFor(a.id) ? (
-          <DiceIcon id={a.id} size={14} />
+        ) : rollShapeFor(a.id) ? (
+          <RollBadge id={a.id} size={14} />
         ) : tintFor(a.id) ? (
           <TintedEmoji emoji={icon} tint={tintFor(a.id)!} size={14} />
         ) : (

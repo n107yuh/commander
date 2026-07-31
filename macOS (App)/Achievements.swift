@@ -339,6 +339,20 @@ func computeAchievementCatalog(
         isEarned: botchedCount > 0
     ))
 
+    // Doomed From The Start — went last and still finished last.
+    let lastCount = wentLastCount(in: participations)
+    result.append(Achievement(
+        id: "wentlast",
+        title: "Doomed From The Start",
+        description: "Go last and finish last.",
+        progress: lastCount > 0
+            ? "Earned \(lastCount) time\(lastCount == 1 ? "" : "s")"
+            : "Go last and finish last.",
+        display: .icon("arrow.down.circle.fill"),
+        tint: Color(red: 0.45, green: 0.25, blue: 0.35),
+        isEarned: lastCount > 0
+    ))
+
     // Pacifist — never attacked another player (pilot's name + keyword in notes).
     // Checked per-participation (not a single fixed player) so this also works
     // for commander catalogs, where each participation may have a different pilot.
@@ -1004,7 +1018,7 @@ func computeEarnedAchievements(
     if let a = catalog.first(where: { $0.id == "marathonsurvivor" && $0.isEarned })    { result.append(a) }
 
     for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion",
-               "firstblood", "comefrombehind", "botchedit", "pacifist", "flyonthewall", "infinitecombo", "52pickup", "hattrick", "nice",
+               "firstblood", "comefrombehind", "botchedit", "wentlast", "pacifist", "flyonthewall", "infinitecombo", "52pickup", "hattrick", "nice",
                "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss",
                "commanderdamagekill", "commanderdamagedeath", "dickswidth", "milledkill", "milleddeath",
                "poisonkill", "poisondeath", "loophole"] {
@@ -1097,6 +1111,18 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             progress: "Earned this game",
             display: .icon("figure.fall"),
             tint: Color(red: 0.55, green: 0.15, blue: 0.15), isEarned: true
+        ))
+    }
+
+    // Doomed From The Start — went last and still finished last.
+    if participation.turnOrder >= 0 && validTurns.count >= 2, let maxTurn = validTurns.max(), participation.turnOrder == maxTurn,
+       placements.count >= 2, let maxPlacement = placements.max(), participation.placement == maxPlacement {
+        result.append(Achievement(
+            id: "wentlast", title: "Doomed From The Start",
+            description: "Go last and finish last.",
+            progress: "Earned this game",
+            display: .icon("arrow.down.circle.fill"),
+            tint: Color(red: 0.45, green: 0.25, blue: 0.35), isEarned: true
         ))
     }
 
@@ -1515,6 +1541,17 @@ private func firstBloodCount(in participations: [GameParticipant]) -> Int {
 private func botchedItCount(in participations: [GameParticipant]) -> Int {
     participations.filter { p in
         guard p.turnOrder == 0, let game = p.game else { return false }
+        let placements = game.participants.map { $0.placement }
+        guard placements.count >= 2, let maxPlacement = placements.max() else { return false }
+        return p.placement == maxPlacement
+    }.count
+}
+
+private func wentLastCount(in participations: [GameParticipant]) -> Int {
+    participations.filter { p in
+        guard p.turnOrder >= 0, let game = p.game else { return false }
+        let validTurns = game.participants.compactMap { $0.turnOrder >= 0 ? $0.turnOrder : nil }
+        guard validTurns.count >= 2, let maxTurn = validTurns.max(), p.turnOrder == maxTurn else { return false }
         let placements = game.participants.map { $0.placement }
         guard placements.count >= 2, let maxPlacement = placements.max() else { return false }
         return p.placement == maxPlacement

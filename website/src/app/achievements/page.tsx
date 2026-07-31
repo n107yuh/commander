@@ -4,6 +4,21 @@ import { ChampionCrown, CHAMPION_VARIANT } from '@/components/ChampionCrown'
 import { TintedEmoji, tintFor } from '@/components/TintedEmoji'
 import { LOSS_TIER_EMOJI } from '@/lib/lossTiers'
 import { RollBadge, rollShapeFor } from '@/components/RollBadge'
+import { ColorWheel } from '@/components/ColorWheel'
+import { TallyMarks } from '@/components/TallyMarks'
+
+// This page is a static reference (no earned/unearned state), so color-mastery
+// wheels always render fully filled in, as if the achievement had been popped.
+const FULL_WHEEL: Record<string, { segments: string[]; completed: string[] }> = {
+  monomaster: { segments: ['W', 'U', 'B', 'R', 'G', 'C'], completed: ['W', 'U', 'B', 'R', 'G', 'C'] },
+  dualmaster: { segments: ['W', 'U', 'B', 'R', 'G'], completed: ['W', 'U', 'B', 'R', 'G'] },
+  trimaster: { segments: ['W', 'U', 'B', 'R', 'G'], completed: ['W', 'U', 'B', 'R', 'G'] },
+  tastetherainbow: { segments: ['W', 'U', 'B', 'R', 'G'], completed: ['W', 'U', 'B', 'R', 'G'] },
+}
+
+// Streaks have no live count on this static reference page, so just show the same
+// "—" dash TallyMarks already renders for an inactive streak elsewhere on the site.
+const STREAK_IDS = new Set(['winstreak', 'bestwinstreak', 'lossstreak', 'bestlossstreak'])
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
@@ -37,8 +52,12 @@ export default function AchievementsPage() {
                 <span className="mt-0.5 shrink-0">
                   {CHAMPION_VARIANT[a.id] ? (
                     <ChampionCrown variant={CHAMPION_VARIANT[a.id]} size={20} />
+                  ) : STREAK_IDS.has(a.id) ? (
+                    <TallyMarks count={0} tone="win" />
                   ) : rollShapeFor(a.id) ? (
                     <RollBadge id={a.id} size={20} />
+                  ) : FULL_WHEEL[a.id] ? (
+                    <ColorWheel segments={FULL_WHEEL[a.id].segments} completed={FULL_WHEEL[a.id].completed} size={18} />
                   ) : tintFor(a.id) ? (
                     <TintedEmoji emoji={iconFor(a.id)} tint={tintFor(a.id)!} size={18} />
                   ) : (

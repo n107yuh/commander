@@ -3,6 +3,6 @@
 export const LOSS_TIER_EMOJI: Record<string, string> = {
   'losses-5': '💀',
   'losses-10': '☠️',
-  'losses-15': '⚰️',
-  'losses-20': '⚱️',
+  'losses-25': '⚰️',
+  'losses-50': '⚱️',
 }

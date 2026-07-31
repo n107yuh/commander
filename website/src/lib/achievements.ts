@@ -140,7 +140,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
   // Win/loss/games milestone tiers
   const wins = asc.filter(x => x.part.didWin)
   const losses = asc.filter(x => !x.part.didWin)
-  for (const n of [5, 10, 15, 20]) {
+  for (const n of [5, 10, 25, 50]) {
     const earned = wins.length >= n
     result.push({
       id: `wins-${n}`, title: `${n} Wins`, description: `Win ${n} games.`, category: 'Win Milestones',
@@ -148,7 +148,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       earnedDate: earned ? wins[n - 1].date : null,
     })
   }
-  for (const n of [5, 10, 15, 20]) {
+  for (const n of [5, 10, 25, 50]) {
     const earned = losses.length >= n
     result.push({
       id: `losses-${n}`, title: `${n} Losses`, description: `Lose ${n} games.`, category: 'Loss Milestones',
@@ -294,7 +294,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', prompt: 'Go first and finish last.' },
     { id: 'wentlast', title: 'Doomed From The Start', description: 'Go last and finish last.', prompt: 'Go last and finish last.' },
     ...(showPlayerOnly ? [
-      { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', prompt: 'End a game with 69 life.' },
+      { id: 'nice', title: 'Nice', description: 'Win a game with exactly 69 life remaining.', prompt: 'Win a game with 69 life remaining.' },
     ] : []),
     { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', prompt: 'Win a game with 1 life left.' },
     { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', prompt: 'Pull off an infinite combo.' },
@@ -315,7 +315,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
   const winConditions: { id: string; title: string; description: string; prompt: string }[] = [
     { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', prompt: 'Kill someone with commander damage.' },
     { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', prompt: 'Get eliminated by commander damage.' },
-    { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', prompt: 'Mill someone out of cards.' },
+    { id: 'milledkill', title: "Milled 'em To A Pulp", description: 'Eliminate another player by milling out their deck.', prompt: 'Mill someone out of cards.' },
     { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', prompt: 'Get milled out of cards.' },
     { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', prompt: 'Kill someone with 10 poison counters.' },
     { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', prompt: 'Get eliminated by 10 poison counters.' },
@@ -502,8 +502,8 @@ export function computeCommanderAchievementCatalog(games: GameData[], commanderN
 // Static reference list of every achievement type, for the standalone
 // /achievements catalog page — titles/descriptions only, no per-player state.
 export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: string; category: string }[] = [
-  ...[5, 10, 15, 20].map(n => ({ id: `wins-${n}`, title: `${n} Wins`, description: `Win ${n} games.`, category: 'Win Milestones' })),
-  ...[5, 10, 15, 20].map(n => ({ id: `losses-${n}`, title: `${n} Losses`, description: `Lose ${n} games.`, category: 'Loss Milestones' })),
+  ...[5, 10, 25, 50].map(n => ({ id: `wins-${n}`, title: `${n} Wins`, description: `Win ${n} games.`, category: 'Win Milestones' })),
+  ...[5, 10, 25, 50].map(n => ({ id: `losses-${n}`, title: `${n} Losses`, description: `Lose ${n} games.`, category: 'Loss Milestones' })),
   { id: 'winstreak', title: 'Win Streak', description: 'Consecutive wins since the last loss.', category: 'Streaks' },
   { id: 'bestwinstreak', title: 'Best Win Streak', description: 'The longest winning streak ever.', category: 'Streaks' },
   { id: 'lossstreak', title: 'Loss Streak', description: 'Consecutive losses since the last win.', category: 'Streaks' },
@@ -529,13 +529,13 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'comefrombehind', title: 'Come From Behind', description: 'Win a game after going last.', category: 'Game Moments' },
   { id: 'botchedit', title: 'Botched It', description: 'Go first but finish last.', category: 'Game Moments' },
   { id: 'wentlast', title: 'Doomed From The Start', description: 'Go last and finish last.', category: 'Game Moments' },
-  { id: 'nice', title: 'Nice', description: 'End the game with exactly 69 life.', category: 'Game Moments' },
+  { id: 'nice', title: 'Nice', description: 'Win a game with exactly 69 life remaining.', category: 'Game Moments' },
   { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', category: 'Game Moments' },
   { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', category: 'Game Moments' },
   { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Win Conditions' },
   { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Win Conditions' },
-  { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', category: 'Win Conditions' },
+  { id: 'milledkill', title: "Milled 'em To A Pulp", description: 'Eliminate another player by milling out their deck.', category: 'Win Conditions' },
   { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', category: 'Win Conditions' },
   { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', category: 'Win Conditions' },
   { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', category: 'Win Conditions' },

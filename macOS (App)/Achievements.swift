@@ -88,8 +88,8 @@ func computeAchievementCatalog(
     let trophyTiers: [(Int, String, Color)] = [
         (5,  "Bronze",   bronzeTint),
         (10, "Silver",   silverTint),
-        (15, "Gold",     goldTint),
-        (20, "Platinum", platinumTint)
+        (25, "Gold",     goldTint),
+        (50, "Platinum", platinumTint)
     ]
     for (n, _, tint) in trophyTiers {
         let earned = wins >= n
@@ -108,8 +108,8 @@ func computeAchievementCatalog(
     let lossTiers: [(Int, String, Color)] = [
         (5,  "Bronze",   bronzeTint),
         (10, "Silver",   silverTint),
-        (15, "Gold",     goldTint),
-        (20, "Platinum", platinumTint)
+        (25, "Gold",     goldTint),
+        (50, "Platinum", platinumTint)
     ]
     for (n, _, tint) in lossTiers {
         let earned = losses >= n
@@ -385,7 +385,7 @@ func computeAchievementCatalog(
         progress: flyCount > 0
             ? "Earned \(flyCount) time\(flyCount == 1 ? "" : "s")"
             : "Play a game without dealing any damage.",
-        display: .icon("eye.fill"),
+        display: .emoji("🫥"),
         tint: Color(red: 0.50, green: 0.55, blue: 0.70),
         isEarned: flyCount > 0
     ))
@@ -564,13 +564,13 @@ func computeAchievementCatalog(
     }
     result.append(Achievement(
         id: "milledkill",
-        title: "Milled 'em to a Pulp",
+        title: "Milled 'em To A Pulp",
         description: "Eliminate another player by milling out their deck.",
         progress: milledKillCount > 0
             ? "Earned \(milledKillCount) time\(milledKillCount == 1 ? "" : "s")"
             : "Mill someone out of cards.",
-        display: .icon("books.vertical.fill"),
-        tint: Color(red: 0.55, green: 0.40, blue: 0.20),
+        display: .icon("archivebox.fill"),
+        tint: .green,
         isEarned: milledKillCount > 0
     ))
 
@@ -584,8 +584,8 @@ func computeAchievementCatalog(
         progress: milledDeathCount > 0
             ? "Earned \(milledDeathCount) time\(milledDeathCount == 1 ? "" : "s")"
             : "Get milled out of cards.",
-        display: .icon("books.vertical.fill"),
-        tint: Color(red: 0.40, green: 0.35, blue: 0.30),
+        display: .icon("archivebox.fill"),
+        tint: .red,
         isEarned: milledDeathCount > 0
     ))
 
@@ -601,8 +601,8 @@ func computeAchievementCatalog(
         progress: poisonKillCount > 0
             ? "Earned \(poisonKillCount) time\(poisonKillCount == 1 ? "" : "s")"
             : "Kill someone with 10 poison counters.",
-        display: .icon("cross.vial.fill"),
-        tint: Color(red: 0.25, green: 0.65, blue: 0.30),
+        display: .icon("drop.fill"),
+        tint: Color(red: 0.30, green: 0.85, blue: 0.35),
         isEarned: poisonKillCount > 0
     ))
 
@@ -616,7 +616,7 @@ func computeAchievementCatalog(
         progress: poisonDeathCount > 0
             ? "Earned \(poisonDeathCount) time\(poisonDeathCount == 1 ? "" : "s")"
             : "Get eliminated by 10 poison counters.",
-        display: .emoji("☠️"),
+        display: .emoji("🍷"),
         tint: Color(red: 0.30, green: 0.55, blue: 0.30),
         isEarned: poisonDeathCount > 0
     ))
@@ -684,10 +684,10 @@ func computeAchievementCatalog(
         result.append(Achievement(
             id: "nice",
             title: "Nice",
-            description: "End the game with exactly 69 life.",
+            description: "Win a game with exactly 69 life remaining.",
             progress: niceCount > 0
                 ? "Earned \(niceCount) time\(niceCount == 1 ? "" : "s")"
-                : "End a game with 69 life.",
+                : "Win a game with 69 life remaining.",
             display: .tintedNumber(69, Color(red: 0.40, green: 0.75, blue: 0.45)),
             tint: .clear,
             isEarned: niceCount > 0
@@ -756,7 +756,7 @@ func computeAchievementCatalog(
             progress: loyalMax >= 10
                 ? "Unlocked (\(loyalMax) games)"
                 : "\(loyalMax) games with favorite commander",
-            display: .icon("repeat.circle.fill"),
+            display: .emoji("🧑‍✈️"),
             tint: Color(red: 0.45, green: 0.35, blue: 0.75),
             isEarned: loyalMax >= 10
         ))
@@ -1148,7 +1148,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             id: "flyonthewall", title: "Fly On The Wall",
             description: "Play an entire game without dealing any damage.",
             progress: "Earned this game",
-            display: .icon("eye.fill"),
+            display: .emoji("🫥"),
             tint: Color(red: 0.50, green: 0.55, blue: 0.70),
             isEarned: true
         ))
@@ -1265,11 +1265,11 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     // Milled 'em to a Pulp / Library Card: Declined
     if triggeredTwoPlayerEvent(for: participation, triggerID: "milled", asInitiator: true) {
         result.append(Achievement(
-            id: "milledkill", title: "Milled 'em to a Pulp",
+            id: "milledkill", title: "Milled 'em To A Pulp",
             description: "Eliminate another player by milling out their deck.",
             progress: "Earned this game",
-            display: .icon("books.vertical.fill"),
-            tint: Color(red: 0.55, green: 0.40, blue: 0.20), isEarned: true
+            display: .icon("archivebox.fill"),
+            tint: .green, isEarned: true
         ))
     }
     if triggeredTwoPlayerEvent(for: participation, triggerID: "milled", asInitiator: false) {
@@ -1277,8 +1277,8 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             id: "milleddeath", title: "Library Card: Declined",
             description: "Get eliminated by being milled out of cards.",
             progress: "Earned this game",
-            display: .icon("books.vertical.fill"),
-            tint: Color(red: 0.40, green: 0.35, blue: 0.30), isEarned: true
+            display: .icon("archivebox.fill"),
+            tint: .red, isEarned: true
         ))
     }
 
@@ -1288,8 +1288,8 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             id: "poisonkill", title: "Assassino!",
             description: "Eliminate another player with 10 poison counters.",
             progress: "Earned this game",
-            display: .icon("cross.vial.fill"),
-            tint: Color(red: 0.25, green: 0.65, blue: 0.30), isEarned: true
+            display: .icon("drop.fill"),
+            tint: Color(red: 0.30, green: 0.85, blue: 0.35), isEarned: true
         ))
     }
     if triggeredTwoPlayerEvent(for: participation, triggerID: "poison", asInitiator: false) {
@@ -1297,7 +1297,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             id: "poisondeath", title: "Inconceivable!",
             description: "Get eliminated by 10 poison counters.",
             progress: "Earned this game",
-            display: .emoji("☠️"),
+            display: .emoji("🍷"),
             tint: Color(red: 0.30, green: 0.55, blue: 0.30), isEarned: true
         ))
     }
@@ -1331,7 +1331,7 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     if !playerName.isEmpty && AchievementTriggerSettings.shared.matches(notes: notes, id: "nice", playerName: playerName) {
         result.append(Achievement(
             id: "nice", title: "Nice",
-            description: "End the game with exactly 69 life.",
+            description: "Win a game with exactly 69 life remaining.",
             progress: "Earned this game",
             display: .tintedNumber(69, Color(red: 0.40, green: 0.75, blue: 0.45)),
             tint: .clear,

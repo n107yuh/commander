@@ -4,7 +4,7 @@ export const ICON: Record<string, string> = {
   'firstblood': '🩸',
   'comefrombehind': '🐢',
   'botchedit': '💀',
-  'wentlast': '⬇️',
+  'wentlast': '🪦',
   'pacifist': '☮️',
   'flyonthewall': '👁️',
   'infinitecombo': '♾️',
@@ -50,7 +50,7 @@ export const ICON: Record<string, string> = {
   'milleddeath': '📚',
   'poisonkill': '🧪',
   'poisondeath': '☠️',
-  'loophole': '🕳️',
+  'loophole': '🔓',
 }
 
 // The Mac app's export inconsistently titles some achievements depending on

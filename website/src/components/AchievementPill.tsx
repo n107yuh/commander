@@ -45,7 +45,7 @@ export const ICON: Record<string, string> = {
   'commanderdamagedeath': '🛡️',
   'solring1-win': '💍',
   'solring1-loss': '💍',
-  'dickswidth': '1️⃣',
+  'dickswidth': '🍆',
   'milledkill': '📚',
   'milleddeath': '📚',
   'poisonkill': '🧪',

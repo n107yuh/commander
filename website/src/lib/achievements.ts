@@ -18,6 +18,8 @@ export interface CatalogAchievement {
   progress: string
   isEarned: boolean
   earnedDate: string | null
+  tally?: number
+  wheel?: { segments: string[]; completed: string[] }
 }
 
 interface Dated {
@@ -27,6 +29,27 @@ interface Dated {
 }
 
 const WUBRG = ['W', 'U', 'B', 'R', 'G']
+
+// Mirrors dualCombosPerColor/triCombosPerColor in the Mac app's Achievements.swift: which base
+// color a combo belongs to, used to derive the 5-segment wheel display from the raw set of won
+// combo keys (a segment is "complete" only once every combo containing that color is won).
+const DUAL_COMBOS_PER_COLOR: Record<string, string[]> = {
+  W: ['WU', 'WB', 'WR', 'WG'],
+  U: ['WU', 'UB', 'UR', 'UG'],
+  B: ['WB', 'UB', 'BR', 'BG'],
+  R: ['WR', 'UR', 'BR', 'RG'],
+  G: ['WG', 'UG', 'BG', 'RG'],
+}
+const TRI_COMBOS_PER_COLOR: Record<string, string[]> = {
+  W: ['WUB', 'WUR', 'WUG', 'WBR', 'WBG', 'WRG'],
+  U: ['WUB', 'WUR', 'WUG', 'UBR', 'UBG', 'URG'],
+  B: ['WUB', 'WBR', 'WBG', 'UBR', 'UBG', 'BRG'],
+  R: ['WUR', 'WBR', 'WRG', 'UBR', 'URG', 'BRG'],
+  G: ['WUG', 'WBG', 'WRG', 'UBG', 'URG', 'BRG'],
+}
+function completedColorSegments(won: Set<string>, table: Record<string, string[]>): string[] {
+  return Object.entries(table).filter(([, combos]) => combos.every(c => won.has(c))).map(([color]) => color)
+}
 
 function playerParticipations(games: GameData[], playerName: string): Dated[] {
   const result: Dated[] = []
@@ -159,18 +182,22 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
   result.push({
     id: 'winstreak', title: 'Win Streak', description: 'Consecutive wins since the last loss.', category: 'Streaks',
     isEarned: curWin > 0, progress: curWin > 0 ? `${curWin} wins in a row` : 'No active win streak.', earnedDate: curWinStart,
+    tally: curWin,
   })
   result.push({
     id: 'bestwinstreak', title: 'Best Win Streak', description: 'The longest winning streak ever.', category: 'Streaks',
     isEarned: bestWin > 0, progress: bestWin > 0 ? `${bestWin} wins in a row (all time)` : 'No wins yet.', earnedDate: bestWinDate,
+    tally: bestWin,
   })
   result.push({
     id: 'lossstreak', title: 'Loss Streak', description: 'Consecutive losses since the last win.', category: 'Streaks',
     isEarned: curLoss > 0, progress: curLoss > 0 ? `${curLoss} losses in a row` : 'No active loss streak.', earnedDate: curLossStart,
+    tally: curLoss,
   })
   result.push({
     id: 'bestlossstreak', title: 'Worst Loss Streak', description: 'The longest losing streak ever.', category: 'Streaks',
     isEarned: bestLoss > 0, progress: bestLoss > 0 ? `${bestLoss} losses in a row (all time)` : 'No losses yet.', earnedDate: bestLossDate,
+    tally: bestLoss,
   })
 
   // Speed & endurance — pod-wide context: every game has both a winner and
@@ -377,21 +404,25 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       id: 'monomaster', title: 'Mono-Master', description: 'Win with a commander of each of the 6 mono-color identities (W/U/B/R/G/Colorless).', category: 'Color Mastery',
       isEarned: mono.size === 6, progress: mono.size === 6 ? 'Unlocked' : `${mono.size} of 6 mono-color identities won`,
       earnedDate: monoDate,
+      wheel: { segments: ['W', 'U', 'B', 'R', 'G', 'C'], completed: Array.from(mono) },
     })
     result.push({
       id: 'dualmaster', title: 'Dual-Master', description: 'Win with all 10 dual-color commander combinations.', category: 'Color Mastery',
       isEarned: dual.size === 10, progress: dual.size === 10 ? 'Unlocked (all 10 combos)' : `${dual.size} of 10 dual-color combinations won`,
       earnedDate: dualDate,
+      wheel: { segments: WUBRG, completed: completedColorSegments(dual, DUAL_COMBOS_PER_COLOR) },
     })
     result.push({
       id: 'trimaster', title: 'Tri-Master', description: 'Win with all 10 tri-color commander combinations.', category: 'Color Mastery',
       isEarned: tri.size === 10, progress: tri.size === 10 ? 'Unlocked (all 10 combos)' : `${tri.size} of 10 tri-color combinations won`,
       earnedDate: triDate,
+      wheel: { segments: WUBRG, completed: completedColorSegments(tri, TRI_COMBOS_PER_COLOR) },
     })
     result.push({
       id: 'tastetherainbow', title: 'Taste the Rainbow', description: 'Win a game with a 5-color (WUBRG) commander.', category: 'Color Mastery',
       isEarned: !!rainbowDate, progress: rainbowDate ? 'Unlocked' : 'Win with a 5-color commander.',
       earnedDate: rainbowDate,
+      wheel: { segments: WUBRG, completed: rainbowDate ? WUBRG : [] },
     })
 
     // Player-specific achievements — only shown for the matching player, same as the Mac app.

@@ -1,12 +1,28 @@
 import { ICON } from './AchievementPill'
 import { formatDate } from '@/lib/format'
 import type { CatalogAchievement } from '@/lib/achievements'
+import { TallyMarks } from './TallyMarks'
+import { ColorWheel } from './ColorWheel'
 
 function iconFor(id: string): string {
   if (id.startsWith('wins-')) return '🏆'
   if (id.startsWith('losses-')) return '💀'
   if (id.startsWith('games-')) return '🎖️'
   return ICON[id] ?? '🏆'
+}
+
+function badgeFor(a: CatalogAchievement) {
+  if (a.tally !== undefined) {
+    return <TallyMarks count={a.tally} tone={a.id.toLowerCase().includes('loss') ? 'loss' : 'win'} />
+  }
+  if (a.wheel) {
+    return (
+      <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
+        <ColorWheel segments={a.wheel.segments} completed={a.wheel.completed} size={18} />
+      </span>
+    )
+  }
+  return <span className={`text-lg leading-none ${a.isEarned ? '' : 'opacity-25 grayscale'}`}>{iconFor(a.id)}</span>
 }
 
 export function AchievementCatalogGrid({ items }: { items: CatalogAchievement[] }) {
@@ -30,7 +46,7 @@ export function AchievementCatalogGrid({ items }: { items: CatalogAchievement[] 
                   a.isEarned ? 'bg-slate-900 border-slate-800' : 'bg-slate-900/40 border-slate-800/60'
                 }`}
               >
-                <span className={`text-lg leading-none mt-0.5 shrink-0 ${a.isEarned ? '' : 'opacity-25 grayscale'}`}>{iconFor(a.id)}</span>
+                <span className="mt-0.5 shrink-0">{badgeFor(a)}</span>
                 <div className="min-w-0">
                   <div className={`text-sm font-semibold ${a.isEarned ? 'text-white' : 'text-slate-500'}`}>{a.title}</div>
                   <div className="text-xs text-slate-500 truncate">{a.progress}</div>

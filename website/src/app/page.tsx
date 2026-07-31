@@ -39,14 +39,28 @@ export default function Dashboard() {
         <div className="bg-slate-900 border border-slate-800 rounded-lg p-4">
           {ultimateChampion ? (
             <div className="flex flex-col items-center gap-1.5 py-2">
-              <span className="text-4xl">🌈</span>
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Ultimate Champion</span>
+              <span className="champion-hue-cycle text-amber-400">
+                <svg viewBox="0 0 24 24" width="44" height="44" fill="currentColor">
+                  <path d="M4,19 L4,14 L7,6 L9,12 L12,5 L15,12 L17,6 L20,14 L20,19 Z" />
+                  <circle cx="7" cy="6" r="1.3" />
+                  <circle cx="12" cy="5" r="1.4" />
+                  <circle cx="17" cy="6" r="1.3" />
+                </svg>
+              </span>
+              <span className="champion-hue-cycle text-amber-400 text-xs font-bold uppercase tracking-wider">Ultimate Champion</span>
               <Link
                 href={`/players/${encodeURIComponent(ultimateChampion)}`}
                 className="text-lg font-bold text-white hover:text-violet-400"
               >
                 {ultimateChampion}
               </Link>
+              <style>{`
+                .champion-hue-cycle { animation: championHueCycle 4s linear infinite; }
+                @keyframes championHueCycle {
+                  from { filter: hue-rotate(0deg); }
+                  to { filter: hue-rotate(360deg); }
+                }
+              `}</style>
             </div>
           ) : (
             <div className="flex items-start justify-center gap-16">

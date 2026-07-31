@@ -266,6 +266,12 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', prompt: 'Play a turn-1 Sol Ring and lose anyway.' },
     { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', prompt: 'Kill someone with commander damage.' },
     { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', prompt: 'Get eliminated by commander damage.' },
+    { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', prompt: 'Win a game with 1 life left.' },
+    { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', prompt: 'Mill someone out of cards.' },
+    { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', prompt: 'Get milled out of cards.' },
+    { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', prompt: 'Kill someone with 10 poison counters.' },
+    { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', prompt: 'Get eliminated by 10 poison counters.' },
+    { id: 'loophole', title: 'Loophole', description: "Win a game via a card's alternate win condition.", prompt: 'Win via an alternate win condition.' },
   ]
   for (const m of moments) {
     const info = triggeredInfo(asc, m.id)
@@ -450,6 +456,12 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'solring1-loss', title: "Sol Ring Wasn't Enough", description: 'Play Sol Ring on turn 1 and still lose.', category: 'Game Moments' },
   { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Game Moments' },
   { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Game Moments' },
+  { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', category: 'Game Moments' },
+  { id: 'milledkill', title: "Milled 'em to a Pulp", description: 'Eliminate another player by milling out their deck.', category: 'Game Moments' },
+  { id: 'milleddeath', title: 'Library Card: Declined', description: 'Get eliminated by being milled out of cards.', category: 'Game Moments' },
+  { id: 'poisonkill', title: 'Assassino!', description: 'Eliminate another player with 10 poison counters.', category: 'Game Moments' },
+  { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', category: 'Game Moments' },
+  { id: 'loophole', title: 'Loophole', description: "Win a game via a card's alternate win condition.", category: 'Game Moments' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),
   { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders' },
   { id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Commanders' },

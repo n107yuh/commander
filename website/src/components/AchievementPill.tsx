@@ -43,6 +43,12 @@ export const ICON: Record<string, string> = {
   'commanderdamagedeath': '🛡️',
   'solring1-win': '💍',
   'solring1-loss': '💍',
+  'dickswidth': '1️⃣',
+  'milledkill': '📚',
+  'milleddeath': '📚',
+  'poisonkill': '🧪',
+  'poisondeath': '☠️',
+  'loophole': '🕳️',
 }
 
 // The Mac app's export inconsistently titles some achievements depending on

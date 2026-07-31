@@ -872,7 +872,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-07-31T04:27:19Z",
+  "exportedAt" : "2026-07-31T04:36:01Z",
   "games" : [
     {
       "date" : "2026-07-31T03:48:09Z",
@@ -949,6 +949,11 @@
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Deal 50+ rat damage in a single game.",
+              "id" : "justin-ratking",
+              "title" : "Rat King"
             }
           ],
           "turnOrder" : 1
@@ -1049,7 +1054,7 @@
       "date" : "2026-07-31T01:10:56Z",
       "durationSeconds" : 2880,
       "isInPerson" : false,
-      "notes" : "Noah had to mulligan 5 times, but then Noah did play a turn 1 sol ring",
+      "notes" : "Noah had to mulligan 5 times, but then Noah played a turn 1 sol ring",
       "participants" : [
         {
           "commanderName" : "Satya, Aetherflux Genius",
@@ -1107,6 +1112,11 @@
               "description" : "Lose 20 games.",
               "id" : "losses-20",
               "title" : "20 Losses"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
             },
             {
               "description" : "Play 25 total games.",
@@ -1549,11 +1559,6 @@
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
-            },
-            {
-              "description" : "Justin skullclamps a rat.",
-              "id" : "justin-rat",
-              "title" : "Clamp Me Daddy"
             }
           ],
           "turnOrder" : 1
@@ -2530,11 +2535,7 @@
             "B"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Justin skullclamps a rat.",
-              "id" : "justin-rat",
-              "title" : "Clamp Me Daddy"
-            }
+
           ],
           "turnOrder" : 1
         }
@@ -2774,11 +2775,6 @@
               "description" : "Win a game after going first.",
               "id" : "firstblood",
               "title" : "First Blood"
-            },
-            {
-              "description" : "Justin skullclamps a rat.",
-              "id" : "justin-rat",
-              "title" : "Clamp Me Daddy"
             }
           ],
           "turnOrder" : 0
@@ -3544,9 +3540,9 @@
           "title" : "First Blood"
         },
         {
-          "description" : "Justin skullclamps a rat.",
-          "id" : "justin-rat",
-          "title" : "Clamp Me Daddy"
+          "description" : "Deal 50+ rat damage in a single game.",
+          "id" : "justin-ratking",
+          "title" : "Rat King"
         }
       ],
       "losses" : 11,
@@ -3744,6 +3740,11 @@
           "description" : "Drop your cards on the floor.",
           "id" : "52pickup",
           "title" : "Oops, Butterfingers"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Eliminate another player with 21+ commander damage.",

@@ -4,6 +4,12 @@
 
 :root { color-scheme: dark; }
 
+.champion-hue-cycle { animation: championHueCycle 4s linear infinite; }
+@keyframes championHueCycle {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
 body {
   background-color: #020617;
   color: #f8fafc;

@@ -1,13 +1,15 @@
 // Mirrors ColorWheelBadgeView in the Mac app's Achievements.swift: a pie divided into equal
 // segments (one per WUBRG color, or 6 with Colorless for Mono-Master), each filled with its MTG
-// color once completed, dim otherwise.
+// color once completed, dim otherwise. Colors match ColorDots.tsx's DOT palette (the same colors
+// used in the color-mastery tracking section) rather than the Mac app's own mtgColor values, so a
+// color reads the same wherever it appears on the website.
 const MTG_HEX: Record<string, string> = {
-  W: '#E6E6E6',
-  U: '#2173C2',
-  B: '#332E38',
-  R: '#D13326',
-  G: '#2E8540',
-  C: '#B8B39E',
+  W: '#FEF3C7', // amber-100
+  U: '#3B82F6', // blue-500
+  B: '#000000',
+  R: '#DC2626', // red-600
+  G: '#15803D', // green-700
+  C: '#94A3B8', // slate-400
 }
 
 const DIM_FILL = 'rgba(148, 163, 184, 0.18)' // Color.secondary.opacity(0.18)

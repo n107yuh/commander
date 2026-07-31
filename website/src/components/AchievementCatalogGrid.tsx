@@ -43,11 +43,10 @@ function badgeFor(a: CatalogAchievement) {
     return <TallyMarks count={a.tally} tone={a.id.toLowerCase().includes('loss') ? 'loss' : 'win'} />
   }
   if (a.wheel) {
-    return (
-      <span className={a.isEarned ? '' : 'opacity-40 grayscale'}>
-        <ColorWheel segments={a.wheel.segments} completed={a.wheel.completed} size={18} />
-      </span>
-    )
+    // No opacity/grayscale dimming here — the wheel already encodes progress per-segment
+    // (colored = won, translucent = not), and dimming the whole thing crushes the contrast
+    // of already-dark segments (e.g. black) against the page background.
+    return <ColorWheel segments={a.wheel.segments} completed={a.wheel.completed} size={18} />
   }
   return <span className={`text-lg leading-none ${a.isEarned ? '' : 'opacity-25 grayscale'}`}>{iconFor(a.id)}</span>
 }

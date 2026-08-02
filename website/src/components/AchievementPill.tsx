@@ -20,6 +20,7 @@ export const ICON: Record<string, string> = {
   'irlchampion': '👑',
   'formatdiplomat': '🌍',
   'ultimatechampion': '👑',
+  'starformat': '⭐',
   'winstreak': '📈',
   'bestwinstreak': '📈',
   'lossstreak': '📉',

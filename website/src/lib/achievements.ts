@@ -275,6 +275,15 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     earnedDate: ultimateDate,
   })
 
+  // You Get A Stars — won a 5-player ("star" format) game.
+  const starFormatWins = asc.filter(x => x.part.didWin && x.game.participants.length === 5)
+  result.push({
+    id: 'starformat', title: 'You Get A Stars', description: 'Win a 5-player game.', category: 'Format & Champion',
+    isEarned: starFormatWins.length > 0,
+    progress: starFormatWins.length > 0 ? `Earned ${starFormatWins.length} time${starFormatWins.length === 1 ? '' : 's'}` : 'Win a 5-player game.',
+    earnedDate: starFormatWins.length > 0 ? starFormatWins[0].date : null,
+  })
+
   // Game moments (per-game triggered / note-matched) — Pacifist/Fly On The
   // Wall/52 Pickup/Nice are player-only, same as the Mac app.
   const moments: { id: string; title: string; description: string; prompt: string }[] = [
@@ -517,6 +526,7 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'irlchampion', title: 'IRL Champion', description: 'Win an in-person game.', category: 'Format & Champion' },
   { id: 'formatdiplomat', title: 'Format Diplomat', description: 'Win in both in-person and remote games.', category: 'Format & Champion' },
   { id: 'ultimatechampion', title: 'Ultimate Champion', description: 'Simultaneously hold the Digichampion and IRLchampion crowns.', category: 'Format & Champion' },
+  { id: 'starformat', title: 'You Get A Stars', description: 'Win a 5-player game.', category: 'Format & Champion' },
   { id: 'nat20-win', title: 'Critical Success', description: 'Roll a natural 20 at the start of the game and win.', category: 'Game Moments' },
   { id: 'nat20-loss', title: 'Rolled Well, Played Poorly', description: 'Roll a natural 20 at the start of the game and still lose.', category: 'Game Moments' },
   { id: 'nat1-win', title: 'Cursed But Clutch', description: 'Roll a natural 1 at the start of the game and still win.', category: 'Game Moments' },

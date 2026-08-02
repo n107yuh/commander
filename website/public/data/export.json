@@ -971,7 +971,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-02T06:09:58Z",
+  "exportedAt" : "2026-08-02T06:21:12Z",
   "games" : [
     {
       "date" : "2026-08-02T03:16:55Z",
@@ -996,12 +996,12 @@
               "title" : "Win Streak"
             },
             {
-              "description" : "Win the pod's game with the fewest turns on record.",
+              "description" : "Win a game in the fewest turns on record.",
               "id" : "blitzkrieg",
               "title" : "Blitzkrieg"
             },
             {
-              "description" : "Win the pod's game with the most turns on record.",
+              "description" : "Win a game in the most turns on record.",
               "id" : "snailpace",
               "title" : "Snail's Pace"
             },
@@ -1038,6 +1038,11 @@
               "description" : "Play the same commander 10+ times.",
               "id" : "loyalpilot",
               "title" : "Loyal Pilot"
+            },
+            {
+              "description" : "Deal 100+ rat damage in a single game.",
+              "id" : "justin-ratking",
+              "title" : "Rat King"
             }
           ],
           "turnOrder" : 0,
@@ -1399,11 +1404,6 @@
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
-            },
-            {
-              "description" : "Deal 50+ rat damage in a single game.",
-              "id" : "justin-ratking",
-              "title" : "Rat King"
             }
           ],
           "turnOrder" : 1,
@@ -4009,12 +4009,12 @@
           "title" : "Quickest Loss"
         },
         {
-          "description" : "Win the pod's game with the fewest turns on record.",
+          "description" : "Win a game in the fewest turns on record.",
           "id" : "blitzkrieg",
           "title" : "Blitzkrieg"
         },
         {
-          "description" : "Win the pod's game with the most turns on record.",
+          "description" : "Win a game in the most turns on record.",
           "id" : "snailpace",
           "title" : "Snail's Pace"
         },
@@ -4133,7 +4133,7 @@
           "title" : "Loyal Pilot"
         },
         {
-          "description" : "Deal 50+ rat damage in a single game.",
+          "description" : "Deal 100+ rat damage in a single game.",
           "id" : "justin-ratking",
           "title" : "Rat King"
         }

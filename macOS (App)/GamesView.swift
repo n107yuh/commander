@@ -790,13 +790,15 @@ private struct ParticipantRow: View {
                     )
                     turnOrderPicker
                     openingHandPicker
+                }
+                HStack(spacing: 6) {
+                    AutocompleteField(
+                        title: "Commander",
+                        text: $draft.commanderName,
+                        suggestionsProvider: commanderSuggestions
+                    )
                     turnsPlayedField
                 }
-                AutocompleteField(
-                    title: "Commander",
-                    text: $draft.commanderName,
-                    suggestionsProvider: commanderSuggestions
-                )
 
                 if draft.hasPartner {
                     HStack(spacing: 6) {

@@ -984,33 +984,35 @@ func computeAchievementCatalog(
         }
 
         if thisPlayer.contains("justin") {
-            // Rat King — deal 50+ rat damage in a single game (summed from every "N rat damage"
-            // mention in that game's notes).
+            // Rat King — countable: dealt 100+ rat damage in a single game (summed from every "N
+            // rat damage" mention in that game's notes). Earns again every game it happens, not
+            // just the first time — see the matching perGameTriggeredAchievements block below,
+            // which is what actually makes each qualifying game show up in Annals.
             let perGameRatDamage = ratDamagePerGame(in: participations)
             let bestGame = perGameRatDamage.max() ?? 0
-            let ratKingEarned = bestGame >= 50
+            let ratKingCount = perGameRatDamage.filter { $0 >= 100 }.count
             result.append(Achievement(
                 id: "justin-ratking",
                 title: "Rat King",
-                description: "Deal 50+ rat damage in a single game.",
-                progress: ratKingEarned
-                    ? "Unlocked (\(bestGame) rat damage in one game)"
-                    : "\(bestGame) of 50 rat damage in a single game",
+                description: "Deal 100+ rat damage in a single game.",
+                progress: ratKingCount > 0
+                    ? "Earned \(ratKingCount) time\(ratKingCount == 1 ? "" : "s")"
+                    : "\(bestGame) of 100 rat damage in a single game",
                 display: .icon("pawprint.fill"),
                 tint: Color(red: 0.55, green: 0.30, blue: 0.15),
-                isEarned: ratKingEarned
+                isEarned: ratKingCount > 0
             ))
 
-            // Pied Piper — 5,000 lifetime rat damage across all games.
+            // Pied Piper — 10,000 lifetime rat damage across all games.
             let lifetimeRatDamage = perGameRatDamage.reduce(0, +)
-            let piedPiperEarned = lifetimeRatDamage >= 5000
+            let piedPiperEarned = lifetimeRatDamage >= 10000
             result.append(Achievement(
                 id: "justin-piedpiper",
                 title: "Pied Piper",
-                description: "Deal 5,000 total rat damage across all games.",
+                description: "Deal 10,000 total rat damage across all games.",
                 progress: piedPiperEarned
                     ? "Unlocked (\(lifetimeRatDamage) lifetime rat damage)"
-                    : "\(lifetimeRatDamage) of 5,000 lifetime rat damage",
+                    : "\(lifetimeRatDamage) of 10,000 lifetime rat damage",
                 display: .icon("pawprint.fill"),
                 tint: Color(red: 0.65, green: 0.50, blue: 0.15),
                 isEarned: piedPiperEarned
@@ -1288,6 +1290,18 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
     }
 
     let playerName = participation.player?.name.lowercased() ?? ""
+
+    // Rat King — countable, so this fires every game Justin deals 100+ rat damage in, not just
+    // the first (the aggregate catalog's cumulative delta only catches that first crossing).
+    if playerName.contains("justin") && ratDamageInNotes(game.notes) >= 100 {
+        result.append(Achievement(
+            id: "justin-ratking", title: "Rat King",
+            description: "Deal 100+ rat damage in a single game.",
+            progress: "Earned this game",
+            display: .icon("pawprint.fill"),
+            tint: Color(red: 0.55, green: 0.30, blue: 0.15), isEarned: true
+        ))
+    }
 
     // Pacifist
     if !playerName.isEmpty &&

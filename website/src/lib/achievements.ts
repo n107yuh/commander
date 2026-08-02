@@ -510,9 +510,10 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       })
     }
 
-    // Rat King / Pied Piper — cumulative (best single game / lifetime total), so isEarned and
-    // earnedDate come from the app-computed triggeredAchievements like everything else, but the
-    // progress numbers are computed live here from notes text for a richer "X of Y" readout.
+    // Rat King (countable — earns again every game, not just the first) / Pied Piper
+    // (cumulative lifetime total). isEarned/earnedDate/count come from the app-computed
+    // triggeredAchievements like everything else, but progress is computed live here from
+    // notes text for a richer readout.
     if (lowerName.includes('justin')) {
       let bestGame = 0, lifetimeRat = 0
       for (const x of asc) {
@@ -522,16 +523,16 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       }
       const ratKingInfo = triggeredInfo(asc, 'justin-ratking')
       result.push({
-        id: 'justin-ratking', title: 'Rat King', description: 'Deal 50+ rat damage in a single game.', category: 'Individual',
+        id: 'justin-ratking', title: 'Rat King', description: 'Deal 100+ rat damage in a single game.', category: 'Individual',
         isEarned: ratKingInfo.count > 0,
-        progress: ratKingInfo.count > 0 ? `Unlocked (${bestGame} rat damage in one game)` : `${bestGame} of 50 rat damage in a single game`,
+        progress: ratKingInfo.count > 0 ? `Earned ${ratKingInfo.count} time${ratKingInfo.count === 1 ? '' : 's'}` : `${bestGame} of 100 rat damage in a single game`,
         earnedDate: ratKingInfo.firstDate,
       })
       const piedPiperInfo = triggeredInfo(asc, 'justin-piedpiper')
       result.push({
-        id: 'justin-piedpiper', title: 'Pied Piper', description: 'Deal 5,000 total rat damage across all games.', category: 'Individual',
+        id: 'justin-piedpiper', title: 'Pied Piper', description: 'Deal 10,000 total rat damage across all games.', category: 'Individual',
         isEarned: piedPiperInfo.count > 0,
-        progress: piedPiperInfo.count > 0 ? `Unlocked (${lifetimeRat} lifetime rat damage)` : `${lifetimeRat} of 5,000 lifetime rat damage`,
+        progress: piedPiperInfo.count > 0 ? `Unlocked (${lifetimeRat} lifetime rat damage)` : `${lifetimeRat} of 10,000 lifetime rat damage`,
         earnedDate: piedPiperInfo.firstDate,
       })
     }
@@ -649,8 +650,8 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'margolis-graveyard', title: 'Graveyard!?', description: 'Margolis mixes up his hand and graveyard.', category: 'Individual' },
   { id: 'pertman-wait', title: 'WAIT!', description: 'Pertman yells "wait" after his turn more than once in a single game.', category: 'Individual' },
   { id: 'noah-matthew', title: '404 Error: Thumb Not Found', description: 'Matthew wakes up and ruins the last game of the evening.', category: 'Individual' },
-  { id: 'justin-ratking', title: 'Rat King', description: 'Deal 50+ rat damage in a single game.', category: 'Individual' },
-  { id: 'justin-piedpiper', title: 'Pied Piper', description: 'Deal 5,000 total rat damage across all games.', category: 'Individual' },
+  { id: 'justin-ratking', title: 'Rat King', description: 'Deal 100+ rat damage in a single game.', category: 'Individual' },
+  { id: 'justin-piedpiper', title: 'Pied Piper', description: 'Deal 10,000 total rat damage across all games.', category: 'Individual' },
   { id: 'ratbait', title: 'Rat Bait', description: 'Take the most collective rat damage across all games.', category: 'Individual' },
   { id: 'max-zeus', title: 'Look What the Zeus Dragged In', description: 'Max graces the table with his presence.', category: 'Individual' },
 ]

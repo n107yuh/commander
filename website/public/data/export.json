@@ -971,7 +971,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-02T06:21:12Z",
+  "exportedAt" : "2026-08-02T06:25:01Z",
   "games" : [
     {
       "date" : "2026-08-02T03:16:55Z",
@@ -2733,7 +2733,7 @@
       "date" : "2026-07-08T03:21:04Z",
       "durationSeconds" : 2820,
       "isInPerson" : false,
-      "notes" : "Justin swung 12 rat damage at Pertman and punished him with his own haste. Justin will play “Swiftfoot boats”. Noah believed in the heart of the dice and absolutely shit the bed",
+      "notes" : "Justin dealt 12 rat damage to Pertman and punished him with his own haste. Justin will play “Swiftfoot boats”. Noah believed in the heart of the dice and absolutely shit the bed",
       "participants" : [
         {
           "commanderName" : "Isshin, Two Heavens as One",
@@ -2796,6 +2796,11 @@
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Take the most collective rat damage across all games.",
+              "id" : "ratbait",
+              "title" : "Rat Bait"
             }
           ],
           "turnOrder" : 3,

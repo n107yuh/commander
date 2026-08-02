@@ -47,6 +47,21 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/e\/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191"
+      ],
+      "losses" : 1,
+      "name" : "Betor, Ancestor's Voice",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "losses" : 0,
       "name" : "Bob Commander",
       "totalGames" : 0,
@@ -102,6 +117,19 @@
       "losses" : 0,
       "name" : "Carol Commander",
       "totalGames" : 0,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/9\/2\/923eb713-c955-4e12-8a8f-df3b4b361487.jpg?1783918155"
+      ],
+      "losses" : 1,
+      "name" : "Chiss-Goria, Forge Tyrant",
+      "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
     },
@@ -190,10 +218,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/8\/18602e92-69be-4626-a28a-463913108f42.jpg?1752535694"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Dr. Eggman",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -265,9 +293,9 @@
       ],
       "losses" : 2,
       "name" : "Grothama, All-Devouring",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -365,10 +393,10 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978",
         "https:\/\/cards.scryfall.io\/normal\/back\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Jennifer Walters \/\/ The Sensational She-Hulk",
-      "totalGames" : 3,
-      "winRate" : 0.6666666666666666,
+      "totalGames" : 4,
+      "winRate" : 0.5,
       "wins" : 2
     },
     {
@@ -448,6 +476,36 @@
     },
     {
       "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/7\/2\/72e637db-7112-406f-809b-0eda248488b5.jpg?1783904176"
+      ],
+      "losses" : 0,
+      "name" : "Leonardo, the Balance",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
+      ],
+      "losses" : 1,
+      "name" : "Liberator, Urza's Battlethopter",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "G",
         "R",
         "W"
@@ -468,11 +526,24 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/7\/2\/72e4548b-c171-4f10-b896-af37543dcf0f.jpg?1579203069"
       ],
-      "losses" : 6,
+      "losses" : 7,
       "name" : "Marrow-Gnawer",
-      "totalGames" : 8,
-      "winRate" : 0.25,
+      "totalGames" : 9,
+      "winRate" : 0.2222222222222222,
       "wins" : 2
+    },
+    {
+      "colorIdentity" : [
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/a\/bac2d744-db65-4b56-8634-c87fd00c090e.jpg?1783904173"
+      ],
+      "losses" : 0,
+      "name" : "Michelangelo, the Heart",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -545,6 +616,20 @@
       "totalGames" : 2,
       "winRate" : 0.5,
       "wins" : 1
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/d\/ed87e25f-9dad-4858-92bc-e859fd2be2a4.jpg?1783923348"
+      ],
+      "losses" : 1,
+      "name" : "Oskar, Rubbish Reclaimer",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -872,8 +957,220 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-07-31T14:27:33Z",
+  "exportedAt" : "2026-08-02T05:30:53Z",
   "games" : [
+    {
+      "date" : "2026-08-02T01:40:51Z",
+      "durationSeconds" : 5460,
+      "isInPerson" : false,
+      "notes" : "The first star game. Convoke is infinitely better than Spelltable. Max prevented Justin from thrumming. Noah was muted for a large portion of the game after he was eliminated. Noah did win the novel preese prize",
+      "participants" : [
+        {
+          "commanderName" : "Leonardo, the Balance",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Michelangelo, the Heart",
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a 5-player game.",
+              "id" : "starformat",
+              "title" : "You Get A Stars"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a game with a 5-color (WUBRG) commander.",
+              "id" : "tastetherainbow",
+              "title" : "Taste the Rainbow"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 4,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Dr. Eggman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Betor, Ancestor's Voice",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Liberator, Urza's Battlethopter",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 4,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-08-02T00:28:13Z",
+      "durationSeconds" : 3000,
+      "isInPerson" : false,
+      "notes" : "Pertman made 10 ants almost immediately. His moss bridge troll became a 27\/27. Noah was able to upgrade 6 of his decks during the game. Jake ended racism by removing color",
+      "participants" : [
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win 10 games.",
+              "id" : "wins-10",
+              "title" : "10 Wins"
+            },
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Chiss-Goria, Forge Tyrant",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Oskar, Rubbish Reclaimer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        }
+      ]
+    },
     {
       "date" : "2026-07-31T03:48:09Z",
       "durationSeconds" : 2340,
@@ -908,7 +1205,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The Wise Mothman",
@@ -923,12 +1221,18 @@
           ],
           "triggeredAchievements" : [
             {
+              "description" : "Take the most collective rat damage across all games.",
+              "id" : "ratbait",
+              "title" : "Rat Bait"
+            },
+            {
               "description" : "Go first but finish last.",
               "id" : "botchedit",
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marrow-Gnawer",
@@ -951,7 +1255,8 @@
               "title" : "Rat King"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -982,7 +1287,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Dionus, Elvish Archdruid",
@@ -994,9 +1300,14 @@
             "G"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Take the most collective rat damage across all games.",
+              "id" : "ratbait",
+              "title" : "Rat Bait"
+            }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The Wise Mothman",
@@ -1016,7 +1327,8 @@
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Anikthea, Hand of Erebos",
@@ -1041,7 +1353,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1074,7 +1387,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Winota, Joiner of Forces",
@@ -1089,7 +1403,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Jorn, God of Winter \/\/ Kaldring, the Rimestaff",
@@ -1119,7 +1434,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1156,7 +1472,8 @@
               "title" : "Look What the Zeus Dragged In"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Captain America, Team Leader",
@@ -1176,7 +1493,8 @@
               "title" : "10 Losses"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Isshin, Two Heavens as One",
@@ -1206,7 +1524,8 @@
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Ishai, Ojutai Dragonspeaker",
@@ -1227,7 +1546,8 @@
               "title" : "Commander Damage!"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1275,7 +1595,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
@@ -1304,7 +1625,8 @@
               "title" : "Look What the Zeus Dragged In"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Captain America, Team Leader",
@@ -1320,7 +1642,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1367,7 +1690,8 @@
               "title" : "Look What the Zeus Dragged In"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Norman Osborn \/\/ Green Goblin",
@@ -1397,7 +1721,8 @@
               "title" : "Oops, Butterfingers"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Captain America, Team Leader",
@@ -1422,7 +1747,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Kraven the Hunter",
@@ -1441,7 +1767,8 @@
               "title" : "Oops, Butterfingers"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1489,7 +1816,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Valgavoth, Harrower of Souls",
@@ -1508,7 +1836,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Gishath, Sun's Avatar",
@@ -1533,7 +1862,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marrow-Gnawer",
@@ -1556,7 +1886,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1601,7 +1932,8 @@
               "title" : "Sol Ring, GG"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marrow-Gnawer",
@@ -1619,7 +1951,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The Capitoline Triad",
@@ -1642,7 +1975,8 @@
               "title" : "WAIT!"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Sasaya, Orochi Ascendant \/\/ Sasaya's Essence",
@@ -1656,7 +1990,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1693,7 +2028,8 @@
               "title" : "WAIT!"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Arahbo, Roar of the World",
@@ -1712,7 +2048,8 @@
               "title" : "10 Losses"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tannuk, Memorial Ensign",
@@ -1736,7 +2073,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1789,7 +2127,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Arahbo, Roar of the World",
@@ -1818,7 +2157,8 @@
               "title" : "Life Totals Don't Matter"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Bria, Riptide Rogue",
@@ -1837,7 +2177,8 @@
               "title" : "Quickest Loss"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1878,7 +2219,8 @@
               "title" : "Come From Behind"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Grothama, All-Devouring",
@@ -1901,7 +2243,8 @@
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Syr Vondam, Sunstar Exemplar",
@@ -1916,7 +2259,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Ezio Auditore da Firenze",
@@ -1934,7 +2278,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -1971,7 +2316,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Giada, Font of Hope",
@@ -1985,7 +2331,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Cloud, Ex-SOLDIER",
@@ -2005,7 +2352,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The First Sliver",
@@ -2023,7 +2371,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2061,7 +2410,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Giada, Font of Hope",
@@ -2075,7 +2425,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The First Sliver",
@@ -2107,7 +2458,8 @@
               "title" : "Fly On The Wall"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The Second Doctor",
@@ -2128,7 +2480,8 @@
               "title" : "Pacifist"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2164,7 +2517,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Hope Estheim",
@@ -2183,7 +2537,8 @@
               "title" : "404 Error: Thumb Not Found"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marisi, Breaker of the Coil",
@@ -2203,7 +2558,8 @@
               "title" : "5 Losses"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marrow-Gnawer",
@@ -2217,7 +2573,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2250,7 +2607,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Okaun, Eye of Chaos",
@@ -2270,7 +2628,8 @@
               "title" : "10 Losses"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Grothama, All-Devouring",
@@ -2288,7 +2647,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tinybones, Trinket Thief",
@@ -2302,7 +2662,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2334,7 +2695,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Isshin, Two Heavens as One",
@@ -2359,7 +2721,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tinybones, Trinket Thief",
@@ -2377,7 +2740,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
@@ -2393,7 +2757,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2430,7 +2795,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tinybones, Trinket Thief",
@@ -2448,7 +2814,8 @@
               "title" : "5 Losses"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Isshin, Two Heavens as One",
@@ -2473,7 +2840,8 @@
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2511,7 +2879,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tannuk, Memorial Ensign",
@@ -2530,7 +2899,8 @@
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tinybones, Trinket Thief",
@@ -2544,7 +2914,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2585,7 +2956,8 @@
               "title" : "Connoisseur"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Tinybones, Trinket Thief",
@@ -2603,7 +2975,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
@@ -2628,7 +3001,8 @@
               "title" : "Botched It"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2669,7 +3043,8 @@
               "title" : "First Blood"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Zimone, Mystery Unraveler",
@@ -2688,7 +3063,8 @@
               "title" : "5 Losses"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Dr. Eggman",
@@ -2723,7 +3099,8 @@
               "title" : "Look What the Zeus Dragged In"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Katara, the Fearless",
@@ -2743,7 +3120,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : 3
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2784,7 +3162,8 @@
               "title" : "First Blood"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Jorn, God of Winter \/\/ Kaldring, the Rimestaff",
@@ -2809,7 +3188,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Kefka, Court Mage \/\/ Kefka, Ruler of Ruin",
@@ -2825,7 +3205,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2858,7 +3239,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Isshin, Two Heavens as One",
@@ -2874,7 +3256,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marrow-Gnawer",
@@ -2892,7 +3275,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -2930,7 +3314,8 @@
               "title" : "IRL Champion"
             }
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Ashling, the Limitless",
@@ -2952,7 +3337,8 @@
               "title" : "Connoisseur"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Giada, Font of Hope",
@@ -2966,7 +3352,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -3009,7 +3396,8 @@
               "title" : "Format Diplomat"
             }
           ],
-          "turnOrder" : 1
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Henzie \"Toolbox\" Torre",
@@ -3029,7 +3417,8 @@
               "title" : "Doomed From The Start"
             }
           ],
-          "turnOrder" : 2
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Giada, Font of Hope",
@@ -3043,7 +3432,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : 0
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -3091,7 +3481,8 @@
               "title" : "Look What the Zeus Dragged In"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "The Wise Mothman",
@@ -3107,7 +3498,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Giada, Font of Hope",
@@ -3121,7 +3513,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Norin the Wary",
@@ -3139,7 +3532,8 @@
               "title" : "Loss Streak"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -3186,7 +3580,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Winota, Joiner of Forces",
@@ -3201,7 +3596,8 @@
           "triggeredAchievements" : [
 
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
@@ -3234,7 +3630,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Marrow-Gnawer",
@@ -3267,7 +3664,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         }
       ]
     },
@@ -3314,7 +3712,8 @@
               "title" : "Digital Champion"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Giada, Font of Hope",
@@ -3347,7 +3746,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Queen Marchesa",
@@ -3382,7 +3782,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Ms. Bumbleflower",
@@ -3417,7 +3818,8 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : -1
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
         }
       ]
     }
@@ -3514,12 +3916,17 @@
           "description" : "Win a game with a 5-color (WUBRG) commander.",
           "id" : "tastetherainbow",
           "title" : "Taste the Rainbow"
+        },
+        {
+          "description" : "Take the most collective rat damage across all games.",
+          "id" : "ratbait",
+          "title" : "Rat Bait"
         }
       ],
-      "losses" : 15,
+      "losses" : 17,
       "name" : "Jake",
-      "totalGames" : 21,
-      "winRate" : 0.2857142857142857,
+      "totalGames" : 23,
+      "winRate" : 0.2608695652173913,
       "wins" : 6
     },
     {
@@ -3565,10 +3972,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 11,
+      "losses" : 12,
       "name" : "Justin",
-      "totalGames" : 13,
-      "winRate" : 0.15384615384615385,
+      "totalGames" : 14,
+      "winRate" : 0.14285714285714285,
       "wins" : 2
     },
     {
@@ -3623,14 +4030,14 @@
     {
       "achievements" : [
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -3663,10 +4070,10 @@
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 2,
+      "losses" : 4,
       "name" : "Max",
-      "totalGames" : 5,
-      "winRate" : 0.6,
+      "totalGames" : 7,
+      "winRate" : 0.42857142857142855,
       "wins" : 3
     },
     {
@@ -3682,14 +4089,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -3797,18 +4204,18 @@
           "title" : "404 Error: Thumb Not Found"
         }
       ],
-      "losses" : 21,
+      "losses" : 23,
       "name" : "Noah",
-      "totalGames" : 27,
-      "winRate" : 0.2222222222222222,
+      "totalGames" : 29,
+      "winRate" : 0.20689655172413793,
       "wins" : 6
     },
     {
       "achievements" : [
         {
-          "description" : "Win 5 games.",
-          "id" : "wins-5",
-          "title" : "5 Wins"
+          "description" : "Win 10 games.",
+          "id" : "wins-10",
+          "title" : "10 Wins"
         },
         {
           "description" : "Lose 10 games.",
@@ -3816,14 +4223,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -3861,9 +4268,19 @@
           "title" : "Format Diplomat"
         },
         {
+          "description" : "Win a 5-player game.",
+          "id" : "starformat",
+          "title" : "You Get A Stars"
+        },
+        {
           "description" : "Win a game after going first.",
           "id" : "firstblood",
           "title" : "First Blood"
+        },
+        {
+          "description" : "Win a game after going last.",
+          "id" : "comefrombehind",
+          "title" : "Come From Behind"
         },
         {
           "description" : "Go first but finish last.",
@@ -3886,6 +4303,11 @@
           "title" : "Connoisseur"
         },
         {
+          "description" : "Win a game with a 5-color (WUBRG) commander.",
+          "id" : "tastetherainbow",
+          "title" : "Taste the Rainbow"
+        },
+        {
           "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
           "id" : "pertman-wait",
           "title" : "WAIT!"
@@ -3893,9 +4315,9 @@
       ],
       "losses" : 10,
       "name" : "Pertman",
-      "totalGames" : 19,
-      "winRate" : 0.47368421052631576,
-      "wins" : 9
+      "totalGames" : 21,
+      "winRate" : 0.5238095238095238,
+      "wins" : 11
     }
   ]
 }

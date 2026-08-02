@@ -154,6 +154,11 @@ export function AnnalsList({ games }: { games: GameData[] }) {
                           <div className="text-slate-500 text-xs mt-0.5 leading-tight">
                             {commanderLabel(part)}
                           </div>
+                          {part.turnsPlayed > 0 && (
+                            <div className="text-slate-600 text-xs mt-0.5">
+                              🔄 {part.turnsPlayed} turn{part.turnsPlayed === 1 ? '' : 's'}
+                            </div>
+                          )}
                         </div>
                         <div className="flex flex-wrap gap-1.5 flex-1">
                           {part.triggeredAchievements.length === 0 ? (

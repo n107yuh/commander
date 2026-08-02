@@ -50,6 +50,8 @@ struct AchievementContext {
     var quickestWinDuration: TimeInterval?
     var quickestLossDuration: TimeInterval?
     var longestGameDuration: TimeInterval?
+    var fewestTurnsToWin: Int?
+    var mostTurnsToWin: Int?
 
     static let empty = AchievementContext()
 }
@@ -58,7 +60,11 @@ func computeAchievementContext(from games: [Game]) -> AchievementContext {
     var wins: [TimeInterval] = []
     var losses: [TimeInterval] = []
     var durations: [TimeInterval] = []
+    var turnsToWin: [Int] = []
     for game in games {
+        for p in game.participants where p.didWin && p.turnsPlayed > 0 {
+            turnsToWin.append(p.turnsPlayed)
+        }
         guard let end = game.endTime, end > game.date else { continue }
         let dur = end.timeIntervalSince(game.date)
         durations.append(dur)
@@ -69,7 +75,9 @@ func computeAchievementContext(from games: [Game]) -> AchievementContext {
     return AchievementContext(
         quickestWinDuration: wins.min(),
         quickestLossDuration: losses.min(),
-        longestGameDuration: durations.max()
+        longestGameDuration: durations.max(),
+        fewestTurnsToWin: turnsToWin.min(),
+        mostTurnsToWin: turnsToWin.max()
     )
 }
 
@@ -236,6 +244,38 @@ func computeAchievementCatalog(
         tint: Color(red: 0.45, green: 0.55, blue: 0.75)
     ))
 
+    // Blitzkrieg — won the pod's game with the fewest recorded turns
+    result.append(recordAchievementInt(
+        id: "blitzkrieg",
+        title: "Blitzkrieg",
+        description: "Win the pod's game with the fewest turns on record.",
+        mine: fewestTurnsToWin(in: participations),
+        record: context.fewestTurnsToWin,
+        myFormat: { "Won in \($0) turn\($0 == 1 ? "" : "s")" },
+        recordFormat: { "Record: \($0) turn\($0 == 1 ? "" : "s")" },
+        bothFormat: { mine, rec in "Your best: \(mine) turns • Record: \(rec) turns" },
+        noMyData: "No turn counts recorded yet.",
+        noAnyData: "No turn counts recorded yet.",
+        symbol: "hare.fill",
+        tint: Color(red: 0.80, green: 0.40, blue: 0.15)
+    ))
+
+    // Snail's Pace — won the pod's game with the most recorded turns
+    result.append(recordAchievementInt(
+        id: "snailpace",
+        title: "Snail's Pace",
+        description: "Win the pod's game with the most turns on record.",
+        mine: mostTurnsToWin(in: participations),
+        record: context.mostTurnsToWin,
+        myFormat: { "Won in \($0) turns" },
+        recordFormat: { "Record: \($0) turns" },
+        bothFormat: { mine, rec in "Your longest win: \(mine) turns • Record: \(rec) turns" },
+        noMyData: "No turn counts recorded yet.",
+        noAnyData: "No turn counts recorded yet.",
+        symbol: "hourglass",
+        tint: Color(red: 0.55, green: 0.45, blue: 0.30)
+    ))
+
     // Format / Champion achievements
     var inPersonWins = 0, remoteWins = 0
     for p in participations where p.didWin {
@@ -295,6 +335,20 @@ func computeAchievementCatalog(
         display: .rainbowCrown,
         tint: .clear,
         isEarned: ultimateCount > 0
+    ))
+
+    // You Get A Stars — won a 5-player ("star" format) game.
+    let starFormatCount = starFormatWinCount(in: participations)
+    result.append(Achievement(
+        id: "starformat",
+        title: "You Get A Stars",
+        description: "Win a 5-player game.",
+        progress: starFormatCount > 0
+            ? "Earned \(starFormatCount) time\(starFormatCount == 1 ? "" : "s")"
+            : "Win a 5-player game.",
+        display: .emoji("⭐"),
+        tint: Color(red: 0.85, green: 0.70, blue: 0.20),
+        isEarned: starFormatCount > 0
     ))
 
     // First Blood
@@ -715,6 +769,27 @@ func computeAchievementCatalog(
         ))
     }
 
+    // Veteran tiers — lifetime total turns played
+    let totalTurnsPlayed = participations.reduce(0) { $0 + max($1.turnsPlayed, 0) }
+    let turnsVeteranTiers: [(Int, Color)] = [
+        (100,  bronzeTint),
+        (250,  silverTint),
+        (500,  goldTint),
+        (1000, platinumTint)
+    ]
+    for (n, tint) in turnsVeteranTiers {
+        let earned = totalTurnsPlayed >= n
+        result.append(Achievement(
+            id: "turns-\(n)",
+            title: "\(n) Turns",
+            description: "Play \(n) total turns.",
+            progress: earned ? "Unlocked" : "\(totalTurnsPlayed) of \(n) turns",
+            display: .tintedNumber(n, tint),
+            tint: .clear,
+            isEarned: earned
+        ))
+    }
+
     // Commander-only achievements
     if !showPlayerAchievements {
         let pilotCount = distinctPilotCount(in: participations)
@@ -997,6 +1072,51 @@ private func recordAchievement(
     )
 }
 
+/// Same shape as `recordAchievement`, for Int-valued records (e.g. turns) rather than durations.
+private func recordAchievementInt(
+    id: String,
+    title: String,
+    description: String,
+    mine: Int?,
+    record: Int?,
+    myFormat: (Int) -> String,
+    recordFormat: (Int) -> String,
+    bothFormat: (Int, Int) -> String,
+    noMyData: String,
+    noAnyData: String,
+    symbol: String,
+    tint: Color
+) -> Achievement {
+    let isHolder: Bool
+    let progress: String
+    switch (mine, record) {
+    case let (mine?, record?) where mine == record:
+        isHolder = true
+        progress = myFormat(mine)
+    case let (mine?, record?):
+        isHolder = false
+        progress = bothFormat(mine, record)
+    case (nil, let record?):
+        isHolder = false
+        progress = "\(noMyData) \(recordFormat(record))"
+    case (let mine?, nil):
+        isHolder = true
+        progress = myFormat(mine)
+    case (nil, nil):
+        isHolder = false
+        progress = noAnyData
+    }
+    return Achievement(
+        id: id,
+        title: title,
+        description: description,
+        progress: progress,
+        display: .icon(symbol),
+        tint: tint,
+        isEarned: isHolder
+    )
+}
+
 /// Compact list of earned achievements — used by expanded detail views.
 func computeEarnedAchievements(
     from participations: [GameParticipant],
@@ -1016,8 +1136,10 @@ func computeEarnedAchievements(
     if let a = catalog.first(where: { $0.id == "quickloss"        && $0.isEarned })    { result.append(a) }
     if let a = catalog.first(where: { $0.id == "marathonwinner"   && $0.isEarned })    { result.append(a) }
     if let a = catalog.first(where: { $0.id == "marathonsurvivor" && $0.isEarned })    { result.append(a) }
+    if let a = catalog.first(where: { $0.id == "blitzkrieg"       && $0.isEarned })    { result.append(a) }
+    if let a = catalog.first(where: { $0.id == "snailpace"        && $0.isEarned })    { result.append(a) }
 
-    for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion",
+    for id in ["digitalchampion", "irlchampion", "formatdiplomat", "ultimatechampion", "starformat",
                "firstblood", "comefrombehind", "botchedit", "wentlast", "pacifist", "flyonthewall", "infinitecombo", "52pickup", "hattrick", "nice",
                "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss",
                "commanderdamagekill", "commanderdamagedeath", "dickswidth", "milledkill", "milleddeath",
@@ -1026,6 +1148,7 @@ func computeEarnedAchievements(
     }
 
     if let top = catalog.last(where: { $0.id.hasPrefix("games-") && $0.isEarned })     { result.append(top) }
+    if let top = catalog.last(where: { $0.id.hasPrefix("turns-") && $0.isEarned })     { result.append(top) }
 
     for id in ["popularcommander",
                "connoisseur", "loyalpilot",
@@ -1086,6 +1209,17 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             progress: "Earned this game",
             display: .tintedIcon("crown.fill", Color(red: 0.78, green: 0.80, blue: 0.85)),
             tint: .clear, isEarned: true
+        ))
+    }
+
+    // You Get A Stars — won a 5-player ("star" format) game.
+    if participation.didWin && allParts.count == 5 {
+        result.append(Achievement(
+            id: "starformat", title: "You Get A Stars",
+            description: "Win a 5-player game.",
+            progress: "Earned this game",
+            display: .emoji("⭐"),
+            tint: Color(red: 0.85, green: 0.70, blue: 0.20), isEarned: true
         ))
     }
 
@@ -1534,8 +1668,20 @@ private func longestGameDuration(in participations: [GameParticipant], winning: 
     }.max()
 }
 
+private func fewestTurnsToWin(in participations: [GameParticipant]) -> Int? {
+    participations.filter { $0.didWin && $0.turnsPlayed > 0 }.map(\.turnsPlayed).min()
+}
+
+private func mostTurnsToWin(in participations: [GameParticipant]) -> Int? {
+    participations.filter { $0.didWin && $0.turnsPlayed > 0 }.map(\.turnsPlayed).max()
+}
+
 private func firstBloodCount(in participations: [GameParticipant]) -> Int {
     participations.filter { $0.didWin && $0.turnOrder == 0 }.count
+}
+
+private func starFormatWinCount(in participations: [GameParticipant]) -> Int {
+    participations.filter { $0.didWin && ($0.game?.participants.count ?? 0) == 5 }.count
 }
 
 private func botchedItCount(in participations: [GameParticipant]) -> Int {

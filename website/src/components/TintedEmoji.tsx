@@ -19,6 +19,7 @@ const TINT_FILTER: Record<Tint, string> = {
 const TINT_BY_ID: Record<string, Tint> = {
   'wins-5': 'bronze', 'wins-10': 'silver', 'wins-25': 'gold', 'wins-50': 'platinum',
   'games-25': 'bronze', 'games-50': 'silver', 'games-75': 'gold', 'games-100': 'platinum',
+  'turns-100': 'bronze', 'turns-250': 'silver', 'turns-500': 'gold', 'turns-1000': 'platinum',
   quickwin: 'green', quickloss: 'red',
   'solring1-win': 'brightgreen', 'solring1-loss': 'red',
   poisonkill: 'brightgreen',

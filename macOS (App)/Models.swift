@@ -114,6 +114,10 @@ final class GameParticipant {
     var openingHandSize: Int = 7
     // Per-game color identity override for commanders with variable identity (e.g. Prismatic Piper).
     var chosenColorIdentity: [String]?
+    // Turns this player was actually in the game for — stops increasing once they're
+    // eliminated, unlike a single game-wide turn count. 0 means not recorded; no backfill
+    // needed since a participant who played at all took at least 1 turn.
+    var turnsPlayed: Int = 0
 
     init(
         player: Player? = nil,
@@ -123,7 +127,8 @@ final class GameParticipant {
         placement: Int = 0,
         turnOrder: Int = -1,
         openingHandSize: Int = 7,
-        chosenColorIdentity: [String]? = nil
+        chosenColorIdentity: [String]? = nil,
+        turnsPlayed: Int = 0
     ) {
         self.player = player
         self.commander = commander
@@ -133,6 +138,7 @@ final class GameParticipant {
         self.turnOrder = turnOrder
         self.openingHandSize = openingHandSize
         self.chosenColorIdentity = chosenColorIdentity
+        self.turnsPlayed = turnsPlayed
     }
 
     var commanders: [MTGCommander] {

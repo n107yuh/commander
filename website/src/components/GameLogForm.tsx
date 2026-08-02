@@ -338,7 +338,7 @@ function ParticipantRow({
       </div>
 
       <div className="flex-1 min-w-0 space-y-2">
-        <div className="grid grid-cols-[1fr_auto_auto] gap-2">
+        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-2">
           <input
             list="known-players"
             placeholder="Player name"
@@ -367,6 +367,15 @@ function ParticipantRow({
           >
             {[7, 6, 5, 4, 3].map(n => <option key={n} value={n}>{n} cards</option>)}
           </select>
+          <input
+            type="number"
+            min={0}
+            value={participant.turnsPlayed || ''}
+            onChange={e => onChange({ turnsPlayed: Math.max(0, parseInt(e.target.value, 10) || 0) })}
+            placeholder="Turns"
+            title="Turns this player was in the game for (stops once eliminated)"
+            className="bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white w-16"
+          />
         </div>
 
         <CommanderCombobox

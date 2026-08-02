@@ -29,6 +29,8 @@ export const ICON: Record<string, string> = {
   'quickloss': '⚡',
   'marathonwinner': '🏃',
   'marathonsurvivor': '🚶',
+  'blitzkrieg': '🐇',
+  'snailpace': '⏳',
   'monomaster': '🎨',
   'dualmaster': '🎨',
   'trimaster': '🎨',

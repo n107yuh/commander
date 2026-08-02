@@ -29,6 +29,9 @@ export interface PendingParticipant {
   // Only meaningful (and only sent) when the commander or partner is in
   // VARIABLE_IDENTITY_COMMANDER_NAMES.
   chosenColorIdentity: string[]
+  // Turns this player was in the game for — stops increasing once they're
+  // eliminated, unlike a single game-wide turn count. 0 means not recorded.
+  turnsPlayed: number
 }
 
 export interface PendingGame {
@@ -63,6 +66,7 @@ export function newEmptyParticipant(): PendingParticipant {
     turnOrder: -1,
     openingHandSize: 7,
     chosenColorIdentity: [],
+    turnsPlayed: 0,
   }
 }
 

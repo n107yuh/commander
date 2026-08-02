@@ -104,6 +104,14 @@ function ownDurations(asc: Dated[], winning: boolean): { date: string; duration:
     .map(x => ({ date: x.date, duration: x.game.durationSeconds as number }))
 }
 
+// Turns played stops increasing once a player is eliminated, so it lives on the participant
+// (not the game) — Blitzkrieg/Snail's Pace only look at winners' turn counts.
+function ownTurnsToWin(asc: Dated[]): { date: string; duration: number }[] {
+  return asc
+    .filter(x => x.part.didWin && x.part.turnsPlayed > 0)
+    .map(x => ({ date: x.date, duration: x.part.turnsPlayed }))
+}
+
 function recordAchievement(
   id: string, title: string, description: string,
   mineList: { date: string; duration: number }[], record: number | null, pick: 'min' | 'max',
@@ -236,6 +244,25 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     'No timed losses yet.', 'No timed games yet.',
   ))
 
+  const podTurns = games.flatMap(g => g.participants.filter(p => p.didWin && p.turnsPlayed > 0).map(p => p.turnsPlayed))
+  const podFewestTurns = podTurns.length ? Math.min(...podTurns) : null
+  const podMostTurns = podTurns.length ? Math.max(...podTurns) : null
+
+  result.push(recordAchievement(
+    'blitzkrieg', 'Blitzkrieg', "Win the pod's game with the fewest turns on record.",
+    ownTurnsToWin(asc), podFewestTurns, 'min',
+    n => `Won in ${n} turn${n === 1 ? '' : 's'}`, n => `Record: ${n} turn${n === 1 ? '' : 's'}`,
+    (m, r) => `Your best: ${m} turns • Record: ${r} turns`,
+    'No turn counts recorded yet.', 'No turn counts recorded yet.',
+  ))
+  result.push(recordAchievement(
+    'snailpace', "Snail's Pace", "Win the pod's game with the most turns on record.",
+    ownTurnsToWin(asc), podMostTurns, 'max',
+    n => `Won in ${n} turns`, n => `Record: ${n} turns`,
+    (m, r) => `Your longest win: ${m} turns • Record: ${r} turns`,
+    'No turn counts recorded yet.', 'No turn counts recorded yet.',
+  ))
+
   // Format / Champion
   const digi = triggeredInfo(asc, 'digitalchampion')
   const irl = triggeredInfo(asc, 'irlchampion')
@@ -355,6 +382,24 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran',
       isEarned: earned, progress: earned ? 'Unlocked' : `${asc.length} of ${n} games`,
       earnedDate: earned ? asc[n - 1].date : null,
+    })
+  }
+
+  // Veteran tiers — lifetime total turns played
+  let cumulativeTurns = 0
+  const turnMilestoneDates: Record<number, string> = {}
+  for (const x of asc) {
+    cumulativeTurns += Math.max(x.part.turnsPlayed, 0)
+    for (const n of [100, 250, 500, 1000]) {
+      if (cumulativeTurns >= n && !(n in turnMilestoneDates)) turnMilestoneDates[n] = x.date
+    }
+  }
+  for (const n of [100, 250, 500, 1000]) {
+    const earned = cumulativeTurns >= n
+    result.push({
+      id: `turns-${n}`, title: `${n} Turns`, description: `Play ${n} total turns.`, category: 'Veteran',
+      isEarned: earned, progress: earned ? 'Unlocked' : `${cumulativeTurns} of ${n} turns`,
+      earnedDate: earned ? turnMilestoneDates[n] : null,
     })
   }
 
@@ -522,6 +567,8 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'quickloss', title: 'Quickest Loss', description: "Lose the pod's fastest game on record.", category: 'Speed & Endurance' },
   { id: 'marathonwinner', title: 'Marathon Winner', description: "Win the pod's longest game on record.", category: 'Speed & Endurance' },
   { id: 'marathonsurvivor', title: 'Marathon Defeat', description: "Lose the pod's longest game on record.", category: 'Speed & Endurance' },
+  { id: 'blitzkrieg', title: 'Blitzkrieg', description: "Win the pod's game with the fewest turns on record.", category: 'Speed & Endurance' },
+  { id: 'snailpace', title: "Snail's Pace", description: "Win the pod's game with the most turns on record.", category: 'Speed & Endurance' },
   { id: 'digitalchampion', title: 'Digital Champion', description: 'Win a remote game.', category: 'Format & Champion' },
   { id: 'irlchampion', title: 'IRL Champion', description: 'Win an in-person game.', category: 'Format & Champion' },
   { id: 'formatdiplomat', title: 'Format Diplomat', description: 'Win in both in-person and remote games.', category: 'Format & Champion' },
@@ -551,6 +598,7 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'poisondeath', title: 'Inconceivable!', description: 'Get eliminated by 10 poison counters.', category: 'Win Conditions' },
   { id: 'loophole', title: 'Loophole', description: "Win a game via a card's alternate win condition.", category: 'Win Conditions' },
   ...[25, 50, 75, 100].map(n => ({ id: `games-${n}`, title: `${n} Games`, description: `Play ${n} total games.`, category: 'Veteran' })),
+  ...[100, 250, 500, 1000].map(n => ({ id: `turns-${n}`, title: `${n} Turns`, description: `Play ${n} total turns.`, category: 'Veteran' })),
   { id: 'connoisseur', title: 'Connoisseur', description: 'Play 5+ distinct commanders.', category: 'Commanders' },
   { id: 'loyalpilot', title: 'Loyal Pilot', description: 'Play the same commander 10+ times.', category: 'Commanders' },
   { id: 'popularcommander', title: 'Popular Commander', description: 'Be piloted by 3+ different players.', category: 'Commanders' },

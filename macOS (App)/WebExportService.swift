@@ -53,6 +53,7 @@ enum WebExportService {
         var placement: Int
         var turnOrder: Int
         var openingHandSize: Int
+        var turnsPlayed: Int
         var triggeredAchievements: [AchievementData]
     }
 
@@ -163,6 +164,7 @@ enum WebExportService {
                             placement: part.placement,
                             turnOrder: part.turnOrder,
                             openingHandSize: part.openingHandSize,
+                            turnsPlayed: part.turnsPlayed,
                             triggeredAchievements: triggered.map {
                                 AchievementData(id: $0.id, title: $0.title, description: $0.description)
                             }

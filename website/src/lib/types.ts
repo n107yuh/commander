@@ -41,6 +41,7 @@ export interface ParticipantData {
   placement: number
   turnOrder: number
   openingHandSize: number
+  turnsPlayed: number
   triggeredAchievements: AchievementData[]
 }
 

@@ -20,6 +20,8 @@ enum GameImportService {
         var turnOrder: Int
         var openingHandSize: Int
         var chosenColorIdentity: [String]
+        // Optional so pending-game files queued before this field existed still decode.
+        var turnsPlayed: Int?
     }
 
     struct PendingGame: Codable {
@@ -105,6 +107,7 @@ enum GameImportService {
             let turnOrder: Int
             let openingHandSize: Int
             let chosenColorIdentity: [String]
+            let turnsPlayed: Int
         }
 
         for g in file.games {
@@ -133,7 +136,8 @@ enum GameImportService {
                     placement: index,
                     turnOrder: validTurn,
                     openingHandSize: p.openingHandSize > 0 ? p.openingHandSize : 7,
-                    chosenColorIdentity: p.chosenColorIdentity
+                    chosenColorIdentity: p.chosenColorIdentity,
+                    turnsPlayed: p.turnsPlayed ?? 0
                 ))
             }
 
@@ -149,7 +153,8 @@ enum GameImportService {
                     placement: r.placement,
                     turnOrder: r.turnOrder,
                     openingHandSize: r.openingHandSize,
-                    chosenColorIdentity: r.chosenColorIdentity.isEmpty ? nil : r.chosenColorIdentity
+                    chosenColorIdentity: r.chosenColorIdentity.isEmpty ? nil : r.chosenColorIdentity,
+                    turnsPlayed: r.turnsPlayed
                 )
                 context.insert(participant)
                 participant.game = game

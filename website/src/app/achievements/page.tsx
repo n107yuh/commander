@@ -26,6 +26,7 @@ function iconFor(id: string): string {
   if (LOSS_TIER_EMOJI[id]) return LOSS_TIER_EMOJI[id]
   if (id.startsWith('losses-')) return '💀'
   if (id.startsWith('games-')) return '🎖️'
+  if (id.startsWith('turns-')) return '🔄'
   return ICON[id] ?? '🏆'
 }
 

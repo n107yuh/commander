@@ -347,6 +347,9 @@ private struct ParticipantDraft: Identifiable {
     var openingHandSize: Int = 7
     // Per-game color identity for variable-identity commanders
     var chosenColorIdentity: [String] = []
+    // Turns this player was in the game for before being eliminated (or through the
+    // end, if they survived); 0 means not recorded
+    var turnsPlayed: Int = 0
 }
 
 struct GameEditorView: View {
@@ -389,7 +392,8 @@ struct GameEditorView: View {
                     hasPartner: p.partnerCommander != nil,
                     turnOrder: p.turnOrder,
                     openingHandSize: p.openingHandSize > 0 ? p.openingHandSize : 7,
-                    chosenColorIdentity: p.chosenColorIdentity ?? []
+                    chosenColorIdentity: p.chosenColorIdentity ?? [],
+                    turnsPlayed: p.turnsPlayed
                 )
             }
             if loadedDrafts.isEmpty {
@@ -593,6 +597,7 @@ struct GameEditorView: View {
             let turnOrder: Int
             let openingHandSize: Int
             let chosenColorIdentity: [String]
+            let turnsPlayed: Int
         }
 
         var resolved: [Resolved] = []
@@ -622,7 +627,8 @@ struct GameEditorView: View {
                 placement: index,
                 turnOrder: validTurn,
                 openingHandSize: draft.openingHandSize,
-                chosenColorIdentity: chosenColors
+                chosenColorIdentity: chosenColors,
+                turnsPlayed: draft.turnsPlayed
             ))
         }
 
@@ -672,7 +678,8 @@ struct GameEditorView: View {
                 placement: r.placement,
                 turnOrder: r.turnOrder,
                 openingHandSize: r.openingHandSize,
-                chosenColorIdentity: r.chosenColorIdentity.isEmpty ? nil : r.chosenColorIdentity
+                chosenColorIdentity: r.chosenColorIdentity.isEmpty ? nil : r.chosenColorIdentity,
+                turnsPlayed: r.turnsPlayed
             )
             context.insert(participant)
             participant.game = game
@@ -770,6 +777,7 @@ private struct ParticipantRow: View {
                     )
                     turnOrderPicker
                     openingHandPicker
+                    turnsPlayedField
                 }
                 AutocompleteField(
                     title: "Commander",
@@ -939,6 +947,28 @@ private struct ParticipantRow: View {
         .frame(width: 80)
         .help("Opening hand size after mulligans")
     }
+
+    private var turnsPlayedField: some View {
+        HStack(spacing: 4) {
+            Image(systemName: "arrow.triangle.2.circlepath")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+            TextField("—", text: Binding(
+                get: { draft.turnsPlayed > 0 ? "\(draft.turnsPlayed)" : "" },
+                set: { newValue in
+                    draft.turnsPlayed = Int(newValue.filter(\.isNumber)) ?? 0
+                }
+            ))
+            .font(.caption.weight(.medium))
+            .textFieldStyle(.plain)
+        }
+        .padding(.horizontal, 8)
+        .padding(.vertical, 5)
+        .background(Color.secondary.opacity(0.12))
+        .clipShape(RoundedRectangle(cornerRadius: 6))
+        .frame(width: 70)
+        .help("Turns this player was in the game for (stops once eliminated)")
+    }
 }
 
 // MARK: - Annals
@@ -997,7 +1027,7 @@ struct AnnalsView: View {
         var rows: [[String]] = [[
             "Date", "End Time", "Duration (min)", "Format",
             "Placement", "Player", "Commander", "Partner Commander",
-            "Turn Order", "Opening Hand", "Notes"
+            "Turn Order", "Opening Hand", "Turns Played", "Notes"
         ]]
 
         let iso = ISO8601DateFormatter()
@@ -1028,6 +1058,7 @@ struct AnnalsView: View {
                     p.partnerCommander?.name ?? "",
                     p.turnOrder >= 0 ? "\(p.turnOrder + 1)" : "",
                     p.openingHandSize > 0 ? "\(p.openingHandSize)" : "",
+                    p.turnsPlayed > 0 ? "\(p.turnsPlayed)" : "",
                     notes
                 ])
             }
@@ -1151,6 +1182,11 @@ private struct AnnalsDetailPanel: View {
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                                     .italic()
+                            }
+                            if p.turnsPlayed > 0 {
+                                Text("\(p.turnsPlayed) turn\(p.turnsPlayed == 1 ? "" : "s")")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
                             }
                             if p.player != nil {
                                 let toShow = allAchievementsEarnedThisGame(for: p, allGames: allGames)

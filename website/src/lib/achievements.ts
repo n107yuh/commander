@@ -261,14 +261,14 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
   const podMostTurns = podTurns.length ? Math.max(...podTurns) : null
 
   result.push(recordAchievement(
-    'blitzkrieg', 'Blitzkrieg', "Win the pod's game with the fewest turns on record.",
+    'blitzkrieg', 'Blitzkrieg', "Win a game in the fewest turns on record.",
     ownTurnsToWin(asc), podFewestTurns, 'min',
     n => `Won in ${n} turn${n === 1 ? '' : 's'}`, n => `Record: ${n} turn${n === 1 ? '' : 's'}`,
     (m, r) => `Your best: ${m} turns • Record: ${r} turns`,
     'No turn counts recorded yet.', 'No turn counts recorded yet.',
   ))
   result.push(recordAchievement(
-    'snailpace', "Snail's Pace", "Win the pod's game with the most turns on record.",
+    'snailpace', "Snail's Pace", "Win a game in the most turns on record.",
     ownTurnsToWin(asc), podMostTurns, 'max',
     n => `Won in ${n} turns`, n => `Record: ${n} turns`,
     (m, r) => `Your longest win: ${m} turns • Record: ${r} turns`,
@@ -606,8 +606,8 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'quickloss', title: 'Quickest Loss', description: "Lose the pod's fastest game on record.", category: 'Speed & Endurance' },
   { id: 'marathonwinner', title: 'Marathon Winner', description: "Win the pod's longest game on record.", category: 'Speed & Endurance' },
   { id: 'marathonsurvivor', title: 'Marathon Defeat', description: "Lose the pod's longest game on record.", category: 'Speed & Endurance' },
-  { id: 'blitzkrieg', title: 'Blitzkrieg', description: "Win the pod's game with the fewest turns on record.", category: 'Speed & Endurance' },
-  { id: 'snailpace', title: "Snail's Pace", description: "Win the pod's game with the most turns on record.", category: 'Speed & Endurance' },
+  { id: 'blitzkrieg', title: 'Blitzkrieg', description: "Win a game in the fewest turns on record.", category: 'Speed & Endurance' },
+  { id: 'snailpace', title: "Snail's Pace", description: "Win a game in the most turns on record.", category: 'Speed & Endurance' },
   { id: 'digitalchampion', title: 'Digital Champion', description: 'Win a remote game.', category: 'Format & Champion' },
   { id: 'irlchampion', title: 'IRL Champion', description: 'Win an in-person game.', category: 'Format & Champion' },
   { id: 'formatdiplomat', title: 'Format Diplomat', description: 'Win in both in-person and remote games.', category: 'Format & Champion' },

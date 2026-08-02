@@ -254,7 +254,7 @@ func computeAchievementCatalog(
     result.append(recordAchievementInt(
         id: "blitzkrieg",
         title: "Blitzkrieg",
-        description: "Win the pod's game with the fewest turns on record.",
+        description: "Win a game in the fewest turns on record.",
         mine: fewestTurnsToWin(in: participations),
         record: context.fewestTurnsToWin,
         myFormat: { "Won in \($0) turn\($0 == 1 ? "" : "s")" },
@@ -270,7 +270,7 @@ func computeAchievementCatalog(
     result.append(recordAchievementInt(
         id: "snailpace",
         title: "Snail's Pace",
-        description: "Win the pod's game with the most turns on record.",
+        description: "Win a game in the most turns on record.",
         mine: mostTurnsToWin(in: participations),
         record: context.mostTurnsToWin,
         myFormat: { "Won in \($0) turns" },

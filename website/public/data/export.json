@@ -393,10 +393,10 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978",
         "https:\/\/cards.scryfall.io\/normal\/back\/6\/1\/61237530-ad49-469c-a952-67c92315708e.jpg?1783902978"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Jennifer Walters \/\/ The Sensational She-Hulk",
-      "totalGames" : 4,
-      "winRate" : 0.5,
+      "totalGames" : 5,
+      "winRate" : 0.4,
       "wins" : 2
     },
     {
@@ -498,9 +498,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Liberator, Urza's Battlethopter",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -513,9 +513,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1782708123"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Marisi, Breaker of the Coil",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -526,10 +526,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/7\/2\/72e4548b-c171-4f10-b896-af37543dcf0f.jpg?1579203069"
       ],
-      "losses" : 7,
+      "losses" : 8,
       "name" : "Marrow-Gnawer",
-      "totalGames" : 9,
-      "winRate" : 0.2222222222222222,
+      "totalGames" : 10,
+      "winRate" : 0.2,
       "wins" : 2
     },
     {
@@ -630,6 +630,13 @@
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
+    },
+    {
+      "losses" : 0,
+      "name" : "Ovika, Enigma Goliath",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -957,7 +964,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-02T05:30:53Z",
+  "exportedAt" : "2026-08-02T06:08:19Z",
   "games" : [
     {
       "date" : "2026-08-02T01:40:51Z",
@@ -1017,6 +1024,11 @@
           ],
           "triggeredAchievements" : [
             {
+              "description" : "Lose 5 games.",
+              "id" : "losses-5",
+              "title" : "5 Losses"
+            },
+            {
               "description" : "Max graces the table with their presence.",
               "id" : "max-zeus",
               "title" : "Look What the Zeus Dragged In"
@@ -1052,7 +1064,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Play the same commander 10+ times.",
+              "id" : "loyalpilot",
+              "title" : "Loyal Pilot"
+            }
           ],
           "turnOrder" : 3,
           "turnsPlayed" : 0
@@ -1121,11 +1137,6 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            },
-            {
               "description" : "Max graces the table with their presence.",
               "id" : "max-zeus",
               "title" : "Look What the Zeus Dragged In"
@@ -1144,7 +1155,11 @@
             "R"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 0
@@ -1160,14 +1175,140 @@
             "B"
           ],
           "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        }
+      ]
+    },
+    {
+      "date" : "2026-08-01T15:16:55Z",
+      "durationSeconds" : 8340,
+      "isInPerson" : false,
+      "notes" : "Justin dealt 7 rat damage to Pertman. Justin dealt 34 rat damage to Noah. Pertman betrayed Noah at the start of the game. Max flung damage directly to Noah’s face for his death. Justin dealt 61 rat damage to Max. Jake could have killed himself to give Justin the win, but he wasn’t a true friend.",
+      "participants" : [
+        {
+          "commanderName" : "Ovika, Enigma Goliath",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win the pod's game with the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
+              "description" : "Win the pod's game with the most turns on record.",
+              "id" : "snailpace",
+              "title" : "Snail's Pace"
+            },
+            {
+              "description" : "Win a 5-player game.",
+              "id" : "starformat",
+              "title" : "You Get A Stars"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 4,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Liberator, Urza's Battlethopter",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 4,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Take the most collective rat damage across all games.",
+              "id" : "ratbait",
+              "title" : "Rat Bait"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Marisi, Breaker of the Coil",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
             }
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 11
         }
       ]
     },
@@ -3858,9 +3999,24 @@
           "title" : "Quickest Loss"
         },
         {
+          "description" : "Win the pod's game with the fewest turns on record.",
+          "id" : "blitzkrieg",
+          "title" : "Blitzkrieg"
+        },
+        {
+          "description" : "Win the pod's game with the most turns on record.",
+          "id" : "snailpace",
+          "title" : "Snail's Pace"
+        },
+        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win a 5-player game.",
+          "id" : "starformat",
+          "title" : "You Get A Stars"
         },
         {
           "description" : "Win a game after going last.",
@@ -3916,18 +4072,13 @@
           "description" : "Win a game with a 5-color (WUBRG) commander.",
           "id" : "tastetherainbow",
           "title" : "Taste the Rainbow"
-        },
-        {
-          "description" : "Take the most collective rat damage across all games.",
-          "id" : "ratbait",
-          "title" : "Rat Bait"
         }
       ],
       "losses" : 17,
       "name" : "Jake",
-      "totalGames" : 23,
-      "winRate" : 0.2608695652173913,
-      "wins" : 6
+      "totalGames" : 24,
+      "winRate" : 0.2916666666666667,
+      "wins" : 7
     },
     {
       "achievements" : [
@@ -3967,15 +4118,20 @@
           "title" : "Doomed From The Start"
         },
         {
+          "description" : "Play the same commander 10+ times.",
+          "id" : "loyalpilot",
+          "title" : "Loyal Pilot"
+        },
+        {
           "description" : "Deal 50+ rat damage in a single game.",
           "id" : "justin-ratking",
           "title" : "Rat King"
         }
       ],
-      "losses" : 12,
+      "losses" : 13,
       "name" : "Justin",
-      "totalGames" : 14,
-      "winRate" : 0.14285714285714285,
+      "totalGames" : 15,
+      "winRate" : 0.13333333333333333,
       "wins" : 2
     },
     {
@@ -4030,6 +4186,11 @@
     {
       "achievements" : [
         {
+          "description" : "Lose 5 games.",
+          "id" : "losses-5",
+          "title" : "5 Losses"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
@@ -4070,10 +4231,10 @@
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Max",
-      "totalGames" : 7,
-      "winRate" : 0.42857142857142855,
+      "totalGames" : 8,
+      "winRate" : 0.375,
       "wins" : 3
     },
     {
@@ -4202,12 +4363,17 @@
           "description" : "Matthew wakes up and ruins the last game of the evening.",
           "id" : "noah-matthew",
           "title" : "404 Error: Thumb Not Found"
+        },
+        {
+          "description" : "Take the most collective rat damage across all games.",
+          "id" : "ratbait",
+          "title" : "Rat Bait"
         }
       ],
-      "losses" : 23,
+      "losses" : 24,
       "name" : "Noah",
-      "totalGames" : 29,
-      "winRate" : 0.20689655172413793,
+      "totalGames" : 30,
+      "winRate" : 0.2,
       "wins" : 6
     },
     {
@@ -4313,10 +4479,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 10,
+      "losses" : 11,
       "name" : "Pertman",
-      "totalGames" : 21,
-      "winRate" : 0.5238095238095238,
+      "totalGames" : 22,
+      "winRate" : 0.5,
       "wins" : 11
     }
   ]

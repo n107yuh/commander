@@ -788,17 +788,17 @@ private struct ParticipantRow: View {
                         text: $draft.playerName,
                         suggestionsProvider: playerSuggestions
                     )
-                    turnOrderPicker
-                    openingHandPicker
-                }
-                HStack(spacing: 6) {
-                    AutocompleteField(
-                        title: "Commander",
-                        text: $draft.commanderName,
-                        suggestionsProvider: commanderSuggestions
-                    )
+                    HStack(spacing: 0) {
+                        turnOrderPicker
+                        openingHandPicker
+                    }
                     turnsPlayedField
                 }
+                AutocompleteField(
+                    title: "Commander",
+                    text: $draft.commanderName,
+                    suggestionsProvider: commanderSuggestions
+                )
 
                 if draft.hasPartner {
                     HStack(spacing: 6) {
@@ -927,12 +927,15 @@ private struct ParticipantRow: View {
         }
         .menuStyle(.borderlessButton)
         .menuIndicator(.hidden)
-        .frame(width: 130)
+        .frame(width: 64)
         .help("Starting turn order")
     }
 
+    // The closed button shows a compact ordinal ("1st") rather than the full "Went First" —
+    // that text only needs to be descriptive in the open dropdown, and using it for the closed
+    // label forced this control to reserve room for the longest case ("Went Seventh") always.
     private var currentTurnLabel: String {
-        draft.turnOrder >= 0 ? turnOrderLongLabel(draft.turnOrder) : "—"
+        draft.turnOrder >= 0 ? Commander.placementLabel(draft.turnOrder) : "—"
     }
 
     private var openingHandPicker: some View {
@@ -964,22 +967,31 @@ private struct ParticipantRow: View {
     }
 
     private var turnsPlayedField: some View {
-        HStack(spacing: 4) {
-            Image(systemName: "arrow.triangle.2.circlepath")
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-            TextField("—", value: Binding(
-                get: { draft.turnsPlayed > 0 ? draft.turnsPlayed : nil },
-                set: { draft.turnsPlayed = max(0, $0 ?? 0) }
-            ), format: .number)
-            .font(.caption.weight(.medium))
-            .textFieldStyle(.plain)
+        Menu {
+            Button("—") { draft.turnsPlayed = 0 }
+            ForEach(1...50, id: \.self) { n in
+                Button("\(n)") { draft.turnsPlayed = n }
+            }
+        } label: {
+            HStack(spacing: 4) {
+                Image(systemName: "arrow.triangle.2.circlepath")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+                Text(draft.turnsPlayed > 0 ? "\(draft.turnsPlayed)" : "—")
+                    .font(.caption.weight(.medium))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Image(systemName: "chevron.up.chevron.down")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
+            .padding(.horizontal, 8)
+            .padding(.vertical, 5)
+            .background(Color.secondary.opacity(0.12))
+            .clipShape(RoundedRectangle(cornerRadius: 6))
         }
-        .padding(.horizontal, 8)
-        .padding(.vertical, 5)
-        .background(Color.secondary.opacity(0.12))
-        .clipShape(RoundedRectangle(cornerRadius: 6))
-        .frame(width: 70)
+        .menuStyle(.borderlessButton)
+        .menuIndicator(.hidden)
+        .frame(width: 64)
         .help("Turns this player was in the game for (stops once eliminated)")
     }
 }

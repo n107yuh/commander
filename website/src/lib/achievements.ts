@@ -94,6 +94,18 @@ function ratDamageInNotes(notes: string): number {
   return total
 }
 
+// Sums every "<number> rat damage to/on <name>" mention, keyed by lowercased victim name — e.g.
+// "12 rat damage to Noah" attributes 12 to "noah". Mirrors ratDamageTakenPerVictim in the Mac
+// app's Achievements.swift, used for Rat Bait (whoever's taken the most, excluding Justin).
+function ratDamageTakenPerVictim(notes: string): Record<string, number> {
+  const totals: Record<string, number> = {}
+  for (const m of Array.from(notes.matchAll(/(\d+)\s*rat\s*damage\s*(?:to|on)\s+(\w+)/gi))) {
+    const name = m[2].toLowerCase()
+    totals[name] = (totals[name] ?? 0) + parseInt(m[1], 10)
+  }
+  return totals
+}
+
 function clean(progress: string): string {
   return progress.endsWith('.') ? progress.slice(0, -1) : progress
 }
@@ -523,6 +535,33 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
         earnedDate: piedPiperInfo.firstDate,
       })
     }
+
+    // Rat Bait — earnable by anyone except Justin (he's the one dealing rat damage, never
+    // taking it). A cross-player cumulative comparison, so unlike Rat King/Pied Piper this is
+    // recomputed directly from every game's notes rather than trusting triggeredAchievements —
+    // there's no per-player pod record to defer to on the app side for a brand-new achievement.
+    if (!lowerName.includes('justin')) {
+      const takenTotals: Record<string, number> = {}
+      for (const g of games) {
+        for (const [name, dmg] of Object.entries(ratDamageTakenPerVictim(g.notes))) {
+          if (name.includes('justin')) continue
+          takenTotals[name] = (takenTotals[name] ?? 0) + dmg
+        }
+      }
+      const mine = takenTotals[lowerName] ?? 0
+      const recordVal = Object.values(takenTotals).length ? Math.max(...Object.values(takenTotals)) : 0
+      const isHolder = mine > 0 && mine === recordVal
+      let mostRecentDate: string | null = null
+      for (const x of asc) {
+        if (ratDamageTakenPerVictim(x.game.notes)[lowerName]) mostRecentDate = x.date
+      }
+      result.push({
+        id: 'ratbait', title: 'Rat Bait', description: 'Take the most collective rat damage across all games.', category: 'Individual',
+        isEarned: isHolder,
+        progress: isHolder ? `Unlocked (${mine} lifetime rat damage taken)` : mine > 0 ? `${mine} rat damage taken • Record: ${recordVal}` : 'No rat damage taken yet.',
+        earnedDate: isHolder ? mostRecentDate : null,
+      })
+    }
   } else {
     // Popular Commander — commander-only, based on distinct pilots.
     let popularDate: string | null = null
@@ -612,5 +651,6 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'noah-matthew', title: '404 Error: Thumb Not Found', description: 'Matthew wakes up and ruins the last game of the evening.', category: 'Individual' },
   { id: 'justin-ratking', title: 'Rat King', description: 'Deal 50+ rat damage in a single game.', category: 'Individual' },
   { id: 'justin-piedpiper', title: 'Pied Piper', description: 'Deal 5,000 total rat damage across all games.', category: 'Individual' },
+  { id: 'ratbait', title: 'Rat Bait', description: 'Take the most collective rat damage across all games.', category: 'Individual' },
   { id: 'max-zeus', title: 'Look What the Zeus Dragged In', description: 'Max graces the table with his presence.', category: 'Individual' },
 ]

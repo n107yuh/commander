@@ -52,6 +52,7 @@ struct AchievementContext {
     var longestGameDuration: TimeInterval?
     var fewestTurnsToWin: Int?
     var mostTurnsToWin: Int?
+    var mostRatDamageTaken: Int?
 
     static let empty = AchievementContext()
 }
@@ -61,9 +62,13 @@ func computeAchievementContext(from games: [Game]) -> AchievementContext {
     var losses: [TimeInterval] = []
     var durations: [TimeInterval] = []
     var turnsToWin: [Int] = []
+    var ratDamageTakenByPlayer: [String: Int] = [:]
     for game in games {
         for p in game.participants where p.didWin && p.turnsPlayed > 0 {
             turnsToWin.append(p.turnsPlayed)
+        }
+        for (victim, damage) in ratDamageTakenPerVictim(in: game.notes) where !victim.contains("justin") {
+            ratDamageTakenByPlayer[victim, default: 0] += damage
         }
         guard let end = game.endTime, end > game.date else { continue }
         let dur = end.timeIntervalSince(game.date)
@@ -77,7 +82,8 @@ func computeAchievementContext(from games: [Game]) -> AchievementContext {
         quickestLossDuration: losses.min(),
         longestGameDuration: durations.max(),
         fewestTurnsToWin: turnsToWin.min(),
-        mostTurnsToWin: turnsToWin.max()
+        mostTurnsToWin: turnsToWin.max(),
+        mostRatDamageTaken: ratDamageTakenByPlayer.values.max()
     )
 }
 
@@ -256,7 +262,7 @@ func computeAchievementCatalog(
         bothFormat: { mine, rec in "Your best: \(mine) turns • Record: \(rec) turns" },
         noMyData: "No turn counts recorded yet.",
         noAnyData: "No turn counts recorded yet.",
-        symbol: "hare.fill",
+        display: .emoji("🚀"),
         tint: Color(red: 0.80, green: 0.40, blue: 0.15)
     ))
 
@@ -272,7 +278,7 @@ func computeAchievementCatalog(
         bothFormat: { mine, rec in "Your longest win: \(mine) turns • Record: \(rec) turns" },
         noMyData: "No turn counts recorded yet.",
         noAnyData: "No turn counts recorded yet.",
-        symbol: "hourglass",
+        display: .emoji("🐌"),
         tint: Color(red: 0.55, green: 0.45, blue: 0.30)
     ))
 
@@ -1023,6 +1029,27 @@ func computeAchievementCatalog(
                 isEarned: count > 0
             ))
         }
+
+        // Rat Bait — earnable by anyone except Justin (he's the one dealing the rat damage,
+        // never taking it): whoever has taken the most collective rat damage across all games.
+        if !thisPlayer.isEmpty && !thisPlayer.contains("justin") {
+            let mine = ratDamageTaken(by: thisPlayer, in: participations)
+            let record = context.mostRatDamageTaken
+            let isHolder = mine > 0 && mine == record
+            result.append(Achievement(
+                id: "ratbait",
+                title: "Rat Bait",
+                description: "Take the most collective rat damage across all games.",
+                progress: isHolder
+                    ? "Unlocked (\(mine) lifetime rat damage taken)"
+                    : mine > 0
+                        ? "\(mine) rat damage taken • Record: \(record ?? mine)"
+                        : "No rat damage taken yet.",
+                display: .icon("bandage.fill"),
+                tint: Color(red: 0.75, green: 0.35, blue: 0.35),
+                isEarned: isHolder
+            ))
+        }
     }
 
     return result
@@ -1084,7 +1111,7 @@ private func recordAchievementInt(
     bothFormat: (Int, Int) -> String,
     noMyData: String,
     noAnyData: String,
-    symbol: String,
+    display displayValue: Achievement.Display,
     tint: Color
 ) -> Achievement {
     let isHolder: Bool
@@ -1111,7 +1138,7 @@ private func recordAchievementInt(
         title: title,
         description: description,
         progress: progress,
-        display: .icon(symbol),
+        display: displayValue,
         tint: tint,
         isEarned: isHolder
     )
@@ -1154,7 +1181,7 @@ func computeEarnedAchievements(
                "connoisseur", "loyalpilot",
                "monomaster", "dualmaster", "trimaster", "tastetherainbow",
                "jake-wizard", "margolis-graveyard", "pertman-wait", "noah-matthew",
-               "justin-ratking", "justin-piedpiper", "max-zeus"] {
+               "justin-ratking", "justin-piedpiper", "max-zeus", "ratbait"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
     }
     return result
@@ -1781,6 +1808,38 @@ private func ratDamagePerGame(in participations: [GameParticipant]) -> [Int] {
         totals.append(ratDamageInNotes(game.notes))
     }
     return totals
+}
+
+/// Sums every "<number> rat damage to/on <name>" mention in a game's notes, keyed by the
+/// lowercased victim name — e.g. "12 rat damage to Noah" attributes 12 to "noah". Unlike
+/// `ratDamageInNotes` (which only sums the numbers, since it only needs Justin's own total),
+/// Rat Bait needs to know *which* non-Justin player took it.
+private func ratDamageTakenPerVictim(in notes: String) -> [String: Int] {
+    guard let regex = try? NSRegularExpression(pattern: #"(\d+)\s*rat\s*damage\s*(?:to|on)\s+(\w+)"#, options: .caseInsensitive) else {
+        return [:]
+    }
+    let range = NSRange(notes.startIndex..., in: notes)
+    var totals: [String: Int] = [:]
+    regex.enumerateMatches(in: notes, range: range) { match, _, _ in
+        guard let match,
+              let numRange = Range(match.range(at: 1), in: notes),
+              let nameRange = Range(match.range(at: 2), in: notes),
+              let n = Int(notes[numRange]) else { return }
+        totals[notes[nameRange].lowercased(), default: 0] += n
+    }
+    return totals
+}
+
+/// This player's lifetime rat damage taken, summed across every distinct game they're in.
+private func ratDamageTaken(by playerName: String, in participations: [GameParticipant]) -> Int {
+    var seen = Set<PersistentIdentifier>()
+    var total = 0
+    let key = playerName.lowercased()
+    for p in participations {
+        guard let game = p.game, seen.insert(game.persistentModelID).inserted else { continue }
+        total += ratDamageTakenPerVictim(in: game.notes)[key] ?? 0
+    }
+    return total
 }
 
 /// Shared by every kill/death achievement pair (Commander Damage, Mill, Poison), which all check the

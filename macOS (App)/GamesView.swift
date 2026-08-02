@@ -355,6 +355,7 @@ private struct ParticipantDraft: Identifiable {
 struct GameEditorView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
+    @AppStorage("webExportRepoPath") private var webExportRepoPath: String = ""
 
     let mode: GameEditorMode
 
@@ -700,6 +701,18 @@ struct GameEditorView: View {
         let ctx = context
         Task { await PodStore.fetchMissingCardData(in: ctx) }
 
+        if !webExportRepoPath.isEmpty {
+            let repoPath = webExportRepoPath
+            Task {
+                do {
+                    try await WebExportService.exportAndPush(context: ctx, repoPath: repoPath)
+                    print("📤 Auto-exported and pushed after saving game.")
+                } catch {
+                    print("⚠️ Auto-export after save failed: \(error.localizedDescription)")
+                }
+            }
+        }
+
         dismiss()
     }
 }
@@ -953,12 +966,10 @@ private struct ParticipantRow: View {
             Image(systemName: "arrow.triangle.2.circlepath")
                 .font(.caption2)
                 .foregroundStyle(.tertiary)
-            TextField("—", text: Binding(
-                get: { draft.turnsPlayed > 0 ? "\(draft.turnsPlayed)" : "" },
-                set: { newValue in
-                    draft.turnsPlayed = Int(newValue.filter(\.isNumber)) ?? 0
-                }
-            ))
+            TextField("—", value: Binding(
+                get: { draft.turnsPlayed > 0 ? draft.turnsPlayed : nil },
+                set: { draft.turnsPlayed = max(0, $0 ?? 0) }
+            ), format: .number)
             .font(.caption.weight(.medium))
             .textFieldStyle(.plain)
         }

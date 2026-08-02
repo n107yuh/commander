@@ -10,14 +10,24 @@ import type { GameData } from '@/lib/types'
 export function AnnalsList({ games }: { games: GameData[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [winnerFilter, setWinnerFilter] = useState('')
+  const [playerFilter, setPlayerFilter] = useState('')
   const [formatFilter, setFormatFilter] = useState<'all' | 'irl' | 'remote'>('all')
   const [commanderFilter, setCommanderFilter] = useState('')
+  const [playerCountFilter, setPlayerCountFilter] = useState<number | ''>('')
 
   const winners = useMemo(() => {
     const names = new Set<string>()
     for (const g of games) {
       const w = g.participants.find(p => p.didWin)
       if (w) names.add(w.playerName)
+    }
+    return Array.from(names).sort()
+  }, [games])
+
+  const players = useMemo(() => {
+    const names = new Set<string>()
+    for (const g of games) {
+      for (const p of g.participants) names.add(p.playerName)
     }
     return Array.from(names).sort()
   }, [games])
@@ -33,15 +43,23 @@ export function AnnalsList({ games }: { games: GameData[] }) {
     return Array.from(names).sort()
   }, [games])
 
+  const playerCounts = useMemo(() => {
+    const counts = new Set<number>()
+    for (const g of games) counts.add(g.participants.length)
+    return Array.from(counts).sort((a, b) => a - b)
+  }, [games])
+
   const filtered = games.filter(g => {
     if (winnerFilter && g.participants.find(p => p.didWin)?.playerName !== winnerFilter) return false
+    if (playerFilter && !g.participants.some(p => p.playerName === playerFilter)) return false
     if (formatFilter === 'irl' && !g.isInPerson) return false
     if (formatFilter === 'remote' && g.isInPerson) return false
     if (commanderFilter && !g.participants.some(p => p.commanderName === commanderFilter || p.partnerCommanderName === commanderFilter)) return false
+    if (playerCountFilter !== '' && g.participants.length !== playerCountFilter) return false
     return true
   })
 
-  const hasFilters = winnerFilter || formatFilter !== 'all' || commanderFilter
+  const hasFilters = winnerFilter || playerFilter || formatFilter !== 'all' || commanderFilter || playerCountFilter !== ''
 
   return (
     <div className="space-y-4">
@@ -55,6 +73,18 @@ export function AnnalsList({ games }: { games: GameData[] }) {
           >
             <option value="">All</option>
             {winners.map(w => <option key={w} value={w}>{w}</option>)}
+          </select>
+        </div>
+
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs text-slate-500">Player</span>
+          <select
+            value={playerFilter}
+            onChange={e => setPlayerFilter(e.target.value)}
+            className="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white"
+          >
+            <option value="">All</option>
+            {players.map(p => <option key={p} value={p}>{p}</option>)}
           </select>
         </div>
 
@@ -83,10 +113,22 @@ export function AnnalsList({ games }: { games: GameData[] }) {
           </select>
         </div>
 
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs text-slate-500">Players</span>
+          <select
+            value={playerCountFilter}
+            onChange={e => setPlayerCountFilter(e.target.value === '' ? '' : Number(e.target.value))}
+            className="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white"
+          >
+            <option value="">All</option>
+            {playerCounts.map(n => <option key={n} value={n}>{n}</option>)}
+          </select>
+        </div>
+
         {hasFilters && (
           <button
             type="button"
-            onClick={() => { setWinnerFilter(''); setFormatFilter('all'); setCommanderFilter('') }}
+            onClick={() => { setWinnerFilter(''); setPlayerFilter(''); setFormatFilter('all'); setCommanderFilter(''); setPlayerCountFilter('') }}
             className="text-xs text-slate-500 hover:text-white"
           >
             Clear filters

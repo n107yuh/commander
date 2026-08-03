@@ -1012,7 +1012,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-03T01:40:15Z",
+  "exportedAt" : "2026-08-03T01:46:33Z",
   "games" : [
     {
       "date" : "2026-08-03T00:32:39Z",
@@ -1049,7 +1049,7 @@
             }
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 10
         },
         {
           "commanderName" : "Cloud, Ex-SOLDIER",
@@ -1075,7 +1075,7 @@
             }
           ],
           "turnOrder" : 2,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 9
         },
         {
           "commanderName" : "Noctis, Heir Apparent",
@@ -1101,7 +1101,7 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 9
         }
       ]
     },

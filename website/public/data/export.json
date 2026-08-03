@@ -155,9 +155,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/0\/7\/07b4e4f8-6a31-4533-be51-668ce3ddc84f.jpg?1782686054"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Cloud, Ex-SOLDIER",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -576,6 +576,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Noctis, Heir Apparent",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "R"
       ],
@@ -684,6 +691,13 @@
       ],
       "losses" : 0,
       "name" : "Ragost, Deft Gastronaut",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "losses" : 0,
+      "name" : "Rograkh, Son of Rohgahh",
       "totalGames" : 1,
       "winRate" : 1,
       "wins" : 1
@@ -944,6 +958,13 @@
       "wins" : 0
     },
     {
+      "losses" : 0,
+      "name" : "Yoshimaru, Ever Faithful",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
       "colorIdentity" : [
         "G",
         "U"
@@ -971,8 +992,90 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-02T06:26:01Z",
+  "exportedAt" : "2026-08-03T01:39:27Z",
   "games" : [
+    {
+      "date" : "2026-08-03T00:32:39Z",
+      "durationSeconds" : 5400,
+      "isInPerson" : false,
+      "notes" : "Jake killed Pertman with commander damage. Jake killed Noah with commander damage.",
+      "participants" : [
+        {
+          "commanderName" : "Rograkh, Son of Rohgahh",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Yoshimaru, Ever Faithful",
+          "placement" : 0,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 25 total games.",
+              "id" : "games-25",
+              "title" : "25 Games"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Cloud, Ex-SOLDIER",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 25 games.",
+              "id" : "losses-25",
+              "title" : "25 Losses"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Noctis, Heir Apparent",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        }
+      ]
+    },
     {
       "date" : "2026-08-02T03:16:55Z",
       "durationSeconds" : 8340,
@@ -4079,6 +4182,11 @@
           "title" : "Life Totals Don't Matter"
         },
         {
+          "description" : "Play 25 total games.",
+          "id" : "games-25",
+          "title" : "25 Games"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -4091,9 +4199,9 @@
       ],
       "losses" : 17,
       "name" : "Jake",
-      "totalGames" : 24,
-      "winRate" : 0.2916666666666667,
-      "wins" : 7
+      "totalGames" : 25,
+      "winRate" : 0.32,
+      "wins" : 8
     },
     {
       "achievements" : [
@@ -4260,9 +4368,9 @@
           "title" : "5 Wins"
         },
         {
-          "description" : "Lose 10 games.",
-          "id" : "losses-10",
-          "title" : "10 Losses"
+          "description" : "Lose 25 games.",
+          "id" : "losses-25",
+          "title" : "25 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -4385,10 +4493,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 24,
+      "losses" : 25,
       "name" : "Noah",
-      "totalGames" : 30,
-      "winRate" : 0.2,
+      "totalGames" : 31,
+      "winRate" : 0.1935483870967742,
       "wins" : 6
     },
     {
@@ -4479,6 +4587,11 @@
           "title" : "Critical Success"
         },
         {
+          "description" : "Get eliminated by 21+ commander damage.",
+          "id" : "commanderdamagedeath",
+          "title" : "Life Totals Don't Matter"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -4494,10 +4607,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 11,
+      "losses" : 12,
       "name" : "Pertman",
-      "totalGames" : 22,
-      "winRate" : 0.5,
+      "totalGames" : 23,
+      "winRate" : 0.4782608695652174,
       "wins" : 11
     }
   ]

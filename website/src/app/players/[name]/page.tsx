@@ -32,7 +32,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   }
   const cmdList = Object.entries(cmdMap)
     .map(([label, s]) => ({ label, ...s, winRate: s.games > 0 ? s.wins / s.games : 0 }))
-    .sort((a, b) => b.winRate - a.winRate || a.label.localeCompare(b.label))
+    .sort((a, b) => b.winRate - a.winRate || b.games - a.games || a.label.localeCompare(b.label))
 
   // Per-format breakdown
   const iplWins = playerGames.filter(g => g.isInPerson && g.participants.find(p => p.playerName === name)?.didWin).length
@@ -163,7 +163,8 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                   <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Opponent</th>
                   <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Games Together</th>
                   <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Your Wins</th>
-                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Their Wins</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Their Wins</th>
+                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
                 </tr>
               </thead>
               <tbody>
@@ -176,7 +177,10 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                     </td>
                     <td className="text-right px-3 py-2.5 text-slate-300 font-mono">{h.gamesTogether}</td>
                     <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{h.myWins}</td>
-                    <td className="text-right px-4 py-2.5 text-red-400 font-mono">{h.theirWins}</td>
+                    <td className="text-right px-3 py-2.5 text-red-400 font-mono">{h.theirWins}</td>
+                    <td className="text-right px-4 py-2.5 text-slate-300 font-mono">
+                      {formatWinRate(h.gamesTogether > 0 ? h.myWins / h.gamesTogether : 0)}
+                    </td>
                   </tr>
                 ))}
               </tbody>

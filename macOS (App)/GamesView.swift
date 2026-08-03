@@ -359,24 +359,23 @@ struct GameEditorView: View {
 
     let mode: GameEditorMode
 
-    private static let defaultGameDuration: TimeInterval = 90 * 60
-
     @State private var date: Date
-    @State private var endTime: Date
+    @State private var endTime: Date?
     @State private var notes: String
     @State private var isInPerson: Bool?
     @State private var drafts: [ParticipantDraft]
     @State private var winnerID: UUID?
     @State private var showDeleteConfirm = false
     @State private var showFormatAlert = false
+    @State private var showEndTimeAlert = false
+    @State private var showTurnsAlert = false
 
     init(mode: GameEditorMode) {
         self.mode = mode
-        let duration = GameEditorView.defaultGameDuration
 
         if case .edit(let game) = mode {
             _date = State(initialValue: game.date)
-            _endTime = State(initialValue: game.endTime ?? game.date.addingTimeInterval(duration))
+            _endTime = State(initialValue: game.endTime)
             _notes = State(initialValue: game.notes)
             _isInPerson = State<Bool?>(initialValue: game.isInPerson)
 
@@ -405,7 +404,7 @@ struct GameEditorView: View {
         } else {
             let now = Date.now
             _date = State(initialValue: now)
-            _endTime = State(initialValue: now.addingTimeInterval(duration))
+            _endTime = State(initialValue: nil)
             _notes = State(initialValue: "")
             _isInPerson = State<Bool?>(initialValue: nil)
             _drafts = State(initialValue: [
@@ -421,6 +420,12 @@ struct GameEditorView: View {
 
     private var canSave: Bool {
         drafts.filter { !$0.playerName.trimmingCharacters(in: .whitespaces).isEmpty }.count >= 2
+    }
+
+    private var missingTurnsPlayed: Bool {
+        drafts.contains {
+            !$0.playerName.trimmingCharacters(in: .whitespaces).isEmpty && $0.turnsPlayed <= 0
+        }
     }
 
     var body: some View {
@@ -440,12 +445,18 @@ struct GameEditorView: View {
                         DatePicker("Start", selection: Binding(
                             get: { date },
                             set: { newStart in
-                                let delta = max(0, endTime.timeIntervalSince(date))
+                                if let end = endTime {
+                                    let delta = max(0, end.timeIntervalSince(date))
+                                    endTime = newStart.addingTimeInterval(delta)
+                                }
                                 date = newStart
-                                endTime = newStart.addingTimeInterval(delta)
                             }
                         ))
-                        DatePicker("End", selection: $endTime, in: date...)
+                        if let endBinding = Binding($endTime) {
+                            DatePicker("End", selection: endBinding, in: date...)
+                        } else {
+                            Button("Set End Time…") { endTime = date }
+                        }
                     }
                     Picker("Format", selection: $isInPerson) {
                         Text("Played in person").tag(true as Bool?)
@@ -500,8 +511,12 @@ struct GameEditorView: View {
                 Button("Cancel", role: .cancel) { dismiss() }
                     .keyboardShortcut(.cancelAction)
                 Button(isEditing ? "Save" : "Create") {
-                    if isInPerson == nil {
+                    if endTime == nil {
+                        showEndTimeAlert = true
+                    } else if isInPerson == nil {
                         showFormatAlert = true
+                    } else if missingTurnsPlayed {
+                        showTurnsAlert = true
                     } else {
                         save()
                     }
@@ -513,6 +528,12 @@ struct GameEditorView: View {
         }
         .frame(minWidth: 600, minHeight: 660)
         .alert("Please select the format for this game", isPresented: $showFormatAlert) {
+            Button("OK", role: .cancel) {}
+        }
+        .alert("Please enter an end time for this game", isPresented: $showEndTimeAlert) {
+            Button("OK", role: .cancel) {}
+        }
+        .alert("Please enter the number of turns played for every player", isPresented: $showTurnsAlert) {
             Button("OK", role: .cancel) {}
         }
         .confirmationDialog(
@@ -580,6 +601,7 @@ struct GameEditorView: View {
     }
 
     private func save() {
+        guard let endTime else { return }
         let resolvedEnd = max(endTime, date)
 
         // Phase 1: validate drafts and pre-resolve all Player/Commander entities.

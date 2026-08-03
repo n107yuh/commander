@@ -72,10 +72,11 @@ export function newEmptyParticipant(): PendingParticipant {
 
 export function newEmptyGame(): PendingGame {
   const now = new Date()
-  const end = new Date(now.getTime() + 90 * 60 * 1000)
   return {
     date: formatIsoNoMillis(now),
-    endTime: formatIsoNoMillis(end),
+    // Left unset rather than auto-filled to +90min — the user must enter a real end time
+    // (see the "Set end time" split date/time UI and validation in GameLogForm.tsx).
+    endTime: null,
     isInPerson: true,
     notes: '',
     participants: [newEmptyParticipant(), newEmptyParticipant(), newEmptyParticipant(), newEmptyParticipant()],

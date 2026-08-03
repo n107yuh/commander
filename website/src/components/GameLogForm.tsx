@@ -37,6 +37,14 @@ function fromLocalInputValue(value: string): string | null {
   return isNaN(d.getTime()) ? null : formatIsoNoMillis(d)
 }
 
+function toLocalDateValue(iso: string): string {
+  return toLocalInputValue(iso).slice(0, 10)
+}
+
+function toLocalTimeValue(iso: string): string {
+  return toLocalInputValue(iso).slice(11, 16)
+}
+
 export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: string[]; knownCommanders: string[] }) {
   const [queue, setQueue] = useState<PendingGame[]>([])
   const [current, setCurrent] = useState<PendingGame>(newEmptyGame)
@@ -106,7 +114,18 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
     const partnerOk = !partner || confirmedValid.has(partner.toLowerCase())
     return mainOk && partnerOk
   })
-  const canQueue = namedCount >= 2 && allCommandersValid
+  const allTurnsEntered = namedParticipants.every(p => p.turnsPlayed > 0)
+  const canQueue = namedCount >= 2 && allCommandersValid && current.endTime !== null && allTurnsEntered
+
+  const warningMessage = namedCount < 2
+    ? null
+    : !allCommandersValid
+      ? 'Fix the commander names marked in red before queueing this game.'
+      : !current.endTime
+        ? 'Enter an end time before queueing this game.'
+        : !allTurnsEntered
+          ? 'Enter the number of turns played for every player before queueing this game.'
+          : null
 
   function queueGame() {
     if (!canQueue) return
@@ -206,22 +225,47 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
               onChange={e => {
                 const newStart = fromLocalInputValue(e.target.value)
                 if (!newStart) return
-                const oldStart = new Date(current.date).getTime()
-                const oldEnd = current.endTime ? new Date(current.endTime).getTime() : oldStart
-                const delta = Math.max(0, oldEnd - oldStart)
-                setCurrent(g => ({ ...g, date: newStart, endTime: formatIsoNoMillis(new Date(new Date(newStart).getTime() + delta)) }))
+                if (current.endTime) {
+                  const oldStart = new Date(current.date).getTime()
+                  const oldEnd = new Date(current.endTime).getTime()
+                  const delta = Math.max(0, oldEnd - oldStart)
+                  setCurrent(g => ({ ...g, date: newStart, endTime: formatIsoNoMillis(new Date(new Date(newStart).getTime() + delta)) }))
+                } else {
+                  setCurrent(g => ({ ...g, date: newStart }))
+                }
               }}
               className="mt-1 w-full bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-white"
             />
           </label>
           <label className="block">
             <span className="text-xs text-slate-500">End</span>
-            <input
-              type="datetime-local"
-              value={toLocalInputValue(current.endTime)}
-              onChange={e => setCurrent(g => ({ ...g, endTime: fromLocalInputValue(e.target.value) }))}
-              className="mt-1 w-full bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-white"
-            />
+            <div className="mt-1 grid grid-cols-[1fr_auto] gap-1.5">
+              <input
+                type="date"
+                value={current.endTime ? toLocalDateValue(current.endTime) : toLocalDateValue(current.date)}
+                onChange={e => {
+                  if (!e.target.value) return
+                  const time = current.endTime ? toLocalTimeValue(current.endTime) : null
+                  if (time) {
+                    setCurrent(g => ({ ...g, endTime: fromLocalInputValue(`${e.target.value}T${time}`) }))
+                  }
+                }}
+                className="w-full bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-white"
+              />
+              <input
+                type="time"
+                value={current.endTime ? toLocalTimeValue(current.endTime) : ''}
+                onChange={e => {
+                  if (!e.target.value) {
+                    setCurrent(g => ({ ...g, endTime: null }))
+                    return
+                  }
+                  const dateStr = current.endTime ? toLocalDateValue(current.endTime) : toLocalDateValue(current.date)
+                  setCurrent(g => ({ ...g, endTime: fromLocalInputValue(`${dateStr}T${e.target.value}`) }))
+                }}
+                className="w-24 bg-slate-800 border border-slate-700 rounded px-2 py-1.5 text-sm text-white"
+              />
+            </div>
           </label>
         </div>
 
@@ -288,9 +332,9 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
         >
           Add Game to Queue
         </button>
-        {namedCount >= 2 && !allCommandersValid && (
+        {warningMessage && (
           <p className="text-xs text-red-400 text-center -mt-3">
-            Fix the commander names marked in red before queueing this game.
+            {warningMessage}
           </p>
         )}
       </section>

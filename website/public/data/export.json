@@ -461,6 +461,13 @@
       "wins" : 0
     },
     {
+      "losses" : 0,
+      "name" : "Kratos, God of War",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
       "colorIdentity" : [
         "B",
         "G"
@@ -786,6 +793,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Tadeas, Juniper Ascendant",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G",
         "R"
@@ -958,6 +972,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Vivi Ornitier",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "R",
         "W"
@@ -1012,8 +1033,75 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-03T01:46:33Z",
+  "exportedAt" : "2026-08-03T03:00:50Z",
   "games" : [
+    {
+      "date" : "2026-08-03T01:48:56Z",
+      "durationSeconds" : 4320,
+      "isInPerson" : false,
+      "notes" : "Jake killed himself, Pertman prevented Noah from winning with 1 life left, which was devastating",
+      "participants" : [
+        {
+          "commanderName" : "Kratos, God of War",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Vivi Ornitier",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Tadeas, Juniper Ascendant",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        }
+      ]
+    },
     {
       "date" : "2026-08-03T00:32:39Z",
       "durationSeconds" : 4080,
@@ -4126,14 +4214,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -4226,10 +4314,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 17,
+      "losses" : 18,
       "name" : "Jake",
-      "totalGames" : 25,
-      "winRate" : 0.32,
+      "totalGames" : 26,
+      "winRate" : 0.3076923076923077,
       "wins" : 8
     },
     {
@@ -4522,10 +4610,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 25,
+      "losses" : 26,
       "name" : "Noah",
-      "totalGames" : 31,
-      "winRate" : 0.1935483870967742,
+      "totalGames" : 32,
+      "winRate" : 0.1875,
       "wins" : 6
     },
     {
@@ -4541,14 +4629,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -4638,9 +4726,9 @@
       ],
       "losses" : 12,
       "name" : "Pertman",
-      "totalGames" : 23,
-      "winRate" : 0.4782608695652174,
-      "wins" : 11
+      "totalGames" : 24,
+      "winRate" : 0.5,
+      "wins" : 12
     }
   ]
 }

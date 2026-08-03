@@ -30,6 +30,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/f\/2fce5989-a2a0-4825-b90a-a1f78659b6e0.jpg?1783919189"
+      ],
       "losses" : 1,
       "name" : "Ashcoat of the Shadow Swarm",
       "totalGames" : 1,
@@ -1060,7 +1066,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-03T03:57:23Z",
+  "exportedAt" : "2026-08-03T03:57:42Z",
   "games" : [
     {
       "date" : "2026-08-03T03:08:13Z",
@@ -1099,18 +1105,6 @@
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 8
-        },
-        {
-          "commanderName" : "Ashcoat of the Shadow Swarm",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 2,
-          "playerName" : "Justin",
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 2,
-          "turnsPlayed" : 6
         },
         {
           "commanderName" : "Kratos, God of War",
@@ -1161,6 +1155,21 @@
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
         }
       ]
     },

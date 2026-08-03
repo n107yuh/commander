@@ -461,6 +461,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/b\/fb97e2a1-0e86-4c12-8d31-6ff7b825ca10.jpg?1783905133"
+      ],
       "losses" : 0,
       "name" : "Kratos, God of War",
       "totalGames" : 1,
@@ -793,6 +799,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/b\/eb79f973-2384-4de4-81fb-14ba5a0e5556.jpg?1783917774"
+      ],
       "losses" : 1,
       "name" : "Tadeas, Juniper Ascendant",
       "totalGames" : 1,
@@ -972,6 +985,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/c\/ecc1027a-8c07-44a0-bdde-fa2844cff694.jpg?1783906561"
+      ],
       "losses" : 1,
       "name" : "Vivi Ornitier",
       "totalGames" : 1,
@@ -1033,7 +1053,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-03T03:00:50Z",
+  "exportedAt" : "2026-08-03T03:02:16Z",
   "games" : [
     {
       "date" : "2026-08-03T01:48:56Z",
@@ -1047,6 +1067,9 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive wins since your last loss.",
@@ -1065,7 +1088,7 @@
             }
           ],
           "turnOrder" : 2,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 11
         },
         {
           "commanderName" : "Vivi Ornitier",
@@ -1073,6 +1096,10 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -1086,7 +1113,7 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 11
         },
         {
           "commanderName" : "Tadeas, Juniper Ascendant",
@@ -1094,11 +1121,15 @@
           "openingHandSize" : 6,
           "placement" : 1,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
           "triggeredAchievements" : [
 
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 0
+          "turnsPlayed" : 11
         }
       ]
     },

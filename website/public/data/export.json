@@ -576,6 +576,14 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "B",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/8\/c8c69ad3-e999-4beb-85f5-527a00f482da.jpg?1783904650"
+      ],
       "losses" : 1,
       "name" : "Noctis, Heir Apparent",
       "totalGames" : 1,
@@ -696,6 +704,12 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/4\/a4fab67f-00c2-4125-9262-d21a29411797.jpg?1783928807"
+      ],
       "losses" : 0,
       "name" : "Rograkh, Son of Rohgahh",
       "totalGames" : 1,
@@ -958,6 +972,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/a\/aa409269-3698-42a2-8c51-75557b27a6f6.jpg?1783923987"
+      ],
       "losses" : 0,
       "name" : "Yoshimaru, Ever Faithful",
       "totalGames" : 1,
@@ -992,11 +1012,11 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-03T01:39:27Z",
+  "exportedAt" : "2026-08-03T01:40:15Z",
   "games" : [
     {
       "date" : "2026-08-03T00:32:39Z",
-      "durationSeconds" : 5400,
+      "durationSeconds" : 4080,
       "isInPerson" : false,
       "notes" : "Jake killed Pertman with commander damage. Jake killed Noah with commander damage.",
       "participants" : [
@@ -1007,6 +1027,10 @@
           "partnerCommanderName" : "Yoshimaru, Ever Faithful",
           "placement" : 0,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Play 25 total games.",
@@ -1059,6 +1083,11 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Get eliminated by 21+ commander damage.",

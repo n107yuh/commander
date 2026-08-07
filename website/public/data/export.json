@@ -36,9 +36,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/f\/2fce5989-a2a0-4825-b90a-a1f78659b6e0.jpg?1783919189"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Ashcoat of the Shadow Swarm",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -68,9 +68,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/e\/2e261489-8dde-4594-8868-69f432f03d03.jpg?1783907191"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Betor, Ancestor's Voice",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -185,9 +185,9 @@
       ],
       "losses" : 2,
       "name" : "Cloud, Ex-SOLDIER",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -937,9 +937,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/f\/cfb80c75-4b1b-4f25-923a-933855e7345c.jpg?1769163701"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "The Wise Mothman",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1081,8 +1081,104 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-07T03:56:43Z",
+  "exportedAt" : "2026-08-07T05:21:06Z",
   "games" : [
+    {
+      "date" : "2026-08-07T16:01:32Z",
+      "durationSeconds" : 4740,
+      "isInPerson" : false,
+      "notes" : "Justin dealt 6 rat damage to Pertman. Jake dropped his cards on the floor. There was an unwind that Justin found to be quite controversial, as it made his rankle impotent twice",
+      "participants" : [
+        {
+          "commanderName" : "Cloud, Ex-SOLDIER",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Betor, Ancestor's Voice",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "Oops, Butterfingers"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-08-07T03:07:57Z",
       "durationSeconds" : 2920.1762249469757,
@@ -4626,6 +4722,11 @@
           "title" : "Fly On The Wall"
         },
         {
+          "description" : "Drop your cards on the floor.",
+          "id" : "52pickup",
+          "title" : "Oops, Butterfingers"
+        },
+        {
           "description" : "Win three games in a row.",
           "id" : "hattrick",
           "title" : "Hat Trick"
@@ -4666,10 +4767,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 20,
+      "losses" : 21,
       "name" : "Jake",
-      "totalGames" : 29,
-      "winRate" : 0.3103448275862069,
+      "totalGames" : 30,
+      "winRate" : 0.3,
       "wins" : 9
     },
     {
@@ -4720,10 +4821,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 16,
+      "losses" : 17,
       "name" : "Justin",
-      "totalGames" : 18,
-      "winRate" : 0.1111111111111111,
+      "totalGames" : 19,
+      "winRate" : 0.10526315789473684,
       "wins" : 2
     },
     {
@@ -4842,14 +4943,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -4964,9 +5065,9 @@
       ],
       "losses" : 29,
       "name" : "Noah",
-      "totalGames" : 35,
-      "winRate" : 0.17142857142857143,
-      "wins" : 6
+      "totalGames" : 36,
+      "winRate" : 0.19444444444444445,
+      "wins" : 7
     },
     {
       "achievements" : [
@@ -4981,14 +5082,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5096,10 +5197,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 13,
+      "losses" : 14,
       "name" : "Pertman",
-      "totalGames" : 27,
-      "winRate" : 0.5185185185185185,
+      "totalGames" : 28,
+      "winRate" : 0.5,
       "wins" : 14
     }
   ]

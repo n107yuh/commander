@@ -455,7 +455,7 @@ struct GameEditorView: View {
                         if let endBinding = Binding($endTime) {
                             DatePicker("End", selection: endBinding, in: date...)
                         } else {
-                            Button("Set End Time…") { endTime = date }
+                            Button("Set End Time…") { endTime = max(Date(), date) }
                         }
                     }
                     Picker("Format", selection: $isInPerson) {

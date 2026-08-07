@@ -36,9 +36,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/f\/2fce5989-a2a0-4825-b90a-a1f78659b6e0.jpg?1783919189"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Ashcoat of the Shadow Swarm",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -110,6 +110,13 @@
       "totalGames" : 4,
       "winRate" : 0.5,
       "wins" : 2
+    },
+    {
+      "losses" : 0,
+      "name" : "Caesar, Legion's Emperor",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -623,9 +630,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/f\/6\/f61ea59a-1db0-4e6b-bcde-19787c76a49b.jpg?1562946915"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Norin the Wary",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -863,9 +870,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/0\/6\/06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87.jpg?1782708431"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "The First Sliver",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1066,8 +1073,100 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-03T03:57:42Z",
+  "exportedAt" : "2026-08-07T03:05:19Z",
   "games" : [
+    {
+      "date" : "2026-08-07T02:05:07Z",
+      "durationSeconds" : 3540,
+      "isInPerson" : false,
+      "notes" : "This game is played under protest as unintentional misreading of “furance of rath” was not being applied across the board. A full 2 turn cycles did not have doubling for everything. Justin thrummed and became an italan man",
+      "participants" : [
+        {
+          "commanderName" : "Caesar, Legion's Emperor",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Norin the Wary",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "The First Sliver",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-08-03T03:08:13Z",
       "durationSeconds" : 2880,
@@ -4363,14 +4462,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -4381,11 +4480,6 @@
           "description" : "Lose the pod's fastest game on record.",
           "id" : "quickloss",
           "title" : "Quickest Loss"
-        },
-        {
-          "description" : "Win a game in the fewest turns on record.",
-          "id" : "blitzkrieg",
-          "title" : "Blitzkrieg"
         },
         {
           "description" : "Win a game in the most turns on record.",
@@ -4416,6 +4510,11 @@
           "description" : "Go first but finish last.",
           "id" : "botchedit",
           "title" : "Botched It"
+        },
+        {
+          "description" : "Go last and finish last.",
+          "id" : "wentlast",
+          "title" : "Doomed From The Start"
         },
         {
           "description" : "Play an entire game without attacking another player.",
@@ -4468,10 +4567,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 18,
+      "losses" : 19,
       "name" : "Jake",
-      "totalGames" : 27,
-      "winRate" : 0.3333333333333333,
+      "totalGames" : 28,
+      "winRate" : 0.32142857142857145,
       "wins" : 9
     },
     {
@@ -4522,10 +4621,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 14,
+      "losses" : 15,
       "name" : "Justin",
-      "totalGames" : 16,
-      "winRate" : 0.125,
+      "totalGames" : 17,
+      "winRate" : 0.11764705882352941,
       "wins" : 2
     },
     {
@@ -4764,10 +4863,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 27,
+      "losses" : 28,
       "name" : "Noah",
-      "totalGames" : 33,
-      "winRate" : 0.18181818181818182,
+      "totalGames" : 34,
+      "winRate" : 0.17647058823529413,
       "wins" : 6
     },
     {
@@ -4783,14 +4882,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -4811,6 +4910,11 @@
           "description" : "Lose the pod's longest game on record.",
           "id" : "marathonsurvivor",
           "title" : "Marathon Defeat"
+        },
+        {
+          "description" : "Win a game in the fewest turns on record.",
+          "id" : "blitzkrieg",
+          "title" : "Blitzkrieg"
         },
         {
           "description" : "Win a remote game.",
@@ -4895,9 +4999,9 @@
       ],
       "losses" : 13,
       "name" : "Pertman",
-      "totalGames" : 25,
-      "winRate" : 0.48,
-      "wins" : 12
+      "totalGames" : 26,
+      "winRate" : 0.5,
+      "wins" : 13
     }
   ]
 }

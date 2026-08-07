@@ -36,9 +36,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/f\/2fce5989-a2a0-4825-b90a-a1f78659b6e0.jpg?1783919189"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Ashcoat of the Shadow Swarm",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -53,9 +53,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/9\/5924c01f-2815-4e37-b700-3ba6cc81e0e4.jpg?1768940591"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Ashling, the Limitless",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -112,6 +112,14 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/4\/246a7176-98bc-4f54-aa61-38747420f178.jpg?1783912422"
+      ],
       "losses" : 0,
       "name" : "Caesar, Legion's Emperor",
       "totalGames" : 1,
@@ -870,9 +878,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/0\/6\/06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87.jpg?1782708431"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "The First Sliver",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -986,9 +994,9 @@
       ],
       "losses" : 0,
       "name" : "Ureni of the Unwritten",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1073,8 +1081,94 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-07T03:05:19Z",
+  "exportedAt" : "2026-08-07T03:56:43Z",
   "games" : [
+    {
+      "date" : "2026-08-07T03:07:57Z",
+      "durationSeconds" : 2920.1762249469757,
+      "isInPerson" : false,
+      "notes" : "Justin dealt 3 rat damage to Noah. Pertman obliterated everyone",
+      "participants" : [
+        {
+          "commanderName" : "Ureni of the Unwritten",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "The First Sliver",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Ashling, the Limitless",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-08-07T02:05:07Z",
       "durationSeconds" : 3540,
@@ -1087,6 +1181,11 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive wins since your last loss.",
@@ -4567,10 +4666,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 19,
+      "losses" : 20,
       "name" : "Jake",
-      "totalGames" : 28,
-      "winRate" : 0.32142857142857145,
+      "totalGames" : 29,
+      "winRate" : 0.3103448275862069,
       "wins" : 9
     },
     {
@@ -4621,10 +4720,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 15,
+      "losses" : 16,
       "name" : "Justin",
-      "totalGames" : 17,
-      "winRate" : 0.11764705882352941,
+      "totalGames" : 18,
+      "winRate" : 0.1111111111111111,
       "wins" : 2
     },
     {
@@ -4863,10 +4962,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 28,
+      "losses" : 29,
       "name" : "Noah",
-      "totalGames" : 34,
-      "winRate" : 0.17647058823529413,
+      "totalGames" : 35,
+      "winRate" : 0.17142857142857143,
       "wins" : 6
     },
     {
@@ -4999,9 +5098,9 @@
       ],
       "losses" : 13,
       "name" : "Pertman",
-      "totalGames" : 26,
-      "winRate" : 0.5,
-      "wins" : 13
+      "totalGames" : 27,
+      "winRate" : 0.5185185185185185,
+      "wins" : 14
     }
   ]
 }

@@ -962,7 +962,7 @@ private struct ParticipantRow: View {
 
     private var openingHandPicker: some View {
         Menu {
-            ForEach([7, 6, 5, 4, 3], id: \.self) { count in
+            ForEach([7, 6], id: \.self) { count in
                 Button("\(count) cards") { draft.openingHandSize = count }
             }
         } label: {
@@ -991,7 +991,7 @@ private struct ParticipantRow: View {
     private var turnsPlayedField: some View {
         Menu {
             Button("—") { draft.turnsPlayed = 0 }
-            ForEach(1...50, id: \.self) { n in
+            ForEach(1...15, id: \.self) { n in
                 Button("\(n)") { draft.turnsPlayed = n }
             }
         } label: {

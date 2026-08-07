@@ -409,7 +409,7 @@ function ParticipantRow({
             className="bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white w-20"
             title="Opening hand size after mulligans"
           >
-            {[7, 6, 5, 4, 3].map(n => <option key={n} value={n}>{n} cards</option>)}
+            {[7, 6].map(n => <option key={n} value={n}>{n} cards</option>)}
           </select>
           <input
             type="number"

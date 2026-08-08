@@ -110,6 +110,15 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
               </div>
             </div>
           ))}
+          <div>
+            <div className="flex items-baseline gap-2 mb-1.5">
+              <span className="text-sm font-medium text-white">Taste the Rainbow</span>
+              <span className="text-xs text-slate-500">{mastery.fiveColor ? 'won' : 'not yet won'}</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              <ColorComboChip combo="WUBRG" achieved={mastery.fiveColor} commander={mastery.comboCommander['WUBRG']} />
+            </div>
+          </div>
         </div>
       </section>
 

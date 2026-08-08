@@ -60,6 +60,7 @@ export interface ColorMasteryProgress {
   mono: Set<string>
   dual: Set<string>
   tri: Set<string>
+  fiveColor: boolean
   // combo key -> commander(s) used in the first win that completed it, mirroring
   // firstWinningCommanderByComboKey(in:) in the Mac app's Achievements.swift.
   comboCommander: Record<string, string>
@@ -73,6 +74,7 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
   const mono = new Set<string>()
   const dual = new Set<string>()
   const tri = new Set<string>()
+  let fiveColor = false
   const comboCommander: Record<string, string> = {}
 
   // Oldest first, so the first win to complete a combo is the one recorded.
@@ -89,6 +91,7 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
       case 1: mono.add(key); bucketKey = key; break
       case 2: dual.add(key); bucketKey = key; break
       case 3: tri.add(key); bucketKey = key; break
+      case 5: fiveColor = true; bucketKey = key; break
       default: break
     }
     if (bucketKey && !comboCommander[bucketKey]) {
@@ -96,7 +99,7 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
     }
   }
 
-  return { mono, dual, tri, comboCommander }
+  return { mono, dual, tri, fiveColor, comboCommander }
 }
 
 export interface HeadToHeadEntry {

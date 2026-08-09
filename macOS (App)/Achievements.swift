@@ -844,7 +844,7 @@ func computeAchievementCatalog(
 
         // Color achievements
         let wonCombos  = wonColorCombinations(in: participations)
-        let comboToCmd = firstWinningCommanderByComboKey(in: participations)
+        let comboToCmd = winningCommandersByComboKey(in: participations)
 
         // Mono-Master
         let monoCompleted = wonCombos.mono
@@ -1946,8 +1946,10 @@ private func wonColorCombinations(
     return (mono, dual, tri, fiveColor)
 }
 
-private func firstWinningCommanderByComboKey(in participations: [GameParticipant]) -> [String: String] {
-    var result: [String: String] = [:]
+/// Every distinct commander (or partner pairing) that has won with each color-identity
+/// combo key, comma-separated in order of first win — not just the first winner.
+private func winningCommandersByComboKey(in participations: [GameParticipant]) -> [String: String] {
+    var lists: [String: [String]] = [:]
     let sorted = participations.compactMap { p -> (Date, GameParticipant)? in
         guard let d = p.game?.date else { return nil }
         return (d, p)
@@ -1956,11 +1958,12 @@ private func firstWinningCommanderByComboKey(in participations: [GameParticipant
     for (_, p) in sorted where p.didWin {
         guard let colorSet = resolvedWUBRGColors(for: p) else { continue }
         let key: String = colorSet.isEmpty ? "C" : colorOrder.filter { colorSet.contains($0) }.joined()
-        if result[key] == nil {
-            result[key] = p.commanders.sorted { $0.name < $1.name }.map(\.name).joined(separator: " + ")
+        let label = p.commanders.sorted { $0.name < $1.name }.map(\.name).joined(separator: " + ")
+        if !(lists[key] ?? []).contains(label) {
+            lists[key, default: []].append(label)
         }
     }
-    return result
+    return lists.mapValues { $0.joined(separator: ", ") }
 }
 
 private func completedDualColorSegments(wonDual: Set<String>) -> Set<String> {

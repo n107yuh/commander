@@ -231,9 +231,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/a\/5a3dfd71-9ec0-4842-b99d-c1833679f0c5.jpg?1783908855"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Dionus, Elvish Archdruid",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -313,6 +313,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Goreclaw, Terror of Qal Sisma",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G"
       ],
@@ -321,9 +328,9 @@
       ],
       "losses" : 2,
       "name" : "Grothama, All-Devouring",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
-      "wins" : 1
+      "totalGames" : 4,
+      "winRate" : 0.5,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1081,8 +1088,95 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-09T01:50:59Z",
+  "exportedAt" : "2026-08-09T02:30:10Z",
   "games" : [
+    {
+      "date" : "2026-08-09T02:08:18Z",
+      "durationSeconds" : 1287.1304259300232,
+      "isInPerson" : true,
+      "notes" : "After last game’s lack of green, this game was strictly green. Pertman completely redid his first turn after Noah and Margolis took their first turns. Margolis opened a coffee from his car that truly exploded everywhere and for such a comedically long amount of time. Pertman killed Margolis with commander damage. Pertman killed Noah with commander damage",
+      "participants" : [
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Dionus, Elvish Archdruid",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 4
+        },
+        {
+          "commanderName" : "Goreclaw, Terror of Qal Sisma",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 3
+        }
+      ]
+    },
     {
       "date" : "2026-08-09T00:47:47Z",
       "durationSeconds" : 3555.6234949827194,
@@ -4814,11 +4908,6 @@
           "title" : "Worst Loss Streak"
         },
         {
-          "description" : "Lose the pod's fastest game on record.",
-          "id" : "quickloss",
-          "title" : "Quickest Loss"
-        },
-        {
           "description" : "Win a game in the most turns on record.",
           "id" : "snailpace",
           "title" : "Snail's Pace"
@@ -4977,14 +5066,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5025,12 +5114,22 @@
           "description" : "Win a game after going last.",
           "id" : "comefrombehind",
           "title" : "Come From Behind"
+        },
+        {
+          "description" : "Go last and finish last.",
+          "id" : "wentlast",
+          "title" : "Doomed From The Start"
+        },
+        {
+          "description" : "Get eliminated by 21+ commander damage.",
+          "id" : "commanderdamagedeath",
+          "title" : "Life Totals Don't Matter"
         }
       ],
-      "losses" : 10,
+      "losses" : 11,
       "name" : "Margolis",
-      "totalGames" : 13,
-      "winRate" : 0.23076923076923078,
+      "totalGames" : 14,
+      "winRate" : 0.21428571428571427,
       "wins" : 3
     },
     {
@@ -5113,11 +5212,6 @@
           "description" : "Your longest losing streak ever.",
           "id" : "bestlossstreak",
           "title" : "Worst Loss Streak"
-        },
-        {
-          "description" : "Win the pod's fastest game on record.",
-          "id" : "quickwin",
-          "title" : "Quickest Win"
         },
         {
           "description" : "Lose the pod's fastest game on record.",
@@ -5220,10 +5314,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 31,
+      "losses" : 32,
       "name" : "Noah",
-      "totalGames" : 38,
-      "winRate" : 0.18421052631578946,
+      "totalGames" : 39,
+      "winRate" : 0.1794871794871795,
       "wins" : 7
     },
     {
@@ -5239,14 +5333,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5257,11 +5351,6 @@
           "description" : "Win the pod's fastest game on record.",
           "id" : "quickwin",
           "title" : "Quickest Win"
-        },
-        {
-          "description" : "Lose the pod's fastest game on record.",
-          "id" : "quickloss",
-          "title" : "Quickest Loss"
         },
         {
           "description" : "Lose the pod's longest game on record.",
@@ -5329,6 +5418,11 @@
           "title" : "Sol Ring Wasn't Enough"
         },
         {
+          "description" : "Eliminate another player with 21+ commander damage.",
+          "id" : "commanderdamagekill",
+          "title" : "Commander Damage!"
+        },
+        {
           "description" : "Get eliminated by 21+ commander damage.",
           "id" : "commanderdamagedeath",
           "title" : "Life Totals Don't Matter"
@@ -5356,9 +5450,9 @@
       ],
       "losses" : 16,
       "name" : "Pertman",
-      "totalGames" : 30,
-      "winRate" : 0.4666666666666667,
-      "wins" : 14
+      "totalGames" : 31,
+      "winRate" : 0.4838709677419355,
+      "wins" : 15
     }
   ]
 }

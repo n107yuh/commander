@@ -491,7 +491,7 @@ struct GameEditorView: View {
                 }
 
                 Section("Notable Moments") {
-                    TextEditor(text: $notes)
+                    SpellCheckingTextEditor(text: $notes)
                         .frame(minHeight: 80)
                 }
             }

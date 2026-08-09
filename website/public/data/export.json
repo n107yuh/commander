@@ -1094,7 +1094,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-09T03:11:33Z",
+  "exportedAt" : "2026-08-09T04:16:32Z",
   "games" : [
     {
       "date" : "2026-08-09T02:34:16Z",
@@ -1198,6 +1198,16 @@
               "title" : "Commander Damage!"
             },
             {
+              "description" : "Win the pod's fastest game on record.",
+              "id" : "quickwin",
+              "title" : "Quickest Win"
+            },
+            {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
               "description" : "Win a game after going first.",
               "id" : "firstblood",
               "title" : "First Blood"
@@ -1221,6 +1231,11 @@
             "G"
           ],
           "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            },
             {
               "description" : "Get eliminated by 21+ commander damage.",
               "id" : "commanderdamagedeath",
@@ -1254,6 +1269,11 @@
               "description" : "Get eliminated by 21+ commander damage.",
               "id" : "commanderdamagedeath",
               "title" : "Life Totals Don't Matter"
+            },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
             }
           ],
           "turnOrder" : 2,
@@ -1712,6 +1732,11 @@
               "title" : "First Blood"
             },
             {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
@@ -1889,6 +1914,11 @@
               "title" : "25 Games"
             },
             {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
@@ -1979,6 +2009,11 @@
               "title" : "Win Streak"
             },
             {
+              "description" : "Win a 5-player game.",
+              "id" : "starformat",
+              "title" : "You Get A Stars"
+            },
+            {
               "description" : "Win a game in the fewest turns on record.",
               "id" : "blitzkrieg",
               "title" : "Blitzkrieg"
@@ -1987,11 +2022,6 @@
               "description" : "Win a game in the most turns on record.",
               "id" : "snailpace",
               "title" : "Snail's Pace"
-            },
-            {
-              "description" : "Win a 5-player game.",
-              "id" : "starformat",
-              "title" : "You Get A Stars"
             },
             {
               "description" : "Win a game after going last.",
@@ -2804,14 +2834,14 @@
               "title" : "Win Streak"
             },
             {
-              "description" : "Win the pod's longest game on record.",
-              "id" : "marathonwinner",
-              "title" : "Marathon Winner"
-            },
-            {
               "description" : "Win a game after going first.",
               "id" : "firstblood",
               "title" : "First Blood"
+            },
+            {
+              "description" : "Win the pod's longest game on record.",
+              "id" : "marathonwinner",
+              "title" : "Marathon Winner"
             },
             {
               "description" : "Win a remote game.",
@@ -2899,6 +2929,11 @@
               "description" : "Drop your cards on the floor.",
               "id" : "52pickup",
               "title" : "Oops, Butterfingers"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
             }
           ],
           "turnOrder" : 3,
@@ -2930,14 +2965,14 @@
               "title" : "Win Streak"
             },
             {
-              "description" : "Win the pod's longest game on record.",
-              "id" : "marathonwinner",
-              "title" : "Marathon Winner"
-            },
-            {
               "description" : "Roll a natural 20 at the start of the game and win.",
               "id" : "nat20-win",
               "title" : "Critical Success"
+            },
+            {
+              "description" : "Win the pod's longest game on record.",
+              "id" : "marathonwinner",
+              "title" : "Marathon Winner"
             },
             {
               "description" : "Win a game after going first.",
@@ -3236,11 +3271,6 @@
               "title" : "Win Streak"
             },
             {
-              "description" : "Win the pod's fastest game on record.",
-              "id" : "quickwin",
-              "title" : "Quickest Win"
-            },
-            {
               "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
               "id" : "ultimatechampion",
               "title" : "Ultimate Champion"
@@ -3254,6 +3284,11 @@
               "description" : "Eliminate another player with 21+ commander damage.",
               "id" : "commanderdamagekill",
               "title" : "Commander Damage!"
+            },
+            {
+              "description" : "Win the pod's fastest game on record.",
+              "id" : "quickwin",
+              "title" : "Quickest Win"
             },
             {
               "description" : "Win a remote game.",
@@ -3276,11 +3311,6 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Lose the pod's fastest game on record.",
-              "id" : "quickloss",
-              "title" : "Quickest Loss"
-            },
-            {
               "description" : "Roll a natural 20 at the start of the game and still lose.",
               "id" : "nat20-loss",
               "title" : "Rolled Well, Played Poorly"
@@ -3289,6 +3319,11 @@
               "description" : "Get eliminated by 21+ commander damage.",
               "id" : "commanderdamagedeath",
               "title" : "Life Totals Don't Matter"
+            },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
             }
           ],
           "turnOrder" : 0,
@@ -4180,6 +4215,11 @@
               "description" : "Win a game after going first.",
               "id" : "firstblood",
               "title" : "First Blood"
+            },
+            {
+              "description" : "Win the pod's longest game on record.",
+              "id" : "marathonwinner",
+              "title" : "Marathon Winner"
             }
           ],
           "turnOrder" : 0,
@@ -4200,6 +4240,11 @@
               "description" : "Lose 5 games.",
               "id" : "losses-5",
               "title" : "5 Losses"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
             }
           ],
           "turnOrder" : 1,
@@ -4257,6 +4302,11 @@
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
             }
           ],
           "turnOrder" : 3,
@@ -4448,6 +4498,11 @@
               "title" : "Connoisseur"
             },
             {
+              "description" : "Win the pod's fastest game on record.",
+              "id" : "quickwin",
+              "title" : "Quickest Win"
+            },
+            {
               "description" : "Win an in-person game.",
               "id" : "irlchampion",
               "title" : "IRL Champion"
@@ -4474,6 +4529,11 @@
               "description" : "Play 5+ distinct commanders.",
               "id" : "connoisseur",
               "title" : "Connoisseur"
+            },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
             }
           ],
           "turnOrder" : 1,
@@ -4489,7 +4549,11 @@
             "W"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
           ],
           "turnOrder" : 2,
           "turnsPlayed" : 0
@@ -4520,11 +4584,6 @@
               "title" : "Win Streak"
             },
             {
-              "description" : "Win the pod's fastest game on record.",
-              "id" : "quickwin",
-              "title" : "Quickest Win"
-            },
-            {
               "description" : "Win an in-person game.",
               "id" : "irlchampion",
               "title" : "IRL Champion"
@@ -4533,6 +4592,11 @@
               "description" : "Win in both in-person and remote games.",
               "id" : "formatdiplomat",
               "title" : "Format Diplomat"
+            },
+            {
+              "description" : "Win the pod's fastest game on record.",
+              "id" : "quickwin",
+              "title" : "Quickest Win"
             }
           ],
           "turnOrder" : 1,
@@ -4554,6 +4618,11 @@
               "description" : "Go last and finish last.",
               "id" : "wentlast",
               "title" : "Doomed From The Start"
+            },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
             }
           ],
           "turnOrder" : 2,
@@ -4569,7 +4638,11 @@
             "W"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 0
@@ -4605,11 +4678,6 @@
               "title" : "Best Win Streak"
             },
             {
-              "description" : "Win the pod's fastest game on record.",
-              "id" : "quickwin",
-              "title" : "Quickest Win"
-            },
-            {
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
@@ -4618,6 +4686,11 @@
               "description" : "Max graces the table with his presence.",
               "id" : "max-zeus",
               "title" : "Look What the Zeus Dragged In"
+            },
+            {
+              "description" : "Win the pod's fastest game on record.",
+              "id" : "quickwin",
+              "title" : "Quickest Win"
             }
           ],
           "turnOrder" : -1,
@@ -4635,7 +4708,11 @@
             "G"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
           ],
           "turnOrder" : -1,
           "turnsPlayed" : 0
@@ -4650,7 +4727,11 @@
             "W"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
           ],
           "turnOrder" : -1,
           "turnsPlayed" : 0
@@ -4669,6 +4750,11 @@
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
             }
           ],
           "turnOrder" : -1,
@@ -4704,6 +4790,11 @@
               "title" : "Best Win Streak"
             },
             {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
               "description" : "Win the pod's fastest game on record.",
               "id" : "quickwin",
               "title" : "Quickest Win"
@@ -4712,11 +4803,6 @@
               "description" : "Win the pod's longest game on record.",
               "id" : "marathonwinner",
               "title" : "Marathon Winner"
-            },
-            {
-              "description" : "Win a remote game.",
-              "id" : "digitalchampion",
-              "title" : "Digital Champion"
             }
           ],
           "turnOrder" : -1,
@@ -4733,7 +4819,16 @@
             "R"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            }
           ],
           "turnOrder" : -1,
           "turnsPlayed" : 0
@@ -4836,6 +4931,11 @@
               "title" : "Best Win Streak"
             },
             {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
               "description" : "Win the pod's fastest game on record.",
               "id" : "quickwin",
               "title" : "Quickest Win"
@@ -4844,11 +4944,6 @@
               "description" : "Win the pod's longest game on record.",
               "id" : "marathonwinner",
               "title" : "Marathon Winner"
-            },
-            {
-              "description" : "Win a remote game.",
-              "id" : "digitalchampion",
-              "title" : "Digital Champion"
             }
           ],
           "turnOrder" : -1,

@@ -61,8 +61,10 @@ export interface ColorMasteryProgress {
   dual: Set<string>
   tri: Set<string>
   fiveColor: boolean
-  // combo key -> commander(s) used in the first win that completed it, mirroring
-  // firstWinningCommanderByComboKey(in:) in the Mac app's Achievements.swift.
+  // combo key -> every distinct commander (or partner pairing) that has won with
+  // that color identity, comma-separated in order of first win. Extends the Mac
+  // app's firstWinningCommanderByComboKey(in:) (Achievements.swift), which only
+  // records the single first winner per combo — the website shows all of them.
   comboCommander: Record<string, string>
 }
 
@@ -75,9 +77,9 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
   const dual = new Set<string>()
   const tri = new Set<string>()
   let fiveColor = false
-  const comboCommander: Record<string, string> = {}
+  const comboCommanders: Record<string, string[]> = {}
 
-  // Oldest first, so the first win to complete a combo is the one recorded.
+  // Oldest first, so commanders are listed in the order they first won the combo.
   const sortedAsc = getPlayerGames(games, playerName).sort((a, b) => a.date.localeCompare(b.date))
 
   for (const game of sortedAsc) {
@@ -94,9 +96,16 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
       case 5: fiveColor = true; bucketKey = key; break
       default: break
     }
-    if (bucketKey && !comboCommander[bucketKey]) {
-      comboCommander[bucketKey] = commanderLabel(part)
+    if (bucketKey) {
+      const label = commanderLabel(part)
+      const list = comboCommanders[bucketKey] ?? (comboCommanders[bucketKey] = [])
+      if (!list.includes(label)) list.push(label)
     }
+  }
+
+  const comboCommander: Record<string, string> = {}
+  for (const [key, labels] of Object.entries(comboCommanders)) {
+    comboCommander[key] = labels.join(', ')
   }
 
   return { mono, dual, tri, fiveColor, comboCommander }

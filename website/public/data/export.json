@@ -231,9 +231,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/a\/5a3dfd71-9ec0-4842-b99d-c1833679f0c5.jpg?1783908855"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Dionus, Elvish Archdruid",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -313,11 +313,17 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/e\/ee47f23a-3ba9-4615-b170-c89d8ab99d78.jpg?1783915630"
+      ],
       "losses" : 1,
       "name" : "Goreclaw, Terror of Qal Sisma",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -326,10 +332,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/b\/ab8935b1-ec87-4330-9952-9ef8cd344531.jpg?1782709989"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Grothama, All-Devouring",
-      "totalGames" : 4,
-      "winRate" : 0.5,
+      "totalGames" : 5,
+      "winRate" : 0.4,
       "wins" : 2
     },
     {
@@ -1088,8 +1094,83 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-09T02:30:10Z",
+  "exportedAt" : "2026-08-09T03:11:33Z",
   "games" : [
+    {
+      "date" : "2026-08-09T02:34:16Z",
+      "durationSeconds" : 2178.076529979706,
+      "isInPerson" : true,
+      "notes" : "Noah rolled a nat 20. Margolis could have gotten the hat trick if Pertman hadn’t cheated throughout the entire last game",
+      "participants" : [
+        {
+          "commanderName" : "Goreclaw, Terror of Qal Sisma",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Dionus, Elvish Archdruid",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Roll a natural 20 at the start of the game and still lose.",
+              "id" : "nat20-loss",
+              "title" : "Rolled Well, Played Poorly"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-08-09T02:08:18Z",
       "durationSeconds" : 1287.1304259300232,
@@ -1155,6 +1236,9 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -5066,14 +5150,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5128,9 +5212,9 @@
       ],
       "losses" : 11,
       "name" : "Margolis",
-      "totalGames" : 14,
-      "winRate" : 0.21428571428571427,
-      "wins" : 3
+      "totalGames" : 15,
+      "winRate" : 0.26666666666666666,
+      "wins" : 4
     },
     {
       "achievements" : [
@@ -5279,6 +5363,11 @@
           "title" : "Oops, Butterfingers"
         },
         {
+          "description" : "Roll a natural 20 at the start of the game and still lose.",
+          "id" : "nat20-loss",
+          "title" : "Rolled Well, Played Poorly"
+        },
+        {
           "description" : "Play Sol Ring on turn 1 and still lose.",
           "id" : "solring1-loss",
           "title" : "Sol Ring Wasn't Enough"
@@ -5314,10 +5403,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 32,
+      "losses" : 33,
       "name" : "Noah",
-      "totalGames" : 39,
-      "winRate" : 0.1794871794871795,
+      "totalGames" : 40,
+      "winRate" : 0.175,
       "wins" : 7
     },
     {
@@ -5333,14 +5422,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5448,10 +5537,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 16,
+      "losses" : 17,
       "name" : "Pertman",
-      "totalGames" : 31,
-      "winRate" : 0.4838709677419355,
+      "totalGames" : 32,
+      "winRate" : 0.46875,
       "wins" : 15
     }
   ]

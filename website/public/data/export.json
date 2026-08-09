@@ -293,9 +293,9 @@
       ],
       "losses" : 6,
       "name" : "Giada, Font of Hope",
-      "totalGames" : 7,
-      "winRate" : 0.14285714285714285,
-      "wins" : 1
+      "totalGames" : 8,
+      "winRate" : 0.25,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -806,9 +806,9 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347",
         "https:\/\/cards.scryfall.io\/normal\/back\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -848,9 +848,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/2\/52498b7b-0389-4e7b-b29f-7ac86aab9229.jpg?1782685422"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Tannuk, Memorial Ensign",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1081,8 +1081,85 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-07T05:21:55Z",
+  "exportedAt" : "2026-08-09T00:28:34Z",
   "games" : [
+    {
+      "date" : "2026-08-08T23:24:05Z",
+      "durationSeconds" : 3813.299660086632,
+      "isInPerson" : true,
+      "notes" : "Pertman played exsanguinate and gained 30 life. This game was practice to win a collector boosty",
+      "participants" : [
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            },
+            {
+              "description" : "Win in both in-person and remote games.",
+              "id" : "formatdiplomat",
+              "title" : "Format Diplomat"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 11
+        },
+        {
+          "commanderName" : "Tannuk, Memorial Ensign",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        }
+      ]
+    },
     {
       "date" : "2026-08-07T16:01:32Z",
       "durationSeconds" : 4740,
@@ -4835,14 +4912,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -4865,6 +4942,21 @@
           "title" : "Digital Champion"
         },
         {
+          "description" : "Win an in-person game.",
+          "id" : "irlchampion",
+          "title" : "IRL Champion"
+        },
+        {
+          "description" : "Win in both in-person and remote games.",
+          "id" : "formatdiplomat",
+          "title" : "Format Diplomat"
+        },
+        {
+          "description" : "Win a game after going first.",
+          "id" : "firstblood",
+          "title" : "First Blood"
+        },
+        {
           "description" : "Win a game after going last.",
           "id" : "comefrombehind",
           "title" : "Come From Behind"
@@ -4872,9 +4964,9 @@
       ],
       "losses" : 10,
       "name" : "Margolis",
-      "totalGames" : 11,
-      "winRate" : 0.09090909090909091,
-      "wins" : 1
+      "totalGames" : 12,
+      "winRate" : 0.16666666666666666,
+      "wins" : 2
     },
     {
       "achievements" : [
@@ -4943,14 +5035,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5063,10 +5155,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 29,
+      "losses" : 30,
       "name" : "Noah",
-      "totalGames" : 36,
-      "winRate" : 0.19444444444444445,
+      "totalGames" : 37,
+      "winRate" : 0.1891891891891892,
       "wins" : 7
     },
     {
@@ -5197,10 +5289,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 14,
+      "losses" : 15,
       "name" : "Pertman",
-      "totalGames" : 28,
-      "winRate" : 0.5,
+      "totalGames" : 29,
+      "winRate" : 0.4827586206896552,
       "wins" : 14
     }
   ]

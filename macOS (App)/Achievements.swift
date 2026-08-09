@@ -1593,9 +1593,60 @@ func allAchievementsEarnedThisGame(for participation: GameParticipant, allGames:
     let idsBefore = Set(
         computeEarnedAchievements(from: participationsBefore, context: contextBefore, showPlayerAchievements: true).map(\.id)
     )
-    let newlyEarned = computeEarnedAchievements(
+    let earnedUpTo = computeEarnedAchievements(
         from: participationsUpTo, context: contextUpTo, showPlayerAchievements: true
-    ).filter { !idsBefore.contains($0.id) }
+    )
+
+    // Record-style achievements (Quickest Win/Loss, Marathon Winner/Defeat, Blitzkrieg,
+    // Snail's Pace) are excluded from the generic before/after id-delta below and handled
+    // separately: a player who already holds a *tied* record can beat their own tie with an
+    // even better game, but the id was already "true" before this game, so the generic delta
+    // (which only fires on a false→true flip) silently swallows it — the same "countable
+    // achievement" gap documented for Rat King, just triggered by ties instead of counts. Fix:
+    // attribute the id directly to this game if this game's own value ties/beats whatever the
+    // record was immediately before this game, regardless of whether the player already held it.
+    let recordIDs: Set<String> = ["quickwin", "quickloss", "marathonwinner", "marathonsurvivor", "blitzkrieg", "snailpace"]
+    var newlyEarned = earnedUpTo.filter { !idsBefore.contains($0.id) && !recordIDs.contains($0.id) }
+
+    func recordJustSet(mine: TimeInterval?, priorRecord: TimeInterval?, higherIsBetter: Bool) -> Bool {
+        guard let mine else { return false }
+        guard let priorRecord else { return true }
+        return higherIsBetter ? mine >= priorRecord - 1.0 : mine <= priorRecord + 1.0
+    }
+    func recordJustSetInt(mine: Int?, priorRecord: Int?, higherIsBetter: Bool) -> Bool {
+        guard let mine else { return false }
+        guard let priorRecord else { return true }
+        return higherIsBetter ? mine >= priorRecord : mine <= priorRecord
+    }
+    func appendIfRecordSet(_ id: String, _ justSet: Bool) {
+        guard justSet, let a = earnedUpTo.first(where: { $0.id == id }) else { return }
+        newlyEarned.append(a)
+    }
+
+    appendIfRecordSet("quickwin", recordJustSet(
+        mine: quickestGameDuration(in: [participation], winning: true),
+        priorRecord: contextBefore.quickestWinDuration, higherIsBetter: false
+    ))
+    appendIfRecordSet("quickloss", recordJustSet(
+        mine: quickestGameDuration(in: [participation], winning: false),
+        priorRecord: contextBefore.quickestLossDuration, higherIsBetter: false
+    ))
+    appendIfRecordSet("marathonwinner", recordJustSet(
+        mine: longestGameDuration(in: [participation], winning: true),
+        priorRecord: contextBefore.longestGameDuration, higherIsBetter: true
+    ))
+    appendIfRecordSet("marathonsurvivor", recordJustSet(
+        mine: longestGameDuration(in: [participation], winning: false),
+        priorRecord: contextBefore.longestGameDuration, higherIsBetter: true
+    ))
+    appendIfRecordSet("blitzkrieg", recordJustSetInt(
+        mine: fewestTurnsToWin(in: [participation]),
+        priorRecord: contextBefore.fewestTurnsToWin, higherIsBetter: false
+    ))
+    appendIfRecordSet("snailpace", recordJustSetInt(
+        mine: mostTurnsToWin(in: [participation]),
+        priorRecord: contextBefore.mostTurnsToWin, higherIsBetter: true
+    ))
 
     let newlyEarnedIDs = Set(newlyEarned.map(\.id))
     return newlyEarned + instant.filter { !newlyEarnedIDs.contains($0.id) }

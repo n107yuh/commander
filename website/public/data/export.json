@@ -137,9 +137,9 @@
       ],
       "losses" : 3,
       "name" : "Captain America, Team Leader",
-      "totalGames" : 3,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 4,
+      "winRate" : 0.25,
+      "wins" : 1
     },
     {
       "losses" : 0,
@@ -724,10 +724,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/0\/7\/0742f19d-179c-43c4-ab95-4160c56b4384.jpg?1782683381"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Quintorius, History Chaser",
-      "totalGames" : 1,
-      "winRate" : 1,
+      "totalGames" : 2,
+      "winRate" : 0.5,
       "wins" : 1
     },
     {
@@ -820,9 +820,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/4\/9\/49554198-549b-4066-86ce-77a03fda0a2f.jpg?1782685423"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Syr Vondam, Sunstar Exemplar",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1081,8 +1081,73 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-09T00:28:34Z",
+  "exportedAt" : "2026-08-09T01:50:59Z",
   "games" : [
+    {
+      "date" : "2026-08-09T00:47:47Z",
+      "durationSeconds" : 3555.6234949827194,
+      "isInPerson" : true,
+      "notes" : "This game was played for a collector boosty, so tensinos were higher. Margolis boardwiped twice and killed both Noah and Pertman at the same time. This may be his first time winning twice in a row",
+      "participants" : [
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Quintorius, History Chaser",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Syr Vondam, Sunstar Exemplar",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        }
+      ]
+    },
     {
       "date" : "2026-08-08T23:24:05Z",
       "durationSeconds" : 3813.299660086632,
@@ -4964,9 +5029,9 @@
       ],
       "losses" : 10,
       "name" : "Margolis",
-      "totalGames" : 12,
-      "winRate" : 0.16666666666666666,
-      "wins" : 2
+      "totalGames" : 13,
+      "winRate" : 0.23076923076923078,
+      "wins" : 3
     },
     {
       "achievements" : [
@@ -5155,10 +5220,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 30,
+      "losses" : 31,
       "name" : "Noah",
-      "totalGames" : 37,
-      "winRate" : 0.1891891891891892,
+      "totalGames" : 38,
+      "winRate" : 0.18421052631578946,
       "wins" : 7
     },
     {
@@ -5289,10 +5354,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 15,
+      "losses" : 16,
       "name" : "Pertman",
-      "totalGames" : 29,
-      "winRate" : 0.4827586206896552,
+      "totalGames" : 30,
+      "winRate" : 0.4666666666666667,
       "wins" : 14
     }
   ]

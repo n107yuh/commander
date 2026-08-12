@@ -55,9 +55,9 @@
       ],
       "losses" : 2,
       "name" : "Ashling, the Limitless",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -285,6 +285,14 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/c\/bc6146bf-f0c6-4557-af6a-74c643d5fc01.jpg?1783904927"
+      ],
       "losses" : 1,
       "name" : "Fire Lord Azula",
       "totalGames" : 1,
@@ -464,6 +472,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "K'rrik, Son of Yawgmoth",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B",
         "W"
@@ -536,6 +551,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/d\/8d4e5480-a287-4a25-b855-a26dae555b1c.jpg?1783909053"
+      ],
       "losses" : 0,
       "name" : "Lathril, Blade of the Elves",
       "totalGames" : 1,
@@ -888,9 +910,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/f\/a\/fa1b63ce-47d3-4633-9062-3fecd810e85f.jpg?1783910989"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "The Capitoline Triad",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1108,8 +1130,99 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-12T02:10:26Z",
+  "exportedAt" : "2026-08-12T02:55:14Z",
   "games" : [
+    {
+      "date" : "2026-08-12T02:19:26Z",
+      "durationSeconds" : 2115.103428006172,
+      "isInPerson" : false,
+      "notes" : "Everyone agreed Noah had a very strong strike",
+      "participants" : [
+        {
+          "commanderName" : "Ashling, the Limitless",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
+            },
+            {
+              "description" : "Win a game with a 5-color (WUBRG) commander.",
+              "id" : "tastetherainbow",
+              "title" : "Taste the Rainbow"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "K'rrik, Son of Yawgmoth",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "The Capitoline Triad",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-08-12T01:11:26Z",
       "durationSeconds" : 3511.793396949768,
@@ -1122,6 +1235,10 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B",
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Win 10 games.",
@@ -1177,6 +1294,11 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Eliminate another player with 21+ commander damage.",
@@ -5165,14 +5287,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5270,10 +5392,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 21,
+      "losses" : 22,
       "name" : "Jake",
-      "totalGames" : 31,
-      "winRate" : 0.3225806451612903,
+      "totalGames" : 32,
+      "winRate" : 0.3125,
       "wins" : 10
     },
     {
@@ -5471,14 +5593,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5576,9 +5698,19 @@
           "title" : "25 Games"
         },
         {
+          "description" : "Play 100 total turns.",
+          "id" : "turns-100",
+          "title" : "100 Turns"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
+        },
+        {
+          "description" : "Win a game with a 5-color (WUBRG) commander.",
+          "id" : "tastetherainbow",
+          "title" : "Taste the Rainbow"
         },
         {
           "description" : "Matthew wakes up and ruins the last game of the evening.",
@@ -5593,9 +5725,9 @@
       ],
       "losses" : 34,
       "name" : "Noah",
-      "totalGames" : 41,
-      "winRate" : 0.17073170731707318,
-      "wins" : 7
+      "totalGames" : 42,
+      "winRate" : 0.19047619047619047,
+      "wins" : 8
     },
     {
       "achievements" : [
@@ -5710,6 +5842,11 @@
           "title" : "25 Games"
         },
         {
+          "description" : "Play 100 total turns.",
+          "id" : "turns-100",
+          "title" : "100 Turns"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -5725,10 +5862,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 18,
+      "losses" : 19,
       "name" : "Pertman",
-      "totalGames" : 33,
-      "winRate" : 0.45454545454545453,
+      "totalGames" : 34,
+      "winRate" : 0.4411764705882353,
       "wins" : 15
     }
   ]

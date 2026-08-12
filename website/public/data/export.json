@@ -323,9 +323,9 @@
       ],
       "losses" : 1,
       "name" : "Gishath, Sun's Avatar",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -694,9 +694,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/8\/c8c69ad3-e999-4beb-85f5-527a00f482da.jpg?1783904650"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Noctis, Heir Apparent",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1096,6 +1096,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Wan Shi Tong, All-Knowing",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "R",
         "W"
@@ -1150,8 +1157,94 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-12T03:46:14Z",
+  "exportedAt" : "2026-08-12T05:29:33Z",
   "games" : [
+    {
+      "date" : "2026-08-12T03:50:50Z",
+      "durationSeconds" : 5896.068567991257,
+      "isInPerson" : false,
+      "notes" : "Noah and Jake both forgot to wish Pertman a happy birthday at midnight. Pertman wished for his friends to like him. Jake killed Pertman with commander damage",
+      "participants" : [
+        {
+          "commanderName" : "Gishath, Sun's Avatar",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Noctis, Heir Apparent",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Wan Shi Tong, All-Knowing",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-08-12T02:58:23Z",
       "durationSeconds" : 2791.0580570697784,
@@ -5381,14 +5474,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5488,9 +5581,9 @@
       ],
       "losses" : 23,
       "name" : "Jake",
-      "totalGames" : 33,
-      "winRate" : 0.30303030303030304,
-      "wins" : 10
+      "totalGames" : 34,
+      "winRate" : 0.3235294117647059,
+      "wins" : 11
     },
     {
       "achievements" : [
@@ -5817,10 +5910,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 35,
+      "losses" : 36,
       "name" : "Noah",
-      "totalGames" : 43,
-      "winRate" : 0.18604651162790697,
+      "totalGames" : 44,
+      "winRate" : 0.18181818181818182,
       "wins" : 8
     },
     {
@@ -5836,14 +5929,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5956,10 +6049,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 19,
+      "losses" : 20,
       "name" : "Pertman",
-      "totalGames" : 35,
-      "winRate" : 0.45714285714285713,
+      "totalGames" : 36,
+      "winRate" : 0.4444444444444444,
       "wins" : 16
     }
   ]

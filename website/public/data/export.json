@@ -354,6 +354,13 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "G",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/7\/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937"
+      ],
       "losses" : 1,
       "name" : "Hakbal of the Surging Soul",
       "totalGames" : 1,
@@ -1143,7 +1150,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-12T03:45:54Z",
+  "exportedAt" : "2026-08-12T03:46:14Z",
   "games" : [
     {
       "date" : "2026-08-12T02:58:23Z",
@@ -1181,6 +1188,10 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -1216,7 +1227,7 @@
       "date" : "2026-08-12T02:19:26Z",
       "durationSeconds" : 2115.103428006172,
       "isInPerson" : false,
-      "notes" : "Everyone agreed Noah had a very strong strike",
+      "notes" : "Everyone agreed Noah had a very strong strike. It was later determined that Jake cheated with his Gemstone Caverns",
       "participants" : [
         {
           "commanderName" : "Ashling, the Limitless",

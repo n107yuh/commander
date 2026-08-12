@@ -285,6 +285,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Fire Lord Azula",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "W"
       ],
@@ -527,6 +534,13 @@
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
+    },
+    {
+      "losses" : 0,
+      "name" : "Lathril, Blade of the Elves",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -819,9 +833,9 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347",
         "https:\/\/cards.scryfall.io\/normal\/back\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1094,8 +1108,87 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-09T04:16:32Z",
+  "exportedAt" : "2026-08-12T02:10:26Z",
   "games" : [
+    {
+      "date" : "2026-08-12T01:11:26Z",
+      "durationSeconds" : 3511.793396949768,
+      "isInPerson" : false,
+      "notes" : "Pertman had a turn 1 sol ring. Noah killed Pertman with commander damage",
+      "participants" : [
+        {
+          "commanderName" : "Lathril, Blade of the Elves",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Win 10 games.",
+              "id" : "wins-10",
+              "title" : "10 Wins"
+            },
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Fire Lord Azula",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-08-09T02:34:16Z",
       "durationSeconds" : 2178.076529979706,
@@ -5062,9 +5155,9 @@
     {
       "achievements" : [
         {
-          "description" : "Win 5 games.",
-          "id" : "wins-5",
-          "title" : "5 Wins"
+          "description" : "Win 10 games.",
+          "id" : "wins-10",
+          "title" : "10 Wins"
         },
         {
           "description" : "Lose 10 games.",
@@ -5072,14 +5165,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5179,9 +5272,9 @@
       ],
       "losses" : 21,
       "name" : "Jake",
-      "totalGames" : 30,
-      "winRate" : 0.3,
-      "wins" : 9
+      "totalGames" : 31,
+      "winRate" : 0.3225806451612903,
+      "wins" : 10
     },
     {
       "achievements" : [
@@ -5498,10 +5591,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 33,
+      "losses" : 34,
       "name" : "Noah",
-      "totalGames" : 40,
-      "winRate" : 0.175,
+      "totalGames" : 41,
+      "winRate" : 0.17073170731707318,
       "wins" : 7
     },
     {
@@ -5632,10 +5725,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 17,
+      "losses" : 18,
       "name" : "Pertman",
-      "totalGames" : 32,
-      "winRate" : 0.46875,
+      "totalGames" : 33,
+      "winRate" : 0.45454545454545453,
       "wins" : 15
     }
   ]

@@ -1096,6 +1096,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/7\/7\/777fcc21-2856-4181-8ecd-c272f9769e36.jpg?1783904828"
+      ],
       "losses" : 1,
       "name" : "Wan Shi Tong, All-Knowing",
       "totalGames" : 1,
@@ -1157,13 +1163,13 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-12T05:29:33Z",
+  "exportedAt" : "2026-08-12T05:31:29Z",
   "games" : [
     {
       "date" : "2026-08-12T03:50:50Z",
       "durationSeconds" : 5896.068567991257,
       "isInPerson" : false,
-      "notes" : "Noah and Jake both forgot to wish Pertman a happy birthday at midnight. Pertman wished for his friends to like him. Jake killed Pertman with commander damage",
+      "notes" : "Noah and Jake both forgot to wish Pertman a happy birthday at midnight. Pertman wished for his friends to like him. Jake killed Pertman with commander damage. Jake played every dinosaur multiple times. Pertman almost came back with spicy commander damage, but failed. Jake had 107 ending life. Pertman got up to 121 life.",
       "participants" : [
         {
           "commanderName" : "Gishath, Sun's Avatar",
@@ -1233,6 +1239,9 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Go first but finish last.",

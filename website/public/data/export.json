@@ -656,6 +656,20 @@
       "wins" : 1
     },
     {
+      "losses" : 0,
+      "name" : "Monk Gyatso",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
+      "losses" : 1,
+      "name" : "Mr. House, President and CEO",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G",
         "U",
@@ -723,10 +737,10 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891",
         "https:\/\/cards.scryfall.io\/normal\/back\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Norman Osborn \/\/ Green Goblin",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -771,9 +785,17 @@
       "wins" : 1
     },
     {
-      "losses" : 1,
+      "colorIdentity" : [
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/8\/5\/8569ad47-a243-402d-899f-4e6b17ea4e1e.jpg?1783932798"
+      ],
+      "losses" : 2,
       "name" : "Pramikon, Sky Rampart",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1170,8 +1192,115 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-18T03:38:08Z",
+  "exportedAt" : "2026-08-18T04:11:53Z",
   "games" : [
+    {
+      "date" : "2026-08-18T03:43:49Z",
+      "durationSeconds" : 1406.8479219675064,
+      "isInPerson" : false,
+      "notes" : "Noah went infinite and milled everyone out at the same time. It was incredibly unsatisfying, anticlimactic, and overall left a bad taste in everyone’s mouth and likely ruined their evenings. He played with spite after choking so hard last game that he wasn’t sure if he could sleep tonight without a win, no matter what it cost",
+      "participants" : [
+        {
+          "commanderName" : "Monk Gyatso",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Pull off an infinite combo in a game.",
+              "id" : "infinitecombo",
+              "title" : "And In That Moment..."
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Pramikon, Sky Rampart",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 4
+        },
+        {
+          "commanderName" : "Mr. House, President and CEO",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 25 games.",
+              "id" : "losses-25",
+              "title" : "25 Losses"
+            },
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 4
+        },
+        {
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 4
+        }
+      ]
+    },
     {
       "date" : "2026-08-18T01:37:23Z",
       "durationSeconds" : 7179.376520037651,
@@ -1248,6 +1377,11 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -5569,9 +5703,9 @@
           "title" : "10 Wins"
         },
         {
-          "description" : "Lose 10 games.",
-          "id" : "losses-10",
-          "title" : "10 Losses"
+          "description" : "Lose 25 games.",
+          "id" : "losses-25",
+          "title" : "25 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -5669,6 +5803,11 @@
           "title" : "25 Games"
         },
         {
+          "description" : "Play 100 total turns.",
+          "id" : "turns-100",
+          "title" : "100 Turns"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -5679,10 +5818,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 24,
+      "losses" : 25,
       "name" : "Jake",
-      "totalGames" : 35,
-      "winRate" : 0.3142857142857143,
+      "totalGames" : 36,
+      "winRate" : 0.3055555555555556,
       "wins" : 11
     },
     {
@@ -5733,10 +5872,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 18,
+      "losses" : 19,
       "name" : "Justin",
-      "totalGames" : 20,
-      "winRate" : 0.1,
+      "totalGames" : 21,
+      "winRate" : 0.09523809523809523,
       "wins" : 2
     },
     {
@@ -5880,14 +6019,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5903,6 +6042,11 @@
           "description" : "Lose the pod's longest game on record.",
           "id" : "marathonsurvivor",
           "title" : "Marathon Defeat"
+        },
+        {
+          "description" : "Win a game in the fewest turns on record.",
+          "id" : "blitzkrieg",
+          "title" : "Blitzkrieg"
         },
         {
           "description" : "Win a remote game.",
@@ -6012,9 +6156,9 @@
       ],
       "losses" : 37,
       "name" : "Noah",
-      "totalGames" : 45,
-      "winRate" : 0.17777777777777778,
-      "wins" : 8
+      "totalGames" : 46,
+      "winRate" : 0.1956521739130435,
+      "wins" : 9
     },
     {
       "achievements" : [
@@ -6029,14 +6173,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6149,10 +6293,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 20,
+      "losses" : 21,
       "name" : "Pertman",
-      "totalGames" : 37,
-      "winRate" : 0.4594594594594595,
+      "totalGames" : 38,
+      "winRate" : 0.4473684210526316,
       "wins" : 17
     }
   ]

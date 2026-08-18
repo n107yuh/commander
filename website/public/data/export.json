@@ -656,6 +656,12 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/2\/e27ed185-eb2b-42dd-b48e-3c8d4456268b.jpg?1783904834"
+      ],
       "losses" : 0,
       "name" : "Monk Gyatso",
       "totalGames" : 1,
@@ -663,6 +669,14 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/3\/23eb3cf7-c90d-4bfa-b125-4fbcb5614468.jpg?1783912421"
+      ],
       "losses" : 1,
       "name" : "Mr. House, President and CEO",
       "totalGames" : 1,
@@ -1192,7 +1206,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-18T04:11:53Z",
+  "exportedAt" : "2026-08-18T04:12:32Z",
   "games" : [
     {
       "date" : "2026-08-18T03:43:49Z",
@@ -1206,6 +1220,9 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive wins since your last loss.",
@@ -1263,6 +1280,11 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Lose 25 games.",
@@ -1305,7 +1327,7 @@
       "date" : "2026-08-18T01:37:23Z",
       "durationSeconds" : 7179.376520037651,
       "isInPerson" : false,
-      "notes" : "Jake played the game under protest. Pertman played a 1 turn sol ring. Justin played possibility storm early and so the entire game was very fucked up when nothing meant anything. Jake’s board was incredibly scary and fully indestructible, but Justin played Reins of Power, stole his entire board, and killed him",
+      "notes" : "Jake played the game under protest. Pertman played a 1 turn sol ring. Justin played possibility storm early and so the entire game was very fucked up when nothing meant anything. Jake’s board was incredibly scary and fully indestructible, but Justin played Reins of Power, stole his entire board, and killed him. Overall this game was incredible, and very exciting from top to bottom. Noah choked so hard that Pertman had to do the Heimlich over zoom",
       "participants" : [
         {
           "commanderName" : "Círdan the Shipwright",
@@ -1333,21 +1355,6 @@
           "turnsPlayed" : 10
         },
         {
-          "commanderName" : "Liberator, Urza's Battlethopter",
-          "didWin" : false,
-          "openingHandSize" : 6,
-          "placement" : 1,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 2,
-          "turnsPlayed" : 9
-        },
-        {
           "commanderName" : "Giada, Font of Hope",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -1370,6 +1377,21 @@
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Liberator, Urza's Battlethopter",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
         },
         {
           "commanderName" : "Pramikon, Sky Rampart",

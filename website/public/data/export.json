@@ -199,9 +199,9 @@
       ],
       "losses" : 0,
       "name" : "Círdan the Shipwright",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "losses" : 0,
@@ -306,10 +306,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/a\/8ae6fc26-cfad-4da8-98d9-49c27c24d293.jpg?1730489128"
       ],
-      "losses" : 6,
+      "losses" : 7,
       "name" : "Giada, Font of Hope",
-      "totalGames" : 8,
-      "winRate" : 0.25,
+      "totalGames" : 9,
+      "winRate" : 0.2222222222222222,
       "wins" : 2
     },
     {
@@ -608,9 +608,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c31e6768-bcab-43c4-bfc1-76e961689ae9.jpg?1783920018"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Liberator, Urza's Battlethopter",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -769,6 +769,13 @@
       "totalGames" : 1,
       "winRate" : 1,
       "wins" : 1
+    },
+    {
+      "losses" : 1,
+      "name" : "Pramikon, Sky Rampart",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -1163,8 +1170,92 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-12T05:43:10Z",
+  "exportedAt" : "2026-08-18T03:38:08Z",
   "games" : [
+    {
+      "date" : "2026-08-18T01:37:23Z",
+      "durationSeconds" : 7179.376520037651,
+      "isInPerson" : false,
+      "notes" : "Jake played the game under protest. Pertman played a 1 turn sol ring. Justin played possibility storm early and so the entire game was very fucked up when nothing meant anything. Jake’s board was incredibly scary and fully indestructible, but Justin played Reins of Power, stole his entire board, and killed him",
+      "participants" : [
+        {
+          "commanderName" : "Círdan the Shipwright",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Liberator, Urza's Battlethopter",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Pramikon, Sky Rampart",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-08-12T03:50:50Z",
       "durationSeconds" : 5896.068567991257,
@@ -5483,14 +5574,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -5588,10 +5679,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 23,
+      "losses" : 24,
       "name" : "Jake",
-      "totalGames" : 34,
-      "winRate" : 0.3235294117647059,
+      "totalGames" : 35,
+      "winRate" : 0.3142857142857143,
       "wins" : 11
     },
     {
@@ -5642,10 +5733,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 17,
+      "losses" : 18,
       "name" : "Justin",
-      "totalGames" : 19,
-      "winRate" : 0.10526315789473684,
+      "totalGames" : 20,
+      "winRate" : 0.1,
       "wins" : 2
     },
     {
@@ -5919,10 +6010,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 36,
+      "losses" : 37,
       "name" : "Noah",
-      "totalGames" : 44,
-      "winRate" : 0.18181818181818182,
+      "totalGames" : 45,
+      "winRate" : 0.17777777777777778,
       "wins" : 8
     },
     {
@@ -5938,14 +6029,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6060,9 +6151,9 @@
       ],
       "losses" : 20,
       "name" : "Pertman",
-      "totalGames" : 36,
-      "winRate" : 0.4444444444444444,
-      "wins" : 16
+      "totalGames" : 37,
+      "winRate" : 0.4594594594594595,
+      "wins" : 17
     }
   ]
 }

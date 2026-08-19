@@ -94,12 +94,13 @@ export default function Dashboard() {
                   <th className="text-left px-4 py-2.5 text-slate-500 font-medium">Player</th>
                   <th className="text-right px-3 py-2.5 text-slate-500 font-medium">W</th>
                   <th className="text-right px-3 py-2.5 text-slate-500 font-medium">L</th>
+                  <th className="text-right px-3 py-2.5 text-slate-500 font-medium">Games</th>
                   <th className="text-right px-4 py-2.5 text-slate-500 font-medium">Win%</th>
                 </tr>
               </thead>
               <tbody>
                 {standings.length === 0 && (
-                  <tr><td colSpan={5} className="px-4 py-6 text-center text-slate-500 text-sm">No data yet</td></tr>
+                  <tr><td colSpan={6} className="px-4 py-6 text-center text-slate-500 text-sm">No data yet</td></tr>
                 )}
                 {standings.map((p, i) => (
                   <tr key={p.name} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
@@ -111,6 +112,7 @@ export default function Dashboard() {
                     </td>
                     <td className="text-right px-3 py-3 text-emerald-400 font-mono">{p.wins}</td>
                     <td className="text-right px-3 py-3 text-red-400 font-mono">{p.losses}</td>
+                    <td className="text-right px-3 py-3 text-slate-300 font-mono">{p.totalGames}</td>
                     <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(p.winRate)}</td>
                   </tr>
                 ))}

@@ -1206,13 +1206,13 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-18T04:13:26Z",
+  "exportedAt" : "2026-08-19T21:04:32Z",
   "games" : [
     {
       "date" : "2026-08-18T03:43:49Z",
       "durationSeconds" : 1406.8479219675064,
       "isInPerson" : false,
-      "notes" : "Noah went infinite and milled everyone out at the same time. It was incredibly unsatisfying, anticlimactic, and overall left a bad taste in everyone’s mouth and likely ruined their evenings. He played with spite after choking so hard last game that he wasn’t sure if he could sleep tonight without a win, no matter what it cost",
+      "notes" : "Noah went infinite and milled everyone out at the same time. It was incredibly unsatisfying, anticlimactic, and overall left a bad taste in everyone’s mouth and likely ruined their evenings. He played with spite after choking so hard last game that he wasn’t sure if he could sleep tonight without a win, no matter what it cost. Noah milled out Jake. Noah milled out Pertman. Noah milled out Justin.",
       "participants" : [
         {
           "commanderName" : "Monk Gyatso",
@@ -1228,6 +1228,11 @@
               "description" : "Consecutive wins since your last loss.",
               "id" : "winstreak",
               "title" : "Win Streak"
+            },
+            {
+              "description" : "Eliminate another player by milling out their deck.",
+              "id" : "milledkill",
+              "title" : "Milled 'em To A Pulp"
             },
             {
               "description" : "Win a game in the fewest turns on record.",
@@ -1254,6 +1259,32 @@
           "turnsPlayed" : 5
         },
         {
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Get eliminated by being milled out of cards.",
+              "id" : "milleddeath",
+              "title" : "Library Card: Declined"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 4
+        },
+        {
           "commanderName" : "Pramikon, Sky Rampart",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -1265,6 +1296,11 @@
             "R"
           ],
           "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by being milled out of cards.",
+              "id" : "milleddeath",
+              "title" : "Library Card: Declined"
+            },
             {
               "description" : "Go last and finish last.",
               "id" : "wentlast",
@@ -1292,33 +1328,17 @@
               "title" : "25 Losses"
             },
             {
+              "description" : "Get eliminated by being milled out of cards.",
+              "id" : "milleddeath",
+              "title" : "Library Card: Declined"
+            },
+            {
               "description" : "Play 100 total turns.",
               "id" : "turns-100",
               "title" : "100 Turns"
             }
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 4
-        },
-        {
-          "commanderName" : "Norman Osborn \/\/ Green Goblin",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 2,
-          "playerName" : "Pertman",
-          "resolvedColorIdentity" : [
-            "U",
-            "B",
-            "R"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            }
-          ],
-          "turnOrder" : 2,
           "turnsPlayed" : 4
         }
       ]
@@ -5820,6 +5840,11 @@
           "title" : "Life Totals Don't Matter"
         },
         {
+          "description" : "Get eliminated by being milled out of cards.",
+          "id" : "milleddeath",
+          "title" : "Library Card: Declined"
+        },
+        {
           "description" : "Play 25 total games.",
           "id" : "games-25",
           "title" : "25 Games"
@@ -5882,6 +5907,11 @@
           "description" : "Go last and finish last.",
           "id" : "wentlast",
           "title" : "Doomed From The Start"
+        },
+        {
+          "description" : "Get eliminated by being milled out of cards.",
+          "id" : "milleddeath",
+          "title" : "Library Card: Declined"
         },
         {
           "description" : "Play the same commander 10+ times.",
@@ -6146,6 +6176,11 @@
           "title" : "Life Totals Don't Matter"
         },
         {
+          "description" : "Eliminate another player by milling out their deck.",
+          "id" : "milledkill",
+          "title" : "Milled 'em To A Pulp"
+        },
+        {
           "description" : "Play 25 total games.",
           "id" : "games-25",
           "title" : "25 Games"
@@ -6288,6 +6323,11 @@
           "description" : "Get eliminated by 21+ commander damage.",
           "id" : "commanderdamagedeath",
           "title" : "Life Totals Don't Matter"
+        },
+        {
+          "description" : "Get eliminated by being milled out of cards.",
+          "id" : "milleddeath",
+          "title" : "Library Card: Declined"
         },
         {
           "description" : "Play 25 total games.",

@@ -94,7 +94,7 @@ export default function Dashboard() {
                   <th className="text-left px-4 py-2.5 text-slate-500 font-medium">Player</th>
                   <th className="text-right px-3 py-2.5 text-slate-500 font-medium">W</th>
                   <th className="text-right px-3 py-2.5 text-slate-500 font-medium">L</th>
-                  <th className="text-right px-3 py-2.5 text-slate-500 font-medium">Games</th>
+                  <th className="text-right px-3 py-2.5 text-slate-500 font-medium">T</th>
                   <th className="text-right px-4 py-2.5 text-slate-500 font-medium">Win%</th>
                 </tr>
               </thead>

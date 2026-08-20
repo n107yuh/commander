@@ -36,6 +36,17 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
     .map(([label, s]) => ({ label, ...s, winRate: s.games > 0 ? s.wins / s.games : 0 }))
     .sort((a, b) => b.winRate - a.winRate || b.games - a.games || a.label.localeCompare(b.label))
 
+  // Best commander(s) by win% — mirrors bestEntries(from:) in the Mac app's Stats.swift:
+  // only commanders with at least one win are eligible, and every commander tied for the
+  // top win rate is shown (not just the first alphabetically/by-games).
+  const commandersWithWins = cmdList.filter(c => c.wins > 0)
+  const bestWinRate = commandersWithWins.length ? Math.max(...commandersWithWins.map(c => c.winRate)) : null
+  const bestCommanders = bestWinRate === null
+    ? []
+    : commandersWithWins
+        .filter(c => Math.abs(c.winRate - bestWinRate) < 0.0001)
+        .sort((a, b) => b.wins - a.wins || a.label.localeCompare(b.label))
+
   // Per-format breakdown
   const iplWins = playerGames.filter(g => g.isInPerson && g.participants.find(p => p.playerName === name)?.didWin).length
   const iplGames = playerGames.filter(g => g.isInPerson).length
@@ -132,6 +143,35 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
           </div>
         </div>
       </section>
+
+      {/* Best commander(s) — quick view of the top row(s) of the Commander Records table below */}
+      {bestCommanders.length > 0 && (
+        <section>
+          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+            Best Commander{bestCommanders.length > 1 ? 's' : ''}
+          </h2>
+          <div className="space-y-2">
+            {bestCommanders.map(c => (
+              <div key={c.label} className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 flex items-center gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    {c.label.includes('+') ? (
+                      <span className="text-white font-semibold truncate">{c.label}</span>
+                    ) : (
+                      <Link href={`/commanders/${encodeURIComponent(c.label)}`} className="text-white hover:text-violet-400 font-semibold truncate">
+                        {c.label}
+                      </Link>
+                    )}
+                    <ColorDots colors={c.colorIdentity} />
+                  </div>
+                  <div className="text-xs text-slate-500 mt-0.5">{c.wins} wins in {c.games} games</div>
+                </div>
+                <div className="text-xl font-bold font-mono text-emerald-400 shrink-0">{formatWinRate(c.winRate)}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Commander records */}
       {cmdList.length > 0 && (

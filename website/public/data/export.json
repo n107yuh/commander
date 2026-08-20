@@ -1206,7 +1206,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-19T21:04:32Z",
+  "exportedAt" : "2026-08-20T01:57:07Z",
   "games" : [
     {
       "date" : "2026-08-18T03:43:49Z",
@@ -1259,6 +1259,37 @@
           "turnsPlayed" : 5
         },
         {
+          "commanderName" : "Mr. House, President and CEO",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 25 games.",
+              "id" : "losses-25",
+              "title" : "25 Losses"
+            },
+            {
+              "description" : "Get eliminated by being milled out of cards.",
+              "id" : "milleddeath",
+              "title" : "Library Card: Declined"
+            },
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 4
+        },
+        {
           "commanderName" : "Norman Osborn \/\/ Green Goblin",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -1309,37 +1340,6 @@
           ],
           "turnOrder" : 3,
           "turnsPlayed" : 4
-        },
-        {
-          "commanderName" : "Mr. House, President and CEO",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Jake",
-          "resolvedColorIdentity" : [
-            "W",
-            "B",
-            "R"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Lose 25 games.",
-              "id" : "losses-25",
-              "title" : "25 Losses"
-            },
-            {
-              "description" : "Get eliminated by being milled out of cards.",
-              "id" : "milleddeath",
-              "title" : "Library Card: Declined"
-            },
-            {
-              "description" : "Play 100 total turns.",
-              "id" : "turns-100",
-              "title" : "100 Turns"
-            }
-          ],
-          "turnOrder" : 1,
-          "turnsPlayed" : 4
         }
       ]
     },
@@ -1375,30 +1375,6 @@
           "turnsPlayed" : 10
         },
         {
-          "commanderName" : "Giada, Font of Hope",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Jake",
-          "resolvedColorIdentity" : [
-            "W"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            },
-            {
-              "description" : "Go first but finish last.",
-              "id" : "botchedit",
-              "title" : "Botched It"
-            }
-          ],
-          "turnOrder" : 0,
-          "turnsPlayed" : 7
-        },
-        {
           "commanderName" : "Liberator, Urza's Battlethopter",
           "didWin" : false,
           "openingHandSize" : 6,
@@ -1428,6 +1404,30 @@
 
           ],
           "turnOrder" : 3,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
           "turnsPlayed" : 7
         }
       ]
@@ -1642,6 +1642,25 @@
           "turnsPlayed" : 8
         },
         {
+          "commanderName" : "The Capitoline Triad",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        },
+        {
           "commanderName" : "K'rrik, Son of Yawgmoth",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -1664,25 +1683,6 @@
           ],
           "turnOrder" : 2,
           "turnsPlayed" : 6
-        },
-        {
-          "commanderName" : "The Capitoline Triad",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Pertman",
-          "resolvedColorIdentity" : [
-
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Play 100 total turns.",
-              "id" : "turns-100",
-              "title" : "100 Turns"
-            }
-          ],
-          "turnOrder" : 1,
-          "turnsPlayed" : 7
         }
       ]
     },
@@ -1723,6 +1723,27 @@
           "turnsPlayed" : 8
         },
         {
+          "commanderName" : "Fire Lord Azula",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
           "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -1749,27 +1770,6 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 7
-        },
-        {
-          "commanderName" : "Fire Lord Azula",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "U",
-            "B",
-            "R"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Eliminate another player with 21+ commander damage.",
-              "id" : "commanderdamagekill",
-              "title" : "Commander Damage!"
-            }
-          ],
-          "turnOrder" : 2,
           "turnsPlayed" : 7
         }
       ]
@@ -1987,6 +1987,22 @@
           "turnsPlayed" : 9
         },
         {
+          "commanderName" : "Syr Vondam, Sunstar Exemplar",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
           "commanderName" : "Quintorius, History Chaser",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -2005,22 +2021,6 @@
           ],
           "turnOrder" : 2,
           "turnsPlayed" : 8
-        },
-        {
-          "commanderName" : "Syr Vondam, Sunstar Exemplar",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "W",
-            "B"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0,
-          "turnsPlayed" : 9
         }
       ]
     },
@@ -2139,21 +2139,6 @@
           "turnsPlayed" : 10
         },
         {
-          "commanderName" : "Ashcoat of the Shadow Swarm",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 2,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "B"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 1,
-          "turnsPlayed" : 8
-        },
-        {
           "commanderName" : "Betor, Ancestor's Voice",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -2173,6 +2158,21 @@
           ],
           "turnOrder" : 3,
           "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
         },
         {
           "commanderName" : "The Wise Mothman",
@@ -2225,27 +2225,19 @@
           "turnsPlayed" : 8
         },
         {
-          "commanderName" : "The First Sliver",
+          "commanderName" : "Ashcoat of the Shadow Swarm",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Jake",
+          "placement" : 1,
+          "playerName" : "Justin",
           "resolvedColorIdentity" : [
-            "W",
-            "U",
-            "B",
-            "R",
-            "G"
+            "B"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Go last and finish last.",
-              "id" : "wentlast",
-              "title" : "Doomed From The Start"
-            }
+
           ],
-          "turnOrder" : 3,
-          "turnsPlayed" : 6
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
         },
         {
           "commanderName" : "Ashling, the Limitless",
@@ -2267,19 +2259,27 @@
           "turnsPlayed" : 7
         },
         {
-          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "commanderName" : "The First Sliver",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
+          "placement" : 3,
+          "playerName" : "Jake",
           "resolvedColorIdentity" : [
-            "B"
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
-          "turnOrder" : 0,
-          "turnsPlayed" : 8
+          "turnOrder" : 3,
+          "turnsPlayed" : 6
         }
       ]
     },
@@ -2318,6 +2318,21 @@
             }
           ],
           "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
           "turnsPlayed" : 7
         },
         {
@@ -2362,21 +2377,6 @@
           ],
           "turnOrder" : 3,
           "turnsPlayed" : 5
-        },
-        {
-          "commanderName" : "Ashcoat of the Shadow Swarm",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "B"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0,
-          "turnsPlayed" : 7
         }
       ]
     },
@@ -2424,6 +2424,37 @@
           "turnsPlayed" : 8
         },
         {
+          "commanderName" : "Hope Estheim",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
           "commanderName" : "Kratos, God of War",
           "didWin" : false,
           "openingHandSize" : 6,
@@ -2455,37 +2486,6 @@
             }
           ],
           "turnOrder" : 3,
-          "turnsPlayed" : 6
-        },
-        {
-          "commanderName" : "Hope Estheim",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "W",
-            "U"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 1,
-          "turnsPlayed" : 8
-        },
-        {
-          "commanderName" : "Ashcoat of the Shadow Swarm",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 2,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "B"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 2,
           "turnsPlayed" : 6
         }
       ]
@@ -2526,6 +2526,22 @@
           "turnsPlayed" : 11
         },
         {
+          "commanderName" : "Tadeas, Juniper Ascendant",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 11
+        },
+        {
           "commanderName" : "Vivi Ornitier",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -2548,22 +2564,6 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 11
-        },
-        {
-          "commanderName" : "Tadeas, Juniper Ascendant",
-          "didWin" : false,
-          "openingHandSize" : 6,
-          "placement" : 1,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "W",
-            "G"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 1,
           "turnsPlayed" : 11
         }
       ]
@@ -2716,6 +2716,27 @@
           "turnsPlayed" : 12
         },
         {
+          "commanderName" : "Marisi, Breaker of the Coil",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 12
+        },
+        {
           "commanderName" : "Marrow-Gnawer",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -2738,25 +2759,6 @@
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 12
-        },
-        {
-          "commanderName" : "Liberator, Urza's Battlethopter",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 4,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Take the most collective rat damage across all games.",
-              "id" : "ratbait",
-              "title" : "Rat Bait"
-            }
-          ],
-          "turnOrder" : 3,
-          "turnsPlayed" : 7
         },
         {
           "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
@@ -2784,25 +2786,23 @@
           "turnsPlayed" : 11
         },
         {
-          "commanderName" : "Marisi, Breaker of the Coil",
+          "commanderName" : "Liberator, Urza's Battlethopter",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Pertman",
+          "placement" : 4,
+          "playerName" : "Noah",
           "resolvedColorIdentity" : [
-            "W",
-            "R",
-            "G"
+
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
+              "description" : "Take the most collective rat damage across all games.",
+              "id" : "ratbait",
+              "title" : "Rat Bait"
             }
           ],
-          "turnOrder" : 2,
-          "turnsPlayed" : 12
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
         }
       ]
     },
@@ -2852,6 +2852,21 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Dr. Eggman",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -2887,21 +2902,6 @@
 
           ],
           "turnOrder" : 2,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Marrow-Gnawer",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "B"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 3,
           "turnsPlayed" : 0
         },
         {
@@ -3056,6 +3056,25 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Marrow-Gnawer",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "The Wise Mothman",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -3079,25 +3098,6 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Marrow-Gnawer",
-          "didWin" : false,
-          "openingHandSize" : 6,
-          "placement" : 1,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "B"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            }
-          ],
-          "turnOrder" : 1,
           "turnsPlayed" : 0
         }
       ]
@@ -3130,6 +3130,32 @@
             }
           ],
           "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Anikthea, Hand of Erebos",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 10 games.",
+              "id" : "losses-10",
+              "title" : "10 Losses"
+            },
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 3,
           "turnsPlayed" : 0
         },
         {
@@ -3170,32 +3196,6 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Anikthea, Hand of Erebos",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Pertman",
-          "resolvedColorIdentity" : [
-            "W",
-            "B",
-            "G"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Lose 10 games.",
-              "id" : "losses-10",
-              "title" : "10 Losses"
-            },
-            {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            }
-          ],
-          "turnOrder" : 3,
           "turnsPlayed" : 0
         }
       ]
@@ -3318,6 +3318,28 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Ishai, Ojutai Dragonspeaker",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Tymna the Weaver",
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Captain America, Team Leader",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -3367,28 +3389,6 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Ishai, Ojutai Dragonspeaker",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "partnerCommanderName" : "Tymna the Weaver",
-          "placement" : 1,
-          "playerName" : "Jake",
-          "resolvedColorIdentity" : [
-            "W",
-            "U",
-            "B"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Eliminate another player with 21+ commander damage.",
-              "id" : "commanderdamagekill",
-              "title" : "Commander Damage!"
-            }
-          ],
-          "turnOrder" : 3,
           "turnsPlayed" : 0
         }
       ]
@@ -3441,6 +3441,23 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Jennifer Walters \/\/ The Sensational She-Hulk",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -3468,23 +3485,6 @@
             }
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Captain America, Team Leader",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Margolis",
-          "resolvedColorIdentity" : [
-            "W",
-            "U",
-            "R"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0,
           "turnsPlayed" : 0
         }
       ]
@@ -3536,34 +3536,28 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "commanderName" : "Kraven the Hunter",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Pertman",
+          "placement" : 1,
+          "playerName" : "Noah",
           "resolvedColorIdentity" : [
-            "U",
             "B",
-            "R"
+            "G"
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "Oops, Butterfingers"
             },
             {
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
-            },
-            {
-              "description" : "Drop your cards on the floor.",
-              "id" : "52pickup",
-              "title" : "Oops, Butterfingers"
             }
           ],
-          "turnOrder" : 2,
+          "turnOrder" : 3,
           "turnsPlayed" : 0
         },
         {
@@ -3593,28 +3587,34 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Kraven the Hunter",
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Noah",
+          "placement" : 3,
+          "playerName" : "Pertman",
           "resolvedColorIdentity" : [
+            "U",
             "B",
-            "G"
+            "R"
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Drop your cards on the floor.",
-              "id" : "52pickup",
-              "title" : "Oops, Butterfingers"
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
             },
             {
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
+            },
+            {
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "Oops, Butterfingers"
             }
           ],
-          "turnOrder" : 3,
+          "turnOrder" : 2,
           "turnsPlayed" : 0
         }
       ]
@@ -3667,23 +3667,27 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Valgavoth, Harrower of Souls",
+          "commanderName" : "Marrow-Gnawer",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Noah",
+          "placement" : 1,
+          "playerName" : "Justin",
           "resolvedColorIdentity" : [
-            "B",
-            "R"
+            "B"
           ],
           "triggeredAchievements" : [
+            {
+              "description" : "Lose 10 games.",
+              "id" : "losses-10",
+              "title" : "10 Losses"
+            },
             {
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 2,
+          "turnOrder" : 1,
           "turnsPlayed" : 0
         },
         {
@@ -3713,27 +3717,23 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Marrow-Gnawer",
+          "commanderName" : "Valgavoth, Harrower of Souls",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
+          "placement" : 3,
+          "playerName" : "Noah",
           "resolvedColorIdentity" : [
-            "B"
+            "B",
+            "R"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Lose 10 games.",
-              "id" : "losses-10",
-              "title" : "10 Losses"
-            },
             {
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 1,
+          "turnOrder" : 2,
           "turnsPlayed" : 0
         }
       ]
@@ -3783,22 +3783,18 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Marrow-Gnawer",
+          "commanderName" : "Sasaya, Orochi Ascendant \/\/ Sasaya's Essence",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Justin",
+          "placement" : 1,
+          "playerName" : "Noah",
           "resolvedColorIdentity" : [
-            "B"
+            "G"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Go last and finish last.",
-              "id" : "wentlast",
-              "title" : "Doomed From The Start"
-            }
+
           ],
-          "turnOrder" : 3,
+          "turnOrder" : 0,
           "turnsPlayed" : 0
         },
         {
@@ -3826,18 +3822,22 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Sasaya, Orochi Ascendant \/\/ Sasaya's Essence",
+          "commanderName" : "Marrow-Gnawer",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Noah",
+          "placement" : 3,
+          "playerName" : "Justin",
           "resolvedColorIdentity" : [
-            "G"
+            "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
           ],
-          "turnOrder" : 0,
+          "turnOrder" : 3,
           "turnsPlayed" : 0
         }
       ]
@@ -4070,30 +4070,6 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Grothama, All-Devouring",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Pertman",
-          "resolvedColorIdentity" : [
-            "G"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            },
-            {
-              "description" : "Go first but finish last.",
-              "id" : "botchedit",
-              "title" : "Botched It"
-            }
-          ],
-          "turnOrder" : 0,
-          "turnsPlayed" : 0
-        },
-        {
           "commanderName" : "Syr Vondam, Sunstar Exemplar",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -4126,6 +4102,30 @@
 
           ],
           "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
           "turnsPlayed" : 0
         }
       ]
@@ -4167,6 +4167,25 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "The First Sliver",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Giada, Font of Hope",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -4200,25 +4219,6 @@
             }
           ],
           "turnOrder" : 3,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "The First Sliver",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Jake",
-          "resolvedColorIdentity" : [
-            "W",
-            "U",
-            "B",
-            "R",
-            "G"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0,
           "turnsPlayed" : 0
         }
       ]
@@ -4458,24 +4458,18 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Okaun, Eye of Chaos",
+          "commanderName" : "Tinybones, Trinket Thief",
           "didWin" : false,
           "openingHandSize" : 7,
-          "partnerCommanderName" : "Zndrsplt, Eye of Wisdom",
-          "placement" : 3,
-          "playerName" : "Noah",
+          "placement" : 1,
+          "playerName" : "Justin",
           "resolvedColorIdentity" : [
-            "U",
-            "R"
+            "B"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Lose 10 games.",
-              "id" : "losses-10",
-              "title" : "10 Losses"
-            }
+
           ],
-          "turnOrder" : 1,
+          "turnOrder" : 0,
           "turnsPlayed" : 0
         },
         {
@@ -4503,18 +4497,24 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Tinybones, Trinket Thief",
+          "commanderName" : "Okaun, Eye of Chaos",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
+          "partnerCommanderName" : "Zndrsplt, Eye of Wisdom",
+          "placement" : 3,
+          "playerName" : "Noah",
           "resolvedColorIdentity" : [
-            "B"
+            "U",
+            "R"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Lose 10 games.",
+              "id" : "losses-10",
+              "title" : "10 Losses"
+            }
           ],
-          "turnOrder" : 0,
+          "turnOrder" : 1,
           "turnsPlayed" : 0
         }
       ]
@@ -4577,6 +4577,23 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Tinybones, Trinket Thief",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -4593,23 +4610,6 @@
             }
           ],
           "turnOrder" : 3,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 2,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "U",
-            "R",
-            "G"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 0,
           "turnsPlayed" : 0
         }
       ]
@@ -4735,6 +4735,21 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Tinybones, Trinket Thief",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Tannuk, Memorial Ensign",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -4752,21 +4767,6 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Tinybones, Trinket Thief",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "B"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 1,
           "turnsPlayed" : 0
         }
       ]
@@ -4904,20 +4904,21 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Zimone, Mystery Unraveler",
+          "commanderName" : "Katara, the Fearless",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Margolis",
+          "placement" : 1,
+          "playerName" : "Pertman",
           "resolvedColorIdentity" : [
+            "W",
             "U",
             "G"
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Lose 5 games.",
-              "id" : "losses-5",
-              "title" : "5 Losses"
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
             },
             {
               "description" : "Lose the pod's longest game on record.",
@@ -4925,7 +4926,7 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 1,
+          "turnOrder" : 3,
           "turnsPlayed" : 0
         },
         {
@@ -4965,21 +4966,20 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Katara, the Fearless",
+          "commanderName" : "Zimone, Mystery Unraveler",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Pertman",
+          "placement" : 3,
+          "playerName" : "Margolis",
           "resolvedColorIdentity" : [
-            "W",
             "U",
             "G"
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
+              "description" : "Lose 5 games.",
+              "id" : "losses-5",
+              "title" : "5 Losses"
             },
             {
               "description" : "Lose the pod's longest game on record.",
@@ -4987,7 +4987,7 @@
               "title" : "Marathon Defeat"
             }
           ],
-          "turnOrder" : 3,
+          "turnOrder" : 1,
           "turnsPlayed" : 0
         }
       ]
@@ -5190,6 +5190,25 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Ashling, the Limitless",
           "didWin" : false,
           "openingHandSize" : 6,
@@ -5215,25 +5234,6 @@
             }
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Giada, Font of Hope",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Margolis",
-          "resolvedColorIdentity" : [
-            "W"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Lose the pod's fastest game on record.",
-              "id" : "quickloss",
-              "title" : "Quickest Loss"
-            }
-          ],
-          "turnOrder" : 2,
           "turnsPlayed" : 0
         }
       ]
@@ -5281,6 +5281,25 @@
           "turnsPlayed" : 0
         },
         {
+          "commanderName" : "Giada, Font of Hope",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
           "commanderName" : "Henzie \"Toolbox\" Torre",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -5304,25 +5323,6 @@
             }
           ],
           "turnOrder" : 2,
-          "turnsPlayed" : 0
-        },
-        {
-          "commanderName" : "Giada, Font of Hope",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Margolis",
-          "resolvedColorIdentity" : [
-            "W"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Lose the pod's fastest game on record.",
-              "id" : "quickloss",
-              "title" : "Quickest Loss"
-            }
-          ],
-          "turnOrder" : 0,
           "turnsPlayed" : 0
         }
       ]
@@ -5375,27 +5375,6 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "The Wise Mothman",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Pertman",
-          "resolvedColorIdentity" : [
-            "U",
-            "B",
-            "G"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Lose the pod's fastest game on record.",
-              "id" : "quickloss",
-              "title" : "Quickest Loss"
-            }
-          ],
-          "turnOrder" : -1,
-          "turnsPlayed" : 0
-        },
-        {
           "commanderName" : "Giada, Font of Hope",
           "didWin" : false,
           "openingHandSize" : 7,
@@ -5429,6 +5408,27 @@
               "id" : "lossstreak",
               "title" : "Loss Streak"
             },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
+          ],
+          "turnOrder" : -1,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
             {
               "description" : "Lose the pod's fastest game on record.",
               "id" : "quickloss",
@@ -5487,16 +5487,25 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Winota, Joiner of Forces",
+          "commanderName" : "Marrow-Gnawer",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Jake",
+          "placement" : 1,
+          "playerName" : "Justin",
           "resolvedColorIdentity" : [
-            "W",
-            "R"
+            "B"
           ],
           "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Your longest losing streak ever.",
+              "id" : "bestlossstreak",
+              "title" : "Worst Loss Streak"
+            },
             {
               "description" : "Lose the pod's fastest game on record.",
               "id" : "quickloss",
@@ -5546,25 +5555,16 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Marrow-Gnawer",
+          "commanderName" : "Winota, Joiner of Forces",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Justin",
+          "placement" : 3,
+          "playerName" : "Jake",
           "resolvedColorIdentity" : [
-            "B"
+            "W",
+            "R"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
-            },
-            {
-              "description" : "Your longest losing streak ever.",
-              "id" : "bestlossstreak",
-              "title" : "Worst Loss Streak"
-            },
             {
               "description" : "Lose the pod's fastest game on record.",
               "id" : "quickloss",
@@ -5662,15 +5662,15 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Queen Marchesa",
+          "commanderName" : "Ms. Bumbleflower",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 3,
-          "playerName" : "Jake",
+          "placement" : 2,
+          "playerName" : "Noah",
           "resolvedColorIdentity" : [
             "W",
-            "B",
-            "R"
+            "U",
+            "G"
           ],
           "triggeredAchievements" : [
             {
@@ -5698,15 +5698,15 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Ms. Bumbleflower",
+          "commanderName" : "Queen Marchesa",
           "didWin" : false,
           "openingHandSize" : 7,
-          "placement" : 2,
-          "playerName" : "Noah",
+          "placement" : 3,
+          "playerName" : "Jake",
           "resolvedColorIdentity" : [
             "W",
-            "U",
-            "G"
+            "B",
+            "R"
           ],
           "triggeredAchievements" : [
             {

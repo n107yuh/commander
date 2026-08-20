@@ -101,12 +101,6 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
         </div>
       )}
 
-      {/* Achievements */}
-      <section>
-        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Achievements</h2>
-        <AchievementCatalogGrid items={achievementCatalog} />
-      </section>
-
       {/* Placements */}
       {Object.keys(placementStats.counts).length > 0 && (
         <section>
@@ -114,35 +108,6 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
           <PlacementChart stats={placementStats} />
         </section>
       )}
-
-      {/* Color mastery progress */}
-      <section>
-        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Color Mastery</h2>
-        <div className="space-y-3">
-          {masteryRows.map(m => (
-            <div key={m.title}>
-              <div className="flex items-baseline gap-2 mb-1.5">
-                <span className="text-sm font-medium text-white">{m.title}</span>
-                <span className="text-xs text-slate-500">{m.won.size} of {m.combos.length} won</span>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {m.combos.map(c => (
-                  <ColorComboChip key={c} combo={c} achieved={m.won.has(c)} commander={mastery.comboCommander[c]} />
-                ))}
-              </div>
-            </div>
-          ))}
-          <div>
-            <div className="flex items-baseline gap-2 mb-1.5">
-              <span className="text-sm font-medium text-white">Taste the Rainbow</span>
-              <span className="text-xs text-slate-500">{mastery.fiveColor ? 'won' : 'not yet won'}</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              <ColorComboChip combo="WUBRG" achieved={mastery.fiveColor} commander={mastery.comboCommander['WUBRG']} />
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Best commander(s) — quick view of the top row(s) of the Commander Records table below */}
       {bestCommanders.length > 0 && (
@@ -169,45 +134,6 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                 <div className="text-xl font-bold font-mono text-emerald-400 shrink-0">{formatWinRate(c.winRate)}</div>
               </div>
             ))}
-          </div>
-        </section>
-      )}
-
-      {/* Commander records */}
-      {cmdList.length > 0 && (
-        <section>
-          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Commander Records</h2>
-          <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-800 bg-slate-800/30">
-                  <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
-                  <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
-                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cmdList.map(c => (
-                  <tr key={c.label} className="border-b border-slate-800/50 last:border-0">
-                    <td className="px-4 py-3 text-white">
-                      {c.label.includes('+') ? (
-                        <span>{c.label}</span>
-                      ) : (
-                        <Link href={`/commanders/${encodeURIComponent(c.label)}`} className="hover:text-violet-400">
-                          {c.label}
-                        </Link>
-                      )}
-                    </td>
-                    <td className="px-3 py-3"><ColorDots colors={c.colorIdentity} /></td>
-                    <td className="text-right px-3 py-3 text-emerald-400 font-mono">{c.wins}</td>
-                    <td className="text-right px-3 py-3 text-red-400 font-mono">{c.games - c.wins}</td>
-                    <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(c.winRate)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </section>
       )}
@@ -241,6 +167,80 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                     <td className="text-right px-4 py-2.5 text-slate-300 font-mono">
                       {formatWinRate(h.gamesTogether > 0 ? h.myWins / h.gamesTogether : 0)}
                     </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {/* Achievements */}
+      <section>
+        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Achievements</h2>
+        <AchievementCatalogGrid items={achievementCatalog} />
+      </section>
+
+      {/* Color mastery progress */}
+      <section>
+        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Color Mastery</h2>
+        <div className="space-y-3">
+          {masteryRows.map(m => (
+            <div key={m.title}>
+              <div className="flex items-baseline gap-2 mb-1.5">
+                <span className="text-sm font-medium text-white">{m.title}</span>
+                <span className="text-xs text-slate-500">{m.won.size} of {m.combos.length} won</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {m.combos.map(c => (
+                  <ColorComboChip key={c} combo={c} achieved={m.won.has(c)} commander={mastery.comboCommander[c]} />
+                ))}
+              </div>
+            </div>
+          ))}
+          <div>
+            <div className="flex items-baseline gap-2 mb-1.5">
+              <span className="text-sm font-medium text-white">Taste the Rainbow</span>
+              <span className="text-xs text-slate-500">{mastery.fiveColor ? 'won' : 'not yet won'}</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              <ColorComboChip combo="WUBRG" achieved={mastery.fiveColor} commander={mastery.comboCommander['WUBRG']} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Commander records */}
+      {cmdList.length > 0 && (
+        <section>
+          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Commander Records</h2>
+          <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-800 bg-slate-800/30">
+                  <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
+                  <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
+                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {cmdList.map(c => (
+                  <tr key={c.label} className="border-b border-slate-800/50 last:border-0">
+                    <td className="px-4 py-3 text-white">
+                      {c.label.includes('+') ? (
+                        <span>{c.label}</span>
+                      ) : (
+                        <Link href={`/commanders/${encodeURIComponent(c.label)}`} className="hover:text-violet-400">
+                          {c.label}
+                        </Link>
+                      )}
+                    </td>
+                    <td className="px-3 py-3"><ColorDots colors={c.colorIdentity} /></td>
+                    <td className="text-right px-3 py-3 text-emerald-400 font-mono">{c.wins}</td>
+                    <td className="text-right px-3 py-3 text-red-400 font-mono">{c.games - c.wins}</td>
+                    <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(c.winRate)}</td>
                   </tr>
                 ))}
               </tbody>

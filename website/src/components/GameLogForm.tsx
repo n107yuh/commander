@@ -382,18 +382,18 @@ function ParticipantRow({
       </div>
 
       <div className="flex-1 min-w-0 space-y-2">
-        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-2">
-          <input
-            list="known-players"
-            placeholder="Player name"
-            value={participant.playerName}
-            onChange={e => onChange({ playerName: e.target.value })}
-            className="bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-sm text-white min-w-0"
-          />
+        <input
+          list="known-players"
+          placeholder="Player name"
+          value={participant.playerName}
+          onChange={e => onChange({ playerName: e.target.value })}
+          className="w-full bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-sm text-white min-w-0"
+        />
+        <div className="grid grid-cols-3 gap-2">
           <select
             value={participant.turnOrder}
             onChange={e => onChange({ turnOrder: Number(e.target.value) })}
-            className="bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white w-24"
+            className="w-full min-w-0 bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white"
             title="Starting turn order"
           >
             <option value={-1}>Turn —</option>
@@ -406,7 +406,7 @@ function ParticipantRow({
           <select
             value={participant.openingHandSize}
             onChange={e => onChange({ openingHandSize: Number(e.target.value) })}
-            className="bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white w-20"
+            className="w-full min-w-0 bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white"
             title="Opening hand size after mulligans"
           >
             {[7, 6].map(n => <option key={n} value={n}>{n} cards</option>)}
@@ -418,7 +418,7 @@ function ParticipantRow({
             onChange={e => onChange({ turnsPlayed: Math.max(0, parseInt(e.target.value, 10) || 0) })}
             placeholder="Turns"
             title="Turns this player was in the game for (stops once eliminated)"
-            className="bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white w-16"
+            className="w-full min-w-0 bg-slate-900 border border-slate-700 rounded px-2 py-1.5 text-xs text-white"
           />
         </div>
 

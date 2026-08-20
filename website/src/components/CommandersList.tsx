@@ -147,38 +147,40 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
         </div>
       ) : (
         <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-slate-800 bg-slate-800/30">
-                <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
-                <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
-                <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
-                <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
-                <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map(entry => {
-                const winRate = entry.games > 0 ? entry.wins / entry.games : 0
-                return (
-                  <ClickableRow key={entry.key} href={`/commanders/${encodeURIComponent(entry.names[0])}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
-                    <td className="px-4 py-2.5">
-                      <Link
-                        href={`/commanders/${encodeURIComponent(entry.names[0])}`}
-                        className="text-white hover:text-violet-400 font-medium"
-                      >
-                        {entry.key}
-                      </Link>
-                    </td>
-                    <td className="px-3 py-2.5"><ColorDots colors={entry.colors} /></td>
-                    <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{entry.wins}</td>
-                    <td className="text-right px-3 py-2.5 text-red-400 font-mono">{entry.games - entry.wins}</td>
-                    <td className="text-right px-4 py-2.5 text-slate-300 font-mono">{formatWinRate(winRate)}</td>
-                  </ClickableRow>
-                )
-              })}
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-800 bg-slate-800/30">
+                  <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
+                  <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
+                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
+                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filtered.map(entry => {
+                  const winRate = entry.games > 0 ? entry.wins / entry.games : 0
+                  return (
+                    <ClickableRow key={entry.key} href={`/commanders/${encodeURIComponent(entry.names[0])}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
+                      <td className="px-4 py-2.5 whitespace-nowrap">
+                        <Link
+                          href={`/commanders/${encodeURIComponent(entry.names[0])}`}
+                          className="text-white hover:text-violet-400 font-medium"
+                        >
+                          {entry.key}
+                        </Link>
+                      </td>
+                      <td className="px-3 py-2.5"><ColorDots colors={entry.colors} /></td>
+                      <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{entry.wins}</td>
+                      <td className="text-right px-3 py-2.5 text-red-400 font-mono">{entry.games - entry.wins}</td>
+                      <td className="text-right px-4 py-2.5 text-slate-300 font-mono">{formatWinRate(winRate)}</td>
+                    </ClickableRow>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>

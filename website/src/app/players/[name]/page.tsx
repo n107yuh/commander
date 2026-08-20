@@ -144,34 +144,36 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
         <section>
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Head to Head</h2>
           <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-800 bg-slate-800/30">
-                  <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Opponent</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Games Together</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Your Wins</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Their Wins</th>
-                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
-                </tr>
-              </thead>
-              <tbody>
-                {h2h.map(h => (
-                  <ClickableRow key={h.opponent} href={`/players/${encodeURIComponent(h.opponent)}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
-                    <td className="px-4 py-2.5">
-                      <Link href={`/players/${encodeURIComponent(h.opponent)}`} className="text-white hover:text-violet-400 font-medium">
-                        {h.opponent}
-                      </Link>
-                    </td>
-                    <td className="text-right px-3 py-2.5 text-slate-300 font-mono">{h.gamesTogether}</td>
-                    <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{h.myWins}</td>
-                    <td className="text-right px-3 py-2.5 text-red-400 font-mono">{h.theirWins}</td>
-                    <td className="text-right px-4 py-2.5 text-slate-300 font-mono">
-                      {formatWinRate(h.gamesTogether > 0 ? h.myWins / h.gamesTogether : 0)}
-                    </td>
-                  </ClickableRow>
-                ))}
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-slate-800 bg-slate-800/30">
+                    <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Opponent</th>
+                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Games</th>
+                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
+                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">Opp W</th>
+                    <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {h2h.map(h => (
+                    <ClickableRow key={h.opponent} href={`/players/${encodeURIComponent(h.opponent)}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
+                      <td className="px-4 py-2.5">
+                        <Link href={`/players/${encodeURIComponent(h.opponent)}`} className="text-white hover:text-violet-400 font-medium">
+                          {h.opponent}
+                        </Link>
+                      </td>
+                      <td className="text-right px-3 py-2.5 text-slate-300 font-mono">{h.gamesTogether}</td>
+                      <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{h.myWins}</td>
+                      <td className="text-right px-3 py-2.5 text-red-400 font-mono">{h.theirWins}</td>
+                      <td className="text-right px-4 py-2.5 text-slate-300 font-mono">
+                        {formatWinRate(h.gamesTogether > 0 ? h.myWins / h.gamesTogether : 0)}
+                      </td>
+                    </ClickableRow>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       )}
@@ -216,36 +218,38 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
         <section>
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Commander Records</h2>
           <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-slate-800 bg-slate-800/30">
-                  <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
-                  <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
-                  <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
-                  <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
-                </tr>
-              </thead>
-              <tbody>
-                {cmdList.map(c => (
-                  <tr key={c.label} className="border-b border-slate-800/50 last:border-0">
-                    <td className="px-4 py-3 text-white">
-                      {c.label.includes('+') ? (
-                        <span>{c.label}</span>
-                      ) : (
-                        <Link href={`/commanders/${encodeURIComponent(c.label)}`} className="hover:text-violet-400">
-                          {c.label}
-                        </Link>
-                      )}
-                    </td>
-                    <td className="px-3 py-3"><ColorDots colors={c.colorIdentity} /></td>
-                    <td className="text-right px-3 py-3 text-emerald-400 font-mono">{c.wins}</td>
-                    <td className="text-right px-3 py-3 text-red-400 font-mono">{c.games - c.wins}</td>
-                    <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(c.winRate)}</td>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-slate-800 bg-slate-800/30">
+                    <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
+                    <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
+                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
+                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
+                    <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {cmdList.map(c => (
+                    <tr key={c.label} className="border-b border-slate-800/50 last:border-0">
+                      <td className="px-4 py-3 text-white">
+                        {c.label.includes('+') ? (
+                          <span>{c.label}</span>
+                        ) : (
+                          <Link href={`/commanders/${encodeURIComponent(c.label)}`} className="hover:text-violet-400">
+                            {c.label}
+                          </Link>
+                        )}
+                      </td>
+                      <td className="px-3 py-3"><ColorDots colors={c.colorIdentity} /></td>
+                      <td className="text-right px-3 py-3 text-emerald-400 font-mono">{c.wins}</td>
+                      <td className="text-right px-3 py-3 text-red-400 font-mono">{c.games - c.wins}</td>
+                      <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(c.winRate)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
       )}

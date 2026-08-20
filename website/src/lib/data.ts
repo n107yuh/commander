@@ -137,7 +137,10 @@ export function headToHead(games: GameData[], playerName: string): HeadToHeadEnt
       if (opp.didWin) stats[opp.playerName].theirWins++
     }
   }
-  return Object.values(stats).sort((a, b) => b.gamesTogether - a.gamesTogether || a.opponent.localeCompare(b.opponent))
+  const winRate = (h: HeadToHeadEntry) => h.gamesTogether > 0 ? h.myWins / h.gamesTogether : 0
+  return Object.values(stats).sort((a, b) =>
+    winRate(b) - winRate(a) || b.gamesTogether - a.gamesTogether || a.opponent.localeCompare(b.opponent)
+  )
 }
 
 export interface PlacementStats {

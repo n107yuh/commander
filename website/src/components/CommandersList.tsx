@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { ColorDots, DOT, LABEL } from './ColorDots'
+import { ClickableRow } from './ClickableRow'
 import { formatWinRate } from '@/lib/format'
 
 export interface ComboEntry {
@@ -160,11 +161,11 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
               {filtered.map(entry => {
                 const winRate = entry.games > 0 ? entry.wins / entry.games : 0
                 return (
-                  <tr key={entry.key} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
+                  <ClickableRow key={entry.key} href={`/commanders/${encodeURIComponent(entry.names[0])}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
                     <td className="px-4 py-2.5">
                       <Link
                         href={`/commanders/${encodeURIComponent(entry.names[0])}`}
-                        className="text-white hover:text-violet-400 font-medium after:absolute after:inset-0"
+                        className="text-white hover:text-violet-400 font-medium"
                       >
                         {entry.key}
                       </Link>
@@ -173,7 +174,7 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
                     <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{entry.wins}</td>
                     <td className="text-right px-3 py-2.5 text-red-400 font-mono">{entry.games - entry.wins}</td>
                     <td className="text-right px-4 py-2.5 text-slate-300 font-mono">{formatWinRate(winRate)}</td>
-                  </tr>
+                  </ClickableRow>
                 )
               })}
             </tbody>

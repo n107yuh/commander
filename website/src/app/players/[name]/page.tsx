@@ -9,6 +9,7 @@ import { ColorDots, ColorComboChip } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
 import { PlacementChart } from '@/components/PlacementChart'
+import { ClickableRow } from '@/components/ClickableRow'
 import { computePlayerAchievementCatalog } from '@/lib/achievements'
 
 export default function PlayerDetail({ params }: { params: { name: string } }) {
@@ -155,9 +156,9 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
               </thead>
               <tbody>
                 {h2h.map(h => (
-                  <tr key={h.opponent} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
+                  <ClickableRow key={h.opponent} href={`/players/${encodeURIComponent(h.opponent)}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30">
                     <td className="px-4 py-2.5">
-                      <Link href={`/players/${encodeURIComponent(h.opponent)}`} className="text-white hover:text-violet-400 font-medium after:absolute after:inset-0">
+                      <Link href={`/players/${encodeURIComponent(h.opponent)}`} className="text-white hover:text-violet-400 font-medium">
                         {h.opponent}
                       </Link>
                     </td>
@@ -167,7 +168,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                     <td className="text-right px-4 py-2.5 text-slate-300 font-mono">
                       {formatWinRate(h.gamesTogether > 0 ? h.myWins / h.gamesTogether : 0)}
                     </td>
-                  </tr>
+                  </ClickableRow>
                 ))}
               </tbody>
             </table>

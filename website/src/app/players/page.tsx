@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { loadData, formatWinRate, playerStandings, currentWinStreak, currentLossStreak } from '@/lib/data'
+import { ClickableRow } from '@/components/ClickableRow'
 
 export default function PlayersPage() {
   const { players, games } = loadData()
@@ -29,12 +30,12 @@ export default function PlayersPage() {
               const winStreak = currentWinStreak(games, p.name)
               const lossStreak = currentLossStreak(games, p.name)
               return (
-                <tr key={p.name} className="relative border-b border-slate-800/50 last:border-0 hover:bg-slate-800/20">
+                <ClickableRow key={p.name} href={`/players/${encodeURIComponent(p.name)}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/20">
                   <td className="px-4 py-3 text-slate-500">{i + 1}</td>
                   <td className="px-4 py-3">
                     <Link
                       href={`/players/${encodeURIComponent(p.name)}`}
-                      className="text-white hover:text-violet-400 font-semibold after:absolute after:inset-0"
+                      className="text-white hover:text-violet-400 font-semibold"
                     >
                       {p.name}
                     </Link>
@@ -63,7 +64,7 @@ export default function PlayersPage() {
                       {formatWinRate(p.winRate)}
                     </span>
                   </td>
-                </tr>
+                </ClickableRow>
               )
             })}
           </tbody>

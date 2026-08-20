@@ -114,7 +114,7 @@ export function AnnalsList({ games }: { games: GameData[] }) {
         </div>
 
         <div className="flex items-center gap-1.5">
-          <span className="text-xs text-slate-500">Players</span>
+          <span className="text-xs text-slate-500">Player Count</span>
           <select
             value={playerCountFilter}
             onChange={e => setPlayerCountFilter(e.target.value === '' ? '' : Number(e.target.value))}

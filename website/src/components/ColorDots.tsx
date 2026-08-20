@@ -19,11 +19,21 @@ interface Props {
 }
 
 export function ColorDots({ colors, size = 'sm' }: Props) {
-  if (!colors || colors.length === 0) {
+  // `null` means color identity hasn't been resolved yet (e.g. Scryfall lookup
+  // pending) — distinct from `[]`, which means the commander is confirmed
+  // colorless and gets the same gray dot used for "C" in Color Mastery.
+  if (!colors) {
     return <span className="text-slate-500 text-xs">—</span>
   }
-  const sorted = [...colors].sort((a, b) => COLOR_ORDER.indexOf(a) - COLOR_ORDER.indexOf(b))
   const dim = size === 'md' ? 'w-4 h-4' : 'w-2.5 h-2.5'
+  if (colors.length === 0) {
+    return (
+      <div className="flex gap-1 items-center" title={LABEL.C}>
+        <div className={`${dim} rounded-full shrink-0 ${DOT.C}`} />
+      </div>
+    )
+  }
+  const sorted = [...colors].sort((a, b) => COLOR_ORDER.indexOf(a) - COLOR_ORDER.indexOf(b))
   return (
     <div className="flex gap-1 items-center" title={sorted.map(c => LABEL[c] ?? c).join(', ')}>
       {sorted.map(c => (

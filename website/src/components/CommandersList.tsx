@@ -133,7 +133,7 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
                 )}
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold text-white text-sm leading-tight line-clamp-2">{entry.key}</div>
-                  <div className="mt-1.5"><ColorDots colors={entry.colors.length > 0 ? entry.colors : null} /></div>
+                  <div className="mt-1.5"><ColorDots colors={entry.colors} /></div>
                   <div className="flex gap-2 mt-1.5 text-xs font-mono">
                     <span className="text-emerald-400">{entry.wins}W</span>
                     <span className="text-red-400">{entry.games - entry.wins}L</span>
@@ -169,7 +169,7 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
                         {entry.key}
                       </Link>
                     </td>
-                    <td className="px-3 py-2.5"><ColorDots colors={entry.colors.length > 0 ? entry.colors : null} /></td>
+                    <td className="px-3 py-2.5"><ColorDots colors={entry.colors} /></td>
                     <td className="text-right px-3 py-2.5 text-emerald-400 font-mono">{entry.wins}</td>
                     <td className="text-right px-3 py-2.5 text-red-400 font-mono">{entry.games - entry.wins}</td>
                     <td className="text-right px-4 py-2.5 text-slate-300 font-mono">{formatWinRate(winRate)}</td>

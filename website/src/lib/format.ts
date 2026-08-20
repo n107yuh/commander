@@ -34,6 +34,16 @@ export function formatDuration(seconds: number | null): string {
   return h > 0 ? `${h}h ${m}m` : `${m}m`
 }
 
+// Mirrors placementLabel(_:) in the Mac app's Stats.swift. `placement` is 0-indexed (0 = 1st).
+export function placementLabel(placement: number): string {
+  switch (placement) {
+    case 0: return '1st'
+    case 1: return '2nd'
+    case 2: return '3rd'
+    default: return `${placement + 1}th`
+  }
+}
+
 export function commanderLabel(p: { commanderName: string; partnerCommanderName: string | null }): string {
   return p.partnerCommanderName
     ? `${p.commanderName} + ${p.partnerCommanderName}`

@@ -3,10 +3,12 @@ import { notFound } from 'next/navigation'
 import {
   loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames,
   colorMasteryProgress, MONO_COMBOS, DUAL_COMBOS, TRI_COMBOS, headToHead,
+  playerPlacementStats,
 } from '@/lib/data'
 import { ColorDots, ColorComboChip } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
+import { PlacementChart } from '@/components/PlacementChart'
 import { computePlayerAchievementCatalog } from '@/lib/achievements'
 
 export default function PlayerDetail({ params }: { params: { name: string } }) {
@@ -41,6 +43,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const remGames = playerGames.filter(g => !g.isInPerson).length
 
   const achievementCatalog = computePlayerAchievementCatalog(games, name)
+  const placementStats = playerPlacementStats(games, name)
   const h2h = headToHead(games, name)
   const mastery = colorMasteryProgress(games, name)
   const masteryRows = [
@@ -92,6 +95,14 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
         <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Achievements</h2>
         <AchievementCatalogGrid items={achievementCatalog} />
       </section>
+
+      {/* Placements */}
+      {Object.keys(placementStats.counts).length > 0 && (
+        <section>
+          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Placements</h2>
+          <PlacementChart stats={placementStats} />
+        </section>
+      )}
 
       {/* Color mastery progress */}
       <section>

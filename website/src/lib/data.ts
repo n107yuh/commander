@@ -4,7 +4,7 @@ import path from 'path'
 import type { ExportData, GameData, PlayerData } from './types'
 import { commanderLabel } from './format'
 
-export { formatWinRate, formatDate, formatTime, formatDuration, commanderLabel } from './format'
+export { formatWinRate, formatDate, formatTime, formatDuration, commanderLabel, placementLabel } from './format'
 
 export const loadData = cache((): ExportData => {
   try {
@@ -138,6 +138,35 @@ export function headToHead(games: GameData[], playerName: string): HeadToHeadEnt
     }
   }
   return Object.values(stats).sort((a, b) => b.gamesTogether - a.gamesTogether || a.opponent.localeCompare(b.opponent))
+}
+
+export interface PlacementStats {
+  // 0-indexed placement (0 = 1st) -> number of times finished there.
+  counts: Record<number, number>
+  maxPlacement: number
+  averagePlacement: number | null
+}
+
+// Mirrors Stats_placementCounts/Stats_averagePlacement in the Mac app's Stats.swift.
+// Placement 0 doubles as both "1st place" and "not recorded" (the SwiftData default),
+// so a game only counts if some participant in it has placement > 0 — that's the only
+// way to tell a game where placements were actually tracked from one where they weren't.
+export function playerPlacementStats(games: GameData[], playerName: string): PlacementStats {
+  const withPlacementData = games.filter(g => g.participants.some(p => p.placement > 0))
+  const mine = withPlacementData
+    .map(g => g.participants.find(p => p.playerName === playerName))
+    .filter((p): p is GameData['participants'][number] => !!p)
+
+  const counts: Record<number, number> = {}
+  for (const p of mine) {
+    counts[p.placement] = (counts[p.placement] ?? 0) + 1
+  }
+  const maxPlacement = mine.length ? Math.max(...mine.map(p => p.placement)) : 0
+  const averagePlacement = mine.length
+    ? mine.reduce((sum, p) => sum + p.placement + 1, 0) / mine.length
+    : null
+
+  return { counts, maxPlacement, averagePlacement }
 }
 
 export function playerStandings(players: PlayerData[]): PlayerData[] {

@@ -615,6 +615,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Magar of the Magic Strings",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G",
         "R",
@@ -1111,6 +1118,13 @@
       "wins" : 2
     },
     {
+      "losses" : 1,
+      "name" : "Urza, Lord High Artificer",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B",
         "R"
@@ -1166,6 +1180,13 @@
       "wins" : 0
     },
     {
+      "losses" : 0,
+      "name" : "Y'shtola, Night's Blessed",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
       "colorIdentity" : [
         "W"
       ],
@@ -1206,8 +1227,74 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-20T01:57:07Z",
+  "exportedAt" : "2026-08-22T20:46:27Z",
   "games" : [
+    {
+      "date" : "2026-08-22T19:41:56Z",
+      "durationSeconds" : 3865.4293550252914,
+      "isInPerson" : false,
+      "notes" : "Jake played a turn 1 sol ring. It does seem very much like Pertman did not shuffle his deck",
+      "participants" : [
+        {
+          "commanderName" : "Y'shtola, Night's Blessed",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Win 10 games.",
+              "id" : "wins-10",
+              "title" : "10 Wins"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Urza, Lord High Artificer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Magar of the Magic Strings",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-08-18T03:43:49Z",
       "durationSeconds" : 1406.8479219675064,
@@ -5830,6 +5917,11 @@
           "title" : "Sol Ring, GG"
         },
         {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
+        },
+        {
           "description" : "Eliminate another player with 21+ commander damage.",
           "id" : "commanderdamagekill",
           "title" : "Commander Damage!"
@@ -5865,10 +5957,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 25,
+      "losses" : 26,
       "name" : "Jake",
-      "totalGames" : 36,
-      "winRate" : 0.3055555555555556,
+      "totalGames" : 37,
+      "winRate" : 0.2972972972972973,
       "wins" : 11
     },
     {
@@ -6061,9 +6153,9 @@
     {
       "achievements" : [
         {
-          "description" : "Win 5 games.",
-          "id" : "wins-5",
-          "title" : "5 Wins"
+          "description" : "Win 10 games.",
+          "id" : "wins-10",
+          "title" : "10 Wins"
         },
         {
           "description" : "Lose 25 games.",
@@ -6213,9 +6305,9 @@
       ],
       "losses" : 37,
       "name" : "Noah",
-      "totalGames" : 46,
-      "winRate" : 0.1956521739130435,
-      "wins" : 9
+      "totalGames" : 47,
+      "winRate" : 0.2127659574468085,
+      "wins" : 10
     },
     {
       "achievements" : [
@@ -6355,10 +6447,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 21,
+      "losses" : 22,
       "name" : "Pertman",
-      "totalGames" : 38,
-      "winRate" : 0.4473684210526316,
+      "totalGames" : 39,
+      "winRate" : 0.4358974358974359,
       "wins" : 17
     }
   ]

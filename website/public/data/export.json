@@ -615,6 +615,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/6\/a6f2ba13-cd72-4f7a-8443-8e3962f2ac46.jpg?1783920539"
+      ],
       "losses" : 1,
       "name" : "Magar of the Magic Strings",
       "totalGames" : 1,
@@ -1118,6 +1125,12 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/7\/b\/7b7a348a-51f7-4dc5-8fe7-1c70fea5e050.jpg?1783915686"
+      ],
       "losses" : 1,
       "name" : "Urza, Lord High Artificer",
       "totalGames" : 1,
@@ -1180,6 +1193,14 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/7\/c7f2c2d5-e052-49e8-b5de-712858c2ea78.jpg?1783906373"
+      ],
       "losses" : 0,
       "name" : "Y'shtola, Night's Blessed",
       "totalGames" : 1,
@@ -1227,7 +1248,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-22T20:46:27Z",
+  "exportedAt" : "2026-08-23T15:33:40Z",
   "games" : [
     {
       "date" : "2026-08-22T19:41:56Z",
@@ -1241,6 +1262,11 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Win 10 games.",
@@ -1267,6 +1293,9 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Play Sol Ring on turn 1 and still lose.",
@@ -1283,6 +1312,10 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Go first but finish last.",

@@ -231,9 +231,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/a\/5a3dfd71-9ec0-4842-b99d-c1833679f0c5.jpg?1783908855"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Dionus, Elvish Archdruid",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -300,6 +300,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/8\/c835a37a-776a-44ef-a252-4af1f31bf0b3.jpg?1783932799"
+      ],
       "losses" : 1,
       "name" : "Gerrard, Weatherlight Hero",
       "totalGames" : 1,
@@ -370,6 +377,13 @@
       ],
       "losses" : 1,
       "name" : "Hakbal of the Surging Soul",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Haldan, Avid Arcanist",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -631,9 +645,9 @@
       ],
       "losses" : 1,
       "name" : "Magar of the Magic Strings",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -820,6 +834,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Pako, Arcane Retriever",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "R",
         "U",
@@ -828,9 +849,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/5\/8569ad47-a243-402d-899f-4e6b17ea4e1e.jpg?1783932798"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Pramikon, Sky Rampart",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1255,8 +1276,91 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-24T02:42:05Z",
+  "exportedAt" : "2026-08-24T04:55:26Z",
   "games" : [
+    {
+      "date" : "2026-08-24T02:44:54Z",
+      "durationSeconds" : 7796.033100962639,
+      "isInPerson" : false,
+      "notes" : "Justin played a super fucked enchantment where nobody got to draw cards and instead had to exile the top cards from everyone else’s deck. Everyone else hated it. Jake stole commanders from Pertman and Noah, and used them all to attack Justin, potentially opening him up to damage from 3 different commanders on the same turn. Justin forced every spell to be checked against a coin flip. Jake may or may not have missed a fair amount of damage triggers. This game overall sucked",
+      "participants" : [
+        {
+          "commanderName" : "Magar of the Magic Strings",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game in the most turns on record.",
+              "id" : "snailpace",
+              "title" : "Snail's Pace"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Pramikon, Sky Rampart",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 11
+        },
+        {
+          "commanderName" : "Pako, Arcane Retriever",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Haldan, Avid Arcanist",
+          "placement" : 2,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Dionus, Elvish Archdruid",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 10
+        }
+      ]
+    },
     {
       "date" : "2026-08-24T01:44:27Z",
       "durationSeconds" : 3429.8405619859695,
@@ -1311,6 +1415,10 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Play 5+ distinct commanders.",
@@ -6089,10 +6197,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 27,
+      "losses" : 28,
       "name" : "Jake",
-      "totalGames" : 38,
-      "winRate" : 0.2894736842105263,
+      "totalGames" : 39,
+      "winRate" : 0.28205128205128205,
       "wins" : 11
     },
     {
@@ -6153,10 +6261,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 20,
+      "losses" : 21,
       "name" : "Justin",
-      "totalGames" : 22,
-      "winRate" : 0.09090909090909091,
+      "totalGames" : 23,
+      "winRate" : 0.08695652173913043,
       "wins" : 2
     },
     {
@@ -6440,10 +6548,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 38,
+      "losses" : 39,
       "name" : "Noah",
-      "totalGames" : 48,
-      "winRate" : 0.20833333333333334,
+      "totalGames" : 49,
+      "winRate" : 0.20408163265306123,
       "wins" : 10
     },
     {
@@ -6487,6 +6595,11 @@
           "description" : "Win a game in the fewest turns on record.",
           "id" : "blitzkrieg",
           "title" : "Blitzkrieg"
+        },
+        {
+          "description" : "Win a game in the most turns on record.",
+          "id" : "snailpace",
+          "title" : "Snail's Pace"
         },
         {
           "description" : "Win a remote game.",
@@ -6586,9 +6699,9 @@
       ],
       "losses" : 22,
       "name" : "Pertman",
-      "totalGames" : 40,
-      "winRate" : 0.45,
-      "wins" : 18
+      "totalGames" : 41,
+      "winRate" : 0.4634146341463415,
+      "wins" : 19
     }
   ]
 }

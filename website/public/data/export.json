@@ -261,10 +261,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/5\/a577ba08-0aa8-45be-aa83-d5078770127c.jpg?1782726695"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Edgar Markov",
-      "totalGames" : 1,
-      "winRate" : 1,
+      "totalGames" : 2,
+      "winRate" : 0.5,
       "wins" : 1
     },
     {
@@ -295,6 +295,13 @@
       ],
       "losses" : 1,
       "name" : "Fire Lord Azula",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Gerrard, Weatherlight Hero",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -508,9 +515,9 @@
       ],
       "losses" : 0,
       "name" : "Karlov of the Ghost Council",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -706,9 +713,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/4\/2\/42bbedc1-6b83-46b4-8b3b-a4e05ce77d87.jpg?1721428140"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Ms. Bumbleflower",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1248,8 +1255,100 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-23T15:33:40Z",
+  "exportedAt" : "2026-08-24T02:42:05Z",
   "games" : [
+    {
+      "date" : "2026-08-24T01:44:27Z",
+      "durationSeconds" : 3429.8405619859695,
+      "isInPerson" : false,
+      "notes" : "All commanders are white. Noah stole Pertman’s 20\/20 commander but the cost was tremendous. Pertman ruined Noah’s chances at the hat trick. Justin’s Grip of Chaos caused exactly that. Pertman won the game by dealing damage to himself and then sharing that damage with the other two players",
+      "participants" : [
+        {
+          "commanderName" : "Karlov of the Ghost Council",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Ms. Bumbleflower",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Gerrard, Weatherlight Hero",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 5+ distinct commanders.",
+              "id" : "connoisseur",
+              "title" : "Connoisseur"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Edgar Markov",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-08-22T19:41:56Z",
       "durationSeconds" : 3865.4293550252914,
@@ -5990,10 +6089,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 26,
+      "losses" : 27,
       "name" : "Jake",
-      "totalGames" : 37,
-      "winRate" : 0.2972972972972973,
+      "totalGames" : 38,
+      "winRate" : 0.2894736842105263,
       "wins" : 11
     },
     {
@@ -6039,6 +6138,11 @@
           "title" : "Library Card: Declined"
         },
         {
+          "description" : "Play 5+ distinct commanders.",
+          "id" : "connoisseur",
+          "title" : "Connoisseur"
+        },
+        {
           "description" : "Play the same commander 10+ times.",
           "id" : "loyalpilot",
           "title" : "Loyal Pilot"
@@ -6049,10 +6153,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 19,
+      "losses" : 20,
       "name" : "Justin",
-      "totalGames" : 21,
-      "winRate" : 0.09523809523809523,
+      "totalGames" : 22,
+      "winRate" : 0.09090909090909091,
       "wins" : 2
     },
     {
@@ -6196,14 +6300,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6336,10 +6440,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 37,
+      "losses" : 38,
       "name" : "Noah",
-      "totalGames" : 47,
-      "winRate" : 0.2127659574468085,
+      "totalGames" : 48,
+      "winRate" : 0.20833333333333334,
       "wins" : 10
     },
     {
@@ -6355,14 +6459,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6482,9 +6586,9 @@
       ],
       "losses" : 22,
       "name" : "Pertman",
-      "totalGames" : 39,
-      "winRate" : 0.4358974358974359,
-      "wins" : 17
+      "totalGames" : 40,
+      "winRate" : 0.45,
+      "wins" : 18
     }
   ]
 }

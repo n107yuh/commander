@@ -135,10 +135,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1783903303"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Captain America, Team Leader",
-      "totalGames" : 4,
-      "winRate" : 0.25,
+      "totalGames" : 5,
+      "winRate" : 0.2,
       "wins" : 1
     },
     {
@@ -246,10 +246,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/8\/18602e92-69be-4626-a28a-463913108f42.jpg?1752535694"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Dr. Eggman",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
+      "totalGames" : 4,
+      "winRate" : 0.25,
       "wins" : 1
     },
     {
@@ -382,6 +382,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/1\/6\/16a86a35-f7e5-434d-bf44-61ae7cb0f98b.jpg?1783931237"
+      ],
       "losses" : 1,
       "name" : "Haldan, Avid Arcanist",
       "totalGames" : 1,
@@ -412,9 +418,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/e\/ee228dcc-3170-4c24-80bc-28bcee07cb43.jpg?1673481644"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Henzie \"Toolbox\" Torre",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -544,9 +550,9 @@
       ],
       "losses" : 1,
       "name" : "Katara, the Fearless",
-      "totalGames" : 2,
-      "winRate" : 0.5,
-      "wins" : 1
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -727,9 +733,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/4\/2\/42bbedc1-6b83-46b4-8b3b-a4e05ce77d87.jpg?1721428140"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Ms. Bumbleflower",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -834,6 +840,13 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "G",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/6\/066c8f63-52e6-475e-8d27-6ee37e92fc05.jpg?1783931230"
+      ],
       "losses" : 1,
       "name" : "Pako, Arcane Retriever",
       "totalGames" : 1,
@@ -1276,8 +1289,161 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-24T04:55:26Z",
+  "exportedAt" : "2026-08-31T03:15:03Z",
   "games" : [
+    {
+      "date" : "2026-08-31T00:37:22Z",
+      "durationSeconds" : 9389.975222945213,
+      "isInPerson" : false,
+      "notes" : "Noah rolled at nat 20. Noah had a turn 1 sol ring. Pertman got up to 200+ life. For some reason, Jake kept saying “Tahlismin”",
+      "participants" : [
+        {
+          "commanderName" : "Katara, the Fearless",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win three games in a row.",
+              "id" : "hattrick",
+              "title" : "Hat Trick"
+            },
+            {
+              "description" : "Win the pod's longest game on record.",
+              "id" : "marathonwinner",
+              "title" : "Marathon Winner"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Win a 5-player game.",
+              "id" : "starformat",
+              "title" : "You Get A Stars"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 11
+        },
+        {
+          "commanderName" : "Ms. Bumbleflower",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 50 total games.",
+              "id" : "games-50",
+              "title" : "50 Games"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 11
+        },
+        {
+          "commanderName" : "Dr. Eggman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Henzie \"Toolbox\" Torre",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 4,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 4,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-08-24T02:44:54Z",
       "durationSeconds" : 7796.033100962639,
@@ -1338,6 +1504,11 @@
           "partnerCommanderName" : "Haldan, Avid Arcanist",
           "placement" : 2,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -6092,6 +6263,11 @@
           "title" : "Worst Loss Streak"
         },
         {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
+        },
+        {
           "description" : "Win a game in the most turns on record.",
           "id" : "snailpace",
           "title" : "Snail's Pace"
@@ -6197,10 +6373,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 28,
+      "losses" : 29,
       "name" : "Jake",
-      "totalGames" : 39,
-      "winRate" : 0.28205128205128205,
+      "totalGames" : 40,
+      "winRate" : 0.275,
       "wins" : 11
     },
     {
@@ -6275,14 +6451,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6335,10 +6511,10 @@
           "title" : "Life Totals Don't Matter"
         }
       ],
-      "losses" : 11,
+      "losses" : 12,
       "name" : "Margolis",
-      "totalGames" : 15,
-      "winRate" : 0.26666666666666666,
+      "totalGames" : 16,
+      "winRate" : 0.25,
       "wins" : 4
     },
     {
@@ -6364,9 +6540,9 @@
           "title" : "Worst Loss Streak"
         },
         {
-          "description" : "Win the pod's longest game on record.",
-          "id" : "marathonwinner",
-          "title" : "Marathon Winner"
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a remote game.",
@@ -6389,10 +6565,10 @@
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 5,
+      "losses" : 6,
       "name" : "Max",
-      "totalGames" : 8,
-      "winRate" : 0.375,
+      "totalGames" : 9,
+      "winRate" : 0.3333333333333333,
       "wins" : 3
     },
     {
@@ -6518,9 +6694,9 @@
           "title" : "Milled 'em To A Pulp"
         },
         {
-          "description" : "Play 25 total games.",
-          "id" : "games-25",
-          "title" : "25 Games"
+          "description" : "Play 50 total games.",
+          "id" : "games-50",
+          "title" : "50 Games"
         },
         {
           "description" : "Play 100 total turns.",
@@ -6548,10 +6724,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 39,
+      "losses" : 40,
       "name" : "Noah",
-      "totalGames" : 49,
-      "winRate" : 0.20408163265306123,
+      "totalGames" : 50,
+      "winRate" : 0.2,
       "wins" : 10
     },
     {
@@ -6587,9 +6763,9 @@
           "title" : "Quickest Win"
         },
         {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
+          "description" : "Win the pod's longest game on record.",
+          "id" : "marathonwinner",
+          "title" : "Marathon Winner"
         },
         {
           "description" : "Win a game in the fewest turns on record.",
@@ -6647,6 +6823,11 @@
           "title" : "Oops, Butterfingers"
         },
         {
+          "description" : "Win three games in a row.",
+          "id" : "hattrick",
+          "title" : "Hat Trick"
+        },
+        {
           "description" : "Roll a natural 20 at the start of the game and win.",
           "id" : "nat20-win",
           "title" : "Critical Success"
@@ -6699,9 +6880,9 @@
       ],
       "losses" : 22,
       "name" : "Pertman",
-      "totalGames" : 41,
-      "winRate" : 0.4634146341463415,
-      "wins" : 19
+      "totalGames" : 42,
+      "winRate" : 0.47619047619047616,
+      "wins" : 20
     }
   ]
 }

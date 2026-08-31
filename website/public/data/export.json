@@ -307,9 +307,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/8\/c835a37a-776a-44ef-a252-4af1f31bf0b3.jpg?1783932799"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Gerrard, Weatherlight Hero",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -577,10 +577,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/f\/b\/fb97e2a1-0e86-4c12-8d31-6ff7b825ca10.jpg?1783905133"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Kratos, God of War",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -638,6 +638,13 @@
       "losses" : 3,
       "name" : "Liberator, Urza's Battlethopter",
       "totalGames" : 3,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Light-Paws, Emperor's Voice",
+      "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
     },
@@ -989,9 +996,9 @@
       ],
       "losses" : 2,
       "name" : "Syr Vondam, Sunstar Exemplar",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1289,8 +1296,116 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-31T03:15:03Z",
+  "exportedAt" : "2026-08-31T05:56:49Z",
   "games" : [
+    {
+      "date" : "2026-08-31T03:17:46Z",
+      "durationSeconds" : 9463.360444068909,
+      "isInPerson" : false,
+      "notes" : "Justin yet again found a way to make everything more complicated with Knowledge Pool. Justin killed himself with a Goblin Game. Justin ended with 18 turns and Noah ended with 17",
+      "participants" : [
+        {
+          "commanderName" : "Syr Vondam, Sunstar Exemplar",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win the pod's longest game on record.",
+              "id" : "marathonwinner",
+              "title" : "Marathon Winner"
+            },
+            {
+              "description" : "Win a game in the most turns on record.",
+              "id" : "snailpace",
+              "title" : "Snail's Pace"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 15
+        },
+        {
+          "commanderName" : "Gerrard, Weatherlight Hero",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 15
+        },
+        {
+          "commanderName" : "Light-Paws, Emperor's Voice",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Kratos, God of War",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's longest game on record.",
+              "id" : "marathonsurvivor",
+              "title" : "Marathon Defeat"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-08-31T00:37:22Z",
       "durationSeconds" : 9389.975222945213,
@@ -6268,11 +6383,6 @@
           "title" : "Marathon Defeat"
         },
         {
-          "description" : "Win a game in the most turns on record.",
-          "id" : "snailpace",
-          "title" : "Snail's Pace"
-        },
-        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
@@ -6373,10 +6483,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 29,
+      "losses" : 30,
       "name" : "Jake",
-      "totalGames" : 40,
-      "winRate" : 0.275,
+      "totalGames" : 41,
+      "winRate" : 0.2682926829268293,
       "wins" : 11
     },
     {
@@ -6400,6 +6510,11 @@
           "description" : "Your longest losing streak ever.",
           "id" : "bestlossstreak",
           "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a remote game.",
@@ -6437,10 +6552,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 21,
+      "losses" : 22,
       "name" : "Justin",
-      "totalGames" : 23,
-      "winRate" : 0.08695652173913043,
+      "totalGames" : 24,
+      "winRate" : 0.08333333333333333,
       "wins" : 2
     },
     {
@@ -6469,11 +6584,6 @@
           "description" : "Lose the pod's fastest game on record.",
           "id" : "quickloss",
           "title" : "Quickest Loss"
-        },
-        {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a remote game.",
@@ -6540,11 +6650,6 @@
           "title" : "Worst Loss Streak"
         },
         {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
-        },
-        {
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
@@ -6584,14 +6689,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6604,14 +6709,19 @@
           "title" : "Quickest Loss"
         },
         {
-          "description" : "Lose the pod's longest game on record.",
-          "id" : "marathonsurvivor",
-          "title" : "Marathon Defeat"
+          "description" : "Win the pod's longest game on record.",
+          "id" : "marathonwinner",
+          "title" : "Marathon Winner"
         },
         {
           "description" : "Win a game in the fewest turns on record.",
           "id" : "blitzkrieg",
           "title" : "Blitzkrieg"
+        },
+        {
+          "description" : "Win a game in the most turns on record.",
+          "id" : "snailpace",
+          "title" : "Snail's Pace"
         },
         {
           "description" : "Win a remote game.",
@@ -6726,9 +6836,9 @@
       ],
       "losses" : 40,
       "name" : "Noah",
-      "totalGames" : 50,
-      "winRate" : 0.2,
-      "wins" : 10
+      "totalGames" : 51,
+      "winRate" : 0.21568627450980393,
+      "wins" : 11
     },
     {
       "achievements" : [
@@ -6743,14 +6853,14 @@
           "title" : "10 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6763,19 +6873,14 @@
           "title" : "Quickest Win"
         },
         {
-          "description" : "Win the pod's longest game on record.",
-          "id" : "marathonwinner",
-          "title" : "Marathon Winner"
+          "description" : "Lose the pod's longest game on record.",
+          "id" : "marathonsurvivor",
+          "title" : "Marathon Defeat"
         },
         {
           "description" : "Win a game in the fewest turns on record.",
           "id" : "blitzkrieg",
           "title" : "Blitzkrieg"
-        },
-        {
-          "description" : "Win a game in the most turns on record.",
-          "id" : "snailpace",
-          "title" : "Snail's Pace"
         },
         {
           "description" : "Win a remote game.",
@@ -6878,10 +6983,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 22,
+      "losses" : 23,
       "name" : "Pertman",
-      "totalGames" : 42,
-      "winRate" : 0.47619047619047616,
+      "totalGames" : 43,
+      "winRate" : 0.46511627906976744,
       "wins" : 20
     }
   ]

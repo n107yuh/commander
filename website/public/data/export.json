@@ -375,9 +375,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/7\/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Hakbal of the Surging Soul",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -807,9 +807,9 @@
       ],
       "losses" : 2,
       "name" : "Norman Osborn \/\/ Green Goblin",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
-      "wins" : 1
+      "totalGames" : 4,
+      "winRate" : 0.5,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -875,9 +875,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/5\/8569ad47-a243-402d-899f-4e6b17ea4e1e.jpg?1783932798"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Pramikon, Sky Rampart",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1233,6 +1233,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Wilhelt, the Rotcleaver",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "R",
         "W"
@@ -1302,8 +1309,100 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-06T03:29:05Z",
+  "exportedAt" : "2026-09-06T04:28:43Z",
   "games" : [
+    {
+      "date" : "2026-09-06T03:35:10Z",
+      "durationSeconds" : 3205.9551980495453,
+      "isInPerson" : false,
+      "notes" : "Justin flipped a coin for an extra turn, and lost. Justin played Forced Fruition so everyone drew 7 cards every time they cast a spell, which Pertman then turned against the table to have everyone take 2 for each card he discards, dealing a total of 102 damage to everyone at the table",
+      "participants" : [
+        {
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Wilhelt, the Rotcleaver",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Hakbal of the Surging Soul",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Pramikon, Sky Rampart",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-09-06T01:48:52Z",
       "durationSeconds" : 6005.2462149858475,
@@ -6578,10 +6677,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 31,
+      "losses" : 32,
       "name" : "Jake",
-      "totalGames" : 42,
-      "winRate" : 0.2619047619047619,
+      "totalGames" : 43,
+      "winRate" : 0.2558139534883721,
       "wins" : 11
     },
     {
@@ -6637,6 +6736,11 @@
           "title" : "25 Games"
         },
         {
+          "description" : "Play 100 total turns.",
+          "id" : "turns-100",
+          "title" : "100 Turns"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -6652,10 +6756,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 23,
+      "losses" : 24,
       "name" : "Justin",
-      "totalGames" : 25,
-      "winRate" : 0.08,
+      "totalGames" : 26,
+      "winRate" : 0.07692307692307693,
       "wins" : 2
     },
     {
@@ -6789,14 +6893,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -6934,10 +7038,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 40,
+      "losses" : 41,
       "name" : "Noah",
-      "totalGames" : 52,
-      "winRate" : 0.23076923076923078,
+      "totalGames" : 53,
+      "winRate" : 0.22641509433962265,
       "wins" : 12
     },
     {
@@ -6953,14 +7057,14 @@
           "title" : "10 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7085,9 +7189,9 @@
       ],
       "losses" : 24,
       "name" : "Pertman",
-      "totalGames" : 44,
-      "winRate" : 0.45454545454545453,
-      "wins" : 20
+      "totalGames" : 45,
+      "winRate" : 0.4666666666666667,
+      "wins" : 21
     }
   ]
 }

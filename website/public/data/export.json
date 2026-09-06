@@ -9,9 +9,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/b\/8b796a56-1611-4835-ac5b-48b4e9263685.jpg?1783915491"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Anikthea, Hand of Erebos",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -218,10 +218,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/3\/a\/3a14d6c5-cfd1-4860-834a-5a0dc9df0320.jpg?1782725974"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Deadpool, Trading Card",
-      "totalGames" : 1,
-      "winRate" : 1,
+      "totalGames" : 2,
+      "winRate" : 0.5,
       "wins" : 1
     },
     {
@@ -307,9 +307,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/8\/c835a37a-776a-44ef-a252-4af1f31bf0b3.jpg?1783932799"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Gerrard, Weatherlight Hero",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -593,9 +593,9 @@
       ],
       "losses" : 1,
       "name" : "Kraven the Hunter",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -642,6 +642,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/9\/39555a72-a57b-45ee-9222-ce3b9e8de126.jpg?1783923918"
+      ],
       "losses" : 1,
       "name" : "Light-Paws, Emperor's Voice",
       "totalGames" : 1,
@@ -1296,8 +1302,94 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-08-31T05:56:49Z",
+  "exportedAt" : "2026-09-06T03:29:05Z",
   "games" : [
+    {
+      "date" : "2026-09-06T01:48:52Z",
+      "durationSeconds" : 6005.2462149858475,
+      "isInPerson" : false,
+      "notes" : "Pertman predicted the top card of his deck was a forest, and was absolutely correct. Justin combo’ed Repercussion and Blasphemous Act to deal 52 damage to Pertman (and 13 to each of Justin and Jake). Justin cast Thieve’s Auction and it did resolve",
+      "participants" : [
+        {
+          "commanderName" : "Kraven the Hunter",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 14
+        },
+        {
+          "commanderName" : "Gerrard, Weatherlight Hero",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 25 total games.",
+              "id" : "games-25",
+              "title" : "25 Games"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 14
+        },
+        {
+          "commanderName" : "Deadpool, Trading Card",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Anikthea, Hand of Erebos",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-08-31T03:17:46Z",
       "durationSeconds" : 9463.360444068909,
@@ -1370,6 +1462,9 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Lose the pod's longest game on record.",
@@ -6483,10 +6578,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 30,
+      "losses" : 31,
       "name" : "Jake",
-      "totalGames" : 41,
-      "winRate" : 0.2682926829268293,
+      "totalGames" : 42,
+      "winRate" : 0.2619047619047619,
       "wins" : 11
     },
     {
@@ -6537,6 +6632,11 @@
           "title" : "Library Card: Declined"
         },
         {
+          "description" : "Play 25 total games.",
+          "id" : "games-25",
+          "title" : "25 Games"
+        },
+        {
           "description" : "Play 5+ distinct commanders.",
           "id" : "connoisseur",
           "title" : "Connoisseur"
@@ -6552,10 +6652,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 22,
+      "losses" : 23,
       "name" : "Justin",
-      "totalGames" : 24,
-      "winRate" : 0.08333333333333333,
+      "totalGames" : 25,
+      "winRate" : 0.08,
       "wins" : 2
     },
     {
@@ -6836,9 +6936,9 @@
       ],
       "losses" : 40,
       "name" : "Noah",
-      "totalGames" : 51,
-      "winRate" : 0.21568627450980393,
-      "wins" : 11
+      "totalGames" : 52,
+      "winRate" : 0.23076923076923078,
+      "wins" : 12
     },
     {
       "achievements" : [
@@ -6983,10 +7083,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 23,
+      "losses" : 24,
       "name" : "Pertman",
-      "totalGames" : 43,
-      "winRate" : 0.46511627906976744,
+      "totalGames" : 44,
+      "winRate" : 0.45454545454545453,
       "wins" : 20
     }
   ]

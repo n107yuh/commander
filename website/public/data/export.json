@@ -36,9 +36,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/f\/2fce5989-a2a0-4825-b90a-a1f78659b6e0.jpg?1783919189"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Ashcoat of the Shadow Swarm",
-      "totalGames" : 4,
+      "totalGames" : 5,
       "winRate" : 0,
       "wins" : 0
     },
@@ -805,10 +805,10 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891",
         "https:\/\/cards.scryfall.io\/normal\/back\/d\/5\/d5c53af9-7150-4e78-8771-2de7980aa307.jpg?1782684891"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Norman Osborn \/\/ Green Goblin",
-      "totalGames" : 4,
-      "winRate" : 0.5,
+      "totalGames" : 5,
+      "winRate" : 0.4,
       "wins" : 2
     },
     {
@@ -1065,6 +1065,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "The Gitrog Monster",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
 
       ],
@@ -1201,9 +1208,9 @@
       ],
       "losses" : 1,
       "name" : "Valgavoth, Harrower of Souls",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1233,6 +1240,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/5\/2501a911-d072-436d-ae3b-a5164e3b30aa.jpg?1783925384"
+      ],
       "losses" : 1,
       "name" : "Wilhelt, the Rotcleaver",
       "totalGames" : 1,
@@ -1309,8 +1323,103 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-06T04:28:43Z",
+  "exportedAt" : "2026-09-06T05:39:14Z",
   "games" : [
+    {
+      "date" : "2026-09-06T04:31:44Z",
+      "durationSeconds" : 3927.9338750839233,
+      "isInPerson" : false,
+      "notes" : "Pertman took a 16 minute turn",
+      "participants" : [
+        {
+          "commanderName" : "Valgavoth, Harrower of Souls",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Ashcoat of the Shadow Swarm",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 25 games.",
+              "id" : "losses-25",
+              "title" : "25 Losses"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Norman Osborn \/\/ Green Goblin",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 25 games.",
+              "id" : "losses-25",
+              "title" : "25 Losses"
+            },
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "The Gitrog Monster",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-09-06T03:35:10Z",
       "durationSeconds" : 3205.9551980495453,
@@ -1354,6 +1463,10 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "B"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -6677,18 +6790,18 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 32,
+      "losses" : 33,
       "name" : "Jake",
-      "totalGames" : 43,
-      "winRate" : 0.2558139534883721,
+      "totalGames" : 44,
+      "winRate" : 0.25,
       "wins" : 11
     },
     {
       "achievements" : [
         {
-          "description" : "Lose 10 games.",
-          "id" : "losses-10",
-          "title" : "10 Losses"
+          "description" : "Lose 25 games.",
+          "id" : "losses-25",
+          "title" : "25 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -6756,10 +6869,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 24,
+      "losses" : 25,
       "name" : "Justin",
-      "totalGames" : 26,
-      "winRate" : 0.07692307692307693,
+      "totalGames" : 27,
+      "winRate" : 0.07407407407407407,
       "wins" : 2
     },
     {
@@ -6893,14 +7006,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7040,9 +7153,9 @@
       ],
       "losses" : 41,
       "name" : "Noah",
-      "totalGames" : 53,
-      "winRate" : 0.22641509433962265,
-      "wins" : 12
+      "totalGames" : 54,
+      "winRate" : 0.24074074074074073,
+      "wins" : 13
     },
     {
       "achievements" : [
@@ -7052,19 +7165,19 @@
           "title" : "10 Wins"
         },
         {
-          "description" : "Lose 10 games.",
-          "id" : "losses-10",
-          "title" : "10 Losses"
-        },
-        {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
+          "description" : "Lose 25 games.",
+          "id" : "losses-25",
+          "title" : "25 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7187,10 +7300,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 24,
+      "losses" : 25,
       "name" : "Pertman",
-      "totalGames" : 45,
-      "winRate" : 0.4666666666666667,
+      "totalGames" : 46,
+      "winRate" : 0.45652173913043476,
       "wins" : 21
     }
   ]

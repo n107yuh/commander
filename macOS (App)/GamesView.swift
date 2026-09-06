@@ -991,7 +991,7 @@ private struct ParticipantRow: View {
     private var turnsPlayedField: some View {
         Menu {
             Button("—") { draft.turnsPlayed = 0 }
-            ForEach(1...15, id: \.self) { n in
+            ForEach(1...20, id: \.self) { n in
                 Button("\(n)") { draft.turnsPlayed = n }
             }
         } label: {

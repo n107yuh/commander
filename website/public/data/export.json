@@ -1065,6 +1065,13 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "G"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/4\/0\/40489e28-878d-44a2-847f-07beef1aa0f8.jpg?1783906028"
+      ],
       "losses" : 1,
       "name" : "The Gitrog Monster",
       "totalGames" : 1,
@@ -1323,7 +1330,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-06T05:39:14Z",
+  "exportedAt" : "2026-09-06T05:41:32Z",
   "games" : [
     {
       "date" : "2026-09-06T04:31:44Z",
@@ -1412,6 +1419,10 @@
           "openingHandSize" : 7,
           "placement" : 3,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B",
+            "G"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -1505,11 +1516,7 @@
             "R"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Play 100 total turns.",
-              "id" : "turns-100",
-              "title" : "100 Turns"
-            }
+
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 7
@@ -1562,6 +1569,11 @@
               "description" : "Play 25 total games.",
               "id" : "games-25",
               "title" : "25 Games"
+            },
+            {
+              "description" : "Play 100 total turns.",
+              "id" : "turns-100",
+              "title" : "100 Turns"
             }
           ],
           "turnOrder" : 1,
@@ -1646,7 +1658,7 @@
             }
           ],
           "turnOrder" : 3,
-          "turnsPlayed" : 15
+          "turnsPlayed" : 17
         },
         {
           "commanderName" : "Gerrard, Weatherlight Hero",
@@ -1666,7 +1678,7 @@
             }
           ],
           "turnOrder" : 2,
-          "turnsPlayed" : 15
+          "turnsPlayed" : 18
         },
         {
           "commanderName" : "Light-Paws, Emperor's Voice",

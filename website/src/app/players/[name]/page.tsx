@@ -106,12 +106,15 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
           {turnOrderStats.length > 0 && (
             <div>
               <h3 className="text-xs text-slate-500 mb-2 lg:text-center">By Turn Order</h3>
-              <div className="flex flex-wrap gap-3">
+              <div
+                className="grid gap-1.5 lg:flex lg:flex-wrap lg:gap-3"
+                style={{ gridTemplateColumns: `repeat(${turnOrderStats.length}, minmax(0, 1fr))` }}
+              >
                 {turnOrderStats.map(e => (
-                  <div key={e.turnOrder} className="bg-slate-900 border border-slate-800 rounded-lg p-3 min-w-[92px]">
-                    <div className="text-white font-semibold">{e.wins}–{e.losses}</div>
-                    <div className="text-slate-400 text-xs">Went {placementLabel(e.turnOrder)}</div>
-                    <div className="text-slate-500 text-xs">{formatWinRate(e.winRate)}</div>
+                  <div key={e.turnOrder} className="bg-slate-900 border border-slate-800 rounded-lg px-1.5 py-2 text-center lg:p-3 lg:text-left lg:min-w-[92px]">
+                    <div className="text-white font-semibold text-xs lg:text-base">{e.wins}–{e.losses}</div>
+                    <div className="text-slate-400 text-[10px] lg:text-xs">{placementLabel(e.turnOrder)}</div>
+                    <div className="text-slate-500 text-[10px] lg:text-xs">{formatWinRate(e.winRate)}</div>
                   </div>
                 ))}
               </div>

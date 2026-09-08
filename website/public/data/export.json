@@ -773,6 +773,16 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/2\/c\/2cb1d1da-6077-46b5-8c63-39882b8016f2.jpg?1783934856"
+      ],
       "losses" : 1,
       "name" : "Najeela, the Blade-Blossom",
       "totalGames" : 1,
@@ -1370,7 +1380,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T02:54:36Z",
+  "exportedAt" : "2026-09-08T02:54:57Z",
   "games" : [
     {
       "date" : "2026-09-08T02:12:25Z",
@@ -1418,6 +1428,13 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -1430,6 +1447,10 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",

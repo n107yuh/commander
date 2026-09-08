@@ -225,6 +225,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Dhalsim, Pliable Pacifist",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G"
       ],
@@ -571,6 +578,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/6\/06a981cd-1951-438e-95c9-68294795638e.jpg?1783928810"
+      ],
       "losses" : 1,
       "name" : "Krark, the Thumbless",
       "totalGames" : 1,
@@ -631,9 +644,9 @@
       ],
       "losses" : 0,
       "name" : "Leonardo, the Balance",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -712,9 +725,9 @@
       ],
       "losses" : 0,
       "name" : "Michelangelo, the Heart",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -756,6 +769,13 @@
       "losses" : 3,
       "name" : "Ms. Bumbleflower",
       "totalGames" : 3,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Najeela, the Blade-Blossom",
+      "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
     },
@@ -945,6 +965,12 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/7\/1\/714c3a1f-7b30-4ed8-8f38-6176758741fb.jpg?1783928853"
+      ],
       "losses" : 1,
       "name" : "Sakashima of a Thousand Faces",
       "totalGames" : 1,
@@ -1344,8 +1370,88 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T02:04:16Z",
+  "exportedAt" : "2026-09-08T02:54:36Z",
   "games" : [
+    {
+      "date" : "2026-09-08T02:12:25Z",
+      "durationSeconds" : 2522.9925619363785,
+      "isInPerson" : false,
+      "notes" : "Noah rolled a nat 20. Jake played a card to give him one extra turn, which would then cause him to lose the game. He immediately ended the second turn to kill himself.",
+      "participants" : [
+        {
+          "commanderName" : "Leonardo, the Balance",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Michelangelo, the Heart",
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Win a game with a 5-color (WUBRG) commander.",
+              "id" : "tastetherainbow",
+              "title" : "Taste the Rainbow"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Najeela, the Blade-Blossom",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Dhalsim, Pliable Pacifist",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            },
+            {
+              "description" : "Roll a natural 20 at the start of the game and still lose.",
+              "id" : "nat20-loss",
+              "title" : "Rolled Well, Played Poorly"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-09-08T01:22:36Z",
       "durationSeconds" : 2393.460839033127,
@@ -1420,6 +1526,10 @@
           "partnerCommanderName" : "Sakashima of a Thousand Faces",
           "placement" : 3,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Roll a natural 1 at the start of the game and lose.",
@@ -6912,10 +7022,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 34,
+      "losses" : 35,
       "name" : "Jake",
-      "totalGames" : 45,
-      "winRate" : 0.24444444444444444,
+      "totalGames" : 46,
+      "winRate" : 0.2391304347826087,
       "wins" : 11
     },
     {
@@ -7128,14 +7238,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7278,10 +7388,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 41,
+      "losses" : 42,
       "name" : "Noah",
-      "totalGames" : 55,
-      "winRate" : 0.2545454545454545,
+      "totalGames" : 56,
+      "winRate" : 0.25,
       "wins" : 14
     },
     {
@@ -7297,14 +7407,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7429,9 +7539,9 @@
       ],
       "losses" : 26,
       "name" : "Pertman",
-      "totalGames" : 47,
-      "winRate" : 0.44680851063829785,
-      "wins" : 21
+      "totalGames" : 48,
+      "winRate" : 0.4583333333333333,
+      "wins" : 22
     }
   ]
 }

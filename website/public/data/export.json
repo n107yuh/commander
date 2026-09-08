@@ -1380,13 +1380,13 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T02:57:59Z",
+  "exportedAt" : "2026-09-08T02:58:51Z",
   "games" : [
     {
       "date" : "2026-09-08T02:12:25Z",
       "durationSeconds" : 2522.9925619363785,
       "isInPerson" : false,
-      "notes" : "Noah rolled a nat 20. Jake played a card to give him one extra turn, which would then cause him to lose the game. He immediately ended the second turn to kill himself. Jake did no damage. Jake did not attack anyone.",
+      "notes" : "Noah rolled a nat 20. Jake played a card to give him one extra turn, which would then cause him to lose the game. He immediately ended the second turn to kill himself. Jake dealt zero damage. Jake did not attack anyone.",
       "participants" : [
         {
           "commanderName" : "Leonardo, the Balance",
@@ -1440,6 +1440,11 @@
               "description" : "Play an entire game without attacking another player.",
               "id" : "pacifist",
               "title" : "Pacifist"
+            },
+            {
+              "description" : "Play an entire game without dealing any damage.",
+              "id" : "flyonthewall",
+              "title" : "Fly On The Wall"
             }
           ],
           "turnOrder" : 2,

@@ -475,10 +475,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/0\/a062a004-984e-4b62-960c-af7288f7a3e9.jpg?1782702184"
       ],
-      "losses" : 4,
+      "losses" : 3,
       "name" : "Isshin, Two Heavens as One",
-      "totalGames" : 5,
-      "winRate" : 0.2,
+      "totalGames" : 4,
+      "winRate" : 0.25,
       "wins" : 1
     },
     {
@@ -677,6 +677,13 @@
       ],
       "losses" : 1,
       "name" : "Light-Paws, Emperor's Voice",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Lightning, Lone Commando",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -1387,7 +1394,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T05:21:30Z",
+  "exportedAt" : "2026-09-08T05:26:50Z",
   "games" : [
     {
       "date" : "2026-09-08T03:02:14Z",
@@ -4640,16 +4647,11 @@
           "turnsPlayed" : 0
         },
         {
-          "commanderName" : "Isshin, Two Heavens as One",
+          "commanderName" : "Lightning, Lone Commando",
           "didWin" : false,
           "openingHandSize" : 7,
           "placement" : 3,
           "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "W",
-            "B",
-            "R"
-          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",

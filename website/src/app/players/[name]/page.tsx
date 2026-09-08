@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import {
   loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames,
   colorMasteryProgress, MONO_COMBOS, DUAL_COMBOS, TRI_COMBOS, headToHead,
-  playerPlacementStats,
+  playerPlacementStats, winRateByPlayerCount,
 } from '@/lib/data'
 import { ColorDots, ColorComboChip } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
@@ -56,6 +56,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
 
   const achievementCatalog = computePlayerAchievementCatalog(games, name)
   const placementStats = playerPlacementStats(games, name)
+  const playerCountStats = winRateByPlayerCount(games, name)
   const h2h = headToHead(games, name)
   const mastery = colorMasteryProgress(games, name)
   const masteryRows = [
@@ -82,33 +83,55 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
         </div>
       </div>
 
-      {/* Format breakdown */}
-      {(iplGames > 0 || remGames > 0) && (
-        <div className="grid grid-cols-2 gap-3 max-w-xs">
-          {iplGames > 0 && (
-            <div className="bg-slate-900 border border-slate-800 rounded-lg p-3">
-              <div className="text-white font-semibold">🏠 {iplWins}–{iplGames - iplWins}</div>
-              <div className="text-slate-400 text-xs">In Person</div>
-              <div className="text-slate-500 text-xs">{formatWinRate(iplGames > 0 ? iplWins / iplGames : 0)}</div>
+      {/* Win Data: player count, format, and placement breakdowns */}
+      <section>
+        <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Win Data</h2>
+        <div className="space-y-5">
+          {playerCountStats.length > 0 && (
+            <div>
+              <h3 className="text-xs text-slate-500 mb-2">By Player Count</h3>
+              <div className="flex flex-wrap gap-3">
+                {playerCountStats.map(e => (
+                  <div key={e.playerCount} className="bg-slate-900 border border-slate-800 rounded-lg p-3 min-w-[92px]">
+                    <div className="text-white font-semibold">{e.wins}–{e.losses}</div>
+                    <div className="text-slate-400 text-xs">{e.playerCount}-Player</div>
+                    <div className="text-slate-500 text-xs">{formatWinRate(e.winRate)}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
-          {remGames > 0 && (
-            <div className="bg-slate-900 border border-slate-800 rounded-lg p-3">
-              <div className="text-white font-semibold">💻 {remWins}–{remGames - remWins}</div>
-              <div className="text-slate-400 text-xs">Remote</div>
-              <div className="text-slate-500 text-xs">{formatWinRate(remGames > 0 ? remWins / remGames : 0)}</div>
+
+          {(iplGames > 0 || remGames > 0) && (
+            <div>
+              <h3 className="text-xs text-slate-500 mb-2">By Format</h3>
+              <div className="grid grid-cols-2 gap-3 max-w-xs">
+                {iplGames > 0 && (
+                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3">
+                    <div className="text-white font-semibold">🏠 {iplWins}–{iplGames - iplWins}</div>
+                    <div className="text-slate-400 text-xs">In Person</div>
+                    <div className="text-slate-500 text-xs">{formatWinRate(iplGames > 0 ? iplWins / iplGames : 0)}</div>
+                  </div>
+                )}
+                {remGames > 0 && (
+                  <div className="bg-slate-900 border border-slate-800 rounded-lg p-3">
+                    <div className="text-white font-semibold">💻 {remWins}–{remGames - remWins}</div>
+                    <div className="text-slate-400 text-xs">Remote</div>
+                    <div className="text-slate-500 text-xs">{formatWinRate(remGames > 0 ? remWins / remGames : 0)}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {Object.keys(placementStats.counts).length > 0 && (
+            <div>
+              <h3 className="text-xs text-slate-500 mb-2">Placements</h3>
+              <PlacementChart stats={placementStats} />
             </div>
           )}
         </div>
-      )}
-
-      {/* Placements */}
-      {Object.keys(placementStats.counts).length > 0 && (
-        <section>
-          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Placements</h2>
-          <PlacementChart stats={placementStats} />
-        </section>
-      )}
+      </section>
 
       {/* Best commander(s) — quick view of the top row(s) of the Commander Records table below */}
       {bestCommanders.length > 0 && (

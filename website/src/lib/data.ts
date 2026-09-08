@@ -172,6 +172,39 @@ export function playerPlacementStats(games: GameData[], playerName: string): Pla
   return { counts, maxPlacement, averagePlacement }
 }
 
+export interface PlayerCountEntry {
+  playerCount: number
+  wins: number
+  losses: number
+  games: number
+  winRate: number
+}
+
+// Mirrors Stats_playerCountBreakdown in the Mac app's Stats.swift: win rate
+// sliced by how many players were in the game, since a 1v1 and a 5-player
+// free-for-all are very different games to win.
+export function winRateByPlayerCount(games: GameData[], playerName: string): PlayerCountEntry[] {
+  const tally: Record<number, { wins: number; losses: number }> = {}
+  for (const game of games) {
+    const part = game.participants.find(p => p.playerName === playerName)
+    if (!part) continue
+    const count = game.participants.length
+    if (count <= 0) continue
+    const entry = tally[count] ?? (tally[count] = { wins: 0, losses: 0 })
+    if (part.didWin) entry.wins++
+    else entry.losses++
+  }
+  return Object.entries(tally)
+    .map(([count, { wins, losses }]) => ({
+      playerCount: Number(count),
+      wins,
+      losses,
+      games: wins + losses,
+      winRate: wins + losses > 0 ? wins / (wins + losses) : 0,
+    }))
+    .sort((a, b) => a.playerCount - b.playerCount)
+}
+
 export function playerStandings(players: PlayerData[]): PlayerData[] {
   return [...players].sort((a, b) => {
     if (b.totalGames === 0 && a.totalGames === 0) return 0

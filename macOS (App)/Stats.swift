@@ -102,6 +102,15 @@ struct TurnOrderCount: Identifiable {
     var id: Int { turnOrder }
 }
 
+struct PlayerCountEntry: Identifiable {
+    let playerCount: Int
+    let wins: Int
+    let losses: Int
+    var id: Int { playerCount }
+    var games: Int { wins + losses }
+    var winRate: Double { games == 0 ? 0 : Double(wins) / Double(games) }
+}
+
 func placementLabel(_ placement: Int) -> String {
     switch placement {
     case 0: return "1st"
@@ -207,6 +216,23 @@ private func breakdown(_ participations: [GameParticipant]) -> FormatBreakdown {
     return f
 }
 
+private func Stats_playerCountBreakdown(_ participations: [GameParticipant]) -> [PlayerCountEntry] {
+    var tally: [Int: (wins: Int, losses: Int)] = [:]
+    for p in participations {
+        guard let game = p.game else { continue }
+        let count = game.participants.count
+        guard count > 0 else { continue }
+        if p.didWin {
+            tally[count, default: (0, 0)].wins += 1
+        } else {
+            tally[count, default: (0, 0)].losses += 1
+        }
+    }
+    return tally
+        .map { PlayerCountEntry(playerCount: $0.key, wins: $0.value.wins, losses: $0.value.losses) }
+        .sorted { $0.playerCount < $1.playerCount }
+}
+
 private func bestEntry(
     from participations: [GameParticipant],
     filter: (Game) -> Bool = { _ in true }
@@ -273,6 +299,8 @@ extension Player {
     var averageOpeningHand: Double? { computeAverageOpeningHand(participations) }
 
     var placementCounts: [PlacementCount] { Stats_placementCounts(participations) }
+
+    var playerCountBreakdown: [PlayerCountEntry] { Stats_playerCountBreakdown(participations) }
 
     var averagePlacement: Double? { Stats_averagePlacement(participations) }
 

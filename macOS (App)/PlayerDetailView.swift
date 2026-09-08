@@ -51,6 +51,7 @@ struct PlayerDetailView: View {
 
     private var recordBlock: some View {
         let format = player.formatBreakdown
+        let playerCounts = player.playerCountBreakdown
         return VStack(alignment: .leading, spacing: 8) {
             sectionHeader("Record")
             HStack(alignment: .top) {
@@ -67,6 +68,16 @@ struct PlayerDetailView: View {
                     }
                 }
                 Spacer()
+                if !playerCounts.isEmpty {
+                    VStack(alignment: .trailing, spacing: 4) {
+                        ForEach(playerCounts) { entry in
+                            compactCountRow(count: entry.playerCount,
+                                            wins: entry.wins,
+                                            losses: entry.losses,
+                                            rate: entry.winRate)
+                        }
+                    }
+                }
                 VStack(alignment: .trailing, spacing: 4) {
                     compactFormatRow(icon: "person.2.fill",
                                      wins: format.inPersonWins,
@@ -86,6 +97,22 @@ struct PlayerDetailView: View {
             Image(systemName: icon)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
+            Text("\(wins)–\(losses)")
+                .font(.caption.monospacedDigit())
+                .foregroundStyle(.secondary)
+            Text(rate, format: .percent.precision(.fractionLength(0)))
+                .font(.caption.monospacedDigit())
+                .frame(width: 34, alignment: .trailing)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private func compactCountRow(count: Int, wins: Int, losses: Int, rate: Double) -> some View {
+        HStack(spacing: 5) {
+            Text("\(count)p")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .frame(width: 16, alignment: .leading)
             Text("\(wins)–\(losses)")
                 .font(.caption.monospacedDigit())
                 .foregroundStyle(.secondary)

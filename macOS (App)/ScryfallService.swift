@@ -16,6 +16,12 @@ enum ScryfallService {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { return [] }
 
+        // Hand-maintained names Scryfall doesn't know about yet come first, so a real card the
+        // pod plays isn't crowded out of the visible list by Scryfall's 20-result cap.
+        let extraMatches = extraKnownCommanderNames.filter {
+            $0.range(of: trimmed, options: .caseInsensitive) != nil
+        }
+
         let scryfallQuery = "is:commander name:\(trimmed)"
 
         var components = URLComponents(string: "https://api.scryfall.com/cards/search")!
@@ -24,22 +30,22 @@ enum ScryfallService {
             URLQueryItem(name: "unique", value: "cards"),
             URLQueryItem(name: "order", value: "name"),
         ]
-        guard let url = components.url else { return [] }
+        guard let url = components.url else { return extraMatches }
 
         do {
             let (data, _) = try await URLSession.shared.data(for: makeRequest(url: url))
             let response = try JSONDecoder().decode(SearchResponse.self, from: data)
-            var seen = Set<String>()
-            var names: [String] = []
+            var seen = Set(extraMatches.map { $0.lowercased() })
+            var names = extraMatches
             for card in response.data {
-                if seen.insert(card.name).inserted {
+                if seen.insert(card.name.lowercased()).inserted {
                     names.append(card.name)
                     if names.count >= 20 { break }
                 }
             }
             return names
         } catch {
-            return []
+            return extraMatches
         }
     }
 

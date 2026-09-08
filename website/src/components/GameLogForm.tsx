@@ -481,7 +481,7 @@ function ParticipantRow({
           </button>
         )}
 
-        {showColorPicker && (mainUnresolved || partnerUnresolved) && (
+        {showColorPicker && participant.chosenColorIdentity.length === 0 && (mainUnresolved || partnerUnresolved) && (
           <p className="text-[11px] text-amber-400 -mb-1">
             ⚠ Color identity unresolved — pick it manually so it's recorded correctly.
           </p>

@@ -5,6 +5,8 @@
 // Beyond commander it hasn't indexed yet, or a homebrew/proxy) doesn't block
 // logging the game — see CommanderCombobox's 'unverifiable' status.
 
+import { EXTRA_KNOWN_COMMANDER_NAMES } from './logSchema'
+
 const HEADERS = { Accept: 'application/json' }
 
 interface ScryfallSearchResponse {
@@ -14,20 +16,24 @@ interface ScryfallSearchResponse {
 // Suggestions for the dropdown as the user types — restricted to
 // commander-legal cards (is:commander covers legendary creatures plus the
 // handful of other card types that can lead a deck) whose name contains the
-// query.
+// query. Hand-maintained names Scryfall doesn't know about yet
+// (EXTRA_KNOWN_COMMANDER_NAMES) come first, so a real card the pod plays
+// isn't crowded out of the visible list by Scryfall's 20-result cap.
 export async function searchCommanders(query: string, signal?: AbortSignal): Promise<string[]> {
   const trimmed = query.trim()
   if (trimmed.length < 2) return []
+  const extraMatches = EXTRA_KNOWN_COMMANDER_NAMES.filter(n => n.toLowerCase().includes(trimmed.toLowerCase()))
+
   const q = `is:commander name:"${trimmed}"`
   const url = `https://api.scryfall.com/cards/search?${new URLSearchParams({ q, unique: 'cards', order: 'name' })}`
   try {
     const res = await fetch(url, { headers: HEADERS, signal })
-    if (!res.ok) return [] // includes 404, which Scryfall returns for "no matches"
+    if (!res.ok) return extraMatches // includes 404, which Scryfall returns for "no matches"
     const json: ScryfallSearchResponse = await res.json()
-    const names = (json.data ?? []).map(c => c.name)
+    const names = [...extraMatches, ...(json.data ?? []).map(c => c.name)]
     return Array.from(new Set(names)).slice(0, 20)
   } catch {
-    return []
+    return extraMatches
   }
 }
 
@@ -37,6 +43,7 @@ export async function searchCommanders(query: string, signal?: AbortSignal): Pro
 export async function isValidCommander(name: string, signal?: AbortSignal): Promise<boolean> {
   const trimmed = name.trim()
   if (!trimmed) return false
+  if (EXTRA_KNOWN_COMMANDER_NAMES.some(n => n.toLowerCase() === trimmed.toLowerCase())) return true
   const escaped = trimmed.replace(/"/g, '\\"')
   const q = `is:commander !"${escaped}"`
   const url = `https://api.scryfall.com/cards/search?${new URLSearchParams({ q })}`

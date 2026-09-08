@@ -948,6 +948,10 @@ private struct ParticipantRow: View {
     /// colors (vs. one of the handful of cards whose identity always varies by design) — used to
     /// surface an explicit "set manually" hint rather than treating it as expected/routine.
     private var commanderColorUnresolved: Bool {
+        // Once the user has actually picked colors below, the "unresolved" warning has served its
+        // purpose — stop showing it even though needsColorChoice stays true (the picker itself
+        // should stay visible so they can review/adjust their pick).
+        guard draft.chosenColorIdentity.isEmpty else { return false }
         let main = draft.commanderName.trimmingCharacters(in: .whitespaces).lowercased()
         let partner = draft.partnerCommanderName.trimmingCharacters(in: .whitespaces).lowercased()
         let mainUnresolved = !main.isEmpty && !variableIdentityCommanderNames.contains(main)

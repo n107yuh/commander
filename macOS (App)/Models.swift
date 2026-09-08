@@ -13,6 +13,15 @@ let variableIdentityCommanderNames: Set<String> = [
     "clara oswald"
 ]
 
+// Real commander-legal cards not yet indexed by Scryfall (brand-new Universes Beyond releases in
+// particular can lag behind their paper release) — added by hand here so autocomplete can still
+// suggest them instead of only ever surfacing whatever Scryfall's own search already knows about.
+// Deliberately NOT "every card" — just specific ones the pod actually plays. See
+// ScryfallService.autocomplete, which merges this in with Scryfall's live results.
+let extraKnownCommanderNames: [String] = [
+    "Dhalsim, Pliable Pacifist"
+]
+
 @Model
 final class Player {
     @Attribute(.unique) var name: String

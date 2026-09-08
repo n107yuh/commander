@@ -14,6 +14,15 @@ export const VARIABLE_IDENTITY_COMMANDER_NAMES = new Set([
   'clara oswald',
 ])
 
+// Real commander-legal cards not yet indexed by Scryfall — mirrors
+// extraKnownCommanderNames in the Mac app's Models.swift. Deliberately NOT
+// "every card", just specific ones the pod actually plays; see
+// searchCommanders/isValidCommander in scryfall.ts, which merge this in with
+// Scryfall's live results.
+export const EXTRA_KNOWN_COMMANDER_NAMES = [
+  'Dhalsim, Pliable Pacifist',
+]
+
 // A commander needs a manual color-identity pick either because it's one of
 // the handful of printed cards whose identity genuinely varies per game
 // (VARIABLE_IDENTITY_COMMANDER_NAMES), or because Scryfall couldn't confirm

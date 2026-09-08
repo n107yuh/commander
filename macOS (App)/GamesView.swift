@@ -426,6 +426,9 @@ struct GameEditorView: View {
         drafts.filter { !$0.playerName.trimmingCharacters(in: .whitespaces).isEmpty }.count >= 2
     }
 
+    // Only enforced for brand-new games (see the Save/Create button action) — games from before
+    // turn tracking existed genuinely have no turns to enter, and editing one (to fix a commander
+    // name, say) shouldn't be blocked on backfilling data that was never recorded.
     private var missingTurnsPlayed: Bool {
         drafts.contains {
             !$0.playerName.trimmingCharacters(in: .whitespaces).isEmpty && $0.turnsPlayed <= 0
@@ -521,7 +524,7 @@ struct GameEditorView: View {
                         showEndTimeAlert = true
                     } else if isInPerson == nil {
                         showFormatAlert = true
-                    } else if missingTurnsPlayed {
+                    } else if !isEditing && missingTurnsPlayed {
                         showTurnsAlert = true
                     } else {
                         save()

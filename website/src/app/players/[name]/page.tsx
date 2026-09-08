@@ -142,15 +142,16 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
               </div>
             </div>
           )}
-
-          {Object.keys(placementStats.counts).length > 0 && (
-            <div>
-              <h3 className="text-xs text-slate-500 mb-2 lg:text-center">Placements</h3>
-              <PlacementChart stats={placementStats} />
-            </div>
-          )}
         </div>
       </section>
+
+      {/* Placements */}
+      {Object.keys(placementStats.counts).length > 0 && (
+        <section>
+          <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Placements</h2>
+          <PlacementChart stats={placementStats} />
+        </section>
+      )}
 
       {/* Best commander(s) — quick view of the top row(s) of the Commander Records table below */}
       {bestCommanders.length > 0 && (

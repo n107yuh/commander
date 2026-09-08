@@ -99,26 +99,12 @@ struct CommanderDetailView: View {
 
     @ViewBuilder
     private func cardImage(url urlString: String) -> some View {
-        if let url = URL(string: urlString) {
-            AsyncImage(url: url) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .frame(width: cardWidth, height: cardWidth / 0.72)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                case .failure:
-                    placeholder(label: "Image failed", system: "exclamationmark.triangle")
-                @unknown default:
-                    placeholder(label: "", system: "questionmark.square")
-                }
-            }
-            .frame(maxWidth: cardWidth)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
+        CardArtImage(urlString: urlString, cardWidth: cardWidth) {
+            placeholder(label: "Image failed", system: "exclamationmark.triangle")
         }
+        .frame(maxWidth: cardWidth)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(color: .black.opacity(0.25), radius: 4, x: 0, y: 2)
     }
 
     private func placeholder(label: String, system: String) -> some View {

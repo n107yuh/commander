@@ -14,14 +14,24 @@ export const VARIABLE_IDENTITY_COMMANDER_NAMES = new Set([
   'clara oswald',
 ])
 
-// Real commander-legal cards not yet indexed by Scryfall — mirrors
+// Real commander-legal cards not yet indexed by Scryfall at all — mirrors
 // extraKnownCommanderNames in the Mac app's Models.swift. Deliberately NOT
 // "every card", just specific ones the pod actually plays; see
 // searchCommanders/isValidCommander in scryfall.ts, which merge this in with
-// Scryfall's live results.
-export const EXTRA_KNOWN_COMMANDER_NAMES = [
-  'Dhalsim, Pliable Pacifist',
-]
+// Scryfall's live results. Empty for now — see COMMANDER_NAME_ALIASES below
+// for the "printed name differs from the real card" case, which covers every
+// crossover name seen so far.
+export const EXTRA_KNOWN_COMMANDER_NAMES: string[] = []
+
+// Printed/flavor names that differ from a card's real (Oracle) name — mirrors
+// commanderNameAliases in the Mac app's Models.swift. E.g. the Street Fighter
+// treatment "Dhalsim, Pliable Pacifist" is really "Tadeas, Juniper Ascendant"
+// under the hood (same G/W card, alternate name/art/flavor text on this
+// printing) — Scryfall only indexes the real name. Looked up
+// case-insensitively; see resolveAlias in scryfall.ts.
+export const COMMANDER_NAME_ALIASES: Record<string, string> = {
+  'Dhalsim, Pliable Pacifist': 'Tadeas, Juniper Ascendant',
+}
 
 // A commander needs a manual color-identity pick either because it's one of
 // the handful of printed cards whose identity genuinely varies per game

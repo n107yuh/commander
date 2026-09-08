@@ -13,13 +13,26 @@ let variableIdentityCommanderNames: Set<String> = [
     "clara oswald"
 ]
 
-// Real commander-legal cards not yet indexed by Scryfall (brand-new Universes Beyond releases in
-// particular can lag behind their paper release) — added by hand here so autocomplete can still
-// suggest them instead of only ever surfacing whatever Scryfall's own search already knows about.
-// Deliberately NOT "every card" — just specific ones the pod actually plays. See
-// ScryfallService.autocomplete, which merges this in with Scryfall's live results.
-let extraKnownCommanderNames: [String] = [
-    "Dhalsim, Pliable Pacifist"
+// Real commander-legal cards not yet indexed by Scryfall at all (brand-new Universes Beyond
+// releases in particular can lag behind their paper release) — added by hand here so autocomplete
+// can still suggest them instead of only ever surfacing whatever Scryfall's own search already
+// knows about. Deliberately NOT "every card" — just specific ones the pod actually plays. See
+// ScryfallService.autocomplete, which merges this in with Scryfall's live results. Empty for now —
+// see commanderNameAliases below for the "printed name differs from the real card" case, which
+// covers every crossover name seen so far.
+let extraKnownCommanderNames: [String] = []
+
+// Printed/flavor names that differ from a card's real (Oracle) name — some Universes Beyond
+// treatments (Secret Lair crossovers especially) print an alternate name and flavor text on an
+// otherwise-ordinary card. Scryfall only indexes the real name, so a lookup for the printed name
+// alone 404s even though the card is fully in their database under its real name. E.g. the Street
+// Fighter treatment "Dhalsim, Pliable Pacifist" is really "Tadeas, Juniper Ascendant" — same card,
+// same G/W identity, just different printed name/text on this specific version. Keyed and looked
+// up case-insensitively; see ScryfallService.fetchCard/autocomplete, which redirect the network
+// lookup to the real name while leaving whatever the user actually typed untouched everywhere else
+// (MTGCommander.name, GameParticipant, exports, etc. all keep the printed name as entered).
+let commanderNameAliases: [String: String] = [
+    "Dhalsim, Pliable Pacifist": "Tadeas, Juniper Ascendant"
 ]
 
 @Model

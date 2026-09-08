@@ -12,13 +12,20 @@ struct ScryfallCardInfo {
 }
 
 enum ScryfallService {
+    /// The real Oracle name to actually query Scryfall with, if `name` is a known printed/flavor
+    /// alias (see commanderNameAliases) — otherwise `name` unchanged.
+    private static func resolveAlias(_ name: String) -> String {
+        commanderNameAliases.first { $0.key.caseInsensitiveCompare(name) == .orderedSame }?.value ?? name
+    }
+
     static func autocomplete(query: String) async -> [String] {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { return [] }
 
-        // Hand-maintained names Scryfall doesn't know about yet come first, so a real card the
-        // pod plays isn't crowded out of the visible list by Scryfall's 20-result cap.
-        let extraMatches = extraKnownCommanderNames.filter {
+        // Hand-maintained names Scryfall doesn't know about yet (either not indexed at all, or
+        // only under a different real name) come first, so a real card the pod plays isn't
+        // crowded out of the visible list by Scryfall's 20-result cap.
+        let extraMatches = (extraKnownCommanderNames + Array(commanderNameAliases.keys)).filter {
             $0.range(of: trimmed, options: .caseInsensitive) != nil
         }
 
@@ -54,7 +61,7 @@ enum ScryfallService {
         guard !trimmed.isEmpty else { return nil }
 
         var components = URLComponents(string: "https://api.scryfall.com/cards/named")!
-        components.queryItems = [URLQueryItem(name: "exact", value: trimmed)]
+        components.queryItems = [URLQueryItem(name: "exact", value: resolveAlias(trimmed))]
         guard let url = components.url else { return nil }
 
         do {

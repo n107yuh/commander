@@ -86,7 +86,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
       {/* Win Data: player count, format, and placement breakdowns */}
       <section>
         <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Win Data</h2>
-        <div className="space-y-5">
+        <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap lg:gap-10">
           {playerCountStats.length > 0 && (
             <div>
               <h3 className="text-xs text-slate-500 mb-2">By Player Count</h3>

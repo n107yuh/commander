@@ -1,7 +1,9 @@
 // Client-side Scryfall lookups for the /log commander fields — lets the lite
-// logger suggest (and require) real commander-legal cards instead of
-// free-text names, without needing any server-side proxy (Scryfall's API is
-// CORS-enabled for browser use).
+// logger suggest and flag commander-legal cards, without needing any
+// server-side proxy (Scryfall's API is CORS-enabled for browser use).
+// Advisory only: Scryfall not recognizing a name (a brand-new Universes
+// Beyond commander it hasn't indexed yet, or a homebrew/proxy) doesn't block
+// logging the game — see CommanderCombobox's 'unverifiable' status.
 
 const HEADERS = { Accept: 'application/json' }
 

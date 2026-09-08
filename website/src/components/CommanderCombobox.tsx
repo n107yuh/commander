@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 import { searchCommanders, isValidCommander } from '@/lib/scryfall'
 
-type Status = 'idle' | 'checking' | 'valid' | 'invalid' | 'unverifiable'
+type Status = 'idle' | 'checking' | 'valid' | 'unverifiable'
 
 export function CommanderCombobox({
   value, onChange, placeholder, confirmedValid, onConfirm,
@@ -62,15 +62,16 @@ export function CommanderCombobox({
     abortRef.current = controller
     const valid = await isValidCommander(trimmed, controller.signal)
     if (controller.signal.aborted) return
-    if (valid) {
-      setStatus('valid')
-      onConfirm(trimmed)
-    } else {
-      setStatus('invalid')
-    }
+    // Scryfall not recognizing a name doesn't mean it's wrong — it just means
+    // Scryfall hasn't indexed it yet (brand-new Universes Beyond commanders in
+    // particular can lag behind release), or it's a homebrew/proxy the pod
+    // actually plays with. Either way, don't block logging the game over it —
+    // just flag it as unverified so a genuine typo is still easy to notice.
+    setStatus(valid ? 'valid' : 'unverifiable')
+    onConfirm(trimmed)
   }
 
-  const borderClass = status === 'invalid' ? 'border-red-600'
+  const borderClass = status === 'unverifiable' ? 'border-amber-600'
     : status === 'valid' ? 'border-emerald-800'
     : 'border-slate-700'
 
@@ -91,8 +92,8 @@ export function CommanderCombobox({
       {status === 'valid' && (
         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-emerald-500 text-xs">✓</span>
       )}
-      {status === 'invalid' && (
-        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-red-500 text-xs">✗</span>
+      {status === 'unverifiable' && (
+        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-amber-500 text-xs">⚠</span>
       )}
 
       {open && suggestions.length > 0 && (
@@ -111,8 +112,8 @@ export function CommanderCombobox({
         </div>
       )}
 
-      {status === 'invalid' && (
-        <p className="text-[11px] text-red-400 mt-0.5">Not a recognized commander — pick one from the list.</p>
+      {status === 'unverifiable' && (
+        <p className="text-[11px] text-amber-400 mt-0.5">Not found on Scryfall yet — double-check spelling, or ignore if this is a new/homebrew card.</p>
       )}
     </div>
   )

@@ -50,10 +50,13 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
   const [current, setCurrent] = useState<PendingGame>(newEmptyGame)
   const [loaded, setLoaded] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
-  // Names confirmed to be real commander-legal cards — seeded with everyone
-  // the pod has already played, and grown as Scryfall confirms new ones this
-  // session. Shared across every commander field so a name only ever needs
-  // checking once.
+  // Names whose commander field has finished its Scryfall check at least
+  // once this session — seeded with everyone the pod has already played.
+  // Scryfall recognition is advisory (see CommanderCombobox), not a gate: a
+  // name lands here whether or not Scryfall could confirm it, so a brand-new
+  // or homebrew commander Scryfall hasn't indexed yet doesn't block queueing.
+  // Shared across every commander field so a name only ever needs checking
+  // once.
   const [confirmedValid, setConfirmedValid] = useState<Set<string>>(
     () => new Set(knownCommanders.map(n => n.toLowerCase()))
   )
@@ -120,7 +123,7 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
   const warningMessage = namedCount < 2
     ? null
     : !allCommandersValid
-      ? 'Fix the commander names marked in red before queueing this game.'
+      ? 'Click out of each commander field so it finishes checking before queueing this game.'
       : !current.endTime
         ? 'Enter an end time before queueing this game.'
         : !allTurnsEntered

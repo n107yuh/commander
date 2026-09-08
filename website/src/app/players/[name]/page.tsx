@@ -86,10 +86,10 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
       {/* Win Data: player count, format, and placement breakdowns */}
       <section>
         <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Win Data</h2>
-        <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap lg:gap-10">
+        <div className="flex flex-col gap-5 lg:flex-row lg:flex-wrap lg:justify-between lg:gap-10">
           {playerCountStats.length > 0 && (
             <div>
-              <h3 className="text-xs text-slate-500 mb-2">By Player Count</h3>
+              <h3 className="text-xs text-slate-500 mb-2 lg:text-center">By Player Count</h3>
               <div className="flex flex-wrap gap-3">
                 {playerCountStats.map(e => (
                   <div key={e.playerCount} className="bg-slate-900 border border-slate-800 rounded-lg p-3 min-w-[92px]">
@@ -104,7 +104,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
 
           {(iplGames > 0 || remGames > 0) && (
             <div>
-              <h3 className="text-xs text-slate-500 mb-2">By Format</h3>
+              <h3 className="text-xs text-slate-500 mb-2 lg:text-center">By Format</h3>
               <div className="grid grid-cols-2 gap-3 max-w-xs">
                 {iplGames > 0 && (
                   <div className="bg-slate-900 border border-slate-800 rounded-lg p-3">
@@ -126,7 +126,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
 
           {Object.keys(placementStats.counts).length > 0 && (
             <div>
-              <h3 className="text-xs text-slate-500 mb-2">Placements</h3>
+              <h3 className="text-xs text-slate-500 mb-2 lg:text-center">Placements</h3>
               <PlacementChart stats={placementStats} />
             </div>
           )}

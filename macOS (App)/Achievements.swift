@@ -1954,15 +1954,17 @@ private let triCombosPerColor: [String: Set<String>] = [
     "G": ["WUG", "WBG", "WRG", "UBG", "URG", "BRG"]
 ]
 
-/// The winning-relevant WUBRG color set for a participation: the chosen identity merged with any
-/// fixed (non-variable) commanders' colors, or the commanders' own identity otherwise. Returns nil
-/// when color data isn't available yet (e.g. Scryfall lookup hasn't backfilled a commander), which
-/// callers should treat as "skip" — distinct from an empty set, which means genuinely colorless.
+/// The winning-relevant WUBRG color set for a participation: the chosen/override identity (set for
+/// the handful of always-variable cards, or manually for a commander Scryfall can't resolve) merged
+/// with any other commander's already-resolved colors, or the commanders' own identity otherwise.
+/// Returns nil when color data isn't available yet (e.g. Scryfall lookup hasn't backfilled a
+/// commander and no override was chosen), which callers should treat as "skip" — distinct from an
+/// empty set, which means genuinely colorless.
 private func resolvedWUBRGColors(for p: GameParticipant) -> Set<String>? {
     let allColors: [String]
     if let chosen = p.chosenColorIdentity, !chosen.isEmpty {
         let fixedColors = p.commanders
-            .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
+            .filter { $0.colorIdentity != nil }
             .compactMap(\.colorIdentity)
             .flatMap { $0 }
         allColors = chosen + fixedColors

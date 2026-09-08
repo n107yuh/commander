@@ -69,19 +69,16 @@ enum WebExportService {
 
     private static func resolvedColorIdentity(for participation: GameParticipant) -> [String]? {
         let cmds = participation.commanders
-        let hasVariable = cmds.contains {
-            variableIdentityCommanderNames.contains($0.name.lowercased())
-        }
-        if hasVariable {
+        // A chosen/override identity applies whether it came from one of the handful of
+        // always-variable cards or from a manual override on a commander Scryfall can't resolve —
+        // merge it with any OTHER commander in the pairing (e.g. a partner) that already has its
+        // own resolved static identity.
+        if let chosen = participation.chosenColorIdentity, !chosen.isEmpty {
             let fixedColors = cmds
-                .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
+                .filter { $0.colorIdentity != nil }
                 .compactMap(\.colorIdentity)
                 .flatMap { $0 }
-            var merged = Set(fixedColors)
-            if let chosen = participation.chosenColorIdentity {
-                merged.formUnion(chosen)
-            }
-            if merged.isEmpty { return nil }
+            let merged = Set(fixedColors).union(chosen)
             return colorOrder.filter { merged.contains($0) }
         }
         if cmds.allSatisfy({ $0.colorIdentity == nil }) { return nil }

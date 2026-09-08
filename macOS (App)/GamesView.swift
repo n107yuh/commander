@@ -356,6 +356,7 @@ struct GameEditorView: View {
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
     @AppStorage("webExportRepoPath") private var webExportRepoPath: String = ""
+    @Query private var allCommanders: [MTGCommander]
 
     let mode: GameEditorMode
 
@@ -480,7 +481,8 @@ struct GameEditorView: View {
                             onMoveDown: index < drafts.count - 1 ? { drafts.swapAt(index, index + 1) } : nil,
                             onDelete: drafts.count > 2 ? { remove(drafts[index].id) } : nil,
                             playerSuggestions: playerSuggestions,
-                            commanderSuggestions: commanderSuggestions
+                            commanderSuggestions: commanderSuggestions,
+                            needsColorChoice: needsColorChoice
                         )
                     }
                     Button {
@@ -600,6 +602,20 @@ struct GameEditorView: View {
         if winnerID == id { winnerID = nil }
     }
 
+    /// Whether a commander needs a manual per-game color-identity pick: either it's one of the
+    /// handful of printed cards whose identity genuinely varies (variableIdentityCommanderNames),
+    /// or the app already has a record for it and Scryfall has never been able to resolve its
+    /// colors (colorIdentity == nil) — covers a brand-new Universes Beyond commander Scryfall
+    /// hasn't indexed yet, or a homebrew/proxy card. A commander typed for the very first time
+    /// (no existing record) doesn't trigger this — it gets one normal chance at a background
+    /// Scryfall fetch after this save before we ask the user to do it by hand.
+    private func needsColorChoice(_ rawName: String) -> Bool {
+        let name = rawName.trimmingCharacters(in: .whitespaces)
+        guard !name.isEmpty else { return false }
+        if variableIdentityCommanderNames.contains(name.lowercased()) { return true }
+        return allCommanders.contains { $0.name.caseInsensitiveCompare(name) == .orderedSame && $0.colorIdentity == nil }
+    }
+
     private func save() {
         guard let endTime else { return }
         let resolvedEnd = max(endTime, date)
@@ -635,11 +651,9 @@ struct GameEditorView: View {
             let validTurn = (draft.turnOrder >= 0 && draft.turnOrder < validDrafts.count)
                 ? draft.turnOrder
                 : -1
-            let isVariableMain = variableIdentityCommanderNames.contains(
-                draft.commanderName.trimmingCharacters(in: .whitespaces).lowercased()
-            )
-            let isVariablePartner = draft.hasPartner && variableIdentityCommanderNames.contains(
-                draft.partnerCommanderName.trimmingCharacters(in: .whitespaces).lowercased()
+            let isVariableMain = needsColorChoice(draft.commanderName)
+            let isVariablePartner = draft.hasPartner && needsColorChoice(
+                draft.partnerCommanderName
             )
             let chosenColors = (isVariableMain || isVariablePartner) ? draft.chosenColorIdentity : []
             resolved.append(Resolved(
@@ -749,6 +763,7 @@ private struct ParticipantRow: View {
     let onDelete: (() -> Void)?
     let playerSuggestions: (String) async -> [String]
     let commanderSuggestions: (String) async -> [String]
+    let needsColorChoice: (String) -> Bool
 
     private var placementLabel: String {
         switch index {
@@ -854,6 +869,11 @@ private struct ParticipantRow: View {
                 }
 
                 if commanderNeedsColorChoice {
+                    if commanderColorUnresolved {
+                        Text("⚠ Color identity unresolved — set manually")
+                            .font(.caption2)
+                            .foregroundStyle(.orange)
+                    }
                     colorIdentityPicker
                 }
             }
@@ -870,10 +890,21 @@ private struct ParticipantRow: View {
     }
 
     private var commanderNeedsColorChoice: Bool {
+        needsColorChoice(draft.commanderName) ||
+            (draft.hasPartner && needsColorChoice(draft.partnerCommanderName))
+    }
+
+    /// True when the picker is showing because Scryfall genuinely can't resolve this commander's
+    /// colors (vs. one of the handful of cards whose identity always varies by design) — used to
+    /// surface an explicit "set manually" hint rather than treating it as expected/routine.
+    private var commanderColorUnresolved: Bool {
         let main = draft.commanderName.trimmingCharacters(in: .whitespaces).lowercased()
         let partner = draft.partnerCommanderName.trimmingCharacters(in: .whitespaces).lowercased()
-        return variableIdentityCommanderNames.contains(main) ||
-               (draft.hasPartner && variableIdentityCommanderNames.contains(partner))
+        let mainUnresolved = !main.isEmpty && !variableIdentityCommanderNames.contains(main)
+            && needsColorChoice(draft.commanderName)
+        let partnerUnresolved = draft.hasPartner && !partner.isEmpty && !variableIdentityCommanderNames.contains(partner)
+            && needsColorChoice(draft.partnerCommanderName)
+        return mainUnresolved || partnerUnresolved
     }
 
     private var colorIdentityPicker: some View {

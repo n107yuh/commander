@@ -70,6 +70,22 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
     })
   }
 
+  // Names Scryfall couldn't confirm this session (still allowed — see
+  // confirmedValid above) — drives the color-identity picker showing up
+  // automatically for a commander whose identity the app has no way to
+  // resolve on its own, same as the handful of hardcoded variable-identity
+  // cards. See needsColorIdentityChoice in logSchema.ts.
+  const [unverifiedNames, setUnverifiedNames] = useState<Set<string>>(new Set())
+  function markUnverified(name: string, unverified: boolean) {
+    setUnverifiedNames(prev => {
+      const lower = name.trim().toLowerCase()
+      if (prev.has(lower) === unverified) return prev
+      const next = new Set(prev)
+      if (unverified) next.add(lower); else next.delete(lower)
+      return next
+    })
+  }
+
   useEffect(() => {
     try {
       const raw = localStorage.getItem(STORAGE_KEY)
@@ -304,7 +320,9 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
                 onMoveDown={i < current.participants.length - 1 ? () => move(i, 1) : undefined}
                 onRemove={current.participants.length > 2 ? () => removeParticipant(i) : undefined}
                 confirmedValid={confirmedValid}
+                unverifiedNames={unverifiedNames}
                 onConfirmValid={confirmValid}
+                onUnverified={markUnverified}
               />
             ))}
           </div>
@@ -346,7 +364,8 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
 }
 
 function ParticipantRow({
-  index, total, participant, takenTurnOrders, onChange, onMoveUp, onMoveDown, onRemove, confirmedValid, onConfirmValid,
+  index, total, participant, takenTurnOrders, onChange, onMoveUp, onMoveDown, onRemove,
+  confirmedValid, unverifiedNames, onConfirmValid, onUnverified,
 }: {
   index: number
   total: number
@@ -357,11 +376,15 @@ function ParticipantRow({
   onMoveDown?: () => void
   onRemove?: () => void
   confirmedValid: Set<string>
+  unverifiedNames: Set<string>
   onConfirmValid: (name: string) => void
+  onUnverified: (name: string, unverified: boolean) => void
 }) {
   const placementLabel = index === 0 ? 'Winner' : ordinal(index + 1)
-  const showColorPicker = needsColorIdentityChoice(participant.commanderName)
-    || (!!participant.partnerCommanderName && needsColorIdentityChoice(participant.partnerCommanderName))
+  const mainUnresolved = !!participant.commanderName.trim() && unverifiedNames.has(participant.commanderName.trim().toLowerCase())
+  const partnerUnresolved = !!participant.partnerCommanderName?.trim() && unverifiedNames.has(participant.partnerCommanderName.trim().toLowerCase())
+  const showColorPicker = needsColorIdentityChoice(participant.commanderName, unverifiedNames)
+    || (!!participant.partnerCommanderName && needsColorIdentityChoice(participant.partnerCommanderName, unverifiedNames))
 
   function toggleColor(c: string) {
     const has = participant.chosenColorIdentity.includes(c)
@@ -430,7 +453,9 @@ function ParticipantRow({
           onChange={name => onChange({ commanderName: name })}
           placeholder="Commander"
           confirmedValid={confirmedValid}
+          unverifiedNames={unverifiedNames}
           onConfirm={onConfirmValid}
+          onUnverified={onUnverified}
         />
 
         {participant.partnerCommanderName !== null ? (
@@ -441,7 +466,9 @@ function ParticipantRow({
                 onChange={name => onChange({ partnerCommanderName: name })}
                 placeholder="Partner commander"
                 confirmedValid={confirmedValid}
+                unverifiedNames={unverifiedNames}
                 onConfirm={onConfirmValid}
+                onUnverified={onUnverified}
               />
             </div>
             <button type="button" onClick={() => onChange({ partnerCommanderName: null })} className="text-slate-500 hover:text-red-400 text-xs shrink-0 pt-1.5">
@@ -454,6 +481,11 @@ function ParticipantRow({
           </button>
         )}
 
+        {showColorPicker && (mainUnresolved || partnerUnresolved) && (
+          <p className="text-[11px] text-amber-400 -mb-1">
+            ⚠ Color identity unresolved — pick it manually so it's recorded correctly.
+          </p>
+        )}
         {showColorPicker && (
           <div className="flex items-center gap-1.5">
             <span className="text-[11px] text-slate-500">Identity:</span>

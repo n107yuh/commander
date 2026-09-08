@@ -14,8 +14,17 @@ export const VARIABLE_IDENTITY_COMMANDER_NAMES = new Set([
   'clara oswald',
 ])
 
-export function needsColorIdentityChoice(commanderName: string): boolean {
-  return VARIABLE_IDENTITY_COMMANDER_NAMES.has(commanderName.trim().toLowerCase())
+// A commander needs a manual color-identity pick either because it's one of
+// the handful of printed cards whose identity genuinely varies per game
+// (VARIABLE_IDENTITY_COMMANDER_NAMES), or because Scryfall couldn't confirm
+// it at all (unverifiedNames, populated by CommanderCombobox — covers a
+// brand-new Universes Beyond commander Scryfall hasn't indexed yet, or a
+// homebrew/proxy card) — see the same generalization in the Mac app's
+// GamesView.swift/needsColorChoice.
+export function needsColorIdentityChoice(commanderName: string, unverifiedNames?: Set<string>): boolean {
+  const lower = commanderName.trim().toLowerCase()
+  if (!lower) return false
+  return VARIABLE_IDENTITY_COMMANDER_NAMES.has(lower) || (unverifiedNames?.has(lower) ?? false)
 }
 
 export interface PendingParticipant {
@@ -26,8 +35,9 @@ export interface PendingParticipant {
   turnOrder: number
   // Cards in the opening hand after mulligans; 7 = no mulligan.
   openingHandSize: number
-  // Only meaningful (and only sent) when the commander or partner is in
-  // VARIABLE_IDENTITY_COMMANDER_NAMES.
+  // Only meaningful when needsColorIdentityChoice is true for the commander
+  // or partner (the fixed variable-identity list, or Scryfall couldn't
+  // confirm the name this session).
   chosenColorIdentity: string[]
   // Turns this player was in the game for — stops increasing once they're
   // eliminated, unlike a single game-wide turn count. 0 means not recorded.

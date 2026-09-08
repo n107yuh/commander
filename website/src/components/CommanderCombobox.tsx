@@ -6,7 +6,7 @@ import { searchCommanders, isValidCommander } from '@/lib/scryfall'
 type Status = 'idle' | 'checking' | 'valid' | 'unverifiable'
 
 export function CommanderCombobox({
-  value, onChange, placeholder, confirmedValid, onConfirm,
+  value, onChange, placeholder, confirmedValid, unverifiedNames, onConfirm, onUnverified,
 }: {
   value: string
   onChange: (name: string) => void
@@ -15,22 +15,34 @@ export function CommanderCombobox({
   // anything already confirmed via Scryfall this session) — checked before
   // hitting the network, and shared across every commander field on the page.
   confirmedValid: Set<string>
+  // Lowercased names Scryfall couldn't confirm this session — kept separate
+  // from confirmedValid (which a name lands in either way, so queueing isn't
+  // blocked) so re-typing the same name in a different row still shows the
+  // amber warning instead of a false green check.
+  unverifiedNames: Set<string>
   onConfirm: (name: string) => void
+  onUnverified: (name: string, unverified: boolean) => void
 }) {
+  const statusFor = (name: string): Status => {
+    const lower = name.trim().toLowerCase()
+    if (!lower) return 'idle'
+    if (unverifiedNames.has(lower)) return 'unverifiable'
+    if (confirmedValid.has(lower)) return 'valid'
+    return 'idle'
+  }
+
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [open, setOpen] = useState(false)
-  const [status, setStatus] = useState<Status>(() =>
-    value.trim() && confirmedValid.has(value.trim().toLowerCase()) ? 'valid' : 'idle'
-  )
+  const [status, setStatus] = useState<Status>(() => statusFor(value))
   const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
   const abortRef = useRef<AbortController | undefined>(undefined)
 
   function handleInput(text: string) {
     onChange(text)
     setOpen(true)
-    const trimmed = text.trim()
-    setStatus(trimmed && confirmedValid.has(trimmed.toLowerCase()) ? 'valid' : 'idle')
+    setStatus(statusFor(text))
 
+    const trimmed = text.trim()
     clearTimeout(debounceRef.current)
     abortRef.current?.abort()
     if (trimmed.length < 2) { setSuggestions([]); return }
@@ -48,6 +60,7 @@ export function CommanderCombobox({
     setOpen(false)
     setStatus('valid')
     onConfirm(name)
+    onUnverified(name, false)
   }
 
   async function handleBlur() {
@@ -55,7 +68,8 @@ export function CommanderCombobox({
     setTimeout(() => setOpen(false), 150)
     const trimmed = value.trim()
     if (!trimmed) { setStatus('idle'); return }
-    if (confirmedValid.has(trimmed.toLowerCase())) { setStatus('valid'); return }
+    const known = statusFor(trimmed)
+    if (known !== 'idle') { setStatus(known); return }
 
     setStatus('checking')
     const controller = new AbortController()
@@ -69,6 +83,7 @@ export function CommanderCombobox({
     // just flag it as unverified so a genuine typo is still easy to notice.
     setStatus(valid ? 'valid' : 'unverifiable')
     onConfirm(trimmed)
+    onUnverified(trimmed, !valid)
   }
 
   const borderClass = status === 'unverifiable' ? 'border-amber-600'
@@ -113,7 +128,9 @@ export function CommanderCombobox({
       )}
 
       {status === 'unverifiable' && (
-        <p className="text-[11px] text-amber-400 mt-0.5">Not found on Scryfall yet — double-check spelling, or ignore if this is a new/homebrew card.</p>
+        <p className="text-[11px] text-amber-400 mt-0.5">
+          Not found on Scryfall yet — double-check spelling, or set its color identity manually below if this is a new/homebrew card.
+        </p>
       )}
     </div>
   )

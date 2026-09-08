@@ -26,31 +26,27 @@ struct CommanderEntry: Identifiable {
     var displayName: String { commanders.map(\.name).joined(separator: " + ") }
 
     var colorIdentity: [String]? {
-        // If any variable-identity commander is in this combo, derive the most common
-        // chosen identity from participations and merge with fixed commanders' colors.
-        let hasVariable = commanders.contains {
-            variableIdentityCommanderNames.contains($0.name.lowercased())
+        // If any participation chose an override identity (either one of the handful of
+        // always-variable cards, or a manual override on a commander Scryfall can't resolve),
+        // merge every chosen color seen with whatever fixed/resolved colors the combo's
+        // commanders already have.
+        var chosenSet = Set<String>()
+        for p in participations {
+            if let chosen = p.chosenColorIdentity {
+                chosenSet.formUnion(chosen)
+            }
         }
-        if hasVariable {
+        let ordering = ["W", "U", "B", "R", "G"]
+        if !chosenSet.isEmpty {
             let fixedColors = commanders
-                .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
+                .filter { $0.colorIdentity != nil }
                 .compactMap(\.colorIdentity)
                 .flatMap { $0 }
-            // Collect all chosen colors seen across participations.
-            var chosenSet = Set<String>()
-            for p in participations {
-                if let chosen = p.chosenColorIdentity {
-                    chosenSet.formUnion(chosen)
-                }
-            }
             let merged = Set(fixedColors).union(chosenSet)
-            if merged.isEmpty && fixedColors.isEmpty { return nil }
-            let ordering = ["W", "U", "B", "R", "G"]
             return ordering.filter { merged.contains($0) }
         }
         if commanders.allSatisfy({ $0.colorIdentity == nil }) { return nil }
         let merged = Set(commanders.compactMap(\.colorIdentity).flatMap { $0 })
-        let ordering = ["W", "U", "B", "R", "G"]
         return ordering.filter { merged.contains($0) }
     }
 }

@@ -152,26 +152,21 @@ struct CommanderDetailView: View {
     }
 
     private var combinedColorIdentity: [String]? {
-        let hasVariable = commanders.contains {
-            variableIdentityCommanderNames.contains($0.name.lowercased())
+        var chosenSet = Set<String>()
+        for p in comboParticipations {
+            if let chosen = p.chosenColorIdentity { chosenSet.formUnion(chosen) }
         }
-        if hasVariable {
+        let ordering = ["W", "U", "B", "R", "G"]
+        if !chosenSet.isEmpty {
             let fixedColors = commanders
-                .filter { !variableIdentityCommanderNames.contains($0.name.lowercased()) }
+                .filter { $0.colorIdentity != nil }
                 .compactMap(\.colorIdentity)
                 .flatMap { $0 }
-            var chosenSet = Set<String>()
-            for p in comboParticipations {
-                if let chosen = p.chosenColorIdentity { chosenSet.formUnion(chosen) }
-            }
             let merged = Set(fixedColors).union(chosenSet)
-            if merged.isEmpty && fixedColors.isEmpty { return nil }
-            let ordering = ["W", "U", "B", "R", "G"]
             return ordering.filter { merged.contains($0) }
         }
         if commanders.allSatisfy({ $0.colorIdentity == nil }) { return nil }
         let merged = Set(commanders.compactMap(\.colorIdentity).flatMap { $0 })
-        let ordering = ["W", "U", "B", "R", "G"]
         return ordering.filter { merged.contains($0) }
     }
 

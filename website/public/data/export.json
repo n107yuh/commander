@@ -225,9 +225,9 @@
       "wins" : 1
     },
     {
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Dhalsim, Pliable Pacifist",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1064,9 +1064,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/b\/eb79f973-2384-4de4-81fb-14ba5a0e5556.jpg?1783917774"
       ],
-      "losses" : 1,
+      "losses" : 0,
       "name" : "Tadeas, Juniper Ascendant",
-      "totalGames" : 1,
+      "totalGames" : 0,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1380,7 +1380,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T02:54:57Z",
+  "exportedAt" : "2026-09-08T02:56:20Z",
   "games" : [
     {
       "date" : "2026-09-08T02:12:25Z",
@@ -3694,7 +3694,7 @@
           "turnsPlayed" : 11
         },
         {
-          "commanderName" : "Tadeas, Juniper Ascendant",
+          "commanderName" : "Dhalsim, Pliable Pacifist",
           "didWin" : false,
           "openingHandSize" : 6,
           "placement" : 1,

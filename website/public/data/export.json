@@ -225,6 +225,13 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "G",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/0\/b0f32937-ca7e-407c-aa23-117b1eae9798.jpg?1783924008"
+      ],
       "losses" : 2,
       "name" : "Dhalsim, Pliable Pacifist",
       "totalGames" : 2,
@@ -1380,7 +1387,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T05:07:59Z",
+  "exportedAt" : "2026-09-08T05:10:06Z",
   "games" : [
     {
       "date" : "2026-09-08T03:02:14Z",

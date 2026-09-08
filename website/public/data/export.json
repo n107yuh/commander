@@ -155,9 +155,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/9\/2\/923eb713-c955-4e12-8a8f-df3b4b361487.jpg?1783918155"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Chiss-Goria, Forge Tyrant",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -316,9 +316,9 @@
       ],
       "losses" : 3,
       "name" : "Gerrard, Weatherlight Hero",
-      "totalGames" : 3,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 4,
+      "winRate" : 0.25,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -410,10 +410,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/b\/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1754673442"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Hearthhull, the Worldseed",
-      "totalGames" : 1,
-      "winRate" : 1,
+      "totalGames" : 2,
+      "winRate" : 0.5,
       "wins" : 1
     },
     {
@@ -869,9 +869,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/d\/ed87e25f-9dad-4858-92bc-e859fd2be2a4.jpg?1783923348"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Oskar, Rubbish Reclaimer",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1380,8 +1380,103 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T02:58:51Z",
+  "exportedAt" : "2026-09-08T05:07:59Z",
   "games" : [
+    {
+      "date" : "2026-09-08T03:02:14Z",
+      "durationSeconds" : 7516.528258919716,
+      "isInPerson" : false,
+      "notes" : "Pertman made a great Vincent Valentine\/Galarian Beast joke that Noah recognized very late because he was coding. Jake sent a fax in the middle of the game because he was so bored. Jake redirected lightning to turn 6 damage back to Pertman’s face and save Chiss. Pertman made a wonderful Holocaust joke. Jake bolt bended a goyf to the face and killed Pertman. Noah went down to 1, but then lost while Justin had 1",
+      "participants" : [
+        {
+          "commanderName" : "Gerrard, Weatherlight Hero",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "Oskar, Rubbish Reclaimer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "Chiss-Goria, Forge Tyrant",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Hearthhull, the Worldseed",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 10
+        }
+      ]
+    },
     {
       "date" : "2026-09-08T02:12:25Z",
       "durationSeconds" : 2522.9925619363785,
@@ -7052,10 +7147,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 35,
+      "losses" : 36,
       "name" : "Jake",
-      "totalGames" : 46,
-      "winRate" : 0.2391304347826087,
+      "totalGames" : 47,
+      "winRate" : 0.23404255319148937,
       "wins" : 11
     },
     {
@@ -7066,14 +7161,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7094,6 +7189,11 @@
           "description" : "Win a game after going first.",
           "id" : "firstblood",
           "title" : "First Blood"
+        },
+        {
+          "description" : "Win a game after going last.",
+          "id" : "comefrombehind",
+          "title" : "Come From Behind"
         },
         {
           "description" : "Go last and finish last.",
@@ -7133,9 +7233,9 @@
       ],
       "losses" : 25,
       "name" : "Justin",
-      "totalGames" : 27,
-      "winRate" : 0.07407407407407407,
-      "wins" : 2
+      "totalGames" : 28,
+      "winRate" : 0.10714285714285714,
+      "wins" : 3
     },
     {
       "achievements" : [
@@ -7418,10 +7518,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 42,
+      "losses" : 43,
       "name" : "Noah",
-      "totalGames" : 56,
-      "winRate" : 0.25,
+      "totalGames" : 57,
+      "winRate" : 0.24561403508771928,
       "wins" : 14
     },
     {
@@ -7437,14 +7537,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7567,10 +7667,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 26,
+      "losses" : 27,
       "name" : "Pertman",
-      "totalGames" : 48,
-      "winRate" : 0.4583333333333333,
+      "totalGames" : 49,
+      "winRate" : 0.4489795918367347,
       "wins" : 22
     }
   ]

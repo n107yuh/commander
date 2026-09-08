@@ -13,26 +13,19 @@ let variableIdentityCommanderNames: Set<String> = [
     "clara oswald"
 ]
 
-// Real commander-legal cards not yet indexed by Scryfall at all (brand-new Universes Beyond
-// releases in particular can lag behind their paper release) — added by hand here so autocomplete
-// can still suggest them instead of only ever surfacing whatever Scryfall's own search already
-// knows about. Deliberately NOT "every card" — just specific ones the pod actually plays. See
-// ScryfallService.autocomplete, which merges this in with Scryfall's live results. Empty for now —
-// see commanderNameAliases below for the "printed name differs from the real card" case, which
-// covers every crossover name seen so far.
-let extraKnownCommanderNames: [String] = []
-
-// Printed/flavor names that differ from a card's real (Oracle) name — some Universes Beyond
-// treatments (Secret Lair crossovers especially) print an alternate name and flavor text on an
-// otherwise-ordinary card. Scryfall only indexes the real name, so a lookup for the printed name
-// alone 404s even though the card is fully in their database under its real name. E.g. the Street
-// Fighter treatment "Dhalsim, Pliable Pacifist" is really "Tadeas, Juniper Ascendant" — same card,
-// same G/W identity, just different printed name/text on this specific version. Keyed and looked
-// up case-insensitively; see ScryfallService.fetchCard/autocomplete, which redirect the network
-// lookup to the real name while leaving whatever the user actually typed untouched everywhere else
-// (MTGCommander.name, GameParticipant, exports, etc. all keep the printed name as entered).
-let commanderNameAliases: [String: String] = [
-    "Dhalsim, Pliable Pacifist": "Tadeas, Juniper Ascendant"
+// Names to proactively surface as autocomplete suggestions that Scryfall's live is:commander
+// search wouldn't otherwise turn up while typing — covers both genuinely-not-yet-indexed cards
+// and crossover printed/flavor names (Universes Beyond treatments, Secret Lair specials) that
+// Scryfall's `name:` search operator doesn't match against (only the card's real Oracle name is
+// searchable that way). Deliberately NOT "every card" — just specific ones the pod actually plays.
+// Resolution itself doesn't need a manual mapping to the real name, though: ScryfallService.fetchCard
+// uses Scryfall's *fuzzy* named-card lookup, which already searches printed/flavor names as well as
+// the real name, so e.g. "Dhalsim, Pliable Pacifist" (really "Tadeas, Juniper Ascendant") and
+// "Lightning, Lone Commando" (really "Isshin, Two Heavens as One") resolve correctly with zero
+// per-card mapping — this list only affects whether they show up in the dropdown as you type.
+let extraKnownCommanderNames: [String] = [
+    "Dhalsim, Pliable Pacifist",
+    "Lightning, Lone Commando"
 ]
 
 @Model

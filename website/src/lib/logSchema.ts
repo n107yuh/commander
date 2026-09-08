@@ -14,24 +14,21 @@ export const VARIABLE_IDENTITY_COMMANDER_NAMES = new Set([
   'clara oswald',
 ])
 
-// Real commander-legal cards not yet indexed by Scryfall at all — mirrors
-// extraKnownCommanderNames in the Mac app's Models.swift. Deliberately NOT
-// "every card", just specific ones the pod actually plays; see
-// searchCommanders/isValidCommander in scryfall.ts, which merge this in with
-// Scryfall's live results. Empty for now — see COMMANDER_NAME_ALIASES below
-// for the "printed name differs from the real card" case, which covers every
-// crossover name seen so far.
-export const EXTRA_KNOWN_COMMANDER_NAMES: string[] = []
-
-// Printed/flavor names that differ from a card's real (Oracle) name — mirrors
-// commanderNameAliases in the Mac app's Models.swift. E.g. the Street Fighter
-// treatment "Dhalsim, Pliable Pacifist" is really "Tadeas, Juniper Ascendant"
-// under the hood (same G/W card, alternate name/art/flavor text on this
-// printing) — Scryfall only indexes the real name. Looked up
-// case-insensitively; see resolveAlias in scryfall.ts.
-export const COMMANDER_NAME_ALIASES: Record<string, string> = {
-  'Dhalsim, Pliable Pacifist': 'Tadeas, Juniper Ascendant',
-}
+// Names to proactively surface as autocomplete suggestions that Scryfall's live is:commander
+// search wouldn't otherwise turn up while typing — mirrors extraKnownCommanderNames in the Mac
+// app's Models.swift. Covers both genuinely-not-yet-indexed cards and crossover printed/flavor
+// names (Universes Beyond treatments, Secret Lair specials) that Scryfall's `name:` search
+// operator doesn't match against (only a card's real Oracle name is searchable that way).
+// Deliberately NOT "every card" — just specific ones the pod actually plays. Resolution itself
+// doesn't need a manual mapping to the real name, though: isValidCommander in scryfall.ts uses
+// Scryfall's *fuzzy* named-card lookup, which already searches printed/flavor names as well as the
+// real name, so e.g. "Dhalsim, Pliable Pacifist" (really "Tadeas, Juniper Ascendant") and
+// "Lightning, Lone Commando" (really "Isshin, Two Heavens as One") resolve correctly with zero
+// per-card mapping — this list only affects whether they show up in the dropdown as you type.
+export const EXTRA_KNOWN_COMMANDER_NAMES: string[] = [
+  'Dhalsim, Pliable Pacifist',
+  'Lightning, Lone Commando',
+]
 
 // A commander needs a manual color-identity pick either because it's one of
 // the handful of printed cards whose identity genuinely varies per game

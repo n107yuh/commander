@@ -12,20 +12,14 @@ struct ScryfallCardInfo {
 }
 
 enum ScryfallService {
-    /// The real Oracle name to actually query Scryfall with, if `name` is a known printed/flavor
-    /// alias (see commanderNameAliases) — otherwise `name` unchanged.
-    private static func resolveAlias(_ name: String) -> String {
-        commanderNameAliases.first { $0.key.caseInsensitiveCompare(name) == .orderedSame }?.value ?? name
-    }
-
     static func autocomplete(query: String) async -> [String] {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { return [] }
 
-        // Hand-maintained names Scryfall doesn't know about yet (either not indexed at all, or
-        // only under a different real name) come first, so a real card the pod plays isn't
-        // crowded out of the visible list by Scryfall's 20-result cap.
-        let extraMatches = (extraKnownCommanderNames + Array(commanderNameAliases.keys)).filter {
+        // Hand-maintained names Scryfall's live is:commander search wouldn't otherwise surface
+        // come first, so a real card the pod plays isn't crowded out of the visible list by
+        // Scryfall's 20-result cap.
+        let extraMatches = extraKnownCommanderNames.filter {
             $0.range(of: trimmed, options: .caseInsensitive) != nil
         }
 
@@ -56,12 +50,18 @@ enum ScryfallService {
         }
     }
 
+    /// Looks up a single card by name, tolerantly: uses Scryfall's *fuzzy* named-card endpoint
+    /// rather than an exact match, since fuzzy already searches a card's printed/flavor name (the
+    /// text actually on a Universes Beyond/Secret Lair crossover treatment) as well as its real
+    /// Oracle name — e.g. "Dhalsim, Pliable Pacifist" and "Lightning, Lone Commando" both resolve
+    /// correctly with no per-card name mapping needed. It also tolerates minor typos and still
+    /// 404s on a genuinely unrecognized or ambiguous name rather than guessing wildly.
     static func fetchCard(named exactName: String) async -> ScryfallCardInfo? {
         let trimmed = exactName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return nil }
 
         var components = URLComponents(string: "https://api.scryfall.com/cards/named")!
-        components.queryItems = [URLQueryItem(name: "exact", value: resolveAlias(trimmed))]
+        components.queryItems = [URLQueryItem(name: "fuzzy", value: trimmed)]
         guard let url = components.url else { return nil }
 
         do {

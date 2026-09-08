@@ -69,7 +69,7 @@ struct PlayerDetailView: View {
                 }
                 Spacer()
                 if !playerCounts.isEmpty {
-                    VStack(alignment: .trailing, spacing: 4) {
+                    VStack(alignment: .leading, spacing: 4) {
                         ForEach(playerCounts) { entry in
                             compactCountRow(count: entry.playerCount,
                                             wins: entry.wins,
@@ -77,8 +77,9 @@ struct PlayerDetailView: View {
                                             rate: entry.winRate)
                         }
                     }
+                    .padding(.trailing, 20)
                 }
-                VStack(alignment: .trailing, spacing: 4) {
+                VStack(alignment: .leading, spacing: 4) {
                     compactFormatRow(icon: "person.2.fill",
                                      wins: format.inPersonWins,
                                      losses: format.inPersonLosses,
@@ -97,9 +98,11 @@ struct PlayerDetailView: View {
             Image(systemName: icon)
                 .font(.caption2)
                 .foregroundStyle(.secondary)
+                .frame(width: 16, alignment: .leading)
             Text("\(wins)–\(losses)")
                 .font(.caption.monospacedDigit())
                 .foregroundStyle(.secondary)
+                .frame(width: 40, alignment: .leading)
             Text(rate, format: .percent.precision(.fractionLength(0)))
                 .font(.caption.monospacedDigit())
                 .frame(width: 34, alignment: .trailing)
@@ -116,6 +119,7 @@ struct PlayerDetailView: View {
             Text("\(wins)–\(losses)")
                 .font(.caption.monospacedDigit())
                 .foregroundStyle(.secondary)
+                .frame(width: 40, alignment: .leading)
             Text(rate, format: .percent.precision(.fractionLength(0)))
                 .font(.caption.monospacedDigit())
                 .frame(width: 34, alignment: .trailing)

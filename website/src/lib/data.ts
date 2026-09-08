@@ -205,6 +205,37 @@ export function winRateByPlayerCount(games: GameData[], playerName: string): Pla
     .sort((a, b) => a.playerCount - b.playerCount)
 }
 
+export interface TurnOrderEntry {
+  turnOrder: number
+  wins: number
+  losses: number
+  games: number
+  winRate: number
+}
+
+// Mirrors Stats_turnOrderCounts in the Mac app's Stats.swift: win rate
+// sliced by starting turn order (0-indexed — 0 is first), since going
+// first/last genuinely affects win rate in Commander.
+export function winRateByTurnOrder(games: GameData[], playerName: string): TurnOrderEntry[] {
+  const tally: Record<number, { wins: number; losses: number }> = {}
+  for (const game of games) {
+    const part = game.participants.find(p => p.playerName === playerName)
+    if (!part || part.turnOrder < 0) continue
+    const entry = tally[part.turnOrder] ?? (tally[part.turnOrder] = { wins: 0, losses: 0 })
+    if (part.didWin) entry.wins++
+    else entry.losses++
+  }
+  return Object.entries(tally)
+    .map(([turnOrder, { wins, losses }]) => ({
+      turnOrder: Number(turnOrder),
+      wins,
+      losses,
+      games: wins + losses,
+      winRate: wins + losses > 0 ? wins / (wins + losses) : 0,
+    }))
+    .sort((a, b) => a.turnOrder - b.turnOrder)
+}
+
 export function playerStandings(players: PlayerData[]): PlayerData[] {
   return [...players].sort((a, b) => {
     if (b.totalGames === 0 && a.totalGames === 0) return 0

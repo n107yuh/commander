@@ -52,6 +52,7 @@ struct PlayerDetailView: View {
     private var recordBlock: some View {
         let format = player.formatBreakdown
         let playerCounts = player.playerCountBreakdown
+        let turnOrders = player.turnOrderCounts
         return VStack(alignment: .leading, spacing: 8) {
             sectionHeader("Record")
             HStack(alignment: .top) {
@@ -75,6 +76,17 @@ struct PlayerDetailView: View {
                                             wins: entry.wins,
                                             losses: entry.losses,
                                             rate: entry.winRate)
+                        }
+                    }
+                    .padding(.trailing, 20)
+                }
+                if !turnOrders.isEmpty {
+                    VStack(alignment: .leading, spacing: 4) {
+                        ForEach(turnOrders) { entry in
+                            compactTurnOrderRow(turnOrder: entry.turnOrder,
+                                                wins: entry.wins,
+                                                losses: entry.count - entry.wins,
+                                                rate: entry.count > 0 ? Double(entry.wins) / Double(entry.count) : 0)
                         }
                     }
                     .padding(.trailing, 20)
@@ -116,6 +128,23 @@ struct PlayerDetailView: View {
                 .font(.caption2.weight(.semibold))
                 .foregroundStyle(.secondary)
                 .frame(width: 16, alignment: .leading)
+            Text("\(wins)–\(losses)")
+                .font(.caption.monospacedDigit())
+                .foregroundStyle(.secondary)
+                .frame(width: 40, alignment: .leading)
+            Text(rate, format: .percent.precision(.fractionLength(0)))
+                .font(.caption.monospacedDigit())
+                .frame(width: 34, alignment: .trailing)
+                .foregroundStyle(.secondary)
+        }
+    }
+
+    private func compactTurnOrderRow(turnOrder: Int, wins: Int, losses: Int, rate: Double) -> some View {
+        HStack(spacing: 5) {
+            Text(placementLabel(turnOrder))
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .frame(width: 26, alignment: .leading)
             Text("\(wins)–\(losses)")
                 .font(.caption.monospacedDigit())
                 .foregroundStyle(.secondary)

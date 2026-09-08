@@ -233,6 +233,20 @@ private func Stats_playerCountBreakdown(_ participations: [GameParticipant]) -> 
         .sorted { $0.playerCount < $1.playerCount }
 }
 
+private func Stats_turnOrderCounts(_ participations: [GameParticipant]) -> [TurnOrderCount] {
+    let valid = participations.filter { $0.turnOrder >= 0 }
+    var bucket: [Int: (count: Int, wins: Int)] = [:]
+    for p in valid {
+        var entry = bucket[p.turnOrder] ?? (count: 0, wins: 0)
+        entry.count += 1
+        if p.didWin { entry.wins += 1 }
+        bucket[p.turnOrder] = entry
+    }
+    return bucket
+        .map { TurnOrderCount(turnOrder: $0.key, count: $0.value.count, wins: $0.value.wins) }
+        .sorted { $0.turnOrder < $1.turnOrder }
+}
+
 private func bestEntry(
     from participations: [GameParticipant],
     filter: (Game) -> Bool = { _ in true }
@@ -301,6 +315,8 @@ extension Player {
     var placementCounts: [PlacementCount] { Stats_placementCounts(participations) }
 
     var playerCountBreakdown: [PlayerCountEntry] { Stats_playerCountBreakdown(participations) }
+
+    var turnOrderCounts: [TurnOrderCount] { Stats_turnOrderCounts(participations) }
 
     var averagePlacement: Double? { Stats_averagePlacement(participations) }
 
@@ -443,19 +459,7 @@ extension MTGCommander {
             .sorted { $0.record.total > $1.record.total }
     }
 
-    var turnOrderCounts: [TurnOrderCount] {
-        let valid = allParticipations.filter { $0.turnOrder >= 0 }
-        var bucket: [Int: (count: Int, wins: Int)] = [:]
-        for p in valid {
-            var entry = bucket[p.turnOrder] ?? (count: 0, wins: 0)
-            entry.count += 1
-            if p.didWin { entry.wins += 1 }
-            bucket[p.turnOrder] = entry
-        }
-        return bucket
-            .map { TurnOrderCount(turnOrder: $0.key, count: $0.value.count, wins: $0.value.wins) }
-            .sorted { $0.turnOrder < $1.turnOrder }
-    }
+    var turnOrderCounts: [TurnOrderCount] { Stats_turnOrderCounts(allParticipations) }
 
     var averageTurnOrder: Double? {
         let valid = allParticipations.filter { $0.turnOrder >= 0 }

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import {
   loadData, formatDate, formatWinRate, commanderLabel, getPlayerGames,
   colorMasteryProgress, MONO_COMBOS, DUAL_COMBOS, TRI_COMBOS, headToHead,
-  playerPlacementStats, winRateByPlayerCount,
+  playerPlacementStats, winRateByPlayerCount, winRateByTurnOrder, placementLabel,
 } from '@/lib/data'
 import { ColorDots, ColorComboChip } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
@@ -57,6 +57,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const achievementCatalog = computePlayerAchievementCatalog(games, name)
   const placementStats = playerPlacementStats(games, name)
   const playerCountStats = winRateByPlayerCount(games, name)
+  const turnOrderStats = winRateByTurnOrder(games, name)
   const h2h = headToHead(games, name)
   const mastery = colorMasteryProgress(games, name)
   const masteryRows = [
@@ -95,6 +96,21 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
                   <div key={e.playerCount} className="bg-slate-900 border border-slate-800 rounded-lg p-3 min-w-[92px]">
                     <div className="text-white font-semibold">{e.wins}–{e.losses}</div>
                     <div className="text-slate-400 text-xs">{e.playerCount}-Player</div>
+                    <div className="text-slate-500 text-xs">{formatWinRate(e.winRate)}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {turnOrderStats.length > 0 && (
+            <div>
+              <h3 className="text-xs text-slate-500 mb-2 lg:text-center">By Turn Order</h3>
+              <div className="flex flex-wrap gap-3">
+                {turnOrderStats.map(e => (
+                  <div key={e.turnOrder} className="bg-slate-900 border border-slate-800 rounded-lg p-3 min-w-[92px]">
+                    <div className="text-white font-semibold">{e.wins}–{e.losses}</div>
+                    <div className="text-slate-400 text-xs">Went {placementLabel(e.turnOrder)}</div>
                     <div className="text-slate-500 text-xs">{formatWinRate(e.winRate)}</div>
                   </div>
                 ))}

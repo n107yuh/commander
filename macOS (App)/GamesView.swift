@@ -370,6 +370,9 @@ struct GameEditorView: View {
     @State private var showFormatAlert = false
     @State private var showEndTimeAlert = false
     @State private var showTurnsAlert = false
+    // Names checked live against Scryfall this editing session and found unresolvable — see
+    // needsColorChoice/markLiveResolution.
+    @State private var liveUnresolvedNames: Set<String> = []
 
     init(mode: GameEditorMode) {
         self.mode = mode
@@ -482,7 +485,8 @@ struct GameEditorView: View {
                             onDelete: drafts.count > 2 ? { remove(drafts[index].id) } : nil,
                             playerSuggestions: playerSuggestions,
                             commanderSuggestions: commanderSuggestions,
-                            needsColorChoice: needsColorChoice
+                            needsColorChoice: needsColorChoice,
+                            markLiveResolution: markLiveResolution
                         )
                     }
                     Button {
@@ -604,16 +608,34 @@ struct GameEditorView: View {
 
     /// Whether a commander needs a manual per-game color-identity pick: either it's one of the
     /// handful of printed cards whose identity genuinely varies (variableIdentityCommanderNames),
-    /// or the app already has a record for it and Scryfall has never been able to resolve its
-    /// colors (colorIdentity == nil) — covers a brand-new Universes Beyond commander Scryfall
-    /// hasn't indexed yet, or a homebrew/proxy card. A commander typed for the very first time
-    /// (no existing record) doesn't trigger this — it gets one normal chance at a background
-    /// Scryfall fetch after this save before we ask the user to do it by hand.
+    /// the app already has a record for it and Scryfall has never been able to resolve its colors
+    /// (colorIdentity == nil), or a live Scryfall check made *during this editing session*
+    /// (liveUnresolvedNames, populated by ParticipantRow's .task) already came back empty — that
+    /// last case is what lets a brand-new commander flag as unresolved on its very first save
+    /// instead of only from the second game onward.
     private func needsColorChoice(_ rawName: String) -> Bool {
         let name = rawName.trimmingCharacters(in: .whitespaces)
         guard !name.isEmpty else { return false }
-        if variableIdentityCommanderNames.contains(name.lowercased()) { return true }
-        return allCommanders.contains { $0.name.caseInsensitiveCompare(name) == .orderedSame && $0.colorIdentity == nil }
+        let lower = name.lowercased()
+        if variableIdentityCommanderNames.contains(lower) { return true }
+        if allCommanders.contains(where: { $0.name.caseInsensitiveCompare(name) == .orderedSame && $0.colorIdentity == nil }) {
+            return true
+        }
+        return liveUnresolvedNames.contains(lower)
+    }
+
+    /// Records the outcome of a live per-session Scryfall check (see ParticipantRow's .task) so
+    /// needsColorChoice can flag a brand-new commander as unresolved without waiting for a second
+    /// game to be logged with it.
+    private func markLiveResolution(_ rawName: String, unresolved: Bool) {
+        let name = rawName.trimmingCharacters(in: .whitespaces)
+        guard !name.isEmpty else { return }
+        let lower = name.lowercased()
+        if unresolved {
+            liveUnresolvedNames.insert(lower)
+        } else {
+            liveUnresolvedNames.remove(lower)
+        }
     }
 
     private func save() {
@@ -764,6 +786,7 @@ private struct ParticipantRow: View {
     let playerSuggestions: (String) async -> [String]
     let commanderSuggestions: (String) async -> [String]
     let needsColorChoice: (String) -> Bool
+    let markLiveResolution: (String, Bool) -> Void
 
     private var placementLabel: String {
         switch index {
@@ -887,6 +910,33 @@ private struct ParticipantRow: View {
             }
         }
         .padding(.vertical, 2)
+        // Live per-session Scryfall check so a brand-new commander can flag as needing a manual
+        // color-identity override on its very first save, not just from the second game onward.
+        // .task(id:) automatically cancels and restarts on every keystroke, and the sleep inside
+        // checkScryfallLive acts as the debounce — only the name the user actually settles on
+        // completes the check.
+        .task(id: draft.commanderName) {
+            await checkScryfallLive(draft.commanderName)
+        }
+        .task(id: draft.hasPartner ? draft.partnerCommanderName : "") {
+            if draft.hasPartner {
+                await checkScryfallLive(draft.partnerCommanderName)
+            }
+        }
+    }
+
+    private func checkScryfallLive(_ name: String) async {
+        let trimmed = name.trimmingCharacters(in: .whitespaces)
+        guard !trimmed.isEmpty else { return }
+        let lower = trimmed.lowercased()
+        // Already known one way or the other (hardcoded variable-identity list, or a local record
+        // with resolved/unresolved colors) — no need to hit the network again.
+        guard !variableIdentityCommanderNames.contains(lower), !needsColorChoice(trimmed) else { return }
+        try? await Task.sleep(nanoseconds: 400_000_000)
+        if Task.isCancelled { return }
+        let info = await ScryfallService.fetchCard(named: trimmed)
+        if Task.isCancelled { return }
+        markLiveResolution(trimmed, info == nil)
     }
 
     private var commanderNeedsColorChoice: Bool {

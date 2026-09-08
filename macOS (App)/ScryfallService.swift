@@ -11,7 +11,31 @@ struct ScryfallCardInfo {
     let imageURLs: [String]
 }
 
+/// Serializes every outgoing Scryfall request behind a small minimum spacing. Scryfall asks
+/// integrations to stay under ~10 requests/second with 50-100ms between requests; the app now has
+/// several call sites that can plausibly fire near-simultaneously (autocomplete-as-you-type,
+/// per-commander background color/image backfill, and the live per-row "is this resolvable"
+/// check added for the color-identity-override feature — opening an editor with several
+/// already-typed commanders can trigger a handful of lookups within the same instant). Without
+/// this, a burst risks a 429 or throttling that — if Scryfall's API and its image CDN share
+/// rate-limiting infrastructure, which is plausible since both are scryfall.io/.com — could show up
+/// as card art failing to load even though the specific image URL is fine on its own.
+private actor ScryfallRateLimiter {
+    private var lastRequestFinished: Date = .distantPast
+    private let minInterval: TimeInterval = 0.12
+
+    func waitTurn() async {
+        let elapsed = Date().timeIntervalSince(lastRequestFinished)
+        if elapsed < minInterval {
+            try? await Task.sleep(nanoseconds: UInt64((minInterval - elapsed) * 1_000_000_000))
+        }
+        lastRequestFinished = Date()
+    }
+}
+
 enum ScryfallService {
+    private static let rateLimiter = ScryfallRateLimiter()
+
     static func autocomplete(query: String) async -> [String] {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { return [] }
@@ -33,6 +57,7 @@ enum ScryfallService {
         ]
         guard let url = components.url else { return extraMatches }
 
+        await rateLimiter.waitTurn()
         do {
             let (data, _) = try await URLSession.shared.data(for: makeRequest(url: url))
             let response = try JSONDecoder().decode(SearchResponse.self, from: data)
@@ -64,6 +89,7 @@ enum ScryfallService {
         components.queryItems = [URLQueryItem(name: "fuzzy", value: trimmed)]
         guard let url = components.url else { return nil }
 
+        await rateLimiter.waitTurn()
         do {
             let (data, _) = try await URLSession.shared.data(for: makeRequest(url: url))
             let card = try JSONDecoder().decode(NamedCardResponse.self, from: data)

@@ -135,10 +135,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1783903303"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Captain America, Team Leader",
-      "totalGames" : 5,
-      "winRate" : 0.2,
+      "totalGames" : 6,
+      "winRate" : 0.16666666666666666,
       "wins" : 1
     },
     {
@@ -571,6 +571,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Krark, the Thumbless",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "R"
       ],
@@ -791,9 +798,9 @@
       ],
       "losses" : 2,
       "name" : "Norin the Wary",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -938,6 +945,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Sakashima of a Thousand Faces",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G"
       ],
@@ -986,9 +1000,9 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347",
         "https:\/\/cards.scryfall.io\/normal\/back\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1330,8 +1344,99 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-06T05:41:32Z",
+  "exportedAt" : "2026-09-08T02:04:16Z",
   "games" : [
+    {
+      "date" : "2026-09-08T01:22:36Z",
+      "durationSeconds" : 2393.460839033127,
+      "isInPerson" : false,
+      "notes" : "Jake rolled a nat 1. Noah played a turn 1 sol ring. Noah won by playing many creatures on the last turn, just in time to prevent Pertman from winning",
+      "participants" : [
+        {
+          "commanderName" : "Norin the Wary",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
+            },
+            {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Krark, the Thumbless",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "partnerCommanderName" : "Sakashima of a Thousand Faces",
+          "placement" : 3,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 4
+        }
+      ]
+    },
     {
       "date" : "2026-09-06T04:31:44Z",
       "durationSeconds" : 3927.9338750839233,
@@ -6757,6 +6862,11 @@
           "title" : "Rolled Well, Played Poorly"
         },
         {
+          "description" : "Roll a natural 1 at the start of the game and lose.",
+          "id" : "nat1-loss",
+          "title" : "Critical Failure"
+        },
+        {
           "description" : "Play Sol Ring on turn 1 and win the game.",
           "id" : "solring1-win",
           "title" : "Sol Ring, GG"
@@ -6802,10 +6912,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 33,
+      "losses" : 34,
       "name" : "Jake",
-      "totalGames" : 44,
-      "winRate" : 0.25,
+      "totalGames" : 45,
+      "winRate" : 0.24444444444444444,
       "wins" : 11
     },
     {
@@ -6950,10 +7060,10 @@
           "title" : "Life Totals Don't Matter"
         }
       ],
-      "losses" : 12,
+      "losses" : 13,
       "name" : "Margolis",
-      "totalGames" : 16,
-      "winRate" : 0.25,
+      "totalGames" : 17,
+      "winRate" : 0.23529411764705882,
       "wins" : 4
     },
     {
@@ -7113,6 +7223,11 @@
           "title" : "Rolled Well, Played Poorly"
         },
         {
+          "description" : "Play Sol Ring on turn 1 and win the game.",
+          "id" : "solring1-win",
+          "title" : "Sol Ring, GG"
+        },
+        {
           "description" : "Play Sol Ring on turn 1 and still lose.",
           "id" : "solring1-loss",
           "title" : "Sol Ring Wasn't Enough"
@@ -7165,9 +7280,9 @@
       ],
       "losses" : 41,
       "name" : "Noah",
-      "totalGames" : 54,
-      "winRate" : 0.24074074074074073,
-      "wins" : 13
+      "totalGames" : 55,
+      "winRate" : 0.2545454545454545,
+      "wins" : 14
     },
     {
       "achievements" : [
@@ -7312,10 +7427,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 25,
+      "losses" : 26,
       "name" : "Pertman",
-      "totalGames" : 46,
-      "winRate" : 0.45652173913043476,
+      "totalGames" : 47,
+      "winRate" : 0.44680851063829785,
       "wins" : 21
     }
   ]

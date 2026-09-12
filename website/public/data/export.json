@@ -16,6 +16,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Aragorn, King of Gondor",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G",
         "W"
@@ -135,10 +142,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1783903303"
       ],
-      "losses" : 6,
+      "losses" : 7,
       "name" : "Captain America, Team Leader",
-      "totalGames" : 7,
-      "winRate" : 0.14285714285714285,
+      "totalGames" : 8,
+      "winRate" : 0.125,
       "wins" : 1
     },
     {
@@ -321,10 +328,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/8\/c835a37a-776a-44ef-a252-4af1f31bf0b3.jpg?1783932799"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Gerrard, Weatherlight Hero",
-      "totalGames" : 4,
-      "winRate" : 0.25,
+      "totalGames" : 5,
+      "winRate" : 0.2,
       "wins" : 1
     },
     {
@@ -871,11 +878,17 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/1\/d\/1db600b2-9b8b-4c21-8d8b-8033ec680a35.jpg?1783908176"
+      ],
       "losses" : 0,
       "name" : "Odric, Lunarch Marshal",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1185,6 +1198,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/f\/3f56c0e7-5b07-48e3-b0ca-5d09ddc8de9a.jpg?1783902966"
+      ],
       "losses" : 1,
       "name" : "The Sentry, Golden Guardian",
       "totalGames" : 1,
@@ -1416,8 +1435,93 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-12T04:31:59Z",
+  "exportedAt" : "2026-09-12T05:52:50Z",
   "games" : [
+    {
+      "date" : "2026-09-12T04:38:36Z",
+      "durationSeconds" : 4444.443020939827,
+      "isInPerson" : false,
+      "notes" : "Justin rolled a nat 1. At one point Noah killed Justin, but then remembered he was the monarch and so nobody could block, so he rewound all of combat and instead attacked Pertman, thereby reviving Justin. Justin redirected 3 damage back at Noah and it was quite funny. Margolis referred to it as the “first ever Myr job”",
+      "participants" : [
+        {
+          "commanderName" : "Odric, Lunarch Marshal",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Gerrard, Weatherlight Hero",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Aragorn, King of Gondor",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 250 total turns.",
+              "id" : "turns-250",
+              "title" : "250 Turns"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        }
+      ]
+    },
     {
       "date" : "2026-09-12T02:41:37Z",
       "durationSeconds" : 6613.084331989288,
@@ -1430,6 +1534,9 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive wins since your last loss.",
@@ -1499,6 +1606,9 @@
           "openingHandSize" : 7,
           "placement" : 3,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -7326,6 +7436,11 @@
           "title" : "Doomed From The Start"
         },
         {
+          "description" : "Roll a natural 1 at the start of the game and lose.",
+          "id" : "nat1-loss",
+          "title" : "Critical Failure"
+        },
+        {
           "description" : "Get eliminated by being milled out of cards.",
           "id" : "milleddeath",
           "title" : "Library Card: Declined"
@@ -7356,10 +7471,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 26,
+      "losses" : 27,
       "name" : "Justin",
-      "totalGames" : 29,
-      "winRate" : 0.10344827586206896,
+      "totalGames" : 30,
+      "winRate" : 0.1,
       "wins" : 3
     },
     {
@@ -7425,10 +7540,10 @@
           "title" : "Life Totals Don't Matter"
         }
       ],
-      "losses" : 14,
+      "losses" : 15,
       "name" : "Margolis",
-      "totalGames" : 18,
-      "winRate" : 0.2222222222222222,
+      "totalGames" : 19,
+      "winRate" : 0.21052631578947367,
       "wins" : 4
     },
     {
@@ -7618,9 +7733,9 @@
           "title" : "50 Games"
         },
         {
-          "description" : "Play 100 total turns.",
-          "id" : "turns-100",
-          "title" : "100 Turns"
+          "description" : "Play 250 total turns.",
+          "id" : "turns-250",
+          "title" : "250 Turns"
         },
         {
           "description" : "Play 5+ distinct commanders.",
@@ -7643,10 +7758,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 44,
+      "losses" : 45,
       "name" : "Noah",
-      "totalGames" : 58,
-      "winRate" : 0.2413793103448276,
+      "totalGames" : 59,
+      "winRate" : 0.23728813559322035,
       "wins" : 14
     },
     {
@@ -7794,9 +7909,9 @@
       ],
       "losses" : 27,
       "name" : "Pertman",
-      "totalGames" : 50,
-      "winRate" : 0.46,
-      "wins" : 23
+      "totalGames" : 51,
+      "winRate" : 0.47058823529411764,
+      "wins" : 24
     }
   ]
 }

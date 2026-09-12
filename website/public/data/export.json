@@ -135,10 +135,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/1\/61a51b67-d941-4e07-9c12-ffe583cb65d4.jpg?1783903303"
       ],
-      "losses" : 5,
+      "losses" : 6,
       "name" : "Captain America, Team Leader",
-      "totalGames" : 6,
-      "winRate" : 0.16666666666666666,
+      "totalGames" : 7,
+      "winRate" : 0.14285714285714285,
       "wins" : 1
     },
     {
@@ -871,6 +871,13 @@
       "wins" : 2
     },
     {
+      "losses" : 0,
+      "name" : "Odric, Lunarch Marshal",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
       "colorIdentity" : [
         "R"
       ],
@@ -934,9 +941,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/5\/8569ad47-a243-402d-899f-4e6b17ea4e1e.jpg?1783932798"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Pramikon, Sky Rampart",
-      "totalGames" : 4,
+      "totalGames" : 5,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1178,6 +1185,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "The Sentry, Golden Guardian",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B",
         "G",
@@ -1402,8 +1416,97 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-08T05:27:32Z",
+  "exportedAt" : "2026-09-12T04:31:59Z",
   "games" : [
+    {
+      "date" : "2026-09-12T02:41:37Z",
+      "durationSeconds" : 6613.084331989288,
+      "isInPerson" : false,
+      "notes" : "This game was played in honor and remembrance of those who tragically lost their lives during the horrific attacks on September 11, 2001. Quite appropriately, Justin played War’s Toll which caused Pertman to really obliterate Margolis’s breasts. Pertman murdered Noah in cold blood, just as the hijackers did to the innocent victims in the towers",
+      "participants" : [
+        {
+          "commanderName" : "Odric, Lunarch Marshal",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Play 50 total games.",
+              "id" : "games-50",
+              "title" : "50 Games"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "Pramikon, Sky Rampart",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "Captain America, Team Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "The Sentry, Golden Guardian",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-09-08T03:02:14Z",
       "durationSeconds" : 7516.528258919716,
@@ -7183,14 +7286,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7253,10 +7356,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 25,
+      "losses" : 26,
       "name" : "Justin",
-      "totalGames" : 28,
-      "winRate" : 0.10714285714285714,
+      "totalGames" : 29,
+      "winRate" : 0.10344827586206896,
       "wins" : 3
     },
     {
@@ -7322,10 +7425,10 @@
           "title" : "Life Totals Don't Matter"
         }
       ],
-      "losses" : 13,
+      "losses" : 14,
       "name" : "Margolis",
-      "totalGames" : 17,
-      "winRate" : 0.23529411764705882,
+      "totalGames" : 18,
+      "winRate" : 0.2222222222222222,
       "wins" : 4
     },
     {
@@ -7540,10 +7643,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 43,
+      "losses" : 44,
       "name" : "Noah",
-      "totalGames" : 57,
-      "winRate" : 0.24561403508771928,
+      "totalGames" : 58,
+      "winRate" : 0.2413793103448276,
       "wins" : 14
     },
     {
@@ -7559,14 +7662,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7664,9 +7767,9 @@
           "title" : "Library Card: Declined"
         },
         {
-          "description" : "Play 25 total games.",
-          "id" : "games-25",
-          "title" : "25 Games"
+          "description" : "Play 50 total games.",
+          "id" : "games-50",
+          "title" : "50 Games"
         },
         {
           "description" : "Play 100 total turns.",
@@ -7691,9 +7794,9 @@
       ],
       "losses" : 27,
       "name" : "Pertman",
-      "totalGames" : 49,
-      "winRate" : 0.4489795918367347,
-      "wins" : 22
+      "totalGames" : 50,
+      "winRate" : 0.46,
+      "wins" : 23
     }
   ]
 }

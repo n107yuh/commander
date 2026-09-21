@@ -1128,9 +1128,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/2\/52498b7b-0389-4e7b-b29f-7ac86aab9229.jpg?1782685422"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Tannuk, Memorial Ensign",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1143,9 +1143,9 @@
       ],
       "losses" : 2,
       "name" : "The Capitoline Triad",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
-      "wins" : 1
+      "totalGames" : 4,
+      "winRate" : 0.5,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1179,9 +1179,16 @@
       "wins" : 0
     },
     {
-      "losses" : 1,
+      "colorIdentity" : [
+        "B",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/4\/9\/494c244e-dcdc-4169-9743-8a61f58e8763.jpg?1783909663"
+      ],
+      "losses" : 2,
       "name" : "The Lord of Pain",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1450,8 +1457,100 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-21T00:47:14Z",
+  "exportedAt" : "2026-09-21T01:35:52Z",
   "games" : [
+    {
+      "date" : "2026-09-21T00:54:30Z",
+      "durationSeconds" : 2473.1006749868393,
+      "isInPerson" : true,
+      "notes" : "Pertman played an Urza’s saga into a turn 1 sol ring into a Herbie fully loaded. Max did not attack anyone. Pertman absolutely obliterated everyone",
+      "participants" : [
+        {
+          "commanderName" : "The Capitoline Triad",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win 25 games.",
+              "id" : "wins-25",
+              "title" : "25 Wins"
+            },
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
+              "id" : "ultimatechampion",
+              "title" : "Ultimate Champion"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "The Lord of Pain",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play an entire game without attacking another player.",
+              "id" : "pacifist",
+              "title" : "Pacifist"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Tannuk, Memorial Ensign",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-09-20T23:59:40Z",
       "durationSeconds" : 2814.7541229724884,
@@ -1495,6 +1594,10 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Max graces the table with their presence.",
@@ -7684,6 +7787,11 @@
           "title" : "First Blood"
         },
         {
+          "description" : "Play an entire game without attacking another player.",
+          "id" : "pacifist",
+          "title" : "Pacifist"
+        },
+        {
           "description" : "Roll a natural 1 at the start of the game and lose.",
           "id" : "nat1-loss",
           "title" : "Critical Failure"
@@ -7694,10 +7802,10 @@
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 7,
+      "losses" : 8,
       "name" : "Max",
-      "totalGames" : 10,
-      "winRate" : 0.3,
+      "totalGames" : 11,
+      "winRate" : 0.2727272727272727,
       "wins" : 3
     },
     {
@@ -7713,14 +7821,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7863,18 +7971,18 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 45,
+      "losses" : 46,
       "name" : "Noah",
-      "totalGames" : 60,
-      "winRate" : 0.25,
+      "totalGames" : 61,
+      "winRate" : 0.2459016393442623,
       "wins" : 15
     },
     {
       "achievements" : [
         {
-          "description" : "Win 10 games.",
-          "id" : "wins-10",
-          "title" : "10 Wins"
+          "description" : "Win 25 games.",
+          "id" : "wins-25",
+          "title" : "25 Wins"
         },
         {
           "description" : "Lose 25 games.",
@@ -7882,14 +7990,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7925,6 +8033,11 @@
           "description" : "Win in both in-person and remote games.",
           "id" : "formatdiplomat",
           "title" : "Format Diplomat"
+        },
+        {
+          "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
+          "id" : "ultimatechampion",
+          "title" : "Ultimate Champion"
         },
         {
           "description" : "Win a 5-player game.",
@@ -8014,9 +8127,9 @@
       ],
       "losses" : 28,
       "name" : "Pertman",
-      "totalGames" : 52,
-      "winRate" : 0.46153846153846156,
-      "wins" : 24
+      "totalGames" : 53,
+      "winRate" : 0.4716981132075472,
+      "wins" : 25
     }
   ]
 }

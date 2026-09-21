@@ -27,6 +27,12 @@ struct SettingsView: View {
     @State private var pendingImportFile: GameImportService.PendingGamesFile?
     @State private var showImportPreview = false
 
+    @State private var restoreMessage: String? = nil
+    @State private var restoreIsError = false
+    @State private var pendingRestoreData: Data?
+    @State private var pendingRestoreSummary: ExportRestoreService.Summary?
+    @State private var showRestoreConfirm = false
+
     private struct EditingTarget: Equatable {
         let defId: String
         let index: Int
@@ -50,8 +56,19 @@ struct SettingsView: View {
             webExportSection
             Divider()
             importGamesSection
+            Divider()
+            restoreSection
         }
         .frame(width: 680, height: 700)
+        .alert("Restore from web export?", isPresented: $showRestoreConfirm, presenting: pendingRestoreSummary) { _ in
+            Button("Restore") { commitRestore() }
+            Button("Cancel", role: .cancel) {
+                pendingRestoreData = nil
+                pendingRestoreSummary = nil
+            }
+        } message: { summary in
+            Text("This will add \(summary.players) players, \(summary.commanders) commanders and \(summary.games) games to the app.")
+        }
         .sheet(isPresented: $showImportPreview) {
             if let file = pendingImportFile {
                 ImportPreviewSheet(
@@ -462,6 +479,82 @@ struct SettingsView: View {
         importIsError = false
         let ctx = modelContext
         Task { await PodStore.fetchMissingCardData(in: ctx) }
+    }
+
+    // MARK: - Restore From Web Export
+
+    private var restoreSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Restore From Web Export")
+                        .font(.subheadline.weight(.semibold))
+                    Text("Rebuild all players, commanders and games from the website's export.json — the way back if the app's local data is ever lost. Only works while the app has no games in it.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+            }
+
+            HStack(spacing: 10) {
+                Button {
+                    chooseRestoreFile()
+                } label: {
+                    Label("Choose export.json…", systemImage: "arrow.counterclockwise")
+                }
+                .controlSize(.regular)
+
+                if let msg = restoreMessage {
+                    Text(msg)
+                        .font(.caption)
+                        .foregroundStyle(restoreIsError ? .red : .green)
+                        .lineLimit(2)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 12)
+        .background(Color.secondary.opacity(0.04))
+    }
+
+    private func chooseRestoreFile() {
+        restoreMessage = nil
+        let panel = NSOpenPanel()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowsMultipleSelection = false
+        panel.allowedContentTypes = [.json]
+        panel.prompt = "Restore"
+        if !repoPath.isEmpty {
+            panel.directoryURL = URL(fileURLWithPath: repoPath).appendingPathComponent("website/public/data")
+        }
+        guard panel.runModal() == .OK, let url = panel.url else { return }
+
+        do {
+            let data = try Data(contentsOf: url)
+            pendingRestoreSummary = try ExportRestoreService.summarize(data)
+            pendingRestoreData = data
+            showRestoreConfirm = true
+        } catch {
+            restoreMessage = "Couldn't read that file: \(error.localizedDescription)"
+            restoreIsError = true
+        }
+    }
+
+    private func commitRestore() {
+        guard let data = pendingRestoreData else { return }
+        pendingRestoreData = nil
+        pendingRestoreSummary = nil
+        do {
+            let result = try ExportRestoreService.restore(from: data, into: modelContext)
+            restoreMessage = "Restored \(result.games) games, \(result.players) players, \(result.commanders) commanders."
+            restoreIsError = false
+            let ctx = modelContext
+            Task { await PodStore.fetchMissingCardData(in: ctx) }
+        } catch {
+            restoreMessage = error.localizedDescription
+            restoreIsError = true
+        }
     }
 
     // MARK: - Actions

@@ -24,9 +24,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/c\/1c7ac04c-8510-468b-aa6f-f249bde9ff87.jpg?1783916037"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Aragorn, King of Gondor",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -135,10 +135,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/4\/246a7176-98bc-4f54-aa61-38747420f178.jpg?1783912422"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Caesar, Legion's Emperor",
-      "totalGames" : 1,
-      "winRate" : 1,
+      "totalGames" : 2,
+      "winRate" : 0.5,
       "wins" : 1
     },
     {
@@ -1188,9 +1188,9 @@
       ],
       "losses" : 2,
       "name" : "The Lord of Pain",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1457,8 +1457,94 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-21T01:35:52Z",
+  "exportedAt" : "2026-09-21T02:24:45Z",
   "games" : [
+    {
+      "date" : "2026-09-21T01:43:02Z",
+      "durationSeconds" : 2491.89191198349,
+      "isInPerson" : true,
+      "notes" : "Dave told a great joke about an Uber driver that the Rabbi told. Everyone won a game!",
+      "participants" : [
+        {
+          "commanderName" : "The Lord of Pain",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            },
+            {
+              "description" : "Win in both in-person and remote games.",
+              "id" : "formatdiplomat",
+              "title" : "Format Diplomat"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Aragorn, King of Gondor",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Caesar, Legion's Emperor",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-09-21T00:54:30Z",
       "durationSeconds" : 2473.1006749868393,
@@ -7762,14 +7848,14 @@
           "title" : "5 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7780,6 +7866,16 @@
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win an in-person game.",
+          "id" : "irlchampion",
+          "title" : "IRL Champion"
+        },
+        {
+          "description" : "Win in both in-person and remote games.",
+          "id" : "formatdiplomat",
+          "title" : "Format Diplomat"
         },
         {
           "description" : "Win a game after going first.",
@@ -7804,9 +7900,9 @@
       ],
       "losses" : 8,
       "name" : "Max",
-      "totalGames" : 11,
-      "winRate" : 0.2727272727272727,
-      "wins" : 3
+      "totalGames" : 12,
+      "winRate" : 0.3333333333333333,
+      "wins" : 4
     },
     {
       "achievements" : [
@@ -7971,10 +8067,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 46,
+      "losses" : 47,
       "name" : "Noah",
-      "totalGames" : 61,
-      "winRate" : 0.2459016393442623,
+      "totalGames" : 62,
+      "winRate" : 0.24193548387096775,
       "wins" : 15
     },
     {
@@ -7990,14 +8086,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8125,10 +8221,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 28,
+      "losses" : 29,
       "name" : "Pertman",
-      "totalGames" : 53,
-      "winRate" : 0.4716981132075472,
+      "totalGames" : 54,
+      "winRate" : 0.46296296296296297,
       "wins" : 25
     }
   ]

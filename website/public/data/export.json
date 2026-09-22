@@ -504,9 +504,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/1\/c1f5bcc4-3ec7-42ae-8e4b-80a9b9135ff0.jpg?1744152961"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Jasmine Boreal of the Seven",
-      "totalGames" : 0,
+      "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1066,6 +1066,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Sefris of the Hidden Ways",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B"
       ],
@@ -1228,9 +1235,9 @@
       ],
       "losses" : 1,
       "name" : "The Sentry, Golden Guardian",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1258,9 +1265,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/f\/cfb80c75-4b1b-4f25-923a-933855e7345c.jpg?1769163701"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "The Wise Mothman",
-      "totalGames" : 4,
+      "totalGames" : 5,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1457,8 +1464,108 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-21T03:33:50Z",
+  "exportedAt" : "2026-09-22T03:57:53Z",
   "games" : [
+    {
+      "date" : "2026-09-22T02:12:27Z",
+      "durationSeconds" : 6313.578586935997,
+      "isInPerson" : false,
+      "notes" : "Noah played a turn 1 sol ring. Noah killed Jake with commander damage. Noah promised Justin 2nd place, and upheld that promise",
+      "participants" : [
+        {
+          "commanderName" : "The Sentry, Golden Guardian",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Jasmine Boreal of the Seven",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 11
+        },
+        {
+          "commanderName" : "Sefris of the Hidden Ways",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : -1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-09-21T02:32:26Z",
       "durationSeconds" : 3675.121171951294,
@@ -7761,10 +7868,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 36,
+      "losses" : 37,
       "name" : "Jake",
-      "totalGames" : 47,
-      "winRate" : 0.23404255319148937,
+      "totalGames" : 48,
+      "winRate" : 0.22916666666666666,
       "wins" : 11
     },
     {
@@ -7850,10 +7957,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 27,
+      "losses" : 28,
       "name" : "Justin",
-      "totalGames" : 30,
-      "winRate" : 0.1,
+      "totalGames" : 31,
+      "winRate" : 0.0967741935483871,
       "wins" : 3
     },
     {
@@ -8002,14 +8109,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8154,9 +8261,9 @@
       ],
       "losses" : 48,
       "name" : "Noah",
-      "totalGames" : 63,
-      "winRate" : 0.23809523809523808,
-      "wins" : 15
+      "totalGames" : 64,
+      "winRate" : 0.25,
+      "wins" : 16
     },
     {
       "achievements" : [
@@ -8171,14 +8278,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8306,10 +8413,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 29,
+      "losses" : 30,
       "name" : "Pertman",
-      "totalGames" : 55,
-      "winRate" : 0.4727272727272727,
+      "totalGames" : 56,
+      "winRate" : 0.4642857142857143,
       "wins" : 26
     }
   ]

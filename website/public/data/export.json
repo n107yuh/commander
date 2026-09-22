@@ -24,9 +24,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/c\/1c7ac04c-8510-468b-aa6f-f249bde9ff87.jpg?1783916037"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Aragorn, King of Gondor",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -177,6 +177,13 @@
       "wins" : 0
     },
     {
+      "losses" : 0,
+      "name" : "Chromium",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
+    },
+    {
       "colorIdentity" : [
 
       ],
@@ -307,9 +314,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/a\/dae9ee75-30b8-4e24-af8b-031c816d3221.jpg?1782690881"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Ezio Auditore da Firenze",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -734,9 +741,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1782708123"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Marisi, Breaker of the Coil",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1066,6 +1073,14 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "B",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/3\/d30255f6-e058-476a-b377-2ee4c9178ed1.jpg?1783926260"
+      ],
       "losses" : 1,
       "name" : "Sefris of the Hidden Ways",
       "totalGames" : 1,
@@ -1464,8 +1479,108 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-22T03:57:53Z",
+  "exportedAt" : "2026-09-22T04:51:18Z",
   "games" : [
+    {
+      "date" : "2026-09-22T04:00:29Z",
+      "durationSeconds" : 3004.9185959100723,
+      "isInPerson" : false,
+      "notes" : "Noah killed Jake with commander damage. Noah chose the victor of the game by overkilling Jake instead of killing Justin. Justin won with an alternate win-con via Leveler + Laboratory Maniac",
+      "participants" : [
+        {
+          "commanderName" : "Chromium",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Justin",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Aragorn, King of Gondor",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Marisi, Breaker of the Coil",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Ezio Auditore da Firenze",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-09-22T02:12:27Z",
       "durationSeconds" : 6313.578586935997,
@@ -1528,6 +1643,11 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Get eliminated by 21+ commander damage.",
@@ -7868,10 +7988,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 37,
+      "losses" : 38,
       "name" : "Jake",
-      "totalGames" : 48,
-      "winRate" : 0.22916666666666666,
+      "totalGames" : 49,
+      "winRate" : 0.22448979591836735,
       "wins" : 11
     },
     {
@@ -7882,14 +8002,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -7959,9 +8079,9 @@
       ],
       "losses" : 28,
       "name" : "Justin",
-      "totalGames" : 31,
-      "winRate" : 0.0967741935483871,
-      "wins" : 3
+      "totalGames" : 32,
+      "winRate" : 0.125,
+      "wins" : 4
     },
     {
       "achievements" : [
@@ -8109,14 +8229,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8259,10 +8379,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 48,
+      "losses" : 49,
       "name" : "Noah",
-      "totalGames" : 64,
-      "winRate" : 0.25,
+      "totalGames" : 65,
+      "winRate" : 0.24615384615384617,
       "wins" : 16
     },
     {
@@ -8413,10 +8533,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 30,
+      "losses" : 31,
       "name" : "Pertman",
-      "totalGames" : 56,
-      "winRate" : 0.4642857142857143,
+      "totalGames" : 57,
+      "winRate" : 0.45614035087719296,
       "wins" : 26
     }
   ]

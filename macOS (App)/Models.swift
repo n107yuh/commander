@@ -39,11 +39,29 @@ final class Player {
         self.name = name
     }
 
-    var wins: Int { participations.filter { $0.didWin }.count }
-    var losses: Int { participations.filter { !$0.didWin }.count }
-    var totalGames: Int { participations.count }
+    // 1v1 games (exactly 2 participants) are tracked as their own separate universe of
+    // stats — see OneVOneView — and excluded from every "main" stat everywhere else
+    // (standings, records, achievements). A game with no participants at all can't be
+    // either, so it's excluded from both.
+    var podParticipations: [GameParticipant] {
+        participations.filter { ($0.game?.participants.count ?? 0) != 2 }
+    }
+    var oneVOneParticipations: [GameParticipant] {
+        participations.filter { $0.game?.participants.count == 2 }
+    }
+
+    var wins: Int { podParticipations.filter { $0.didWin }.count }
+    var losses: Int { podParticipations.filter { !$0.didWin }.count }
+    var totalGames: Int { podParticipations.count }
     var winRate: Double {
         totalGames == 0 ? 0 : Double(wins) / Double(totalGames)
+    }
+
+    var wins1v1: Int { oneVOneParticipations.filter { $0.didWin }.count }
+    var losses1v1: Int { oneVOneParticipations.filter { !$0.didWin }.count }
+    var totalGames1v1: Int { oneVOneParticipations.count }
+    var winRate1v1: Double {
+        totalGames1v1 == 0 ? 0 : Double(wins1v1) / Double(totalGames1v1)
     }
 }
 
@@ -69,11 +87,26 @@ final class MTGCommander {
         participations + partnerParticipations
     }
 
-    var wins: Int { allParticipations.filter { $0.didWin }.count }
-    var losses: Int { allParticipations.filter { !$0.didWin }.count }
-    var totalGames: Int { allParticipations.count }
+    // See Player.podParticipations/oneVOneParticipations — same 1v1 exclusion, mirrored here.
+    var podParticipations: [GameParticipant] {
+        allParticipations.filter { ($0.game?.participants.count ?? 0) != 2 }
+    }
+    var oneVOneParticipations: [GameParticipant] {
+        allParticipations.filter { $0.game?.participants.count == 2 }
+    }
+
+    var wins: Int { podParticipations.filter { $0.didWin }.count }
+    var losses: Int { podParticipations.filter { !$0.didWin }.count }
+    var totalGames: Int { podParticipations.count }
     var winRate: Double {
         totalGames == 0 ? 0 : Double(wins) / Double(totalGames)
+    }
+
+    var wins1v1: Int { oneVOneParticipations.filter { $0.didWin }.count }
+    var losses1v1: Int { oneVOneParticipations.filter { !$0.didWin }.count }
+    var totalGames1v1: Int { oneVOneParticipations.count }
+    var winRate1v1: Double {
+        totalGames1v1 == 0 ? 0 : Double(wins1v1) / Double(totalGames1v1)
     }
 }
 

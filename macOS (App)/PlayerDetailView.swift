@@ -39,7 +39,7 @@ struct PlayerDetailView: View {
 
     private var achievementsBlock: some View {
         let context = computeAchievementContext(from: allGames)
-        let dates = achievementEarnedDates(for: player.participations, allGames: allGames)
+        let dates = achievementEarnedDates(for: player.podParticipations, allGames: allGames)
         return VStack(alignment: .leading, spacing: 8) {
             sectionHeader("Achievements")
             AchievementCatalogView(
@@ -214,7 +214,7 @@ struct PlayerDetailView: View {
     }
 
     private func podiumTooltip(forPlacement placement: Int) -> String {
-        let validParts = player.participations.filter { p in
+        let validParts = player.podParticipations.filter { p in
             guard let game = p.game else { return false }
             return game.participants.contains { $0.placement > 0 }
         }

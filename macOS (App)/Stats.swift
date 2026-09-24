@@ -302,28 +302,30 @@ private func bestEntries(from participations: [GameParticipant]) -> [CommanderEn
 }
 
 extension Player {
-    var formatBreakdown: FormatBreakdown { breakdown(participations) }
+    var formatBreakdown: FormatBreakdown { breakdown(podParticipations) }
 
-    var bestCommander: CommanderEntry? { bestEntry(from: participations) }
+    var bestCommander: CommanderEntry? { bestEntry(from: podParticipations) }
 
-    var bestCommanders: [CommanderEntry] { bestEntries(from: participations) }
+    var bestCommanders: [CommanderEntry] { bestEntries(from: podParticipations) }
 
-    var averageGameDuration: TimeInterval? { averageDuration(participations) }
+    var averageGameDuration: TimeInterval? { averageDuration(podParticipations) }
 
-    var averageOpeningHand: Double? { computeAverageOpeningHand(participations) }
+    var averageOpeningHand: Double? { computeAverageOpeningHand(podParticipations) }
 
-    var placementCounts: [PlacementCount] { Stats_placementCounts(participations) }
+    var placementCounts: [PlacementCount] { Stats_placementCounts(podParticipations) }
 
-    var playerCountBreakdown: [PlayerCountEntry] { Stats_playerCountBreakdown(participations) }
+    var playerCountBreakdown: [PlayerCountEntry] { Stats_playerCountBreakdown(podParticipations) }
 
-    var turnOrderCounts: [TurnOrderCount] { Stats_turnOrderCounts(participations) }
+    var turnOrderCounts: [TurnOrderCount] { Stats_turnOrderCounts(podParticipations) }
 
-    var averagePlacement: Double? { Stats_averagePlacement(participations) }
+    var averagePlacement: Double? { Stats_averagePlacement(podParticipations) }
 
-    func headToHeadAnalysis(against other: Player) -> (record: H2HRecord, best: CommanderEntry?, turn: TurnOrderH2H) {
+    // `using` defaults to pod-only participations, matching every other stat on this type;
+    // pass `oneVOneParticipations` for the 1v1-scoped head-to-head shown in OneVOneView.
+    func headToHeadAnalysis(against other: Player, using source: [GameParticipant]? = nil) -> (record: H2HRecord, best: CommanderEntry?, turn: TurnOrderH2H) {
         var rec = H2HRecord()
         let otherID = other.persistentModelID
-        let sharedParticipations = participations.filter { myPart in
+        let sharedParticipations = (source ?? podParticipations).filter { myPart in
             guard let game = myPart.game else { return false }
             return game.participants.contains(where: { $0.player?.persistentModelID == otherID })
         }
@@ -365,12 +367,12 @@ extension Player {
         return (rec, best, turn)
     }
 
-    func allHeadToHeads(allPlayers: [Player]) -> [PlayerH2H] {
+    func allHeadToHeads(allPlayers: [Player], using source: [GameParticipant]? = nil) -> [PlayerH2H] {
         let myID = self.persistentModelID
         return allPlayers
             .filter { $0.persistentModelID != myID }
             .map { other -> PlayerH2H in
-                let analysis = headToHeadAnalysis(against: other)
+                let analysis = headToHeadAnalysis(against: other, using: source)
                 return PlayerH2H(
                     id: other.persistentModelID,
                     opponent: other,
@@ -385,17 +387,18 @@ extension Player {
 }
 
 extension MTGCommander {
-    var formatBreakdown: FormatBreakdown { breakdown(allParticipations) }
+    var formatBreakdown: FormatBreakdown { breakdown(podParticipations) }
 
-    var averageGameDuration: TimeInterval? { averageDuration(allParticipations) }
+    var averageGameDuration: TimeInterval? { averageDuration(podParticipations) }
 
-    var averageOpeningHand: Double? { computeAverageOpeningHand(allParticipations) }
+    var averageOpeningHand: Double? { computeAverageOpeningHand(podParticipations) }
 
-    var placementCounts: [PlacementCount] { Stats_placementCounts(allParticipations) }
+    var placementCounts: [PlacementCount] { Stats_placementCounts(podParticipations) }
 
-    var averagePlacement: Double? { Stats_averagePlacement(allParticipations) }
+    var averagePlacement: Double? { Stats_averagePlacement(podParticipations) }
 
-    func headToHead(against other: MTGCommander) -> (record: H2HRecord, turn: TurnOrderH2H) {
+    // `using` defaults to pod-only participations; pass `oneVOneParticipations` for 1v1-scoped stats.
+    func headToHead(against other: MTGCommander, using source: [GameParticipant]? = nil) -> (record: H2HRecord, turn: TurnOrderH2H) {
         var rec = H2HRecord()
         var turn = TurnOrderH2H()
         let myID = self.persistentModelID
@@ -405,7 +408,7 @@ extension MTGCommander {
         var myTurns: [Int] = []
         var theirTurns: [Int] = []
 
-        for myPart in allParticipations {
+        for myPart in (source ?? podParticipations) {
             guard let game = myPart.game else { continue }
             let otherOnMySeat = myPart.commander?.persistentModelID == otherID
                 || myPart.partnerCommander?.persistentModelID == otherID
@@ -442,12 +445,12 @@ extension MTGCommander {
         return (rec, turn)
     }
 
-    func allHeadToHeads(allCommanders: [MTGCommander]) -> [CommanderH2H] {
+    func allHeadToHeads(allCommanders: [MTGCommander], using source: [GameParticipant]? = nil) -> [CommanderH2H] {
         let myID = self.persistentModelID
         return allCommanders
             .filter { $0.persistentModelID != myID }
             .map { other -> CommanderH2H in
-                let analysis = headToHead(against: other)
+                let analysis = headToHead(against: other, using: source)
                 return CommanderH2H(
                     id: other.persistentModelID,
                     opponent: other,
@@ -459,10 +462,10 @@ extension MTGCommander {
             .sorted { $0.record.total > $1.record.total }
     }
 
-    var turnOrderCounts: [TurnOrderCount] { Stats_turnOrderCounts(allParticipations) }
+    var turnOrderCounts: [TurnOrderCount] { Stats_turnOrderCounts(podParticipations) }
 
     var averageTurnOrder: Double? {
-        let valid = allParticipations.filter { $0.turnOrder >= 0 }
+        let valid = podParticipations.filter { $0.turnOrder >= 0 }
         guard !valid.isEmpty else { return nil }
         let sum = valid.reduce(0) { $0 + $1.turnOrder + 1 }
         return Double(sum) / Double(valid.count)
@@ -470,7 +473,7 @@ extension MTGCommander {
 
     var topPilots: [CommanderPilotEntry] {
         var stats: [PersistentIdentifier: (player: Player, wins: Int, games: Int)] = [:]
-        for p in allParticipations {
+        for p in podParticipations {
             guard let pl = p.player else { continue }
             let id = pl.persistentModelID
             var entry = stats[id] ?? (player: pl, wins: 0, games: 0)

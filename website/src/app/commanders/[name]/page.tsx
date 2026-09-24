@@ -13,7 +13,9 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   const cmd = commanders.find(c => c.name === name)
   if (!cmd) notFound()
 
-  const cmdGames = getCommanderGames(games, name).sort((a, b) => b.date.localeCompare(a.date))
+  // 1v1 games get their own separate commander records on the /1v1 tab.
+  const podGames = games.filter(g => g.participants.length !== 2)
+  const cmdGames = getCommanderGames(podGames, name).sort((a, b) => b.date.localeCompare(a.date))
 
   // Pilot breakdown
   const pilotMap: Record<string, { wins: number; games: number }> = {}
@@ -38,7 +40,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   }
   const partners = Object.entries(partnerMap).sort((a, b) => b[1] - a[1])
 
-  const achievementCatalog = computeCommanderAchievementCatalog(games, name)
+  const achievementCatalog = computeCommanderAchievementCatalog(podGames, name)
 
   // Colors come from resolvedColorIdentity on participants, not the static
   // cmd.colorIdentity — some commanders (e.g. Clara Oswald) are printed

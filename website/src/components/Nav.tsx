@@ -9,6 +9,7 @@ const links = [
   { href: '/players',      label: 'Players' },
   { href: '/commanders',   label: 'Commanders' },
   { href: '/annals',       label: 'Annals' },
+  { href: '/1v1',          label: '1v1' },
   { href: '/achievements', label: 'Achievements' },
 ]
 

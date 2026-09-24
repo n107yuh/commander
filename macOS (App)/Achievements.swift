@@ -57,7 +57,10 @@ struct AchievementContext {
     static let empty = AchievementContext()
 }
 
-func computeAchievementContext(from games: [Game]) -> AchievementContext {
+func computeAchievementContext(from allGames: [Game]) -> AchievementContext {
+    // 1v1 games are their own separate universe of stats and never contribute to pod-wide
+    // achievement records (quickest win, longest game, etc.) — see OneVOneView.
+    let games = allGames.filter { $0.participants.count != 2 }
     var wins: [TimeInterval] = []
     var losses: [TimeInterval] = []
     var durations: [TimeInterval] = []
@@ -1582,11 +1585,14 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
 /// Mirrors the delta AnnalsDetailPanel computes inline in GamesView.swift so every surface (in-app
 /// Annals, the website export) shows the same badges on the same game.
 func allAchievementsEarnedThisGame(for participation: GameParticipant, allGames: [Game]) -> [Achievement] {
+    // 1v1 games (exactly 2 participants) are excluded from the achievement system entirely —
+    // see OneVOneView and Player.podParticipations.
+    guard participation.game?.participants.count != 2 else { return [] }
     let instant = perGameTriggeredAchievements(for: participation)
     guard let player = participation.player, let game = participation.game else { return instant }
 
-    let participationsBefore = player.participations.filter { ($0.game?.date ?? .distantPast) < game.date }
-    let participationsUpTo   = player.participations.filter { ($0.game?.date ?? .distantPast) <= game.date }
+    let participationsBefore = player.podParticipations.filter { ($0.game?.date ?? .distantPast) < game.date }
+    let participationsUpTo   = player.podParticipations.filter { ($0.game?.date ?? .distantPast) <= game.date }
     let contextBefore = computeAchievementContext(from: allGames.filter { $0.date < game.date })
     let contextUpTo   = computeAchievementContext(from: allGames.filter { $0.date <= game.date })
 
@@ -2039,25 +2045,25 @@ private func completedTriColorSegments(wonTri: Set<String>) -> Set<String> {
 
 extension Player {
     func achievements(context: AchievementContext) -> [Achievement] {
-        computeEarnedAchievements(from: participations, context: context, showPlayerAchievements: true)
+        computeEarnedAchievements(from: podParticipations, context: context, showPlayerAchievements: true)
     }
     func achievementCatalog(context: AchievementContext) -> [Achievement] {
-        computeAchievementCatalog(from: participations, context: context, showPlayerAchievements: true)
+        computeAchievementCatalog(from: podParticipations, context: context, showPlayerAchievements: true)
     }
     func currentStreakBadges() -> [Achievement] {
-        currentStreakAchievements(from: participations)
+        currentStreakAchievements(from: podParticipations)
     }
 }
 
 extension MTGCommander {
     func achievements(context: AchievementContext) -> [Achievement] {
-        computeEarnedAchievements(from: allParticipations, context: context, showPlayerAchievements: false)
+        computeEarnedAchievements(from: podParticipations, context: context, showPlayerAchievements: false)
     }
     func achievementCatalog(context: AchievementContext) -> [Achievement] {
-        computeAchievementCatalog(from: allParticipations, context: context, showPlayerAchievements: false)
+        computeAchievementCatalog(from: podParticipations, context: context, showPlayerAchievements: false)
     }
     func currentStreakBadges() -> [Achievement] {
-        currentStreakAchievements(from: allParticipations)
+        currentStreakAchievements(from: podParticipations)
     }
 }
 
@@ -2072,11 +2078,12 @@ extension CommanderEntry {
         currentStreakAchievements(from: comboParticipations)
     }
 
+    // Reuses this entry's own `participations` (already scoped to whatever games list the
+    // entry was built from — pod-only or 1v1-only, see CommanderRecordsAggregator.entries)
+    // rather than re-deriving from the unfiltered `allParticipations`, so a 1v1-only entry's
+    // achievement badges stay scoped to 1v1 games too.
     private var comboParticipations: [GameParticipant] {
-        let comboIDs = Set(commanders.map { $0.persistentModelID })
-        return (commanders.first?.allParticipations ?? []).filter { p in
-            Set(p.commanders.map { $0.persistentModelID }) == comboIDs
-        }
+        participations
     }
 }
 

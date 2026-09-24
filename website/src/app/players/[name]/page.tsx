@@ -18,7 +18,10 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const player = players.find(p => p.name === name)
   if (!player) notFound()
 
-  const playerGames = getPlayerGames(games, name).sort((a, b) => b.date.localeCompare(a.date))
+  // 1v1 games (exactly 2 players) get their own separate stats on the /1v1 tab and are
+  // excluded from every stat on this page, matching the app.
+  const podGames = games.filter(g => g.participants.length !== 2)
+  const playerGames = getPlayerGames(podGames, name).sort((a, b) => b.date.localeCompare(a.date))
 
   // Commander usage stats
   const cmdMap: Record<string, { wins: number; games: number; colorIdentity: string[] | null }> = {}
@@ -54,12 +57,12 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const remWins = playerGames.filter(g => !g.isInPerson && g.participants.find(p => p.playerName === name)?.didWin).length
   const remGames = playerGames.filter(g => !g.isInPerson).length
 
-  const achievementCatalog = computePlayerAchievementCatalog(games, name)
-  const placementStats = playerPlacementStats(games, name)
-  const playerCountStats = winRateByPlayerCount(games, name)
-  const turnOrderStats = winRateByTurnOrder(games, name)
-  const h2h = headToHead(games, name)
-  const mastery = colorMasteryProgress(games, name)
+  const achievementCatalog = computePlayerAchievementCatalog(podGames, name)
+  const placementStats = playerPlacementStats(podGames, name)
+  const playerCountStats = winRateByPlayerCount(podGames, name)
+  const turnOrderStats = winRateByTurnOrder(podGames, name)
+  const h2h = headToHead(podGames, name)
+  const mastery = colorMasteryProgress(podGames, name)
   const masteryRows = [
     { title: 'Mono-Master', combos: MONO_COMBOS, won: mastery.mono },
     { title: 'Dual-Master', combos: DUAL_COMBOS, won: mastery.dual },

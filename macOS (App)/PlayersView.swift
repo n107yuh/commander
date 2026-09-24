@@ -30,9 +30,15 @@ struct PlayersView: View {
         topWinnerIDs(inPerson: true)
     }
 
+    // 1v1 games (exactly 2 participants) get their own separate records in OneVOneView and
+    // are excluded here, matching every other "main" stat in the app.
+    private var podGames: [Game] {
+        games.filter { $0.participants.count != 2 }
+    }
+
     private func topWinnerIDs(inPerson: Bool) -> Set<PersistentIdentifier> {
         var statsByPlayer: [PersistentIdentifier: (wins: Int, games: Int)] = [:]
-        for game in games where game.isInPerson == inPerson {
+        for game in podGames where game.isInPerson == inPerson {
             for p in game.participants {
                 guard let pl = p.player else { continue }
                 var entry = statsByPlayer[pl.persistentModelID] ?? (0, 0)
@@ -53,7 +59,7 @@ struct PlayersView: View {
         for player in players {
             dict[player.persistentModelID] = (player: player, wins: 0, losses: 0)
         }
-        for game in games {
+        for game in podGames {
             for p in game.participants {
                 guard let pl = p.player else { continue }
                 let id = pl.persistentModelID

@@ -160,6 +160,9 @@ export function AnnalsList({ games }: { games: GameData[] }) {
                   <span className="text-slate-500 text-xs">{formatTime(game.date)}</span>
                   <span className="text-slate-600">·</span>
                   <span className="text-slate-400">{game.isInPerson ? '🏠 In Person' : '💻 Remote'}</span>
+                  {game.participants.length === 2 && (
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-violet-300 bg-violet-600/20 px-1.5 py-0.5 rounded">1v1</span>
+                  )}
                   {game.durationSeconds && (
                     <>
                       <span className="text-slate-600">·</span>

@@ -13,6 +13,8 @@ interface ComboAccum {
 
 export default function CommandersPage() {
   const { commanders, games } = loadData()
+  // 1v1 games get their own separate commander records on the /1v1 tab.
+  const podGames = games.filter(g => g.participants.length !== 2)
 
   // Group by the exact commander combo used in each participation, mirroring
   // CommanderRecordsAggregator.entries(from:) in the Mac app's Stats.swift, so
@@ -25,7 +27,7 @@ export default function CommandersPage() {
   // printed colorless but get a chosen color identity per game, which only
   // shows up on the participant record.
   const comboMap: Record<string, ComboAccum> = {}
-  for (const game of games) {
+  for (const game of podGames) {
     for (const part of game.participants) {
       const names = [part.commanderName, part.partnerCommanderName]
         .filter((n): n is string => !!n)

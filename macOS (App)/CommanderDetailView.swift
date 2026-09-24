@@ -56,10 +56,13 @@ struct CommanderDetailView: View {
         .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 
+    // Excludes 1v1 games (exactly 2 participants), same as commander.wins/losses/placementCounts/etc.
+    // below — this view shows only pod-scoped stats, matching every other detail view.
     private var comboParticipations: [GameParticipant] {
         let comboIDs = Set(commanders.map { $0.persistentModelID })
         return (commanders.first?.allParticipations ?? []).filter { p in
             Set(p.commanders.map { $0.persistentModelID }) == comboIDs
+                && (p.game?.participants.count ?? 0) != 2
         }
     }
 

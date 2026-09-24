@@ -12,8 +12,14 @@ struct CommandersView: View {
     @State private var renameTarget: MTGCommander?
     @State private var expandedID: String?
 
+    // 1v1 games (exactly 2 participants) get their own separate records in OneVOneView and
+    // are excluded here, matching every other "main" stat in the app.
+    private var podGames: [Game] {
+        games.filter { $0.participants.count != 2 }
+    }
+
     private var entries: [CommanderEntry] {
-        CommanderRecordsAggregator.entries(from: games)
+        CommanderRecordsAggregator.entries(from: podGames)
     }
 
     private var topRemoteEntryIDs: Set<String> {
@@ -26,7 +32,7 @@ struct CommandersView: View {
 
     private func topWinningEntryIDs(inPerson: Bool) -> Set<String> {
         var statsByEntry: [String: (wins: Int, games: Int)] = [:]
-        for game in games where game.isInPerson == inPerson {
+        for game in podGames where game.isInPerson == inPerson {
             for p in game.participants {
                 guard !p.commanders.isEmpty else { continue }
                 let key = p.commanders.sorted { $0.name < $1.name }

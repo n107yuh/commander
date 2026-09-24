@@ -116,7 +116,7 @@ enum WebExportService {
         let playerData: [PlayerData] = players
             .sorted { $0.name < $1.name }
             .map { player in
-                let earned = computeEarnedAchievements(from: player.participations, context: achContext)
+                let earned = computeEarnedAchievements(from: player.podParticipations, context: achContext)
                 return PlayerData(
                     name: player.name,
                     wins: player.wins,

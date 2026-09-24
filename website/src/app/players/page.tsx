@@ -5,6 +5,8 @@ import { ClickableRow } from '@/components/ClickableRow'
 export default function PlayersPage() {
   const { players, games } = loadData()
   const standings = playerStandings(players)
+  // 1v1 games get their own separate stats on the /1v1 tab — exclude them from streaks here too.
+  const podGames = games.filter(g => g.participants.length !== 2)
 
   return (
     <div className="space-y-6">
@@ -28,8 +30,8 @@ export default function PlayersPage() {
                 <tr><td colSpan={6} className="px-4 py-8 text-center text-slate-500">No players yet. Export data from the app.</td></tr>
               )}
               {standings.map((p, i) => {
-                const winStreak = currentWinStreak(games, p.name)
-                const lossStreak = currentLossStreak(games, p.name)
+                const winStreak = currentWinStreak(podGames, p.name)
+                const lossStreak = currentLossStreak(podGames, p.name)
                 return (
                   <ClickableRow key={p.name} href={`/players/${encodeURIComponent(p.name)}`} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/20">
                     <td className="px-4 py-3 text-slate-500">{i + 1}</td>

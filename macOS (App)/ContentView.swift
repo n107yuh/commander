@@ -39,6 +39,14 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                     .controlSize(.large)
 
+                    NavigationLink {
+                        OneVOneView()
+                    } label: {
+                        Label("1v1", systemImage: "person.line.dotted.person.fill")
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.large)
+
                     Spacer()
 
                     Button {

@@ -7,7 +7,11 @@ export default function Dashboard() {
   const data = loadData()
   const { players, games } = data
 
-  const sorted = [...games].sort((a, b) => b.date.localeCompare(a.date))
+  // 1v1 games (exactly 2 players) get their own separate stats on the /1v1 tab and are
+  // excluded from every "main" stat here, matching the app.
+  const podGames = games.filter(g => g.participants.length !== 2)
+
+  const sorted = [...podGames].sort((a, b) => b.date.localeCompare(a.date))
   const recentGames = sorted.slice(0, 3)
   const standings = playerStandings(players)
 

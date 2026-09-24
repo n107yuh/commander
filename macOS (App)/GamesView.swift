@@ -1237,6 +1237,14 @@ private struct AnnalsRow: View {
                 Text(game.date, format: .dateTime.weekday(.abbreviated).month(.abbreviated).day().year().hour().minute())
                     .font(.headline)
                 Spacer()
+                if game.participants.count == 2 {
+                    Text("1v1")
+                        .font(.caption2.weight(.bold))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.accentColor.opacity(0.15))
+                        .clipShape(Capsule())
+                }
                 Label(game.isInPerson ? "In Person" : "Remote",
                       systemImage: game.isInPerson ? "person.2.fill" : "wifi")
                     .font(.caption.weight(.semibold))

@@ -105,7 +105,7 @@ export function colorMasteryProgress(games: GameData[], playerName: string): Col
 
   const comboCommander: Record<string, string> = {}
   for (const [key, labels] of Object.entries(comboCommanders)) {
-    comboCommander[key] = labels.join(', ')
+    comboCommander[key] = labels.join(' | ')
   }
 
   return { mono, dual, tri, fiveColor, comboCommander }

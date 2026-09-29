@@ -337,9 +337,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/b\/c\/bc6146bf-f0c6-4557-af6a-74c643d5fc01.jpg?1783904927"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Fire Lord Azula",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -835,9 +835,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/2\/c\/2cb1d1da-6077-46b5-8c63-39882b8016f2.jpg?1783934856"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Najeela, the Blade-Blossom",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1076,9 +1076,9 @@
       ],
       "losses" : 0,
       "name" : "Satya, Aetherflux Genius",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1176,6 +1176,13 @@
       "totalGames" : 4,
       "winRate" : 0.5,
       "wins" : 2
+    },
+    {
+      "losses" : 1,
+      "name" : "The Celestial Toymaker",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -1487,8 +1494,112 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-22T04:53:43Z",
+  "exportedAt" : "2026-09-29T04:34:40Z",
   "games" : [
+    {
+      "date" : "2026-09-29T02:34:45Z",
+      "durationSeconds" : 7162.124560952187,
+      "isInPerson" : false,
+      "notes" : "Justin rolled a nat 20. Justin played a turn 1 sol ring. Jake could have potentially won the game but was Swan Song-ed by Justin",
+      "participants" : [
+        {
+          "commanderName" : "Satya, Aetherflux Genius",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "The Celestial Toymaker",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Roll a natural 20 at the start of the game and still lose.",
+              "id" : "nat20-loss",
+              "title" : "Rolled Well, Played Poorly"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Fire Lord Azula",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 50 games.",
+              "id" : "losses-50",
+              "title" : "50 Losses"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Najeela, the Blade-Blossom",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 50 total games.",
+              "id" : "games-50",
+              "title" : "50 Games"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-09-22T04:00:29Z",
       "durationSeconds" : 3004.9185959100723,
@@ -7986,9 +8097,9 @@
           "title" : "Library Card: Declined"
         },
         {
-          "description" : "Play 25 total games.",
-          "id" : "games-25",
-          "title" : "25 Games"
+          "description" : "Play 50 total games.",
+          "id" : "games-50",
+          "title" : "50 Games"
         },
         {
           "description" : "Play 100 total turns.",
@@ -8006,10 +8117,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 38,
+      "losses" : 39,
       "name" : "Jake",
-      "totalGames" : 49,
-      "winRate" : 0.22448979591836735,
+      "totalGames" : 50,
+      "winRate" : 0.22,
       "wins" : 11
     },
     {
@@ -8020,14 +8131,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8060,9 +8171,19 @@
           "title" : "Doomed From The Start"
         },
         {
+          "description" : "Roll a natural 20 at the start of the game and still lose.",
+          "id" : "nat20-loss",
+          "title" : "Rolled Well, Played Poorly"
+        },
+        {
           "description" : "Roll a natural 1 at the start of the game and lose.",
           "id" : "nat1-loss",
           "title" : "Critical Failure"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Get eliminated by being milled out of cards.",
@@ -8100,10 +8221,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 28,
+      "losses" : 29,
       "name" : "Justin",
-      "totalGames" : 32,
-      "winRate" : 0.125,
+      "totalGames" : 33,
+      "winRate" : 0.12121212121212122,
       "wins" : 4
     },
     {
@@ -8247,9 +8368,9 @@
           "title" : "10 Wins"
         },
         {
-          "description" : "Lose 25 games.",
-          "id" : "losses-25",
-          "title" : "25 Losses"
+          "description" : "Lose 50 games.",
+          "id" : "losses-50",
+          "title" : "50 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -8402,10 +8523,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 49,
+      "losses" : 50,
       "name" : "Noah",
-      "totalGames" : 65,
-      "winRate" : 0.24615384615384617,
+      "totalGames" : 66,
+      "winRate" : 0.24242424242424243,
       "wins" : 16
     },
     {
@@ -8421,14 +8542,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8558,9 +8679,9 @@
       ],
       "losses" : 31,
       "name" : "Pertman",
-      "totalGames" : 57,
-      "winRate" : 0.45614035087719296,
-      "wins" : 26
+      "totalGames" : 58,
+      "winRate" : 0.46551724137931033,
+      "wins" : 27
     }
   ]
 }

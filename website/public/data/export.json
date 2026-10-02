@@ -234,6 +234,13 @@
       "wins" : 2
     },
     {
+      "losses" : 1,
+      "name" : "Danny Pink",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "losses" : 0,
       "name" : "Dave Commander",
       "totalGames" : 0,
@@ -694,9 +701,9 @@
       ],
       "losses" : 3,
       "name" : "Liberator, Urza's Battlethopter",
-      "totalGames" : 3,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 4,
+      "winRate" : 0.25,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -964,6 +971,13 @@
       ],
       "losses" : 1,
       "name" : "Pako, Arcane Retriever",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Phelia, Exuberant Shepherd",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -1358,10 +1372,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/f\/5\/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1745970982"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Ureni of the Unwritten",
-      "totalGames" : 2,
-      "winRate" : 1,
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
       "wins" : 2
     },
     {
@@ -1419,6 +1433,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/2\/e20da6b5-1057-4a28-9e85-07de714e262f.jpg?1783904979"
+      ],
       "losses" : 1,
       "name" : "Wan Shi Tong, Librarian",
       "totalGames" : 1,
@@ -1509,8 +1529,104 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-02T03:03:33Z",
+  "exportedAt" : "2026-10-02T04:44:27Z",
   "games" : [
+    {
+      "date" : "2026-10-02T03:10:43Z",
+      "durationSeconds" : 5544.522795915604,
+      "isInPerson" : false,
+      "notes" : "Justin’s spacebar malfunctioned and so we ticked up to 135 turns. It was likely due to his Mike & Ikes. Danny “The Molester” Pink became a God. Pertman drew 8 lands on his first Ureni trigger. Turns got all fucked up a second time from the Mike & Ikes, and there was no coming back. Justin essentially gave Noah the win. Noah killed Jake with commander damage.",
+      "participants" : [
+        {
+          "commanderName" : "Liberator, Urza's Battlethopter",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Phelia, Exuberant Shepherd",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Danny Pink",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Ureni of the Unwritten",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 10
+        }
+      ]
+    },
     {
       "date" : "2026-10-02T00:50:23Z",
       "durationSeconds" : 7979.268952965736,
@@ -1578,6 +1694,9 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -8112,14 +8231,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8237,10 +8356,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 39,
+      "losses" : 40,
       "name" : "Jake",
-      "totalGames" : 51,
-      "winRate" : 0.23529411764705882,
+      "totalGames" : 52,
+      "winRate" : 0.23076923076923078,
       "wins" : 12
     },
     {
@@ -8341,10 +8460,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 29,
+      "losses" : 30,
       "name" : "Justin",
-      "totalGames" : 33,
-      "winRate" : 0.12121212121212122,
+      "totalGames" : 34,
+      "winRate" : 0.11764705882352941,
       "wins" : 4
     },
     {
@@ -8493,14 +8612,14 @@
           "title" : "50 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8645,9 +8764,9 @@
       ],
       "losses" : 51,
       "name" : "Noah",
-      "totalGames" : 67,
-      "winRate" : 0.23880597014925373,
-      "wins" : 16
+      "totalGames" : 68,
+      "winRate" : 0.25,
+      "wins" : 17
     },
     {
       "achievements" : [
@@ -8797,10 +8916,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 32,
+      "losses" : 33,
       "name" : "Pertman",
-      "totalGames" : 59,
-      "winRate" : 0.4576271186440678,
+      "totalGames" : 60,
+      "winRate" : 0.45,
       "wins" : 27
     }
   ]

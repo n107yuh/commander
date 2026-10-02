@@ -1438,9 +1438,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/7\/7\/777fcc21-2856-4181-8ecd-c272f9769e36.jpg?1783904828"
       ],
-      "losses" : 1,
+      "losses" : 0,
       "name" : "Wan Shi Tong, All-Knowing",
-      "totalGames" : 1,
+      "totalGames" : 0,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1451,9 +1451,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/2\/e20da6b5-1057-4a28-9e85-07de714e262f.jpg?1783904979"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Wan Shi Tong, Librarian",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1541,7 +1541,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-02T04:44:49Z",
+  "exportedAt" : "2026-10-02T14:32:22Z",
   "games" : [
     {
       "date" : "2026-10-02T03:10:43Z",
@@ -4000,7 +4000,7 @@
           "turnsPlayed" : 9
         },
         {
-          "commanderName" : "Wan Shi Tong, All-Knowing",
+          "commanderName" : "Wan Shi Tong, Librarian",
           "didWin" : false,
           "openingHandSize" : 7,
           "placement" : 2,

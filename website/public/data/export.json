@@ -40,9 +40,9 @@
       ],
       "losses" : 2,
       "name" : "Arahbo, Roar of the World",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1006,10 +1006,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/0\/7\/0742f19d-179c-43c4-ab95-4160c56b4384.jpg?1782683381"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Quintorius, History Chaser",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -1178,6 +1178,14 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "B",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/5\/55c9e915-9cee-45c3-96aa-9dfd5a600d0a.jpg?1783913387"
+      ],
       "losses" : 1,
       "name" : "The Celestial Toymaker",
       "totalGames" : 1,
@@ -1223,10 +1231,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/4\/9\/494c244e-dcdc-4169-9743-8a61f58e8763.jpg?1783909663"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "The Lord of Pain",
-      "totalGames" : 4,
-      "winRate" : 0.25,
+      "totalGames" : 5,
+      "winRate" : 0.2,
       "wins" : 1
     },
     {
@@ -1411,6 +1419,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Wan Shi Tong, Librarian",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B",
         "U"
@@ -1494,8 +1509,108 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-09-29T04:34:40Z",
+  "exportedAt" : "2026-10-02T03:03:33Z",
   "games" : [
+    {
+      "date" : "2026-10-02T00:50:23Z",
+      "durationSeconds" : 7979.268952965736,
+      "isInPerson" : false,
+      "notes" : "Pertman yelled “wait” long after his turn was over to play a sorcery. Jake broke a big ol loss streak",
+      "participants" : [
+        {
+          "commanderName" : "Arahbo, Roar of the World",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "The Lord of Pain",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 10 games.",
+              "id" : "losses-10",
+              "title" : "10 Losses"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Wan Shi Tong, Librarian",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Quintorius, History Chaser",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Pertman yells \"wait\" after his turn more than once in a single game.",
+              "id" : "pertman-wait",
+              "title" : "WAIT!"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
     {
       "date" : "2026-09-29T02:34:45Z",
       "durationSeconds" : 7162.124560952187,
@@ -1534,6 +1649,11 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -7992,14 +8112,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8119,9 +8239,9 @@
       ],
       "losses" : 39,
       "name" : "Jake",
-      "totalGames" : 50,
-      "winRate" : 0.22,
-      "wins" : 11
+      "totalGames" : 51,
+      "winRate" : 0.23529411764705882,
+      "wins" : 12
     },
     {
       "achievements" : [
@@ -8299,9 +8419,9 @@
     {
       "achievements" : [
         {
-          "description" : "Lose 5 games.",
-          "id" : "losses-5",
-          "title" : "5 Losses"
+          "description" : "Lose 10 games.",
+          "id" : "losses-10",
+          "title" : "10 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
@@ -8354,10 +8474,10 @@
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 9,
+      "losses" : 10,
       "name" : "Max",
-      "totalGames" : 13,
-      "winRate" : 0.3076923076923077,
+      "totalGames" : 14,
+      "winRate" : 0.2857142857142857,
       "wins" : 4
     },
     {
@@ -8523,10 +8643,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 50,
+      "losses" : 51,
       "name" : "Noah",
-      "totalGames" : 66,
-      "winRate" : 0.24242424242424243,
+      "totalGames" : 67,
+      "winRate" : 0.23880597014925373,
       "wins" : 16
     },
     {
@@ -8542,14 +8662,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8677,10 +8797,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 31,
+      "losses" : 32,
       "name" : "Pertman",
-      "totalGames" : 58,
-      "winRate" : 0.46551724137931033,
+      "totalGames" : 59,
+      "winRate" : 0.4576271186440678,
       "wins" : 27
     }
   ]

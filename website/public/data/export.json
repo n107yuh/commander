@@ -234,6 +234,12 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/f\/bf5e0a50-304c-4b3f-b5f7-1ca1213c0282.jpg?1783914672"
+      ],
       "losses" : 1,
       "name" : "Danny Pink",
       "totalGames" : 1,
@@ -976,6 +982,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/5\/5\/55707746-da6e-46e5-a5ca-7ac843fdc38e.jpg?1783911298"
+      ],
       "losses" : 1,
       "name" : "Phelia, Exuberant Shepherd",
       "totalGames" : 1,
@@ -1529,7 +1541,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-02T04:44:27Z",
+  "exportedAt" : "2026-10-02T04:44:49Z",
   "games" : [
     {
       "date" : "2026-10-02T03:10:43Z",
@@ -1569,7 +1581,7 @@
             }
           ],
           "turnOrder" : 0,
-          "turnsPlayed" : 10
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Phelia, Exuberant Shepherd",
@@ -1577,6 +1589,9 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -1590,7 +1605,7 @@
             }
           ],
           "turnOrder" : 2,
-          "turnsPlayed" : 10
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Danny Pink",
@@ -1598,11 +1613,14 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
           "triggeredAchievements" : [
 
           ],
           "turnOrder" : 1,
-          "turnsPlayed" : 10
+          "turnsPlayed" : 0
         },
         {
           "commanderName" : "Ureni of the Unwritten",
@@ -1623,7 +1641,7 @@
             }
           ],
           "turnOrder" : 3,
-          "turnsPlayed" : 10
+          "turnsPlayed" : 0
         }
       ]
     },

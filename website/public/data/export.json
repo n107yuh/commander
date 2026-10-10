@@ -75,6 +75,15 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/0\/d0d33d52-3d28-4635-b985-51e126289259.jpg?1783930136"
+      ],
       "losses" : 1,
       "name" : "Atraxa, Praetors' Voice",
       "totalGames" : 1,
@@ -192,11 +201,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Chromium",
       "totalGames" : 2,
-      "winRate" : 1,
-      "wins" : 2
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -754,11 +763,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/6\/a6f2ba13-cd72-4f7a-8443-8e3962f2ac46.jpg?1783920539"
       ],
-      "losses" : 2,
+      "losses" : 1,
       "name" : "Magar of the Magic Strings",
       "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
-      "wins" : 1
+      "winRate" : 0.6666666666666666,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1548,7 +1557,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-10T02:42:42Z",
+  "exportedAt" : "2026-10-10T03:20:45Z",
   "games" : [
     {
       "date" : "2026-10-10T01:46:43Z",
@@ -1557,41 +1566,10 @@
       "notes" : "Noah rolled a nat 1. Pertman rolled a nat 20. Jake played a turn 1 sol ring. His camera was facing the vent, and so nothing could be confirmed",
       "participants" : [
         {
-          "commanderName" : "Chromium",
+          "commanderName" : "Magar of the Magic Strings",
           "didWin" : true,
           "openingHandSize" : 7,
           "placement" : 0,
-          "playerName" : "Justin",
-          "resolvedColorIdentity" : [
-            "W",
-            "U",
-            "B"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Win 5 games.",
-              "id" : "wins-5",
-              "title" : "5 Wins"
-            },
-            {
-              "description" : "Consecutive wins since your last loss.",
-              "id" : "winstreak",
-              "title" : "Win Streak"
-            },
-            {
-              "description" : "Win a remote game.",
-              "id" : "digitalchampion",
-              "title" : "Digital Champion"
-            }
-          ],
-          "turnOrder" : 1,
-          "turnsPlayed" : 8
-        },
-        {
-          "commanderName" : "Magar of the Magic Strings",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
           "playerName" : "Pertman",
           "resolvedColorIdentity" : [
             "B",
@@ -1599,13 +1577,45 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Roll a natural 20 at the start of the game and still lose.",
-              "id" : "nat20-loss",
-              "title" : "Rolled Well, Played Poorly"
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Roll a natural 20 at the start of the game and win.",
+              "id" : "nat20-win",
+              "title" : "Critical Success"
             }
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
         },
         {
           "commanderName" : "Sheoldred, the Apocalypse",
@@ -1632,6 +1642,12 @@
           "openingHandSize" : 7,
           "placement" : 3,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -8494,24 +8510,19 @@
     {
       "achievements" : [
         {
-          "description" : "Win 5 games.",
-          "id" : "wins-5",
-          "title" : "5 Wins"
-        },
-        {
           "description" : "Lose 25 games.",
           "id" : "losses-25",
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8594,11 +8605,11 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 30,
+      "losses" : 31,
       "name" : "Justin",
       "totalGames" : 35,
-      "winRate" : 0.14285714285714285,
-      "wins" : 5
+      "winRate" : 0.11428571428571428,
+      "wins" : 4
     },
     {
       "achievements" : [
@@ -8920,14 +8931,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9010,11 +9021,6 @@
           "title" : "Critical Success"
         },
         {
-          "description" : "Roll a natural 20 at the start of the game and still lose.",
-          "id" : "nat20-loss",
-          "title" : "Rolled Well, Played Poorly"
-        },
-        {
           "description" : "Play Sol Ring on turn 1 and still lose.",
           "id" : "solring1-loss",
           "title" : "Sol Ring Wasn't Enough"
@@ -9060,11 +9066,11 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 34,
+      "losses" : 33,
       "name" : "Pertman",
       "totalGames" : 61,
-      "winRate" : 0.4426229508196721,
-      "wins" : 27
+      "winRate" : 0.45901639344262296,
+      "wins" : 28
     }
   ]
 }

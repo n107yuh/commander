@@ -32,17 +32,17 @@ struct ContentView: View {
                     .controlSize(.large)
 
                     NavigationLink {
-                        AnnalsView()
+                        OneVOneView()
                     } label: {
-                        Label("The Annals", systemImage: "scroll.fill")
+                        Label("1v1", systemImage: "person.line.dotted.person.fill")
                     }
                     .buttonStyle(.bordered)
                     .controlSize(.large)
 
                     NavigationLink {
-                        OneVOneView()
+                        AnnalsView()
                     } label: {
-                        Label("1v1", systemImage: "person.line.dotted.person.fill")
+                        Label("The Annals", systemImage: "scroll.fill")
                     }
                     .buttonStyle(.bordered)
                     .controlSize(.large)

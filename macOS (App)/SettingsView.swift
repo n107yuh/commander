@@ -24,8 +24,7 @@ struct SettingsView: View {
 
     @State private var importMessage: String? = nil
     @State private var importIsError = false
-    @State private var pendingImportFile: GameImportService.PendingGamesFile?
-    @State private var showImportPreview = false
+    @State private var pendingImport: PendingImport?
 
     @State private var restoreMessage: String? = nil
     @State private var restoreIsError = false
@@ -69,19 +68,12 @@ struct SettingsView: View {
         } message: { summary in
             Text("This will add \(summary.players) players, \(summary.commanders) commanders and \(summary.games) games to the app.")
         }
-        .sheet(isPresented: $showImportPreview) {
-            if let file = pendingImportFile {
-                ImportPreviewSheet(
-                    file: file,
-                    onCancel: {
-                        pendingImportFile = nil
-                        showImportPreview = false
-                    },
-                    onConfirm: {
-                        commitImport(file)
-                    }
-                )
-            }
+        .sheet(item: $pendingImport) { pending in
+            ImportPreviewSheet(
+                file: pending.file,
+                onCancel: { pendingImport = nil },
+                onConfirm: { commitImport(pending.file) }
+            )
         }
     }
 
@@ -463,8 +455,7 @@ struct SettingsView: View {
         do {
             let data = try Data(contentsOf: url)
             let file = try GameImportService.parse(data: data)
-            pendingImportFile = file
-            showImportPreview = true
+            pendingImport = PendingImport(file: file)
         } catch {
             importMessage = error.localizedDescription
             importIsError = true
@@ -473,8 +464,7 @@ struct SettingsView: View {
 
     private func commitImport(_ file: GameImportService.PendingGamesFile) {
         let count = GameImportService.importGames(file, into: modelContext)
-        pendingImportFile = nil
-        showImportPreview = false
+        pendingImport = nil
         importMessage = "Imported \(count) game\(count == 1 ? "" : "s")."
         importIsError = false
         let ctx = modelContext
@@ -584,6 +574,11 @@ struct SettingsView: View {
 }
 
 // MARK: - Import Preview Sheet
+
+private struct PendingImport: Identifiable {
+    let id = UUID()
+    let file: GameImportService.PendingGamesFile
+}
 
 private struct ImportPreviewSheet: View {
     let file: GameImportService.PendingGamesFile

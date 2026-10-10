@@ -201,10 +201,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Chromium",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -936,10 +936,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/d\/1db600b2-9b8b-4c21-8d8b-8033ec680a35.jpg?1783908176"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Odric, Lunarch Marshal",
-      "totalGames" : 2,
-      "winRate" : 1,
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
       "wins" : 2
     },
     {
@@ -1121,6 +1121,21 @@
       "totalGames" : 2,
       "winRate" : 1,
       "wins" : 2
+    },
+    {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/0\/3\/034e0929-b2c7-4b5f-94f2-8eaf4fb1a2a1.jpg?1783916249"
+      ],
+      "losses" : 0,
+      "name" : "Sauron, the Dark Lord",
+      "totalGames" : 1,
+      "winRate" : 1,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1557,8 +1572,87 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-10T03:20:45Z",
+  "exportedAt" : "2026-10-10T03:48:56Z",
   "games" : [
+    {
+      "date" : "2026-10-10T02:48:00Z",
+      "durationSeconds" : 1920,
+      "isInPerson" : false,
+      "notes" : "Jake won by commander damage, Justin was one turn away from a draw-out win, Jake thinks Pertman let him win (but it's not true, Pertman says).",
+      "participants" : [
+        {
+          "commanderName" : "Sauron, the Dark Lord",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Odric, Lunarch Marshal",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 4
+        }
+      ]
+    },
     {
       "date" : "2026-10-10T01:46:43Z",
       "durationSeconds" : 3346.8855489492416,
@@ -8376,14 +8470,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8503,9 +8597,9 @@
       ],
       "losses" : 41,
       "name" : "Jake",
-      "totalGames" : 53,
-      "winRate" : 0.22641509433962265,
-      "wins" : 12
+      "totalGames" : 54,
+      "winRate" : 0.24074074074074073,
+      "wins" : 13
     },
     {
       "achievements" : [
@@ -8548,6 +8642,11 @@
           "description" : "Win a game after going last.",
           "id" : "comefrombehind",
           "title" : "Come From Behind"
+        },
+        {
+          "description" : "Go first but finish last.",
+          "id" : "botchedit",
+          "title" : "Botched It"
         },
         {
           "description" : "Go last and finish last.",
@@ -8605,10 +8704,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 31,
+      "losses" : 32,
       "name" : "Justin",
-      "totalGames" : 35,
-      "winRate" : 0.11428571428571428,
+      "totalGames" : 36,
+      "winRate" : 0.1111111111111111,
       "wins" : 4
     },
     {
@@ -8931,14 +9030,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9066,10 +9165,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 33,
+      "losses" : 34,
       "name" : "Pertman",
-      "totalGames" : 61,
-      "winRate" : 0.45901639344262296,
+      "totalGames" : 62,
+      "winRate" : 0.45161290322580644,
       "wins" : 28
     }
   ]

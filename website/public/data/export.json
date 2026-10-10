@@ -75,6 +75,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Atraxa, Praetors' Voice",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B",
         "G",
@@ -187,9 +194,9 @@
       ],
       "losses" : 0,
       "name" : "Chromium",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -747,10 +754,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/6\/a6f2ba13-cd72-4f7a-8443-8e3962f2ac46.jpg?1783920539"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Magar of the Magic Strings",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -1128,10 +1135,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/6\/d67be074-cdd4-41d9-ac89-0a0456c4e4b2.jpg?1782700489"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Sheoldred, the Apocalypse",
-      "totalGames" : 2,
-      "winRate" : 1,
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
       "wins" : 2
     },
     {
@@ -1541,8 +1548,112 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-02T14:32:22Z",
+  "exportedAt" : "2026-10-10T02:42:42Z",
   "games" : [
+    {
+      "date" : "2026-10-10T01:46:43Z",
+      "durationSeconds" : 3346.8855489492416,
+      "isInPerson" : false,
+      "notes" : "Noah rolled a nat 1. Pertman rolled a nat 20. Jake played a turn 1 sol ring. His camera was facing the vent, and so nothing could be confirmed",
+      "participants" : [
+        {
+          "commanderName" : "Chromium",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win 5 games.",
+              "id" : "wins-5",
+              "title" : "5 Wins"
+            },
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Magar of the Magic Strings",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Roll a natural 20 at the start of the game and still lose.",
+              "id" : "nat20-loss",
+              "title" : "Rolled Well, Played Poorly"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Sheoldred, the Apocalypse",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Atraxa, Praetors' Voice",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-10-02T03:10:43Z",
       "durationSeconds" : 5544.522795915604,
@@ -8374,28 +8485,33 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 40,
+      "losses" : 41,
       "name" : "Jake",
-      "totalGames" : 52,
-      "winRate" : 0.23076923076923078,
+      "totalGames" : 53,
+      "winRate" : 0.22641509433962265,
       "wins" : 12
     },
     {
       "achievements" : [
+        {
+          "description" : "Win 5 games.",
+          "id" : "wins-5",
+          "title" : "5 Wins"
+        },
         {
           "description" : "Lose 25 games.",
           "id" : "losses-25",
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8480,9 +8596,9 @@
       ],
       "losses" : 30,
       "name" : "Justin",
-      "totalGames" : 34,
-      "winRate" : 0.11764705882352941,
-      "wins" : 4
+      "totalGames" : 35,
+      "winRate" : 0.14285714285714285,
+      "wins" : 5
     },
     {
       "achievements" : [
@@ -8630,14 +8746,14 @@
           "title" : "50 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8725,6 +8841,11 @@
           "title" : "Rolled Well, Played Poorly"
         },
         {
+          "description" : "Roll a natural 1 at the start of the game and lose.",
+          "id" : "nat1-loss",
+          "title" : "Critical Failure"
+        },
+        {
           "description" : "Play Sol Ring on turn 1 and win the game.",
           "id" : "solring1-win",
           "title" : "Sol Ring, GG"
@@ -8780,10 +8901,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 51,
+      "losses" : 52,
       "name" : "Noah",
-      "totalGames" : 68,
-      "winRate" : 0.25,
+      "totalGames" : 69,
+      "winRate" : 0.2463768115942029,
       "wins" : 17
     },
     {
@@ -8889,6 +9010,11 @@
           "title" : "Critical Success"
         },
         {
+          "description" : "Roll a natural 20 at the start of the game and still lose.",
+          "id" : "nat20-loss",
+          "title" : "Rolled Well, Played Poorly"
+        },
+        {
           "description" : "Play Sol Ring on turn 1 and still lose.",
           "id" : "solring1-loss",
           "title" : "Sol Ring Wasn't Enough"
@@ -8934,10 +9060,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 33,
+      "losses" : 34,
       "name" : "Pertman",
-      "totalGames" : 60,
-      "winRate" : 0.45,
+      "totalGames" : 61,
+      "winRate" : 0.4426229508196721,
       "wins" : 27
     }
   ]

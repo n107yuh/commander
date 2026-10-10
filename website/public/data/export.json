@@ -1572,13 +1572,13 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-10T03:48:56Z",
+  "exportedAt" : "2026-10-10T03:49:51Z",
   "games" : [
     {
       "date" : "2026-10-10T02:48:00Z",
       "durationSeconds" : 1920,
       "isInPerson" : false,
-      "notes" : "Jake won by commander damage, Justin was one turn away from a draw-out win, Jake thinks Pertman let him win (but it's not true, Pertman says).",
+      "notes" : "Jake killed Pertman with commander damage, Justin was one turn away from a draw-out win, Jake thinks Pertman let him win (but it's not true, Pertman says).",
       "participants" : [
         {
           "commanderName" : "Sauron, the Dark Lord",
@@ -1606,6 +1606,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
             }
           ],
           "turnOrder" : 2,
@@ -1625,6 +1630,11 @@
               "description" : "Consecutive losses since your last win.",
               "id" : "lossstreak",
               "title" : "Loss Streak"
+            },
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
             }
           ],
           "turnOrder" : 1,

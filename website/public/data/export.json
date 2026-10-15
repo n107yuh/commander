@@ -84,9 +84,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/0\/d0d33d52-3d28-4635-b985-51e126289259.jpg?1783930136"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Atraxa, Praetors' Voice",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -623,9 +623,9 @@
       ],
       "losses" : 1,
       "name" : "Katara, the Fearless",
-      "totalGames" : 3,
-      "winRate" : 0.6666666666666666,
-      "wins" : 2
+      "totalGames" : 4,
+      "winRate" : 0.75,
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -993,6 +993,13 @@
       ],
       "losses" : 1,
       "name" : "Pako, Arcane Retriever",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "losses" : 1,
+      "name" : "Phage the Untouchable",
       "totalGames" : 1,
       "winRate" : 0,
       "wins" : 0
@@ -1572,8 +1579,80 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-10T03:49:51Z",
+  "exportedAt" : "2026-10-15T02:19:56Z",
   "games" : [
+    {
+      "date" : "2026-10-15T00:58:51Z",
+      "durationSeconds" : 4853.887133002281,
+      "isInPerson" : false,
+      "notes" : "Jake killed himself immediately and it was a great bit. It was then discovered that Jake actually cheated and put that card in his opening hand from another deck, thereby ruining the bit entirely. Noah died from Phage, which is not commander damage but is still notable. Pertman somehow found a way to win because he always does",
+      "participants" : [
+        {
+          "commanderName" : "Katara, the Fearless",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "Phage the Untouchable",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 13
+        },
+        {
+          "commanderName" : "Atraxa, Praetors' Voice",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 12
+        }
+      ]
+    },
     {
       "date" : "2026-10-10T02:48:00Z",
       "durationSeconds" : 1920,
@@ -8480,14 +8559,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8605,10 +8684,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 41,
+      "losses" : 42,
       "name" : "Jake",
-      "totalGames" : 54,
-      "winRate" : 0.24074074074074073,
+      "totalGames" : 55,
+      "winRate" : 0.23636363636363636,
       "wins" : 13
     },
     {
@@ -9021,10 +9100,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 52,
+      "losses" : 53,
       "name" : "Noah",
-      "totalGames" : 69,
-      "winRate" : 0.2463768115942029,
+      "totalGames" : 70,
+      "winRate" : 0.24285714285714285,
       "wins" : 17
     },
     {
@@ -9040,14 +9119,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9177,9 +9256,9 @@
       ],
       "losses" : 34,
       "name" : "Pertman",
-      "totalGames" : 62,
-      "winRate" : 0.45161290322580644,
-      "wins" : 28
+      "totalGames" : 63,
+      "winRate" : 0.4603174603174603,
+      "wins" : 29
     }
   ]
 }

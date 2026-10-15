@@ -201,10 +201,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Chromium",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
+      "totalGames" : 4,
+      "winRate" : 0.25,
       "wins" : 1
     },
     {
@@ -436,9 +436,9 @@
       ],
       "losses" : 3,
       "name" : "Grothama, All-Devouring",
-      "totalGames" : 5,
-      "winRate" : 0.4,
-      "wins" : 2
+      "totalGames" : 6,
+      "winRate" : 0.5,
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -568,6 +568,13 @@
       "totalGames" : 5,
       "winRate" : 0.4,
       "wins" : 2
+    },
+    {
+      "losses" : 1,
+      "name" : "Jodah, the Unifier",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -811,6 +818,13 @@
       "wins" : 2
     },
     {
+      "losses" : 1,
+      "name" : "Mina and Denn, Wildborn",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "W"
       ],
@@ -998,6 +1012,12 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/d\/4\/d497a5a3-65fb-4c12-b3f2-8ce4cf4e0f6f.jpg?1783939355"
+      ],
       "losses" : 1,
       "name" : "Phage the Untouchable",
       "totalGames" : 1,
@@ -1579,8 +1599,94 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-15T02:19:56Z",
+  "exportedAt" : "2026-10-15T04:12:29Z",
   "games" : [
+    {
+      "date" : "2026-10-15T02:26:46Z",
+      "durationSeconds" : 6326.428140044212,
+      "isInPerson" : false,
+      "notes" : "Justin played a card that maybe doesn’t exist, but it was confirmed to be real. Noah generated 9,035 scutes, Justin played “Everybody Lives” to block Noah from winning. Pertman killed Noah with poison.",
+      "participants" : [
+        {
+          "commanderName" : "Grothama, All-Devouring",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Eliminate another player with 10 poison counters.",
+              "id" : "poisonkill",
+              "title" : "Assassino!"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Jodah, the Unifier",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 250 total turns.",
+              "id" : "turns-250",
+              "title" : "250 Turns"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Mina and Denn, Wildborn",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 3,
+          "playerName" : "Noah",
+          "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by 10 poison counters.",
+              "id" : "poisondeath",
+              "title" : "Inconceivable!"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-10-15T00:58:51Z",
       "durationSeconds" : 4853.887133002281,
@@ -1619,6 +1725,9 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",
@@ -8669,9 +8778,9 @@
           "title" : "50 Games"
         },
         {
-          "description" : "Play 100 total turns.",
-          "id" : "turns-100",
-          "title" : "100 Turns"
+          "description" : "Play 250 total turns.",
+          "id" : "turns-250",
+          "title" : "250 Turns"
         },
         {
           "description" : "Play 5+ distinct commanders.",
@@ -8684,10 +8793,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 42,
+      "losses" : 43,
       "name" : "Jake",
-      "totalGames" : 55,
-      "winRate" : 0.23636363636363636,
+      "totalGames" : 56,
+      "winRate" : 0.23214285714285715,
       "wins" : 13
     },
     {
@@ -8793,10 +8902,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 32,
+      "losses" : 33,
       "name" : "Justin",
-      "totalGames" : 36,
-      "winRate" : 0.1111111111111111,
+      "totalGames" : 37,
+      "winRate" : 0.10810810810810811,
       "wins" : 4
     },
     {
@@ -9070,6 +9179,11 @@
           "title" : "Milled 'em To A Pulp"
         },
         {
+          "description" : "Get eliminated by 10 poison counters.",
+          "id" : "poisondeath",
+          "title" : "Inconceivable!"
+        },
+        {
           "description" : "Play 50 total games.",
           "id" : "games-50",
           "title" : "50 Games"
@@ -9100,10 +9214,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 53,
+      "losses" : 54,
       "name" : "Noah",
-      "totalGames" : 70,
-      "winRate" : 0.24285714285714285,
+      "totalGames" : 71,
+      "winRate" : 0.23943661971830985,
       "wins" : 17
     },
     {
@@ -9229,6 +9343,11 @@
           "title" : "Library Card: Declined"
         },
         {
+          "description" : "Eliminate another player with 10 poison counters.",
+          "id" : "poisonkill",
+          "title" : "Assassino!"
+        },
+        {
           "description" : "Play 50 total games.",
           "id" : "games-50",
           "title" : "50 Games"
@@ -9256,9 +9375,9 @@
       ],
       "losses" : 34,
       "name" : "Pertman",
-      "totalGames" : 63,
-      "winRate" : 0.4603174603174603,
-      "wins" : 29
+      "totalGames" : 64,
+      "winRate" : 0.46875,
+      "wins" : 30
     }
   ]
 }

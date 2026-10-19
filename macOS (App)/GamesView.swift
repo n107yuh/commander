@@ -1314,7 +1314,7 @@ private struct AnnalsRow: View {
                     }
                 }
             }
-            let names = game.participants.compactMap { $0.player?.name }.sorted()
+            let names = game.participantsInFinishOrder.compactMap { $0.player?.name }
             if !names.isEmpty {
                 Text(names.joined(separator: "  ·  "))
                     .font(.caption)

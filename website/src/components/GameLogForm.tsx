@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import {
   type PendingGame, type PendingParticipant, type PendingGamesFile,
-  needsColorIdentityChoice, formatIsoNoMillis, newEmptyParticipant, newEmptyGame,
+  needsColorIdentityChoice, formatIsoNoMillis, newEmptyParticipant, newEmptyGame, placementsForTies,
 } from '@/lib/logSchema'
 import { CommanderCombobox } from './CommanderCombobox'
 
@@ -111,7 +111,13 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
       const next = [...g.participants]
       const j = index + dir
       if (j < 0 || j >= next.length) return g
+      // A tie describes a slot in the finish order, not the player in it, so the flags
+      // stay put when two players swap.
+      const tiedA = !!next[index].tiedWithPrevious
+      const tiedB = !!next[j].tiedWithPrevious
       ;[next[index], next[j]] = [next[j], next[index]]
+      next[index] = { ...next[index], tiedWithPrevious: tiedA }
+      next[j] = { ...next[j], tiedWithPrevious: tiedB }
       return { ...g, participants: next }
     })
   }
@@ -154,6 +160,7 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
         .filter(p => p.playerName.trim())
         .map(p => ({
           ...p,
+          tiedWithPrevious: !!p.tiedWithPrevious,
           playerName: p.playerName.trim(),
           commanderName: p.commanderName.trim(),
           partnerCommanderName: p.partnerCommanderName?.trim() || null,
@@ -189,6 +196,7 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
     setMessage('Downloaded. Send this file to Noah to import into the main app.')
   }
 
+  const placements = placementsForTies(current.participants.map(p => !!p.tiedWithPrevious))
   const takenTurnOrders = new Set(current.participants.map(p => p.turnOrder).filter(t => t >= 0))
 
   return (
@@ -208,12 +216,14 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
           </div>
           <div className="space-y-1.5">
             {queue.map((g, i) => {
-              const winner = g.participants[0]
+              const winners = g.participants
+                .filter((_, idx) => placementsForTies(g.participants.map(p => !!p.tiedWithPrevious))[idx] === 0)
+                .map(p => p.playerName)
               return (
                 <div key={i} className="flex items-center justify-between text-sm bg-slate-800/50 rounded-md px-3 py-2">
                   <span className="text-slate-300">
                     {new Date(g.date).toLocaleString()} · {g.isInPerson ? '🏠' : '💻'} ·{' '}
-                    <span className="text-emerald-400">{winner?.playerName ?? '?'}</span> won
+                    <span className="text-emerald-400">{winners.length > 0 ? winners.join(' & ') : '?'}</span> won
                     {' '}({g.participants.length} players)
                   </span>
                   <button onClick={() => removeQueued(i)} className="text-slate-500 hover:text-red-400 text-xs shrink-0 ml-2">
@@ -304,7 +314,7 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
             <span className="text-xs text-slate-500">Players</span>
           </div>
           <p className="text-xs text-slate-500 mb-3">
-            Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated.
+            Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), check &quot;Tied with above&quot; on the lower one and both will share that place.
           </p>
 
           <div className="space-y-3">
@@ -312,6 +322,7 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
               <ParticipantRow
                 key={i}
                 index={i}
+                placement={placements[i]}
                 total={current.participants.length}
                 participant={p}
                 takenTurnOrders={takenTurnOrders}
@@ -364,10 +375,12 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
 }
 
 function ParticipantRow({
-  index, total, participant, takenTurnOrders, onChange, onMoveUp, onMoveDown, onRemove,
+  index, placement, total, participant, takenTurnOrders, onChange, onMoveUp, onMoveDown, onRemove,
   confirmedValid, unverifiedNames, onConfirmValid, onUnverified,
 }: {
   index: number
+  // Finish place after applying ties (0 = first); equals `index` unless rows above are tied.
+  placement: number
   total: number
   participant: PendingParticipant
   takenTurnOrders: Set<number>
@@ -380,7 +393,7 @@ function ParticipantRow({
   onConfirmValid: (name: string) => void
   onUnverified: (name: string, unverified: boolean) => void
 }) {
-  const placementLabel = index === 0 ? 'Winner' : ordinal(index + 1)
+  const placementLabel = placement === 0 ? 'Winner' : ordinal(placement + 1)
   const mainUnresolved = !!participant.commanderName.trim() && unverifiedNames.has(participant.commanderName.trim().toLowerCase())
   const partnerUnresolved = !!participant.partnerCommanderName?.trim() && unverifiedNames.has(participant.partnerCommanderName.trim().toLowerCase())
   const showColorPicker = needsColorIdentityChoice(participant.commanderName, unverifiedNames)
@@ -398,9 +411,19 @@ function ParticipantRow({
   return (
     <div className="flex gap-3 bg-slate-800/40 border border-slate-800 rounded-lg p-3">
       <div className="flex flex-col items-center gap-1.5 shrink-0 w-16">
-        <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded-full text-center ${index === 0 ? 'bg-yellow-500/20 text-yellow-300' : 'bg-slate-700 text-slate-300'}`}>
-          {index === 0 ? '👑 ' : ''}{placementLabel}
+        <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded-full text-center ${placement === 0 ? 'bg-yellow-500/20 text-yellow-300' : 'bg-slate-700 text-slate-300'}`}>
+          {placement === 0 ? '👑 ' : ''}{placementLabel}
         </span>
+        {index > 0 && (
+          <label className="flex items-center gap-1 text-[10px] leading-tight text-slate-400 cursor-pointer text-center" title="Finished in a tie with the player above — both share the same place (a tie for first means both won)">
+            <input
+              type="checkbox"
+              checked={!!participant.tiedWithPrevious}
+              onChange={e => onChange({ tiedWithPrevious: e.target.checked })}
+            />
+            Tied with above
+          </label>
+        )}
         <div className="flex gap-1">
           <button type="button" onClick={onMoveUp} disabled={!onMoveUp} className="text-slate-500 disabled:opacity-20 hover:text-white text-xs">▲</button>
           <button type="button" onClick={onMoveDown} disabled={!onMoveDown} className="text-slate-500 disabled:opacity-20 hover:text-white text-xs">▼</button>

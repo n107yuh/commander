@@ -22,6 +22,9 @@ enum GameImportService {
         var chosenColorIdentity: [String]
         // Optional so pending-game files queued before this field existed still decode.
         var turnsPlayed: Int?
+        // Finished in a tie with the participant above (a tie for first means both won).
+        // Optional so files queued before ties existed still decode.
+        var tiedWithPrevious: Bool?
     }
 
     struct PendingGame: Codable {
@@ -58,6 +61,7 @@ enum GameImportService {
         let id = UUID()
         let date: Date
         let isInPerson: Bool
+        // More than one name when the game ended in a tie for first.
         let winnerName: String
         let participantNames: [String]
     }
@@ -83,7 +87,13 @@ enum GameImportService {
             PreviewGame(
                 date: parseDate(g.date) ?? .now,
                 isInPerson: g.isInPerson,
-                winnerName: g.participants.first?.playerName ?? "—",
+                winnerName: {
+                    let placements = placementsForTies(g.participants.map { $0.tiedWithPrevious ?? false })
+                    let names = zip(g.participants, placements)
+                        .filter { $0.1 == 0 }
+                        .map(\.0.playerName)
+                    return names.isEmpty ? "—" : names.joined(separator: " & ")
+                }(),
                 participantNames: g.participants.map(\.playerName)
             )
         }
@@ -119,6 +129,8 @@ enum GameImportService {
             }
             guard validParticipants.count >= 2 else { continue }
 
+            let placements = placementsForTies(validParticipants.map { $0.tiedWithPrevious ?? false })
+
             var resolved: [Resolved] = []
             for (index, p) in validParticipants.enumerated() {
                 let player = PodStore.findOrCreatePlayer(named: p.playerName, in: context)
@@ -132,8 +144,8 @@ enum GameImportService {
                     player: player,
                     commander: commander,
                     partner: partner,
-                    didWin: index == 0,
-                    placement: index,
+                    didWin: placements[index] == 0,
+                    placement: placements[index],
                     turnOrder: validTurn,
                     openingHandSize: p.openingHandSize > 0 ? p.openingHandSize : 7,
                     chosenColorIdentity: p.chosenColorIdentity,

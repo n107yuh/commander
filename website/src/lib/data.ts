@@ -236,6 +236,32 @@ export function winRateByTurnOrder(games: GameData[], playerName: string): TurnO
     .sort((a, b) => a.turnOrder - b.turnOrder)
 }
 
+export interface Champions {
+  digi: string[]
+  irl: string[]
+  ultimate: string[]
+}
+
+// Mirrors digichampion/irlchampion/ultimateChampion in the Mac app's GamesView.swift: whoever
+// won the most recent remote/in-person game holds that crown until someone else wins one. A tie
+// for first means every winner of that game holds it. Anyone holding both crowns is an Ultimate
+// Champion and is listed only there; `digi`/`irl` hold the remaining single-crown holders.
+export function currentChampions(games: GameData[]): Champions {
+  const sorted = [...games].sort((a, b) => b.date.localeCompare(a.date))
+  const winnersOf = (inPerson: boolean): string[] =>
+    sorted
+      .find(g => g.isInPerson === inPerson && g.participants.some(p => p.didWin))
+      ?.participants.filter(p => p.didWin).map(p => p.playerName) ?? []
+  const digiAll = winnersOf(false)
+  const irlAll = winnersOf(true)
+  const ultimate = digiAll.filter(n => irlAll.includes(n))
+  return {
+    digi: digiAll.filter(n => !ultimate.includes(n)),
+    irl: irlAll.filter(n => !ultimate.includes(n)),
+    ultimate,
+  }
+}
+
 export function playerStandings(players: PlayerData[]): PlayerData[] {
   return [...players].sort((a, b) => {
     if (b.totalGames === 0 && a.totalGames === 0) return 0

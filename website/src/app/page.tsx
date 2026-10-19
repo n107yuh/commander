@@ -1,7 +1,21 @@
 import Link from 'next/link'
-import { loadData, formatDate, formatWinRate, commanderLabel, playerStandings } from '@/lib/data'
+import { loadData, formatDate, formatWinRate, commanderLabel, playerStandings, currentChampions } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { ClickableRow } from '@/components/ClickableRow'
+
+// Links each name to its player page, joined with " & " (a tie for first can crown several players).
+function PlayerLinks({ names }: { names: string[] }) {
+  return (
+    <>
+      {names.map((n, i) => (
+        <span key={n}>
+          {i > 0 && ' & '}
+          <Link href={`/players/${encodeURIComponent(n)}`} className="hover:text-violet-400">{n}</Link>
+        </span>
+      ))}
+    </>
+  )
+}
 
 export default function Dashboard() {
   const data = loadData()
@@ -15,15 +29,8 @@ export default function Dashboard() {
   const recentGames = sorted.slice(0, 3)
   const standings = playerStandings(players)
 
-  // Mirrors digichampion/irlchampion/ultimateChampion in the Mac app's
-  // GamesView.swift: whoever most recently won a remote/in-person game holds
-  // that crown until someone else wins one; holding both simultaneously makes
-  // you the Ultimate Champion.
-  const digiChampion = sorted.find(g => !g.isInPerson && g.participants.some(p => p.didWin))
-    ?.participants.find(p => p.didWin)?.playerName ?? null
-  const irlChampion = sorted.find(g => g.isInPerson && g.participants.some(p => p.didWin))
-    ?.participants.find(p => p.didWin)?.playerName ?? null
-  const ultimateChampion = digiChampion && digiChampion === irlChampion ? digiChampion : null
+  const champions = currentChampions(podGames)
+  const hasChampions = champions.digi.length + champions.irl.length + champions.ultimate.length > 0
 
   return (
     <div className="space-y-8">
@@ -40,43 +47,31 @@ export default function Dashboard() {
       </div>
 
       {/* Champion Banner */}
-      {(digiChampion || irlChampion) && (
-        <div className="bg-slate-900 border border-slate-800 rounded-lg p-4">
-          {ultimateChampion ? (
+      {hasChampions && (
+        <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 space-y-4">
+          {champions.ultimate.length > 0 && (
             <div className="flex flex-col items-center gap-1.5 py-2">
               <span className="champion-hue-cycle text-4xl">👑</span>
               <span className="champion-hue-cycle text-amber-400 text-xs font-bold uppercase tracking-wider">Ultimate Champion</span>
-              <Link
-                href={`/players/${encodeURIComponent(ultimateChampion)}`}
-                className="text-lg font-bold text-white hover:text-violet-400"
-              >
-                {ultimateChampion}
-              </Link>
+              <span className="text-lg font-bold text-white">
+                <PlayerLinks names={champions.ultimate} />
+              </span>
             </div>
-          ) : (
+          )}
+          {(champions.digi.length > 0 || champions.irl.length > 0) && (
             <div className="flex items-start justify-center gap-16">
-              {digiChampion && (
+              {champions.digi.length > 0 && (
                 <div className="flex flex-col items-center gap-1.5">
                   <span className="text-3xl">👑</span>
                   <span className="text-xs font-bold uppercase tracking-wider text-blue-400">Digichampion</span>
-                  <Link
-                    href={`/players/${encodeURIComponent(digiChampion)}`}
-                    className="font-semibold text-white hover:text-violet-400"
-                  >
-                    {digiChampion}
-                  </Link>
+                  <span className="font-semibold text-white"><PlayerLinks names={champions.digi} /></span>
                 </div>
               )}
-              {irlChampion && (
+              {champions.irl.length > 0 && (
                 <div className="flex flex-col items-center gap-1.5">
                   <span className="text-3xl">👑</span>
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-300">IRLchampion</span>
-                  <Link
-                    href={`/players/${encodeURIComponent(irlChampion)}`}
-                    className="font-semibold text-white hover:text-violet-400"
-                  >
-                    {irlChampion}
-                  </Link>
+                  <span className="font-semibold text-white"><PlayerLinks names={champions.irl} /></span>
                 </div>
               )}
             </div>
@@ -139,25 +134,27 @@ export default function Dashboard() {
               <div className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-6 text-center text-slate-500 text-sm">No games yet</div>
             )}
             {recentGames.map((game, i) => {
-              const winner = game.participants.find(p => p.didWin)
+              const winners = game.participants.filter(p => p.didWin)
               return (
                 <div key={i} className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3">
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-slate-400 text-xs whitespace-nowrap">
                       {formatDate(game.date)} · {game.isInPerson ? '🏠' : '💻'}
+                      {winners.length > 1 && ' · Tie'}
                     </span>
                     <div className="flex items-center gap-2 min-w-0">
-                      {winner && (
-                        <ColorDots colors={winner.resolvedColorIdentity} />
+                      {winners.length === 1 && (
+                        <ColorDots colors={winners[0].resolvedColorIdentity} />
                       )}
                     </div>
                   </div>
-                  {winner && (
-                    <div className="mt-1">
+                  {winners.map(winner => (
+                    <div key={winner.playerName} className="mt-1 flex items-center gap-2">
                       <span className="text-emerald-400 font-medium text-sm">{winner.playerName}</span>
-                      <span className="text-slate-500 text-xs ml-1.5">({commanderLabel(winner)})</span>
+                      <span className="text-slate-500 text-xs">({commanderLabel(winner)})</span>
+                      {winners.length > 1 && <ColorDots colors={winner.resolvedColorIdentity} />}
                     </div>
-                  )}
+                  ))}
                   <div className="text-slate-500 text-xs mt-0.5">
                     {game.participants.filter(p => !p.didWin).map(p => `${p.playerName} (${commanderLabel(p)})`).join(', ')}
                   </div>

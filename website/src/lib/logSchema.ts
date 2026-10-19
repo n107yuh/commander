@@ -58,6 +58,21 @@ export interface PendingParticipant {
   // Turns this player was in the game for — stops increasing once they're
   // eliminated, unlike a single game-wide turn count. 0 means not recorded.
   turnsPlayed: number
+  // True when this player finished in a tie with the participant above them (a tie for first
+  // means both won). Optional so queued games saved before ties existed still load; mirrors
+  // GameImportService.swift's optional `tiedWithPrevious`.
+  tiedWithPrevious?: boolean
+}
+
+// Turns "tied with the row above" flags into 0-indexed placements using standard competition
+// ranking (two players tied for first both get 0, the next gets 2) — mirrors placementsForTies
+// in the Mac app's Models.swift. The first row can't tie with anything above it.
+export function placementsForTies(tiedWithPrevious: boolean[]): number[] {
+  const placements: number[] = []
+  tiedWithPrevious.forEach((tied, i) => {
+    placements.push(i > 0 && tied ? placements[i - 1] : i)
+  })
+  return placements
 }
 
 export interface PendingGame {
@@ -67,7 +82,8 @@ export interface PendingGame {
   isInPerson: boolean
   notes: string
   // Ordered winner-first, then finishing order — didWin/placement are
-  // derived from this order on import, same as the native game editor.
+  // derived from this order (and each participant's tiedWithPrevious) on
+  // import, same as the native game editor.
   participants: PendingParticipant[]
 }
 
@@ -93,6 +109,7 @@ export function newEmptyParticipant(): PendingParticipant {
     openingHandSize: 7,
     chosenColorIdentity: [],
     turnsPlayed: 0,
+    tiedWithPrevious: false,
   }
 }
 

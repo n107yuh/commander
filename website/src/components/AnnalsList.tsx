@@ -18,8 +18,7 @@ export function AnnalsList({ games }: { games: GameData[] }) {
   const winners = useMemo(() => {
     const names = new Set<string>()
     for (const g of games) {
-      const w = g.participants.find(p => p.didWin)
-      if (w) names.add(w.playerName)
+      for (const w of g.participants) if (w.didWin) names.add(w.playerName)
     }
     return Array.from(names).sort()
   }, [games])
@@ -50,7 +49,7 @@ export function AnnalsList({ games }: { games: GameData[] }) {
   }, [games])
 
   const filtered = games.filter(g => {
-    if (winnerFilter && g.participants.find(p => p.didWin)?.playerName !== winnerFilter) return false
+    if (winnerFilter && !g.participants.some(p => p.didWin && p.playerName === winnerFilter)) return false
     if (playerFilter && !g.participants.some(p => p.playerName === playerFilter)) return false
     if (formatFilter === 'irl' && !g.isInPerson) return false
     if (formatFilter === 'remote' && g.isInPerson) return false
@@ -147,7 +146,8 @@ export function AnnalsList({ games }: { games: GameData[] }) {
       <div className="space-y-3">
         {filtered.map((game, i) => {
           const isOpen = openIndex === i
-          const winner = game.participants.find(p => p.didWin)
+          const gameWinners = game.participants.filter(p => p.didWin)
+          const isTie = gameWinners.length > 1
 
           return (
             <div key={i} className="bg-slate-900 border border-slate-800 rounded-lg">
@@ -169,10 +169,13 @@ export function AnnalsList({ games }: { games: GameData[] }) {
                       <span className="text-slate-400">⏱ {formatDuration(game.durationSeconds)}</span>
                     </>
                   )}
-                  {winner && (
+                  {gameWinners.length > 0 && (
                     <>
                       <span className="text-slate-600">·</span>
-                      <span className="text-emerald-400">{winner.playerName} won with {commanderLabel(winner)}</span>
+                      <span className="text-emerald-400">
+                        {isTie && <span className="text-[10px] font-bold uppercase tracking-wide text-amber-300 bg-amber-500/15 px-1.5 py-0.5 rounded mr-1.5">Tie</span>}
+                        {gameWinners.map(w => `${w.playerName} won with ${commanderLabel(w)}`).join(' · ')}
+                      </span>
                     </>
                   )}
                 </div>

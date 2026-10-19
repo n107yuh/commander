@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { loadData } from '@/lib/data'
+import { loadData, currentChampions } from '@/lib/data'
 
 export const runtime = 'nodejs'
 export const alt = 'Commander Tracker'
@@ -8,15 +8,10 @@ export const contentType = 'image/png'
 
 export default function OpengraphImage() {
   const { games } = loadData()
-  const sorted = [...games].sort((a, b) => b.date.localeCompare(a.date))
-
-  // Mirrors digichampion/irlchampion/ultimateChampion in the Mac app's
-  // GamesView.swift, and website/src/app/page.tsx's dashboard banner.
-  const digiChampion = sorted.find(g => !g.isInPerson && g.participants.some(p => p.didWin))
-    ?.participants.find(p => p.didWin)?.playerName ?? null
-  const irlChampion = sorted.find(g => g.isInPerson && g.participants.some(p => p.didWin))
-    ?.participants.find(p => p.didWin)?.playerName ?? null
-  const ultimateChampion = digiChampion && digiChampion === irlChampion ? digiChampion : null
+  const champions = currentChampions(games.filter(g => g.participants.length !== 2))
+  const ultimateChampion = champions.ultimate.length > 0 ? champions.ultimate.join(' & ') : null
+  const digiChampion = champions.digi.length > 0 ? champions.digi.join(' & ') : null
+  const irlChampion = champions.irl.length > 0 ? champions.irl.join(' & ') : null
 
   return new ImageResponse(
     (

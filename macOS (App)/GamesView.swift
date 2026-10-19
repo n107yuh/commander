@@ -69,27 +69,29 @@ struct GamesView: View {
         }
     }
 
-    private var digichampion: Player? {
-        games.first(where: { $0.winner != nil && !$0.isInPerson })?.winner?.player
+    // A tie for first means a game can have several winners, and all of them take the crown.
+    private var digichampions: [Player] {
+        games.first(where: { !$0.winners.isEmpty && !$0.isInPerson })?.winners.compactMap { $0.player } ?? []
     }
 
-    private var irlchampion: Player? {
-        games.first(where: { $0.winner != nil && $0.isInPerson })?.winner?.player
+    private var irlchampions: [Player] {
+        games.first(where: { !$0.winners.isEmpty && $0.isInPerson })?.winners.compactMap { $0.player } ?? []
     }
 
-    private var ultimateChampion: Player? {
-        guard let digi = digichampion, let irl = irlchampion,
-              digi.persistentModelID == irl.persistentModelID else { return nil }
-        return digi
+    private var ultimateChampions: [Player] {
+        let irlIDs = Set(irlchampions.map(\.persistentModelID))
+        return digichampions.filter { irlIDs.contains($0.persistentModelID) }
     }
 
     @ViewBuilder
     private var championBanner: some View {
-        let digi = digichampion
-        let irl = irlchampion
-        if digi != nil || irl != nil {
+        let ultimates = ultimateChampions
+        let ultimateIDs = Set(ultimates.map(\.persistentModelID))
+        let digiOnly = digichampions.filter { !ultimateIDs.contains($0.persistentModelID) }
+        let irlOnly = irlchampions.filter { !ultimateIDs.contains($0.persistentModelID) }
+        if !ultimates.isEmpty || !digiOnly.isEmpty || !irlOnly.isEmpty {
             VStack(spacing: 8) {
-                if let ultimate = ultimateChampion {
+                if !ultimates.isEmpty {
                     VStack(spacing: 6) {
                         TimelineView(.animation(minimumInterval: 0.04)) { timeline in
                             let t = timeline.date.timeIntervalSince1970
@@ -108,22 +110,23 @@ struct GamesView: View {
                             .font(.caption.weight(.bold))
                             .textCase(.uppercase)
                             .foregroundStyle(.secondary)
-                        rainbowName(ultimate.name)
+                        rainbowName(ultimates.map(\.name).joined(separator: " & "))
                     }
-                } else {
+                }
+                if !digiOnly.isEmpty || !irlOnly.isEmpty {
                     HStack(alignment: .top, spacing: 40) {
-                        if let digi {
+                        if !digiOnly.isEmpty {
                             championRow(
                                 crownColor: Color(red: 0.35, green: 0.55, blue: 0.95),
                                 label: "Digichampion",
-                                name: digi.name
+                                name: digiOnly.map(\.name).joined(separator: " & ")
                             )
                         }
-                        if let irl {
+                        if !irlOnly.isEmpty {
                             championRow(
                                 crownColor: Color(red: 0.78, green: 0.80, blue: 0.85),
                                 label: "IRLchampion",
-                                name: irl.name
+                                name: irlOnly.map(\.name).joined(separator: " & ")
                             )
                         }
                     }
@@ -227,16 +230,26 @@ private struct RecentGameCard: View {
                     .clipShape(Capsule())
             }
 
-            if let winner = game.winner {
-                HStack(spacing: 6) {
-                    Image(systemName: "crown.fill")
-                        .foregroundStyle(.yellow)
-                    Text(winner.player?.name ?? "Unknown")
-                        .font(.title3.bold())
-                    Text("with")
-                        .foregroundStyle(.secondary)
-                    Text(winner.commanders.map(\.name).joined(separator: " + "))
-                        .font(.title3.italic())
+            if !game.winners.isEmpty {
+                VStack(alignment: .leading, spacing: 4) {
+                    if game.winners.count > 1 {
+                        Text("Tie for first")
+                            .font(.caption.weight(.bold))
+                            .textCase(.uppercase)
+                            .foregroundStyle(.secondary)
+                    }
+                    ForEach(Array(game.winners.enumerated()), id: \.offset) { _, winner in
+                        HStack(spacing: 6) {
+                            Image(systemName: "crown.fill")
+                                .foregroundStyle(.yellow)
+                            Text(winner.player?.name ?? "Unknown")
+                                .font(.title3.bold())
+                            Text("with")
+                                .foregroundStyle(.secondary)
+                            Text(winner.commanders.map(\.name).joined(separator: " + "))
+                                .font(.title3.italic())
+                        }
+                    }
                 }
             } else {
                 Text("No winner recorded")
@@ -289,12 +302,12 @@ private struct GameRow: View {
                 Image(systemName: game.isInPerson ? "person.2.fill" : "wifi")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                if let winner = game.winner {
+                if !game.winners.isEmpty {
                     HStack(spacing: 3) {
                         Image(systemName: "crown.fill")
                             .font(.caption)
                             .foregroundStyle(.yellow)
-                        Text(winner.player?.name ?? "Unknown")
+                        Text(game.winners.map { $0.player?.name ?? "Unknown" }.joined(separator: " & "))
                             .font(.subheadline.weight(.medium))
                     }
                 }
@@ -350,6 +363,9 @@ private struct ParticipantDraft: Identifiable {
     // Turns this player was in the game for before being eliminated (or through the
     // end, if they survived); 0 means not recorded
     var turnsPlayed: Int = 0
+    // True when this row finished in a tie with the row above it (a tie for first means both
+    // won). Positional: it describes the row's slot in the list, not the player in it.
+    var tiedWithAbove: Bool = false
 }
 
 struct GameEditorView: View {
@@ -399,6 +415,10 @@ struct GameEditorView: View {
                     chosenColorIdentity: p.chosenColorIdentity ?? [],
                     turnsPlayed: p.turnsPlayed
                 )
+            }
+            for i in loadedDrafts.indices where i > 0 {
+                loadedDrafts[i].tiedWithAbove = game.isTied(sortedParticipants[i])
+                    && sortedParticipants[i].placement == sortedParticipants[i - 1].placement
             }
             if loadedDrafts.isEmpty {
                 loadedDrafts = [ParticipantDraft(), ParticipantDraft()]
@@ -473,18 +493,20 @@ struct GameEditorView: View {
                 }
 
                 Section("Players") {
-                    Text("Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated.")
+                    Text("Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), mark the lower one \"Tied with above\" and both will share that place.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     let takenTurns: Set<Int> = Set(drafts.compactMap { $0.turnOrder >= 0 ? $0.turnOrder : nil })
+                    let placements = placementsForTies(drafts.map(\.tiedWithAbove))
                     ForEach(drafts.indices, id: \.self) { index in
                         ParticipantRow(
                             index: index,
+                            placement: placements[index],
                             total: drafts.count,
                             draft: $drafts[index],
                             takenTurnOrders: takenTurns,
-                            onMoveUp: index > 0 ? { drafts.swapAt(index, index - 1) } : nil,
-                            onMoveDown: index < drafts.count - 1 ? { drafts.swapAt(index, index + 1) } : nil,
+                            onMoveUp: index > 0 ? { swapDrafts(index, index - 1) } : nil,
+                            onMoveDown: index < drafts.count - 1 ? { swapDrafts(index, index + 1) } : nil,
                             onDelete: drafts.count > 2 ? { remove(drafts[index].id) } : nil,
                             playerSuggestions: playerSuggestions,
                             commanderSuggestions: commanderSuggestions,
@@ -604,6 +626,16 @@ struct GameEditorView: View {
         return result
     }
 
+    /// Swaps two rows' players while leaving each slot's tie flag in place, so a "tie for first"
+    /// stays a tie for first when the people in those slots are reordered.
+    private func swapDrafts(_ a: Int, _ b: Int) {
+        let tiedA = drafts[a].tiedWithAbove
+        let tiedB = drafts[b].tiedWithAbove
+        drafts.swapAt(a, b)
+        drafts[a].tiedWithAbove = tiedA
+        drafts[b].tiedWithAbove = tiedB
+    }
+
     private func remove(_ id: UUID) {
         drafts.removeAll { $0.id == id }
         if winnerID == id { winnerID = nil }
@@ -664,6 +696,8 @@ struct GameEditorView: View {
             let turnsPlayed: Int
         }
 
+        let placements = placementsForTies(validDrafts.map(\.tiedWithAbove))
+
         var resolved: [Resolved] = []
         for (index, draft) in validDrafts.enumerated() {
             let trimmedName = draft.playerName.trimmingCharacters(in: .whitespaces)
@@ -685,8 +719,8 @@ struct GameEditorView: View {
                 player: player,
                 commander: commander,
                 partner: partner,
-                didWin: index == 0,
-                placement: index,
+                didWin: placements[index] == 0,
+                placement: placements[index],
                 turnOrder: validTurn,
                 openingHandSize: draft.openingHandSize,
                 chosenColorIdentity: chosenColors,
@@ -780,6 +814,8 @@ struct GameEditorView: View {
 
 private struct ParticipantRow: View {
     let index: Int
+    // Finish place after applying ties (0 = first); equals `index` unless rows above are tied.
+    let placement: Int
     let total: Int
     @Binding var draft: ParticipantDraft
     let takenTurnOrders: Set<Int>
@@ -792,11 +828,11 @@ private struct ParticipantRow: View {
     let markLiveResolution: (String, Bool) -> Void
 
     private var placementLabel: String {
-        switch index {
+        switch placement {
         case 0: return "Winner"
         case 1: return "2nd"
         case 2: return "3rd"
-        default: return "\(index + 1)th"
+        default: return "\(placement + 1)th"
         }
     }
 
@@ -804,7 +840,7 @@ private struct ParticipantRow: View {
         HStack(alignment: .top, spacing: 8) {
             VStack(spacing: 6) {
                 VStack(spacing: 2) {
-                    if index == 0 {
+                    if placement == 0 {
                         Image(systemName: "crown.fill")
                             .foregroundStyle(.yellow)
                             .font(.caption)
@@ -817,8 +853,18 @@ private struct ParticipantRow: View {
                 }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 4)
-                .background(index == 0 ? Color.yellow.opacity(0.18) : Color.secondary.opacity(0.15))
+                .background(placement == 0 ? Color.yellow.opacity(0.18) : Color.secondary.opacity(0.15))
                 .clipShape(Capsule())
+
+                if index > 0 {
+                    Toggle(isOn: $draft.tiedWithAbove) {
+                        Text("Tied with above")
+                            .font(.caption2)
+                            .multilineTextAlignment(.center)
+                    }
+                    .toggleStyle(.checkbox)
+                    .help("Finished in a tie with the player above — both share the same place (a tie for first means both won)")
+                }
 
                 VStack(spacing: 2) {
                     Button {
@@ -1250,7 +1296,7 @@ private struct AnnalsRow: View {
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
             }
-            if let winner = game.winner {
+            ForEach(Array(game.winners.enumerated()), id: \.offset) { _, winner in
                 HStack(spacing: 5) {
                     Image(systemName: "crown.fill")
                         .font(.caption)
@@ -1312,11 +1358,23 @@ private struct AnnalsDetailPanel: View {
             VStack(alignment: .leading, spacing: 6) {
                 sectionHeader("Finish Order")
                 ForEach(Array(sortedByPlacement.enumerated()), id: \.offset) { i, p in
+                    // Tied players share their recorded placement; everyone else's place is just
+                    // their position in the list (which also covers games from before placements
+                    // were tracked, where every placement is 0).
+                    let tied = game.isTied(p)
+                    let place = tied ? p.placement : i
                     HStack(spacing: 10) {
-                        Text(i == 0 ? "Winner" : placementLabel(i))
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(placementColor(i))
-                            .frame(width: 48, alignment: .leading)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(place == 0 ? "Winner" : placementLabel(place))
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(placementColor(place))
+                            if tied {
+                                Text("Tie")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .frame(width: 48, alignment: .leading)
                         VStack(alignment: .leading, spacing: 3) {
                             Text(p.player?.name ?? "—")
                                 .font(.subheadline.weight(.medium))

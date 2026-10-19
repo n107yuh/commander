@@ -128,7 +128,26 @@ final class Game {
     }
 
     var winner: GameParticipant? {
-        participants.first { $0.didWin }
+        winners.first
+    }
+
+    /// Everyone who won — more than one when the game ended in a tie for first.
+    var winners: [GameParticipant] {
+        participants
+            .filter { $0.didWin }
+            .sorted { $0.placement < $1.placement }
+    }
+
+    /// Whether `participant` shares their finishing place with someone else in this game.
+    /// Placement 0 doubles as "not recorded" on games from before placements were tracked, so
+    /// an unrecorded 0 only counts as a tie when the player actually won.
+    func isTied(_ participant: GameParticipant) -> Bool {
+        participants.contains { other in
+            other !== participant
+                && other.placement == participant.placement
+                && other.didWin == participant.didWin
+                && (participant.placement > 0 || participant.didWin)
+        }
     }
 
     func containsCommander(_ commander: MTGCommander) -> Bool {
@@ -192,6 +211,21 @@ final class GameParticipant {
     var commanders: [MTGCommander] {
         [commander, partnerCommander].compactMap { $0 }
     }
+}
+
+/// Turns a finish-ordered list's "tied with the row above" flags into 0-indexed placements using
+/// standard competition ranking: two players tied for first both get placement 0 and the next
+/// player gets placement 2 ("3rd"). The first row can't tie with anything above it.
+func placementsForTies(_ tiedWithAbove: [Bool]) -> [Int] {
+    var placements: [Int] = []
+    for (index, tied) in tiedWithAbove.enumerated() {
+        if index > 0 && tied, let previous = placements.last {
+            placements.append(previous)
+        } else {
+            placements.append(index)
+        }
+    }
+    return placements
 }
 
 enum PodStore {

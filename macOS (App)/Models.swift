@@ -133,9 +133,15 @@ final class Game {
 
     /// Everyone who won — more than one when the game ended in a tie for first.
     var winners: [GameParticipant] {
-        participants
-            .filter { $0.didWin }
-            .sorted { $0.placement < $1.placement }
+        participantsInFinishOrder.filter { $0.didWin }
+    }
+
+    /// Participants by placement, with tied players kept in the order they were entered.
+    var participantsInFinishOrder: [GameParticipant] {
+        participants.sorted { lhs, rhs in
+            if lhs.placement != rhs.placement { return lhs.placement < rhs.placement }
+            return lhs.finishOrder < rhs.finishOrder
+        }
     }
 
     /// Whether `participant` shares their finishing place with someone else in this game.
@@ -185,6 +191,10 @@ final class GameParticipant {
     // eliminated, unlike a single game-wide turn count. 0 means not recorded; no backfill
     // needed since a participant who played at all took at least 1 turn.
     var turnsPlayed: Int = 0
+    // Position in the finish order as entered (0 = top row). Tied players share a placement, so
+    // this is what keeps them in the order they were listed in. Games saved before this existed
+    // all read 0, which just leaves any ties in those games in their old arbitrary order.
+    var finishOrder: Int = 0
 
     init(
         player: Player? = nil,
@@ -195,7 +205,8 @@ final class GameParticipant {
         turnOrder: Int = -1,
         openingHandSize: Int = 7,
         chosenColorIdentity: [String]? = nil,
-        turnsPlayed: Int = 0
+        turnsPlayed: Int = 0,
+        finishOrder: Int = 0
     ) {
         self.player = player
         self.commander = commander
@@ -206,6 +217,7 @@ final class GameParticipant {
         self.openingHandSize = openingHandSize
         self.chosenColorIdentity = chosenColorIdentity
         self.turnsPlayed = turnsPlayed
+        self.finishOrder = finishOrder
     }
 
     var commanders: [MTGCommander] {

@@ -314,7 +314,7 @@ export function GameLogForm({ knownPlayers, knownCommanders }: { knownPlayers: s
             <span className="text-xs text-slate-500">Players</span>
           </div>
           <p className="text-xs text-slate-500 mb-3">
-            Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), check &quot;Tied with above&quot; on the lower one and both will share that place.
+            Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), check &quot;Tied above&quot; on the lower one and both will share that place.
           </p>
 
           <div className="space-y-3">
@@ -421,7 +421,7 @@ function ParticipantRow({
               checked={!!participant.tiedWithPrevious}
               onChange={e => onChange({ tiedWithPrevious: e.target.checked })}
             />
-            Tied with above
+            Tied above
           </label>
         )}
         <div className="flex gap-1">

@@ -256,7 +256,7 @@ private struct RecentGameCard: View {
                     .foregroundStyle(.secondary)
             }
 
-            let participants = game.participants.sorted { $0.placement < $1.placement }
+            let participants = game.participantsInFinishOrder
             if !participants.isEmpty {
                 HStack(spacing: 4) {
                     Image(systemName: "person.2")
@@ -317,7 +317,7 @@ private struct GameRow: View {
     }
 
     private var participantSummary: String {
-        let sorted = game.participants.sorted { $0.placement < $1.placement }
+        let sorted = game.participantsInFinishOrder
         let parts = sorted.compactMap { p -> String? in
             guard let name = p.player?.name else { return nil }
             let cmdrs = p.commanders.map(\.name).joined(separator: " + ")
@@ -402,7 +402,7 @@ struct GameEditorView: View {
             let sortedParticipants = game.participants.sorted { lhs, rhs in
                 if lhs.placement != rhs.placement { return lhs.placement < rhs.placement }
                 if lhs.didWin != rhs.didWin { return lhs.didWin && !rhs.didWin }
-                return false
+                return lhs.finishOrder < rhs.finishOrder
             }
             var loadedDrafts = sortedParticipants.map { p in
                 ParticipantDraft(
@@ -493,7 +493,7 @@ struct GameEditorView: View {
                 }
 
                 Section("Players") {
-                    Text("Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), mark the lower one \"Tied with above\" and both will share that place.")
+                    Text("Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), mark the lower one \"Tied above\" and both will share that place.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     let takenTurns: Set<Int> = Set(drafts.compactMap { $0.turnOrder >= 0 ? $0.turnOrder : nil })
@@ -765,7 +765,7 @@ struct GameEditorView: View {
         }
 
         // Phase 3: create new participants linked to the pre-resolved entities.
-        for r in resolved {
+        for (order, r) in resolved.enumerated() {
             let participant = GameParticipant(
                 player: r.player,
                 commander: r.commander,
@@ -775,7 +775,8 @@ struct GameEditorView: View {
                 turnOrder: r.turnOrder,
                 openingHandSize: r.openingHandSize,
                 chosenColorIdentity: r.chosenColorIdentity.isEmpty ? nil : r.chosenColorIdentity,
-                turnsPlayed: r.turnsPlayed
+                turnsPlayed: r.turnsPlayed,
+                finishOrder: order
             )
             context.insert(participant)
             participant.game = game
@@ -858,7 +859,7 @@ private struct ParticipantRow: View {
 
                 if index > 0 {
                     Toggle(isOn: $draft.tiedWithAbove) {
-                        Text("Tied with above")
+                        Text("Tied above")
                             .font(.caption2)
                             .multilineTextAlignment(.center)
                     }
@@ -1223,7 +1224,7 @@ struct AnnalsView: View {
             let format = game.isInPerson ? "In Person" : "Remote"
             let notes = game.notes.replacingOccurrences(of: "\n", with: " ")
 
-            for p in game.participants.sorted(by: { $0.placement < $1.placement }) {
+            for p in game.participantsInFinishOrder {
                 let label: String
                 switch p.placement {
                 case 0: label = "1st"
@@ -1329,7 +1330,7 @@ private struct AnnalsDetailPanel: View {
     @Query(sort: \Game.date) private var allGames: [Game]
 
     private var sortedByPlacement: [GameParticipant] {
-        game.participants.sorted { $0.placement < $1.placement }
+        game.participantsInFinishOrder
     }
 
     private var sortedByTurn: [GameParticipant] {

@@ -156,7 +156,7 @@ enum GameImportService {
             let game = Game(date: startDate, endTime: endDate, notes: g.notes, isInPerson: g.isInPerson)
             context.insert(game)
 
-            for r in resolved {
+            for (order, r) in resolved.enumerated() {
                 let participant = GameParticipant(
                     player: r.player,
                     commander: r.commander,
@@ -166,7 +166,8 @@ enum GameImportService {
                     turnOrder: r.turnOrder,
                     openingHandSize: r.openingHandSize,
                     chosenColorIdentity: r.chosenColorIdentity.isEmpty ? nil : r.chosenColorIdentity,
-                    turnsPlayed: r.turnsPlayed
+                    turnsPlayed: r.turnsPlayed,
+                    finishOrder: order
                 )
                 context.insert(participant)
                 participant.game = game

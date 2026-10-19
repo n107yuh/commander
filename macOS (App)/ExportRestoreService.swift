@@ -68,7 +68,9 @@ enum ExportRestoreService {
             let game = Game(date: start, endTime: end, notes: g.notes, isInPerson: g.isInPerson)
             context.insert(game)
 
-            for p in g.participants {
+            // The export lists participants in finish order (ties in the order they were entered),
+            // so the array position restores each player's finishOrder.
+            for (order, p) in g.participants.enumerated() {
                 let player = PodStore.findOrCreatePlayer(named: p.playerName, in: context)
                 let commander = PodStore.findOrCreateCommander(named: p.commanderName, in: context)
                 let partnerName = p.partnerCommanderName?.trimmingCharacters(in: .whitespaces) ?? ""
@@ -85,7 +87,8 @@ enum ExportRestoreService {
                     turnOrder: p.turnOrder,
                     openingHandSize: p.openingHandSize > 0 ? p.openingHandSize : 7,
                     chosenColorIdentity: chosenIdentity(for: p, exportedCommanders: exportedCommanders),
-                    turnsPlayed: p.turnsPlayed
+                    turnsPlayed: p.turnsPlayed,
+                    finishOrder: order
                 )
                 context.insert(participant)
                 participant.game = game

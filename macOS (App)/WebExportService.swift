@@ -148,8 +148,7 @@ enum WebExportService {
                     let d = end.timeIntervalSince(game.date)
                     return d > 0 ? d : nil
                 }
-                let participants = game.participants
-                    .sorted { $0.placement < $1.placement }
+                let participants = game.participantsInFinishOrder
                     .map { part in
                         let triggered = allAchievementsEarnedThisGame(for: part, allGames: games)
                         return ParticipantData(

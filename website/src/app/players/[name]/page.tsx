@@ -10,6 +10,7 @@ import { AchievementPill } from '@/components/AchievementPill'
 import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
 import { PlacementChart } from '@/components/PlacementChart'
 import { ClickableRow } from '@/components/ClickableRow'
+import { PlayerCommanderRecords } from '@/components/PlayerCommanderRecords'
 import { computePlayerAchievementCatalog } from '@/lib/achievements'
 
 export default function PlayerDetail({ params }: { params: { name: string } }) {
@@ -24,14 +25,15 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
   const playerGames = getPlayerGames(podGames, name).sort((a, b) => b.date.localeCompare(a.date))
 
   // Commander usage stats
-  const cmdMap: Record<string, { wins: number; games: number; colorIdentity: string[] | null }> = {}
+  const cmdMap: Record<string, { wins: number; games: number; colorIdentity: string[] | null; lastPlayed: string }> = {}
   for (const game of playerGames) {
     const part = game.participants.find(p => p.playerName === name)
     if (!part) continue
     const key = commanderLabel(part)
     if (!cmdMap[key]) {
       const ci = part.resolvedColorIdentity
-      cmdMap[key] = { wins: 0, games: 0, colorIdentity: ci }
+      // playerGames is newest-first, so the first game seen for a commander is its most recent.
+      cmdMap[key] = { wins: 0, games: 0, colorIdentity: ci, lastPlayed: game.date }
     }
     cmdMap[key].games++
     if (part.didWin) cmdMap[key].wins++
@@ -263,40 +265,7 @@ export default function PlayerDetail({ params }: { params: { name: string } }) {
       {cmdList.length > 0 && (
         <section>
           <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Commander Records</h2>
-          <div className="bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-slate-800 bg-slate-800/30">
-                    <th className="text-left px-4 py-2.5 text-slate-400 font-medium">Commander</th>
-                    <th className="text-left px-3 py-2.5 text-slate-400 font-medium">Colors</th>
-                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">W</th>
-                    <th className="text-right px-3 py-2.5 text-slate-400 font-medium">L</th>
-                    <th className="text-right px-4 py-2.5 text-slate-400 font-medium">Win%</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cmdList.map(c => (
-                    <tr key={c.label} className="border-b border-slate-800/50 last:border-0">
-                      <td className="px-4 py-3 text-white">
-                        {c.label.includes('+') ? (
-                          <span>{c.label}</span>
-                        ) : (
-                          <Link href={`/commanders/${encodeURIComponent(c.label)}`} className="hover:text-violet-400">
-                            {c.label}
-                          </Link>
-                        )}
-                      </td>
-                      <td className="px-3 py-3"><ColorDots colors={c.colorIdentity} /></td>
-                      <td className="text-right px-3 py-3 text-emerald-400 font-mono">{c.wins}</td>
-                      <td className="text-right px-3 py-3 text-red-400 font-mono">{c.games - c.wins}</td>
-                      <td className="text-right px-4 py-3 text-slate-300 font-mono">{formatWinRate(c.winRate)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <PlayerCommanderRecords entries={cmdList} />
         </section>
       )}
 

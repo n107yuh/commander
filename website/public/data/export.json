@@ -138,9 +138,9 @@
       ],
       "losses" : 2,
       "name" : "Bruce Banner \/\/ The Incredible Hulk",
-      "totalGames" : 4,
-      "winRate" : 0.5,
-      "wins" : 2
+      "totalGames" : 5,
+      "winRate" : 0.6,
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -570,6 +570,16 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/4\/e4b1aa1e-b4e3-4346-8937-76b312501c70.jpg?1783921283"
+      ],
       "losses" : 1,
       "name" : "Jodah, the Unifier",
       "totalGames" : 1,
@@ -785,9 +795,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1782708123"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Marisi, Breaker of the Coil",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -818,6 +828,13 @@
       "wins" : 2
     },
     {
+      "colorIdentity" : [
+        "G",
+        "R"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/3\/7\/374b5d57-fd20-4062-9ec2-24ac557d9dde.jpg?1783929456"
+      ],
       "losses" : 1,
       "name" : "Mina and Denn, Wildborn",
       "totalGames" : 1,
@@ -1315,10 +1332,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/4\/9\/494c244e-dcdc-4169-9743-8a61f58e8763.jpg?1783909663"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "The Lord of Pain",
-      "totalGames" : 5,
-      "winRate" : 0.2,
+      "totalGames" : 6,
+      "winRate" : 0.16666666666666666,
       "wins" : 1
     },
     {
@@ -1387,9 +1404,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/f\/cfb80c75-4b1b-4f25-923a-933855e7345c.jpg?1769163701"
       ],
-      "losses" : 5,
+      "losses" : 6,
       "name" : "The Wise Mothman",
-      "totalGames" : 5,
+      "totalGames" : 6,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1442,10 +1459,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/f\/5\/f54ecbf1-83df-4486-bd6a-7d1f173b6863.jpg?1745970982"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Ureni of the Unwritten",
-      "totalGames" : 3,
-      "winRate" : 0.6666666666666666,
+      "totalGames" : 4,
+      "winRate" : 0.5,
       "wins" : 2
     },
     {
@@ -1599,8 +1616,141 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-15T04:12:29Z",
+  "exportedAt" : "2026-10-19T03:30:14Z",
   "games" : [
+    {
+      "date" : "2026-10-19T02:00:00Z",
+      "durationSeconds" : 3840,
+      "isInPerson" : true,
+      "notes" : "Noah killed Max with commander damage. Noah and Jake tied through the power of the star",
+      "participants" : [
+        {
+          "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a 5-player game.",
+              "id" : "starformat",
+              "title" : "You Get A Stars"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Marisi, Breaker of the Coil",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 4,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Ureni of the Unwritten",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "U",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 5+ distinct commanders.",
+              "id" : "connoisseur",
+              "title" : "Connoisseur"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "The Lord of Pain",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 4,
+          "playerName" : "Max",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            },
+            {
+              "description" : "Max graces the table with their presence.",
+              "id" : "max-zeus",
+              "title" : "Look What the Zeus Dragged In"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-10-15T02:26:46Z",
       "durationSeconds" : 6326.428140044212,
@@ -1637,6 +1787,13 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Play 250 total turns.",
@@ -1670,6 +1827,10 @@
           "openingHandSize" : 6,
           "placement" : 3,
           "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "R",
+            "G"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Get eliminated by 10 poison counters.",
@@ -8793,10 +8954,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 43,
+      "losses" : 44,
       "name" : "Jake",
-      "totalGames" : 56,
-      "winRate" : 0.23214285714285715,
+      "totalGames" : 57,
+      "winRate" : 0.22807017543859648,
       "wins" : 13
     },
     {
@@ -8969,12 +9130,17 @@
           "description" : "Get eliminated by 21+ commander damage.",
           "id" : "commanderdamagedeath",
           "title" : "Life Totals Don't Matter"
+        },
+        {
+          "description" : "Play 5+ distinct commanders.",
+          "id" : "connoisseur",
+          "title" : "Connoisseur"
         }
       ],
-      "losses" : 15,
+      "losses" : 16,
       "name" : "Margolis",
-      "totalGames" : 19,
-      "winRate" : 0.21052631578947367,
+      "totalGames" : 20,
+      "winRate" : 0.2,
       "wins" : 4
     },
     {
@@ -9030,15 +9196,20 @@
           "title" : "Critical Failure"
         },
         {
+          "description" : "Get eliminated by 21+ commander damage.",
+          "id" : "commanderdamagedeath",
+          "title" : "Life Totals Don't Matter"
+        },
+        {
           "description" : "Max graces the table with his presence.",
           "id" : "max-zeus",
           "title" : "Look What the Zeus Dragged In"
         }
       ],
-      "losses" : 10,
+      "losses" : 11,
       "name" : "Max",
-      "totalGames" : 14,
-      "winRate" : 0.2857142857142857,
+      "totalGames" : 15,
+      "winRate" : 0.26666666666666666,
       "wins" : 4
     },
     {
@@ -9054,14 +9225,14 @@
           "title" : "50 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9107,6 +9278,11 @@
           "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
           "id" : "ultimatechampion",
           "title" : "Ultimate Champion"
+        },
+        {
+          "description" : "Win a 5-player game.",
+          "id" : "starformat",
+          "title" : "You Get A Stars"
         },
         {
           "description" : "Win a game after going first.",
@@ -9216,9 +9392,9 @@
       ],
       "losses" : 54,
       "name" : "Noah",
-      "totalGames" : 71,
-      "winRate" : 0.23943661971830985,
-      "wins" : 17
+      "totalGames" : 72,
+      "winRate" : 0.25,
+      "wins" : 18
     },
     {
       "achievements" : [
@@ -9233,14 +9409,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9373,10 +9549,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 34,
+      "losses" : 35,
       "name" : "Pertman",
-      "totalGames" : 64,
-      "winRate" : 0.46875,
+      "totalGames" : 65,
+      "winRate" : 0.46153846153846156,
       "wins" : 30
     }
   ]

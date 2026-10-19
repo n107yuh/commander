@@ -795,11 +795,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/3\/c366e1c0-f62d-41ce-baec-de11dbc1c5f4.jpg?1782708123"
       ],
-      "losses" : 4,
+      "losses" : 3,
       "name" : "Marisi, Breaker of the Coil",
       "totalGames" : 4,
-      "winRate" : 0,
-      "wins" : 0
+      "winRate" : 0.25,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1616,7 +1616,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-19T03:30:14Z",
+  "exportedAt" : "2026-10-19T03:35:30Z",
   "games" : [
     {
       "date" : "2026-10-19T02:00:00Z",
@@ -1624,6 +1624,47 @@
       "isInPerson" : true,
       "notes" : "Noah killed Max with commander damage. Noah and Jake tied through the power of the star",
       "participants" : [
+        {
+          "commanderName" : "Marisi, Breaker of the Coil",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            },
+            {
+              "description" : "Win in both in-person and remote games.",
+              "id" : "formatdiplomat",
+              "title" : "Format Diplomat"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a 5-player game.",
+              "id" : "starformat",
+              "title" : "You Get A Stars"
+            }
+          ],
+          "turnOrder" : 4,
+          "turnsPlayed" : 6
+        },
         {
           "commanderName" : "Bruce Banner \/\/ The Incredible Hulk",
           "didWin" : true,
@@ -1664,23 +1705,6 @@
           ],
           "turnOrder" : 0,
           "turnsPlayed" : 7
-        },
-        {
-          "commanderName" : "Marisi, Breaker of the Coil",
-          "didWin" : false,
-          "openingHandSize" : 7,
-          "placement" : 1,
-          "playerName" : "Jake",
-          "resolvedColorIdentity" : [
-            "W",
-            "R",
-            "G"
-          ],
-          "triggeredAchievements" : [
-
-          ],
-          "turnOrder" : 4,
-          "turnsPlayed" : 6
         },
         {
           "commanderName" : "Ureni of the Unwritten",
@@ -8829,14 +8853,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -8852,6 +8876,16 @@
           "description" : "Win a remote game.",
           "id" : "digitalchampion",
           "title" : "Digital Champion"
+        },
+        {
+          "description" : "Win an in-person game.",
+          "id" : "irlchampion",
+          "title" : "IRL Champion"
+        },
+        {
+          "description" : "Win in both in-person and remote games.",
+          "id" : "formatdiplomat",
+          "title" : "Format Diplomat"
         },
         {
           "description" : "Win a 5-player game.",
@@ -8954,11 +8988,11 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 44,
+      "losses" : 43,
       "name" : "Jake",
       "totalGames" : 57,
-      "winRate" : 0.22807017543859648,
-      "wins" : 13
+      "winRate" : 0.24561403508771928,
+      "wins" : 14
     },
     {
       "achievements" : [

@@ -153,9 +153,9 @@
       ],
       "losses" : 1,
       "name" : "Caesar, Legion's Emperor",
-      "totalGames" : 2,
-      "winRate" : 0.5,
-      "wins" : 1
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -201,10 +201,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Chromium",
-      "totalGames" : 4,
-      "winRate" : 0.25,
+      "totalGames" : 5,
+      "winRate" : 0.2,
       "wins" : 1
     },
     {
@@ -256,9 +256,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/b\/f\/bf5e0a50-304c-4b3f-b5f7-1ca1213c0282.jpg?1783914672"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Danny Pink",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -548,9 +548,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/1\/c1f5bcc4-3ec7-42ae-8e4b-80a9b9135ff0.jpg?1744152961"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Jasmine Boreal of the Seven",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -680,10 +680,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/f\/b\/fb97e2a1-0e86-4c12-8d31-6ff7b825ca10.jpg?1783905133"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Kratos, God of War",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
+      "totalGames" : 4,
+      "winRate" : 0.25,
       "wins" : 1
     },
     {
@@ -753,9 +753,9 @@
       ],
       "losses" : 1,
       "name" : "Light-Paws, Emperor's Voice",
-      "totalGames" : 1,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 2,
+      "winRate" : 0.5,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1406,9 +1406,9 @@
       ],
       "losses" : 6,
       "name" : "The Wise Mothman",
-      "totalGames" : 6,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 7,
+      "winRate" : 0.14285714285714285,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1472,9 +1472,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/7\/b\/7b7a348a-51f7-4dc5-8fe7-1c70fea5e050.jpg?1783915686"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Urza, Lord High Artificer",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1577,6 +1577,19 @@
     },
     {
       "colorIdentity" : [
+        "B"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/b\/5\/b5a79f5d-d0df-4799-ac3a-84305e3af0c9.jpg?1783918469"
+      ],
+      "losses" : 1,
+      "name" : "Yawgmoth, Thran Physician",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
+      "colorIdentity" : [
         "W"
       ],
       "imageURLs" : [
@@ -1616,8 +1629,252 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-19T03:45:17Z",
+  "exportedAt" : "2026-10-22T14:27:44Z",
   "games" : [
+    {
+      "date" : "2026-10-22T03:40:11Z",
+      "durationSeconds" : 769,
+      "isInPerson" : false,
+      "notes" : "The game ended in 13 minutes because Jake was able to actually play as Light-Paws for once. He now understands why he is attacked when he plays as Light-Paws.",
+      "participants" : [
+        {
+          "commanderName" : "Light-Paws, Emperor's Voice",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
+              "id" : "ultimatechampion",
+              "title" : "Ultimate Champion"
+            },
+            {
+              "description" : "Win the pod's fastest game on record.",
+              "id" : "quickwin",
+              "title" : "Quickest Win"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Kratos, God of War",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Lose the pod's fastest game on record.",
+              "id" : "quickloss",
+              "title" : "Quickest Loss"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 4
+        }
+      ]
+    },
+    {
+      "date" : "2026-10-22T02:39:06Z",
+      "durationSeconds" : 3294,
+      "isInPerson" : false,
+      "notes" : "Jake's Exsanguinate.\nPertman kills Jake with Commander damage.",
+      "participants" : [
+        {
+          "commanderName" : "The Wise Mothman",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Yawgmoth, Thran Physician",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Danny Pink",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 8
+        }
+      ]
+    },
+    {
+      "date" : "2026-10-22T01:47:03Z",
+      "durationSeconds" : 2997,
+      "isInPerson" : false,
+      "notes" : "Jake rolled a nat 1. Pertman made 12x tokens and dropped his dice. Justin played a limp Gigantasaurus",
+      "participants" : [
+        {
+          "commanderName" : "Caesar, Legion's Emperor",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Jasmine Boreal of the Seven",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 10
+        },
+        {
+          "commanderName" : "Urza, Lord High Artificer",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            },
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
+        }
+      ]
+    },
     {
       "date" : "2026-10-19T02:00:00Z",
       "durationSeconds" : 3840,
@@ -8868,6 +9125,11 @@
           "title" : "Worst Loss Streak"
         },
         {
+          "description" : "Win the pod's fastest game on record.",
+          "id" : "quickwin",
+          "title" : "Quickest Win"
+        },
+        {
           "description" : "Lose the pod's longest game on record.",
           "id" : "marathonsurvivor",
           "title" : "Marathon Defeat"
@@ -8886,6 +9148,11 @@
           "description" : "Win in both in-person and remote games.",
           "id" : "formatdiplomat",
           "title" : "Format Diplomat"
+        },
+        {
+          "description" : "Simultaneously hold the Digichampion and IRLchampion crowns.",
+          "id" : "ultimatechampion",
+          "title" : "Ultimate Champion"
         },
         {
           "description" : "Win a 5-player game.",
@@ -8988,11 +9255,11 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 43,
+      "losses" : 45,
       "name" : "Jake",
-      "totalGames" : 57,
-      "winRate" : 0.24561403508771928,
-      "wins" : 14
+      "totalGames" : 60,
+      "winRate" : 0.25,
+      "wins" : 15
     },
     {
       "achievements" : [
@@ -9015,6 +9282,11 @@
           "description" : "Your longest losing streak ever.",
           "id" : "bestlossstreak",
           "title" : "Worst Loss Streak"
+        },
+        {
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
         },
         {
           "description" : "Lose the pod's longest game on record.",
@@ -9097,10 +9369,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 33,
+      "losses" : 36,
       "name" : "Justin",
-      "totalGames" : 37,
-      "winRate" : 0.10810810810810811,
+      "totalGames" : 40,
+      "winRate" : 0.1,
       "wins" : 4
     },
     {
@@ -9124,11 +9396,6 @@
           "description" : "Your longest losing streak ever.",
           "id" : "bestlossstreak",
           "title" : "Worst Loss Streak"
-        },
-        {
-          "description" : "Lose the pod's fastest game on record.",
-          "id" : "quickloss",
-          "title" : "Quickest Loss"
         },
         {
           "description" : "Win a remote game.",
@@ -9272,11 +9539,6 @@
           "description" : "Your longest losing streak ever.",
           "id" : "bestlossstreak",
           "title" : "Worst Loss Streak"
-        },
-        {
-          "description" : "Lose the pod's fastest game on record.",
-          "id" : "quickloss",
-          "title" : "Quickest Loss"
         },
         {
           "description" : "Win the pod's longest game on record.",
@@ -9458,9 +9720,9 @@
           "title" : "Worst Loss Streak"
         },
         {
-          "description" : "Win the pod's fastest game on record.",
-          "id" : "quickwin",
-          "title" : "Quickest Win"
+          "description" : "Lose the pod's fastest game on record.",
+          "id" : "quickloss",
+          "title" : "Quickest Loss"
         },
         {
           "description" : "Lose the pod's longest game on record.",
@@ -9583,11 +9845,11 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 35,
+      "losses" : 36,
       "name" : "Pertman",
-      "totalGames" : 65,
-      "winRate" : 0.46153846153846156,
-      "wins" : 30
+      "totalGames" : 68,
+      "winRate" : 0.47058823529411764,
+      "wins" : 32
     }
   ]
 }

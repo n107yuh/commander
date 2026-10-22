@@ -1629,7 +1629,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-22T14:27:44Z",
+  "exportedAt" : "2026-10-22T14:28:21Z",
   "games" : [
     {
       "date" : "2026-10-22T03:40:11Z",
@@ -1732,7 +1732,7 @@
       "date" : "2026-10-22T02:39:06Z",
       "durationSeconds" : 3294,
       "isInPerson" : false,
-      "notes" : "Jake's Exsanguinate.\nPertman kills Jake with Commander damage.",
+      "notes" : "Jake's Exsanguinate. Pertman killed Jake with commander damage.",
       "participants" : [
         {
           "commanderName" : "The Wise Mothman",
@@ -1755,6 +1755,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Eliminate another player with 21+ commander damage.",
+              "id" : "commanderdamagekill",
+              "title" : "Commander Damage!"
             }
           ],
           "turnOrder" : 0,
@@ -1770,7 +1775,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Get eliminated by 21+ commander damage.",
+              "id" : "commanderdamagedeath",
+              "title" : "Life Totals Don't Matter"
+            }
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 8

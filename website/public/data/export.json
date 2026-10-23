@@ -616,6 +616,14 @@
       "wins" : 0
     },
     {
+      "colorIdentity" : [
+        "B",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/e\/7\/e71c8c39-3fbb-4a42-9cf6-b3224f5a56fc.jpg?1783911211"
+      ],
       "losses" : 1,
       "name" : "Kaalia of the Vast",
       "totalGames" : 1,
@@ -1120,6 +1128,14 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "G",
+        "R",
+        "W"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/c\/d\/cdb53ce7-845c-4c62-98a9-4fc33c67a07b.jpg?1783916509"
+      ],
       "losses" : 1,
       "name" : "Rocco, Street Chef",
       "totalGames" : 1,
@@ -1643,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-23T04:10:13Z",
+  "exportedAt" : "2026-10-23T04:11:15Z",
   "games" : [
     {
       "date" : "2026-10-23T03:01:22Z",
@@ -1678,6 +1694,11 @@
           "openingHandSize" : 7,
           "placement" : 1,
           "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "R",
+            "G"
+          ],
           "triggeredAchievements" : [
 
           ],
@@ -1690,6 +1711,11 @@
           "openingHandSize" : 7,
           "placement" : 2,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive losses since your last win.",

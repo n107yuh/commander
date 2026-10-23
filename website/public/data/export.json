@@ -26,9 +26,9 @@
       ],
       "losses" : 4,
       "name" : "Aragorn, King of Gondor",
-      "totalGames" : 4,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 5,
+      "winRate" : 0.2,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -616,6 +616,13 @@
       "wins" : 0
     },
     {
+      "losses" : 1,
+      "name" : "Kaalia of the Vast",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "B",
         "W"
@@ -1111,6 +1118,13 @@
       "totalGames" : 1,
       "winRate" : 1,
       "wins" : 1
+    },
+    {
+      "losses" : 1,
+      "name" : "Rocco, Street Chef",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -1629,8 +1643,70 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-22T14:28:21Z",
+  "exportedAt" : "2026-10-23T04:10:13Z",
   "games" : [
+    {
+      "date" : "2026-10-23T03:01:22Z",
+      "durationSeconds" : 4068.7150050401688,
+      "isInPerson" : false,
+      "notes" : "Justin made 8 food tokens and offered them as a sacrifice to avoid being killed, which was denied",
+      "participants" : [
+        {
+          "commanderName" : "Aragorn, King of Gondor",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Rocco, Street Chef",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 9
+        },
+        {
+          "commanderName" : "Kaalia of the Vast",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-10-22T03:40:11Z",
       "durationSeconds" : 769,
@@ -9119,14 +9195,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9264,10 +9340,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 45,
+      "losses" : 46,
       "name" : "Jake",
-      "totalGames" : 60,
-      "winRate" : 0.25,
+      "totalGames" : 61,
+      "winRate" : 0.2459016393442623,
       "wins" : 15
     },
     {
@@ -9378,10 +9454,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 36,
+      "losses" : 37,
       "name" : "Justin",
-      "totalGames" : 40,
-      "winRate" : 0.1,
+      "totalGames" : 41,
+      "winRate" : 0.0975609756097561,
       "wins" : 4
     },
     {
@@ -9697,9 +9773,9 @@
       ],
       "losses" : 54,
       "name" : "Noah",
-      "totalGames" : 72,
-      "winRate" : 0.25,
-      "wins" : 18
+      "totalGames" : 73,
+      "winRate" : 0.2602739726027397,
+      "wins" : 19
     },
     {
       "achievements" : [

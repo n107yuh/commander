@@ -84,11 +84,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/d\/0\/d0d33d52-3d28-4635-b985-51e126289259.jpg?1783930136"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Atraxa, Praetors' Voice",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 4,
+      "winRate" : 0.25,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -476,10 +476,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/6\/b\/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1754673442"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Hearthhull, the Worldseed",
-      "totalGames" : 2,
-      "winRate" : 0.5,
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
       "wins" : 1
     },
     {
@@ -1317,9 +1317,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/5\/55c9e915-9cee-45c3-96aa-9dfd5a600d0a.jpg?1783913387"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "The Celestial Toymaker",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1659,8 +1659,108 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-23T04:11:15Z",
+  "exportedAt" : "2026-10-25T03:13:17Z",
   "games" : [
+    {
+      "date" : "2026-10-25T02:01:32Z",
+      "durationSeconds" : 4247.100453019142,
+      "isInPerson" : false,
+      "notes" : "Jake tried to go down in a blaze of glory and take Pertman out with him, but it was not very effective. He’ll be remembered as a hero. Justin made Pertman guess a card, which did absolutely nothing. Pertman dropped his cards. Noah ult’ed with 2 planeswalkers",
+      "participants" : [
+        {
+          "commanderName" : "Atraxa, Praetors' Voice",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Win three games in a row.",
+              "id" : "hattrick",
+              "title" : "Hat Trick"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "The Celestial Toymaker",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Hearthhull, the Worldseed",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Drop your cards on the floor.",
+              "id" : "52pickup",
+              "title" : "Oops, Butterfingers"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Atraxa, Praetors' Voice",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-10-23T03:01:22Z",
       "durationSeconds" : 4068.7150050401688,
@@ -9366,10 +9466,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 46,
+      "losses" : 47,
       "name" : "Jake",
-      "totalGames" : 61,
-      "winRate" : 0.2459016393442623,
+      "totalGames" : 62,
+      "winRate" : 0.24193548387096775,
       "wins" : 15
     },
     {
@@ -9480,10 +9580,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 37,
+      "losses" : 38,
       "name" : "Justin",
-      "totalGames" : 41,
-      "winRate" : 0.0975609756097561,
+      "totalGames" : 42,
+      "winRate" : 0.09523809523809523,
       "wins" : 4
     },
     {
@@ -9727,6 +9827,11 @@
           "title" : "Oops, Butterfingers"
         },
         {
+          "description" : "Win three games in a row.",
+          "id" : "hattrick",
+          "title" : "Hat Trick"
+        },
+        {
           "description" : "Roll a natural 20 at the start of the game and still lose.",
           "id" : "nat20-loss",
           "title" : "Rolled Well, Played Poorly"
@@ -9799,9 +9904,9 @@
       ],
       "losses" : 54,
       "name" : "Noah",
-      "totalGames" : 73,
-      "winRate" : 0.2602739726027397,
-      "wins" : 19
+      "totalGames" : 74,
+      "winRate" : 0.2702702702702703,
+      "wins" : 20
     },
     {
       "achievements" : [
@@ -9956,10 +10061,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 36,
+      "losses" : 37,
       "name" : "Pertman",
-      "totalGames" : 68,
-      "winRate" : 0.47058823529411764,
+      "totalGames" : 69,
+      "winRate" : 0.463768115942029,
       "wins" : 32
     }
   ]

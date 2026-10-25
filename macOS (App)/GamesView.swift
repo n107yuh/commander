@@ -493,7 +493,7 @@ struct GameEditorView: View {
                 }
 
                 Section("Players") {
-                    Text("Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), mark the lower one \"Tied above\" and both will share that place.")
+                    Text("Enter players in finish order — winner first, then the last person eliminated, and so on. The bottom row is the first player eliminated. If players finished in a tie (for example, two players winning at the same time), mark the lower one \"Tie?\" and both will share that place.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     let takenTurns: Set<Int> = Set(drafts.compactMap { $0.turnOrder >= 0 ? $0.turnOrder : nil })
@@ -859,7 +859,7 @@ private struct ParticipantRow: View {
 
                 if index > 0 {
                     Toggle(isOn: $draft.tiedWithAbove) {
-                        Text("Tied above")
+                        Text("Tie?")
                             .font(.caption2)
                             .multilineTextAlignment(.center)
                     }

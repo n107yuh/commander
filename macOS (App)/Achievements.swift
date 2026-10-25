@@ -701,6 +701,37 @@ func computeAchievementCatalog(
         isEarned: loopholeCount > 0
     ))
 
+    // Dead Man Walking — countable: won while at a negative life total ("{name} won with -3 life").
+    let negativeLifeCount: Int = noteCount(in: participations) { p, notes in
+        p.didWin && wonWithNegativeLife(p, notes: notes)
+    }
+    result.append(Achievement(
+        id: "negativelife",
+        title: "Dead Man Walking",
+        description: "Win a game with a negative life total.",
+        progress: negativeLifeCount > 0
+            ? "Earned \(negativeLifeCount) time\(negativeLifeCount == 1 ? "" : "s")"
+            : "Win a game at negative life.",
+        display: .emoji("🧟"),
+        tint: Color(red: 0.35, green: 0.55, blue: 0.35),
+        isEarned: negativeLifeCount > 0
+    ))
+
+    // Unlimited Power! — unlocked by using any planeswalker ultimate; progress tracks the
+    // lifetime total ("{name} ult'ed with 2 planeswalkers"), like Pied Piper's rat damage.
+    let planeswalkerUlts = lifetimePlaneswalkerUlts(in: participations)
+    result.append(Achievement(
+        id: "planeswalkerult",
+        title: "Unlimited Power!",
+        description: "Use a planeswalker's ultimate ability.",
+        progress: planeswalkerUlts > 0
+            ? "\(planeswalkerUlts) planeswalker ult\(planeswalkerUlts == 1 ? "" : "s") used"
+            : "Use a planeswalker's ultimate.",
+        display: .emoji("⚡"),
+        tint: Color(red: 0.30, green: 0.60, blue: 0.95),
+        isEarned: planeswalkerUlts > 0
+    ))
+
     // 52 Pickup — dropped cards on the floor (player name + keyword in notes)
     if showPlayerAchievements {
         let pickupName = participations.compactMap { $0.player?.name }.first?.lowercased() ?? ""
@@ -1175,7 +1206,7 @@ func computeEarnedAchievements(
                "firstblood", "comefrombehind", "botchedit", "wentlast", "pacifist", "flyonthewall", "infinitecombo", "52pickup", "hattrick", "nice",
                "nat20-win", "nat20-loss", "nat1-win", "nat1-loss", "solring1-win", "solring1-loss",
                "commanderdamagekill", "commanderdamagedeath", "dickswidth", "milledkill", "milleddeath",
-               "poisonkill", "poisondeath", "loophole"] {
+               "poisonkill", "poisondeath", "loophole", "negativelife", "planeswalkerult"] {
         if let a = catalog.first(where: { $0.id == id && $0.isEarned }) { result.append(a) }
     }
 
@@ -1437,6 +1468,29 @@ func perGameTriggeredAchievements(for participation: GameParticipant) -> [Achiev
             progress: "Earned this game",
             display: .tintedNumber(1, Color(red: 0.85, green: 0.35, blue: 0.20)),
             tint: .clear, isEarned: true
+        ))
+    }
+
+    // Dead Man Walking
+    if participation.didWin && wonWithNegativeLife(participation, notes: notes) {
+        result.append(Achievement(
+            id: "negativelife", title: "Dead Man Walking",
+            description: "Win a game with a negative life total.",
+            progress: "Earned this game",
+            display: .emoji("🧟"),
+            tint: Color(red: 0.35, green: 0.55, blue: 0.35), isEarned: true
+        ))
+    }
+
+    // Unlimited Power! — badged every game a planeswalker ult is used, not just the first.
+    let gameUlts = planeswalkerUlts(in: notes, playerName: playerName)
+    if gameUlts > 0 {
+        result.append(Achievement(
+            id: "planeswalkerult", title: "Unlimited Power!",
+            description: "Use a planeswalker's ultimate ability.",
+            progress: "\(gameUlts) planeswalker ult\(gameUlts == 1 ? "" : "s") this game",
+            display: .emoji("⚡"),
+            tint: Color(red: 0.30, green: 0.60, blue: 0.95), isEarned: true
         ))
     }
 
@@ -1866,6 +1920,38 @@ private func ratDamageInNotes(_ notes: String) -> Int {
     regex.enumerateMatches(in: notes, range: range) { match, _, _ in
         guard let match, let numRange = Range(match.range(at: 1), in: notes) else { return }
         total += Int(notes[numRange]) ?? 0
+    }
+    return total
+}
+
+/// Whether this participant's notes say they won at a negative life total, using the editable
+/// "{name} won with {X} life" phrases (see AchievementTriggerSettings.numbers).
+private func wonWithNegativeLife(_ p: GameParticipant, notes: String) -> Bool {
+    guard let pname = p.player?.name.lowercased(), !pname.isEmpty else { return false }
+    return AchievementTriggerSettings.shared
+        .numbers(notes: notes, id: "negativelife", playerName: pname)
+        .contains { $0 < 0 }
+}
+
+/// Planeswalker ults this player used in one game, summed from the editable
+/// "{name} ult'ed with {X} planeswalkers" / "{name} used {X} planeswalker ults" phrases.
+private func planeswalkerUlts(in notes: String, playerName: String) -> Int {
+    guard !playerName.isEmpty else { return 0 }
+    return AchievementTriggerSettings.shared
+        .numbers(notes: notes, id: "planeswalkerult", playerName: playerName)
+        .filter { $0 > 0 }
+        .reduce(0, +)
+}
+
+/// Lifetime planeswalker ults across a set of participations, one count per distinct game, each
+/// credited to the pilot of that participation.
+private func lifetimePlaneswalkerUlts(in participations: [GameParticipant]) -> Int {
+    var seen = Set<PersistentIdentifier>()
+    var total = 0
+    for p in participations {
+        guard let game = p.game, let pname = p.player?.name,
+              seen.insert(game.persistentModelID).inserted else { continue }
+        total += planeswalkerUlts(in: game.notes, playerName: pname)
     }
     return total
 }

@@ -273,7 +273,11 @@ struct SettingsView: View {
                 }
 
                 // Contextual hint
-                if def.namePlaceholderHint && def.victimPlaceholderHint {
+                if def.numberPlaceholderHint {
+                    Text("{name} is substituted with the player's name; {X} matches a number in the notes.")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                } else if def.namePlaceholderHint && def.victimPlaceholderHint {
                     Text("{name} and {victim} are substituted with the two players' names at match time.")
                         .font(.caption2)
                         .foregroundStyle(.tertiary)
@@ -303,6 +307,12 @@ struct SettingsView: View {
                 return Achievement(id: def.id, title: def.title, description: "", progress: "",
                                    display: .tintedNumber(69, Color(red: 0.40, green: 0.75, blue: 0.45)),
                                    tint: .clear, isEarned: true)
+            case "negativelife":
+                return Achievement(id: def.id, title: def.title, description: "", progress: "",
+                                   display: .emoji("🧟"), tint: def.tint, isEarned: true)
+            case "planeswalkerult":
+                return Achievement(id: def.id, title: def.title, description: "", progress: "",
+                                   display: .emoji("⚡"), tint: def.tint, isEarned: true)
             case "noah-matthew":
                 return Achievement(id: def.id, title: def.title, description: "", progress: "",
                                    display: .overlayIcon("hand.thumbsup.fill", "nosign"),

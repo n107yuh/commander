@@ -26,6 +26,8 @@ final class AchievementTriggerSettings {
         let namePlaceholderHint: Bool
         /// When true: show a hint that {victim} is also available (the other player involved).
         let victimPlaceholderHint: Bool
+        /// When true: show a hint that {X} matches a number in the notes (see `numbers(...)`).
+        var numberPlaceholderHint: Bool = false
         let defaultConfig: TriggerConfig
     }
 
@@ -249,6 +251,38 @@ final class AchievementTriggerSettings {
                 matchAll: false
             )
         ),
+        // The two numeric triggers below use {X} (a number captured from the notes) rather than
+        // plain substring matching — see `numbers(notes:id:playerName:)`.
+        TriggerDef(
+            id: "negativelife",
+            title: "Dead Man Walking",
+            icon: "heart.slash.fill",
+            tint: Color(red: 0.35, green: 0.55, blue: 0.35),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: false,
+            numberPlaceholderHint: true,
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} won with {X} life", "{name} won at {X} life", "{name} won on {X} life"],
+                matchAll: false
+            )
+        ),
+        TriggerDef(
+            id: "planeswalkerult",
+            title: "Unlimited Power!",
+            icon: "bolt.fill",
+            tint: Color(red: 0.30, green: 0.60, blue: 0.95),
+            requiresPlayerName: false,
+            namePlaceholderHint: true,
+            victimPlaceholderHint: false,
+            numberPlaceholderHint: true,
+            // Deliberately the singular stem: "planeswalker" is a prefix of "planeswalkers" and
+            // "ult" a prefix of "ults", so each phrase covers both the singular and plural wording.
+            defaultConfig: TriggerConfig(
+                phrases: ["{name} ult'ed with {X} planeswalker", "{name} used {X} planeswalker ult"],
+                matchAll: false
+            )
+        ),
     ]
 
     private var configs: [String: TriggerConfig] = [:]
@@ -299,6 +333,45 @@ final class AchievementTriggerSettings {
         return cfg.matchAll
             ? substituted.allSatisfy { lower.contains($0) }
             : substituted.contains { lower.contains($0) }
+    }
+
+    /// Every number captured by this achievement's `{X}` phrases (e.g. "{name} won with {X} life"
+    /// against notes reading "noah won with -3 life" yields [-3]). Phrases without `{X}` are
+    /// skipped. A number found by more than one phrase at the same spot in the notes is counted
+    /// once, so overlapping phrases can't double-count it.
+    func numbers(notes: String, id: String, playerName: String = "") -> [Int] {
+        let normalizedNotes = Self.normalize(notes)
+        let lowerName = Self.normalize(playerName)
+        var found: [Int: Int] = [:]   // location of the number in the notes -> value
+        for phrase in config(for: id).phrases {
+            let normalized = Self.normalize(phrase).replacingOccurrences(of: "{name}", with: lowerName)
+            let pieces = normalized.components(separatedBy: "{x}")
+            guard pieces.count > 1 else { continue }
+            let pattern = pieces
+                .map { NSRegularExpression.escapedPattern(for: $0).replacingOccurrences(of: " ", with: #"\s+"#) }
+                .joined(separator: #"(-?\d+)"#)
+            guard let regex = try? NSRegularExpression(pattern: pattern) else { continue }
+            let range = NSRange(normalizedNotes.startIndex..., in: normalizedNotes)
+            regex.enumerateMatches(in: normalizedNotes, range: range) { match, _, _ in
+                guard let match else { return }
+                // A phrase with several {X}s captures several numbers per match.
+                for group in 1..<match.numberOfRanges {
+                    guard let r = Range(match.range(at: group), in: normalizedNotes),
+                          let value = Int(normalizedNotes[r]) else { continue }
+                    found[match.range(at: group).location] = value
+                }
+            }
+        }
+        return Array(found.values)
+    }
+
+    /// Lowercases and folds typographic variants (curly apostrophes, unicode minus/dashes) to
+    /// their plain ASCII forms so notes typed on any keyboard still match.
+    private static func normalize(_ text: String) -> String {
+        text.lowercased()
+            .replacingOccurrences(of: "\u{2019}", with: "'")
+            .replacingOccurrences(of: "\u{2212}", with: "-")
+            .replacingOccurrences(of: "\u{2013}", with: "-")
     }
 
     private func load() {

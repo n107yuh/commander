@@ -55,6 +55,8 @@ export const ICON: Record<string, string> = {
   'solring1-win': '⭕',
   'solring1-loss': '⭕',
   'dickswidth': '🍆',
+  'negativelife': '🧟',
+  'planeswalkerult': '⚡',
   'poisonkill': '🩸',
   'poisondeath': '🍷',
   'loophole': '🔓',

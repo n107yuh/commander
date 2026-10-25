@@ -106,6 +106,25 @@ function ratDamageTakenPerVictim(notes: string): Record<string, number> {
   return totals
 }
 
+// Planeswalker ults this player used in one game's notes, mirroring planeswalkerUlts in the Mac
+// app's Achievements.swift using the DEFAULT trigger phrases ("{name} ult'ed with {X} planeswalkers",
+// "{name} used {X} planeswalker ults"). The app's phrases are editable in Settings, so this live
+// total (used only for the progress text) can drift if they're customized — whether the badge
+// itself is earned always comes from the app-computed triggeredAchievements.
+function planeswalkerUltsInNotes(notes: string, playerName: string): number {
+  if (!playerName) return 0
+  const text = notes.replace(/\u2019/g, "'")
+  const name = playerName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  let total = 0
+  for (const pattern of [
+    new RegExp(`${name}\\s+ult'ed\\s+with\\s+(\\d+)\\s+planeswalker`, 'gi'),
+    new RegExp(`${name}\\s+used\\s+(\\d+)\\s+planeswalker\\s+ult`, 'gi'),
+  ]) {
+    for (const m of Array.from(text.matchAll(pattern))) total += parseInt(m[1], 10)
+  }
+  return total
+}
+
 function clean(progress: string): string {
   return progress.endsWith('.') ? progress.slice(0, -1) : progress
 }
@@ -346,6 +365,7 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
     ] : []),
     { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', prompt: 'Win a game with 1 life left.' },
     { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', prompt: 'Pull off an infinite combo.' },
+    { id: 'negativelife', title: 'Dead Man Walking', description: 'Win a game with a negative life total.', prompt: 'Win a game at negative life.' },
     ...(showPlayerOnly ? [
       { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', prompt: 'Drop your cards on the floor.' },
     ] : []),
@@ -358,6 +378,19 @@ function buildCatalog(games: GameData[], asc: Dated[], desc: Dated[], playerName
       earnedDate: info.firstDate,
     })
   }
+
+  // Unlimited Power! — unlocked by any planeswalker ult; progress shows the lifetime total, like
+  // Pied Piper's rat damage. The badge itself (isEarned/earnedDate) comes from triggeredAchievements.
+  const ultInfo = triggeredInfo(asc, 'planeswalkerult')
+  const lifetimeUlts = asc.reduce((sum, x) => sum + planeswalkerUltsInNotes(x.game.notes, x.part.playerName), 0)
+  result.push({
+    id: 'planeswalkerult', title: 'Unlimited Power!', description: "Use a planeswalker's ultimate ability.", category: 'Game Moments',
+    isEarned: ultInfo.count > 0,
+    progress: ultInfo.count > 0
+      ? `${Math.max(lifetimeUlts, ultInfo.count)} planeswalker ult${Math.max(lifetimeUlts, ultInfo.count) === 1 ? '' : 's'} used`
+      : "Use a planeswalker's ultimate.",
+    earnedDate: ultInfo.firstDate,
+  })
 
   // Win Conditions — unusual ways a game gets won or lost.
   const winConditions: { id: string; title: string; description: string; prompt: string }[] = [
@@ -629,6 +662,8 @@ export const ACHIEVEMENT_REFERENCE: { id: string; title: string; description: st
   { id: 'nice', title: 'Nice', description: 'Win a game with exactly 69 life remaining.', category: 'Game Moments' },
   { id: 'dickswidth', title: "A Dick's Width", description: 'Win a game with only 1 life remaining.', category: 'Game Moments' },
   { id: 'infinitecombo', title: 'And In That Moment...', description: 'Pull off an infinite combo in a game.', category: 'Game Moments' },
+  { id: 'negativelife', title: 'Dead Man Walking', description: 'Win a game with a negative life total.', category: 'Game Moments' },
+  { id: 'planeswalkerult', title: 'Unlimited Power!', description: "Use a planeswalker's ultimate ability.", category: 'Game Moments' },
   { id: '52pickup', title: 'Oops, Butterfingers', description: 'Drop your cards on the floor.', category: 'Game Moments' },
   { id: 'commanderdamagekill', title: 'Commander Keen', description: 'Eliminate another player with 21+ commander damage.', category: 'Win Conditions' },
   { id: 'commanderdamagedeath', title: "Life Totals Don't Matter", description: 'Get eliminated by 21+ commander damage.', category: 'Win Conditions' },

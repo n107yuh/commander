@@ -38,10 +38,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/1\/81dc3d00-97cd-4549-b5a4-15a1e08767f5.jpg?1783935939"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Arahbo, Roar of the World",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
+      "totalGames" : 4,
+      "winRate" : 0.25,
       "wins" : 1
     },
     {
@@ -201,10 +201,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Chromium",
-      "totalGames" : 5,
-      "winRate" : 0.2,
+      "totalGames" : 6,
+      "winRate" : 0.16666666666666666,
       "wins" : 1
     },
     {
@@ -291,9 +291,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/b\/0\/b0f32937-ca7e-407c-aa23-117b1eae9798.jpg?1783924008"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Dhalsim, Pliable Pacifist",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -742,9 +742,9 @@
       ],
       "losses" : 0,
       "name" : "Leonardo, the Balance",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 1,
-      "wins" : 2
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -838,9 +838,9 @@
       ],
       "losses" : 0,
       "name" : "Michelangelo, the Heart",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 1,
-      "wins" : 2
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -1659,8 +1659,127 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-25T03:13:17Z",
+  "exportedAt" : "2026-10-25T04:25:19Z",
   "games" : [
+    {
+      "date" : "2026-10-25T03:21:41Z",
+      "durationSeconds" : 3729.571172952652,
+      "isInPerson" : false,
+      "notes" : "Justin rolled a nat 1. Pertman played a turn 1 sol ring. Pertman tried to kill Justin but he played “Stunning Reversal” to survive. Noah and Jake checked out after turn 3 and made lots of progress with their respective video games",
+      "participants" : [
+        {
+          "commanderName" : "Leonardo, the Balance",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "partnerCommanderName" : "Michelangelo, the Heart",
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Win a game with a 5-color (WUBRG) commander.",
+              "id" : "tastetherainbow",
+              "title" : "Taste the Rainbow"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Arahbo, Roar of the World",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Dhalsim, Pliable Pacifist",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Play 75 total games.",
+              "id" : "games-75",
+              "title" : "75 Games"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            },
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-10-25T02:01:32Z",
       "durationSeconds" : 4247.100453019142,
@@ -9466,10 +9585,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 47,
+      "losses" : 48,
       "name" : "Jake",
-      "totalGames" : 62,
-      "winRate" : 0.24193548387096775,
+      "totalGames" : 63,
+      "winRate" : 0.23809523809523808,
       "wins" : 15
     },
     {
@@ -9580,10 +9699,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 38,
+      "losses" : 39,
       "name" : "Justin",
-      "totalGames" : 42,
-      "winRate" : 0.09523809523809523,
+      "totalGames" : 43,
+      "winRate" : 0.09302325581395349,
       "wins" : 4
     },
     {
@@ -9737,14 +9856,14 @@
           "title" : "50 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9872,9 +9991,9 @@
           "title" : "Inconceivable!"
         },
         {
-          "description" : "Play 50 total games.",
-          "id" : "games-50",
-          "title" : "50 Games"
+          "description" : "Play 75 total games.",
+          "id" : "games-75",
+          "title" : "75 Games"
         },
         {
           "description" : "Play 250 total turns.",
@@ -9902,10 +10021,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 54,
+      "losses" : 55,
       "name" : "Noah",
-      "totalGames" : 74,
-      "winRate" : 0.2702702702702703,
+      "totalGames" : 75,
+      "winRate" : 0.26666666666666666,
       "wins" : 20
     },
     {
@@ -9921,14 +10040,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10011,6 +10130,11 @@
           "title" : "Critical Success"
         },
         {
+          "description" : "Play Sol Ring on turn 1 and win the game.",
+          "id" : "solring1-win",
+          "title" : "Sol Ring, GG"
+        },
+        {
           "description" : "Play Sol Ring on turn 1 and still lose.",
           "id" : "solring1-loss",
           "title" : "Sol Ring Wasn't Enough"
@@ -10063,9 +10187,9 @@
       ],
       "losses" : 37,
       "name" : "Pertman",
-      "totalGames" : 69,
-      "winRate" : 0.463768115942029,
-      "wins" : 32
+      "totalGames" : 70,
+      "winRate" : 0.4714285714285714,
+      "wins" : 33
     }
   ]
 }

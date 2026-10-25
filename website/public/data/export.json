@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-25T05:31:25Z",
+  "exportedAt" : "2026-10-25T15:00:38Z",
   "games" : [
     {
       "date" : "2026-10-25T04:32:55Z",
@@ -1688,6 +1688,11 @@
               "description" : "Consecutive wins since your last loss.",
               "id" : "winstreak",
               "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game with a negative life total.",
+              "id" : "negativelife",
+              "title" : "Dead Man Walking"
             },
             {
               "description" : "Play 250 total turns.",
@@ -1916,6 +1921,11 @@
               "description" : "Win three games in a row.",
               "id" : "hattrick",
               "title" : "Hat Trick"
+            },
+            {
+              "description" : "Use a planeswalker's ultimate ability.",
+              "id" : "planeswalkerult",
+              "title" : "Unlimited Power!"
             },
             {
               "description" : "Win a game after going last.",
@@ -9792,6 +9802,11 @@
           "title" : "Loophole"
         },
         {
+          "description" : "Win a game with a negative life total.",
+          "id" : "negativelife",
+          "title" : "Dead Man Walking"
+        },
+        {
           "description" : "Play 25 total games.",
           "id" : "games-25",
           "title" : "25 Games"
@@ -10107,6 +10122,11 @@
           "description" : "Get eliminated by 10 poison counters.",
           "id" : "poisondeath",
           "title" : "Inconceivable!"
+        },
+        {
+          "description" : "Use a planeswalker's ultimate ability.",
+          "id" : "planeswalkerult",
+          "title" : "Unlimited Power!"
         },
         {
           "description" : "Play 75 total games.",

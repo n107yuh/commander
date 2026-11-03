@@ -201,10 +201,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 6,
+      "losses" : 7,
       "name" : "Chromium",
-      "totalGames" : 8,
-      "winRate" : 0.25,
+      "totalGames" : 9,
+      "winRate" : 0.2222222222222222,
       "wins" : 2
     },
     {
@@ -640,9 +640,9 @@
       ],
       "losses" : 0,
       "name" : "Karlov of the Ghost Council",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 1,
-      "wins" : 2
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -1556,9 +1556,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/2\/e20da6b5-1057-4a28-9e85-07de714e262f.jpg?1783904979"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Wan Shi Tong, Librarian",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1659,8 +1659,92 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-03T03:46:08Z",
+  "exportedAt" : "2026-11-03T04:29:09Z",
   "games" : [
+    {
+      "date" : "2026-11-03T03:54:01Z",
+      "durationSeconds" : 2066.7985759973526,
+      "isInPerson" : false,
+      "notes" : "Pertman rolled a nat 20. Justin played [[Doomsday]] and then proceeded to do absolutely nothing for 6 minutes, besides text someone. Justin also was supposed to lose half of his life (36) and then emphasized “rounded up” and lost 19 life instead, which is not how math works. Pertman went infinite with [[Exquisite Blood]] and [[Enduring Tenacity]]",
+      "participants" : [
+        {
+          "commanderName" : "Karlov of the Ghost Council",
+          "didWin" : true,
+          "openingHandSize" : 6,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Pull off an infinite combo in a game.",
+              "id" : "infinitecombo",
+              "title" : "And In That Moment..."
+            },
+            {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Roll a natural 20 at the start of the game and win.",
+              "id" : "nat20-win",
+              "title" : "Critical Success"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Wan Shi Tong, Librarian",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-11-03T02:55:42Z",
       "durationSeconds" : 3009.70039999485,
@@ -9907,10 +9991,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 40,
+      "losses" : 41,
       "name" : "Justin",
-      "totalGames" : 45,
-      "winRate" : 0.1111111111111111,
+      "totalGames" : 46,
+      "winRate" : 0.10869565217391304,
       "wins" : 5
     },
     {
@@ -10234,10 +10318,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 57,
+      "losses" : 58,
       "name" : "Noah",
-      "totalGames" : 77,
-      "winRate" : 0.2597402597402597,
+      "totalGames" : 78,
+      "winRate" : 0.2564102564102564,
       "wins" : 20
     },
     {
@@ -10328,6 +10412,11 @@
           "title" : "Doomed From The Start"
         },
         {
+          "description" : "Pull off an infinite combo in a game.",
+          "id" : "infinitecombo",
+          "title" : "And In That Moment..."
+        },
+        {
           "description" : "Drop your cards on the floor.",
           "id" : "52pickup",
           "title" : "Oops, Butterfingers"
@@ -10400,9 +10489,9 @@
       ],
       "losses" : 38,
       "name" : "Pertman",
-      "totalGames" : 72,
-      "winRate" : 0.4722222222222222,
-      "wins" : 34
+      "totalGames" : 73,
+      "winRate" : 0.4794520547945205,
+      "wins" : 35
     }
   ]
 }

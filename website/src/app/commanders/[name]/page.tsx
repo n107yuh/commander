@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames } from '@/lib/data'
+import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderPlacementStats } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
 import { CardImageZoom } from '@/components/CardImageZoom'
+import { PlacementChart } from '@/components/PlacementChart'
 import { computeCommanderAchievementCatalog } from '@/lib/achievements'
 
 export default function CommanderDetail({ params }: { params: { name: string } }) {
@@ -41,6 +42,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   const partners = Object.entries(partnerMap).sort((a, b) => b[1] - a[1])
 
   const achievementCatalog = computeCommanderAchievementCatalog(podGames, name)
+  const placementStats = commanderPlacementStats(cmdGames, name)
 
   // Colors come from resolvedColorIdentity on participants, not the static
   // cmd.colorIdentity — some commanders (e.g. Clara Oswald) are printed
@@ -100,6 +102,14 @@ export default function CommanderDetail({ params }: { params: { name: string } }
               </div>
             ))}
           </div>
+
+          {/* Placements */}
+          {Object.keys(placementStats.counts).length > 0 && (
+            <div>
+              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Placements</div>
+              <PlacementChart stats={placementStats} />
+            </div>
+          )}
 
           {/* Achievements */}
           <div>

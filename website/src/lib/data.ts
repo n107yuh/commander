@@ -155,9 +155,19 @@ export interface PlacementStats {
 // so a game only counts if some participant in it has placement > 0 — that's the only
 // way to tell a game where placements were actually tracked from one where they weren't.
 export function playerPlacementStats(games: GameData[], playerName: string): PlacementStats {
+  return placementStatsFor(games, p => p.playerName === playerName)
+}
+
+// Same as playerPlacementStats, for a commander — counts games where it was the primary or the
+// partner commander, mirroring MTGCommander.placementCounts (which uses allParticipations).
+export function commanderPlacementStats(games: GameData[], commanderName: string): PlacementStats {
+  return placementStatsFor(games, p => p.commanderName === commanderName || p.partnerCommanderName === commanderName)
+}
+
+function placementStatsFor(games: GameData[], isMine: (p: GameData['participants'][number]) => boolean): PlacementStats {
   const withPlacementData = games.filter(g => g.participants.some(p => p.placement > 0))
   const mine = withPlacementData
-    .map(g => g.participants.find(p => p.playerName === playerName))
+    .map(g => g.participants.find(isMine))
     .filter((p): p is GameData['participants'][number] => !!p)
 
   const counts: Record<number, number> = {}

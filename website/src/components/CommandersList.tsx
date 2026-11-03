@@ -1,11 +1,12 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import Link from 'next/link'
 import { ColorDots, DOT, LABEL } from './ColorDots'
 import { ClickableRow } from './ClickableRow'
 import { formatWinRate } from '@/lib/format'
 import { COMMANDER_SORT_OPTIONS, commanderComparator, type CommanderSortKey } from '@/lib/commanderSort'
+import { useCommanderListControls } from './useCommanderListControls'
 
 export interface ComboEntry {
   key: string
@@ -21,25 +22,22 @@ export interface ComboEntry {
 const COLOR_OPTIONS = ['W', 'U', 'B', 'R', 'G', 'C']
 
 export function CommandersList({ entries }: { entries: ComboEntry[] }) {
-  const [view, setView] = useState<'grid' | 'list'>('grid')
-  // Alphabetical matches the order these entries have always been listed in.
-  const [sortKey, setSortKey] = useState<CommanderSortKey>('az')
-  const [selectedColors, setSelectedColors] = useState<Set<string>>(new Set())
-  // Kept as raw strings (not numbers) so the field can be fully cleared while
-  // typing — coercing through Number() on every keystroke re-adds a leading
-  // "0" the user just deleted, so e.g. typing "25" over a "0" produces "025".
-  const [minWinRateStr, setMinWinRateStr] = useState('0')
-  const [maxWinRateStr, setMaxWinRateStr] = useState('100')
+  // Alphabetical matches the order these entries have always been listed in. The controls live in
+  // the URL so the browser's Back button restores them (see useCommanderListControls).
+  const {
+    sortKey, setSortKey, view, setView, selectedColors, setSelectedColors,
+    minWinRateStr, setMinWinRateStr, maxWinRateStr, setMaxWinRateStr,
+  } = useCommanderListControls('az')
+  // Raw strings (not numbers) so a field can be fully cleared while typing — coercing through
+  // Number() on every keystroke re-adds a leading "0", so typing "25" over "0" gives "025".
   const minWinRate = minWinRateStr === '' ? 0 : Number(minWinRateStr)
   const maxWinRate = maxWinRateStr === '' ? 100 : Number(maxWinRateStr)
 
   function toggleColor(c: string) {
-    setSelectedColors(prev => {
-      const next = new Set(prev)
-      if (next.has(c)) next.delete(c)
-      else next.add(c)
-      return next
-    })
+    const next = new Set(selectedColors)
+    if (next.has(c)) next.delete(c)
+    else next.add(c)
+    setSelectedColors(next)
   }
 
   const filtered = useMemo(() => entries.filter(e => {

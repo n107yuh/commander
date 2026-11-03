@@ -1,10 +1,11 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import Link from 'next/link'
 import { ColorDots, DOT, LABEL } from './ColorDots'
 import { formatWinRate } from '@/lib/format'
 import { COMMANDER_SORT_OPTIONS, commanderComparator, type CommanderSortKey } from '@/lib/commanderSort'
+import { useCommanderListControls } from './useCommanderListControls'
 
 export interface PlayerCommanderEntry {
   label: string
@@ -19,21 +20,19 @@ export interface PlayerCommanderEntry {
 const COLOR_OPTIONS = ['W', 'U', 'B', 'R', 'G', 'C']
 
 export function PlayerCommanderRecords({ entries }: { entries: PlayerCommanderEntry[] }) {
-  const [selectedColors, setSelectedColors] = useState<Set<string>>(new Set())
-  // Raw strings so the fields can be fully cleared while typing (see CommandersList).
-  const [minWinRateStr, setMinWinRateStr] = useState('0')
-  const [maxWinRateStr, setMaxWinRateStr] = useState('100')
-  const [sortKey, setSortKey] = useState<CommanderSortKey>('winRateDesc')
+  // Controls live in the URL so the browser's Back button restores them.
+  const {
+    sortKey, setSortKey, selectedColors, setSelectedColors,
+    minWinRateStr, setMinWinRateStr, maxWinRateStr, setMaxWinRateStr,
+  } = useCommanderListControls('winRateDesc')
   const minWinRate = minWinRateStr === '' ? 0 : Number(minWinRateStr)
   const maxWinRate = maxWinRateStr === '' ? 100 : Number(maxWinRateStr)
 
   function toggleColor(c: string) {
-    setSelectedColors(prev => {
-      const next = new Set(prev)
-      if (next.has(c)) next.delete(c)
-      else next.add(c)
-      return next
-    })
+    const next = new Set(selectedColors)
+    if (next.has(c)) next.delete(c)
+    else next.add(c)
+    setSelectedColors(next)
   }
 
   const shown = useMemo(() => entries

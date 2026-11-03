@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderPlacementStats } from '@/lib/data'
+import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderPlacementStats, commanderPlacementsByPilot, placementLabel } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
@@ -43,6 +43,8 @@ export default function CommanderDetail({ params }: { params: { name: string } }
 
   const achievementCatalog = computeCommanderAchievementCatalog(podGames, name)
   const placementStats = commanderPlacementStats(cmdGames, name)
+  const pilotPlacements = commanderPlacementsByPilot(cmdGames, name)
+  const placementColumns = Array.from({ length: Math.max(placementStats.maxPlacement + 1, 3) }, (_, i) => i)
 
   // Colors come from resolvedColorIdentity on participants, not the static
   // cmd.colorIdentity — some commanders (e.g. Clara Oswald) are printed
@@ -108,6 +110,42 @@ export default function CommanderDetail({ params }: { params: { name: string } }
             <div>
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Placements</div>
               <PlacementChart stats={placementStats} />
+              {pilotPlacements.length > 0 && (
+                <div className="mt-3 bg-slate-900 border border-slate-800 rounded-lg overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-slate-800 bg-slate-800/30">
+                          <th className="text-left px-3 py-2 text-slate-400 font-medium">Pilot</th>
+                          {placementColumns.map(p => (
+                            <th key={p} className="text-right px-2 py-2 text-slate-400 font-medium">{placementLabel(p)}</th>
+                          ))}
+                          <th className="text-right px-3 py-2 text-slate-400 font-medium">Avg</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {pilotPlacements.map(e => (
+                          <tr key={e.pilot} className="border-b border-slate-800/50 last:border-0">
+                            <td className="px-3 py-2">
+                              <Link href={`/players/${encodeURIComponent(e.pilot)}`} className="text-white hover:text-violet-400">
+                                {e.pilot}
+                              </Link>
+                            </td>
+                            {placementColumns.map(p => (
+                              <td key={p} className={`text-right px-2 py-2 font-mono ${(e.stats.counts[p] ?? 0) > 0 ? 'text-slate-200' : 'text-slate-600'}`}>
+                                {e.stats.counts[p] ?? '—'}
+                              </td>
+                            ))}
+                            <td className="text-right px-3 py-2 text-slate-300 font-mono">
+                              {e.stats.averagePlacement !== null ? e.stats.averagePlacement.toFixed(1) : '—'}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
             </div>
           )}
 

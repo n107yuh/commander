@@ -164,6 +164,32 @@ export function commanderPlacementStats(games: GameData[], commanderName: string
   return placementStatsFor(games, p => p.commanderName === commanderName || p.partnerCommanderName === commanderName)
 }
 
+export interface PilotPlacementEntry {
+  pilot: string
+  // Games with recorded placements that this pilot played the commander in.
+  games: number
+  stats: PlacementStats
+}
+
+// A commander's placements split by who piloted it, most-played pilot first. Only games with
+// recorded placement data count, same as commanderPlacementStats.
+export function commanderPlacementsByPilot(games: GameData[], commanderName: string): PilotPlacementEntry[] {
+  const isCommander = (p: GameData['participants'][number]) =>
+    p.commanderName === commanderName || p.partnerCommanderName === commanderName
+  const pilots = new Set<string>()
+  for (const g of games) {
+    if (!g.participants.some(p => p.placement > 0)) continue
+    const part = g.participants.find(isCommander)
+    if (part?.playerName) pilots.add(part.playerName)
+  }
+  return Array.from(pilots)
+    .map(pilot => {
+      const stats = placementStatsFor(games, p => isCommander(p) && p.playerName === pilot)
+      return { pilot, games: Object.values(stats.counts).reduce((a, b) => a + b, 0), stats }
+    })
+    .sort((a, b) => b.games - a.games || a.pilot.localeCompare(b.pilot))
+}
+
 function placementStatsFor(games: GameData[], isMine: (p: GameData['participants'][number]) => boolean): PlacementStats {
   const withPlacementData = games.filter(g => g.participants.some(p => p.placement > 0))
   const mine = withPlacementData

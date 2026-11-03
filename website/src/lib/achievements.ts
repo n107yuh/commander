@@ -8,7 +8,7 @@
 // player-specific jokes, etc.) into each participant's triggeredAchievements
 // for every game.
 import type { GameData, ParticipantData } from './types'
-import { formatDuration } from './format'
+import { formatDuration, participantsWithCommander } from './format'
 
 export interface CatalogAchievement {
   id: string
@@ -63,8 +63,10 @@ function playerParticipations(games: GameData[], playerName: string): Dated[] {
 function commanderParticipations(games: GameData[], commanderName: string): Dated[] {
   const result: Dated[] = []
   for (const game of games) {
-    const part = game.participants.find(p => p.commanderName === commanderName || p.partnerCommanderName === commanderName)
-    if (part) result.push({ date: game.date, game, part })
+    // One entry per pilot — two players can use the same commander in a game.
+    for (const part of participantsWithCommander(game.participants, commanderName)) {
+      result.push({ date: game.date, game, part })
+    }
   }
   return result
 }

@@ -44,6 +44,16 @@ export function placementLabel(placement: number): string {
   }
 }
 
+// Every participant in a game who used this commander, as primary or partner. Always use this (or
+// filter) instead of `.find`: two players can pilot the same commander in one game, and `.find`
+// silently drops the second one.
+export function participantsWithCommander<P extends { commanderName: string; partnerCommanderName: string | null }>(
+  participants: P[],
+  commanderName: string,
+): P[] {
+  return participants.filter(p => p.commanderName === commanderName || p.partnerCommanderName === commanderName)
+}
+
 export function commanderLabel(p: { commanderName: string; partnerCommanderName: string | null }): string {
   return p.partnerCommanderName
     ? `${p.commanderName} + ${p.partnerCommanderName}`

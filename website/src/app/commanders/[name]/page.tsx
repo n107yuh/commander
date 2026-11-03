@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderPlacementStats, commanderPlacementsByPilot, placementLabel } from '@/lib/data'
+import { loadData, formatDate, formatWinRate, commanderLabel, getCommanderGames, commanderPlacementStats, commanderPlacementsByPilot, participantsWithCommander, placementLabel } from '@/lib/data'
 import { ColorDots } from '@/components/ColorDots'
 import { AchievementPill } from '@/components/AchievementPill'
 import { AchievementCatalogGrid } from '@/components/AchievementCatalogGrid'
@@ -22,7 +22,7 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   const pilotMap: Record<string, { wins: number; games: number }> = {}
   for (const game of cmdGames) {
     // Every matching participant, not just the first: two players can pilot the same commander in one game.
-    for (const part of game.participants.filter(p => p.commanderName === name || p.partnerCommanderName === name)) {
+    for (const part of participantsWithCommander(game.participants, name)) {
       if (!part.playerName) continue
       if (!pilotMap[part.playerName]) pilotMap[part.playerName] = { wins: 0, games: 0 }
       pilotMap[part.playerName].games++
@@ -36,10 +36,10 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   // Partner commanders
   const partnerMap: Record<string, number> = {}
   for (const game of cmdGames) {
-    const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
-    if (!part) continue
-    const partner = part.commanderName === name ? part.partnerCommanderName : part.commanderName
-    if (partner) partnerMap[partner] = (partnerMap[partner] ?? 0) + 1
+    for (const part of participantsWithCommander(game.participants, name)) {
+      const partner = part.commanderName === name ? part.partnerCommanderName : part.commanderName
+      if (partner) partnerMap[partner] = (partnerMap[partner] ?? 0) + 1
+    }
   }
   const partners = Object.entries(partnerMap).sort((a, b) => b[1] - a[1])
 
@@ -53,8 +53,9 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   // colorless but get a chosen color identity per game.
   const resolvedColors = new Set<string>()
   for (const game of cmdGames) {
-    const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
-    for (const c of part?.resolvedColorIdentity ?? []) resolvedColors.add(c)
+    for (const part of participantsWithCommander(game.participants, name)) {
+      for (const c of part.resolvedColorIdentity ?? []) resolvedColors.add(c)
+    }
   }
   const colorIdentity = resolvedColors.size > 0 ? Array.from(resolvedColors) : cmd.colorIdentity
 
@@ -202,12 +203,13 @@ export default function CommanderDetail({ params }: { params: { name: string } }
       <section>
         <h2 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Game History</h2>
         <div className="space-y-2">
-          {cmdGames.map((game, i) => {
-            const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
-            if (!part) return null
+          {cmdGames.flatMap(game =>
+            // One card per pilot, so a game where two players both used this commander lists both.
+            participantsWithCommander(game.participants, name).map(part => ({ game, part }))
+          ).map(({ game, part }, i) => {
             const others = game.participants.filter(p => p !== part)
             return (
-              <div key={i} className={`bg-slate-900 border rounded-lg px-4 py-3 ${part.didWin ? 'border-emerald-900/50' : 'border-slate-800'}`}>
+              <div key={`${i}-${part.playerName}`} className={`bg-slate-900 border rounded-lg px-4 py-3 ${part.didWin ? 'border-emerald-900/50' : 'border-slate-800'}`}>
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <span className={`text-sm font-bold shrink-0 ${part.didWin ? 'text-emerald-400' : 'text-red-400'}`}>

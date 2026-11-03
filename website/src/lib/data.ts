@@ -2,9 +2,9 @@ import { cache } from 'react'
 import fs from 'fs'
 import path from 'path'
 import type { ExportData, GameData, PlayerData } from './types'
-import { commanderLabel } from './format'
+import { commanderLabel, participantsWithCommander } from './format'
 
-export { formatWinRate, formatDate, formatTime, formatDuration, commanderLabel, placementLabel } from './format'
+export { formatWinRate, formatDate, formatTime, formatDuration, commanderLabel, placementLabel, participantsWithCommander } from './format'
 
 export const loadData = cache((): ExportData => {
   try {
@@ -179,7 +179,7 @@ export function commanderPlacementsByPilot(games: GameData[], commanderName: str
   const pilots = new Set<string>()
   for (const g of games) {
     if (!g.participants.some(p => p.placement > 0)) continue
-    for (const part of g.participants.filter(isCommander)) {
+    for (const part of participantsWithCommander(g.participants, commanderName)) {
       if (part.playerName) pilots.add(part.playerName)
     }
   }

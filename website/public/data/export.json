@@ -201,10 +201,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/5\/15ec5a20-4e8f-40b2-9abf-c0bf1cf816c3.jpg?1783942204"
       ],
-      "losses" : 5,
+      "losses" : 6,
       "name" : "Chromium",
-      "totalGames" : 7,
-      "winRate" : 0.2857142857142857,
+      "totalGames" : 8,
+      "winRate" : 0.25,
       "wins" : 2
     },
     {
@@ -448,9 +448,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/7\/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Hakbal of the Surging Soul",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1109,9 +1109,9 @@
       ],
       "losses" : 2,
       "name" : "Quintorius, History Chaser",
-      "totalGames" : 3,
-      "winRate" : 0.3333333333333333,
-      "wins" : 1
+      "totalGames" : 4,
+      "winRate" : 0.5,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -1659,8 +1659,83 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-10-25T15:00:38Z",
+  "exportedAt" : "2026-11-03T03:46:08Z",
   "games" : [
+    {
+      "date" : "2026-11-03T02:55:42Z",
+      "durationSeconds" : 3009.70039999485,
+      "isInPerson" : false,
+      "notes" : "This game was played in honor of Coach Clarke, RIP in piss. Justin gifted Pertman 5 1\/1 red goblins, in a completely unprecedented move. Justin actually cast Chromium.",
+      "participants" : [
+        {
+          "commanderName" : "Quintorius, History Chaser",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "W",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 8
+        },
+        {
+          "commanderName" : "Hakbal of the Surging Soul",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Chromium",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 7
+        }
+      ]
+    },
     {
       "date" : "2026-10-25T04:32:55Z",
       "durationSeconds" : 3493.166820883751,
@@ -9727,14 +9802,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -9832,10 +9907,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 39,
+      "losses" : 40,
       "name" : "Justin",
-      "totalGames" : 44,
-      "winRate" : 0.11363636363636363,
+      "totalGames" : 45,
+      "winRate" : 0.1111111111111111,
       "wins" : 5
     },
     {
@@ -10159,10 +10234,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 56,
+      "losses" : 57,
       "name" : "Noah",
-      "totalGames" : 76,
-      "winRate" : 0.2631578947368421,
+      "totalGames" : 77,
+      "winRate" : 0.2597402597402597,
       "wins" : 20
     },
     {
@@ -10178,14 +10253,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10325,9 +10400,9 @@
       ],
       "losses" : 38,
       "name" : "Pertman",
-      "totalGames" : 71,
-      "winRate" : 0.4647887323943662,
-      "wins" : 33
+      "totalGames" : 72,
+      "winRate" : 0.4722222222222222,
+      "wins" : 34
     }
   ]
 }

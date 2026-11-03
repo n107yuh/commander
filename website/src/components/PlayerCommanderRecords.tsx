@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import { ColorDots, DOT, LABEL } from './ColorDots'
 import { formatWinRate } from '@/lib/format'
+import { COMMANDER_SORT_OPTIONS, commanderComparator, type CommanderSortKey } from '@/lib/commanderSort'
 
 export interface PlayerCommanderEntry {
   label: string
@@ -17,39 +18,12 @@ export interface PlayerCommanderEntry {
 
 const COLOR_OPTIONS = ['W', 'U', 'B', 'R', 'G', 'C']
 
-type SortKey = 'winRateDesc' | 'winRateAsc' | 'az' | 'za' | 'gamesDesc' | 'winsDesc' | 'recent'
-
-const SORT_OPTIONS: { value: SortKey; label: string }[] = [
-  { value: 'winRateDesc', label: 'Win % (high to low)' },
-  { value: 'winRateAsc', label: 'Win % (low to high)' },
-  { value: 'az', label: 'Alphabetical (A–Z)' },
-  { value: 'za', label: 'Alphabetical (Z–A)' },
-  { value: 'gamesDesc', label: 'Most games played' },
-  { value: 'winsDesc', label: 'Most wins' },
-  { value: 'recent', label: 'Most recently played' },
-]
-
-// Every sort falls back to the default order (win %, then games, then name) so ties are stable.
-function byDefault(a: PlayerCommanderEntry, b: PlayerCommanderEntry): number {
-  return b.winRate - a.winRate || b.games - a.games || a.label.localeCompare(b.label)
-}
-
-const COMPARATORS: Record<SortKey, (a: PlayerCommanderEntry, b: PlayerCommanderEntry) => number> = {
-  winRateDesc: byDefault,
-  winRateAsc: (a, b) => a.winRate - b.winRate || b.games - a.games || a.label.localeCompare(b.label),
-  az: (a, b) => a.label.localeCompare(b.label),
-  za: (a, b) => b.label.localeCompare(a.label),
-  gamesDesc: (a, b) => b.games - a.games || byDefault(a, b),
-  winsDesc: (a, b) => b.wins - a.wins || byDefault(a, b),
-  recent: (a, b) => b.lastPlayed.localeCompare(a.lastPlayed) || byDefault(a, b),
-}
-
 export function PlayerCommanderRecords({ entries }: { entries: PlayerCommanderEntry[] }) {
   const [selectedColors, setSelectedColors] = useState<Set<string>>(new Set())
   // Raw strings so the fields can be fully cleared while typing (see CommandersList).
   const [minWinRateStr, setMinWinRateStr] = useState('0')
   const [maxWinRateStr, setMaxWinRateStr] = useState('100')
-  const [sortKey, setSortKey] = useState<SortKey>('winRateDesc')
+  const [sortKey, setSortKey] = useState<CommanderSortKey>('winRateDesc')
   const minWinRate = minWinRateStr === '' ? 0 : Number(minWinRateStr)
   const maxWinRate = maxWinRateStr === '' ? 100 : Number(maxWinRateStr)
 
@@ -75,7 +49,7 @@ export function PlayerCommanderRecords({ entries }: { entries: PlayerCommanderEn
       }
       return true
     })
-    .sort(COMPARATORS[sortKey]), [entries, selectedColors, minWinRate, maxWinRate, sortKey])
+    .sort(commanderComparator(sortKey, (e: PlayerCommanderEntry) => ({ name: e.label, wins: e.wins, games: e.games, lastPlayed: e.lastPlayed }))), [entries, selectedColors, minWinRate, maxWinRate, sortKey])
 
   return (
     <div className="space-y-3">
@@ -125,10 +99,10 @@ export function PlayerCommanderRecords({ entries }: { entries: PlayerCommanderEn
           <span className="text-xs text-slate-500">Sort by</span>
           <select
             value={sortKey}
-            onChange={e => setSortKey(e.target.value as SortKey)}
+            onChange={e => setSortKey(e.target.value as CommanderSortKey)}
             className="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white"
           >
-            {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+            {COMMANDER_SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
           </select>
         </div>
       </div>

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ColorDots, DOT, LABEL } from './ColorDots'
 import { ClickableRow } from './ClickableRow'
 import { formatWinRate } from '@/lib/format'
+import { COMMANDER_SORT_OPTIONS, commanderComparator, type CommanderSortKey } from '@/lib/commanderSort'
 
 export interface ComboEntry {
   key: string
@@ -13,12 +14,16 @@ export interface ComboEntry {
   games: number
   colors: string[]
   image: string | null
+  // ISO date of the most recent game this commander (or partner pairing) was used in.
+  lastPlayed: string
 }
 
 const COLOR_OPTIONS = ['W', 'U', 'B', 'R', 'G', 'C']
 
 export function CommandersList({ entries }: { entries: ComboEntry[] }) {
   const [view, setView] = useState<'grid' | 'list'>('grid')
+  // Alphabetical matches the order these entries have always been listed in.
+  const [sortKey, setSortKey] = useState<CommanderSortKey>('az')
   const [selectedColors, setSelectedColors] = useState<Set<string>>(new Set())
   // Kept as raw strings (not numbers) so the field can be fully cleared while
   // typing — coercing through Number() on every keystroke re-adds a leading
@@ -45,7 +50,8 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
       if (!Array.from(selectedColors).every(c => entryColors.has(c))) return false
     }
     return true
-  }), [entries, selectedColors, minWinRate, maxWinRate])
+  }).sort(commanderComparator(sortKey, (e: ComboEntry) => ({ name: e.key, wins: e.wins, games: e.games, lastPlayed: e.lastPlayed }))),
+  [entries, selectedColors, minWinRate, maxWinRate, sortKey])
 
   return (
     <div className="space-y-4">
@@ -91,7 +97,18 @@ export function CommandersList({ entries }: { entries: ComboEntry[] }) {
           />
         </div>
 
-        <div className="ml-auto flex items-center gap-0.5 bg-slate-800 rounded-md p-0.5">
+        <div className="flex items-center gap-1.5 sm:ml-auto">
+          <span className="text-xs text-slate-500">Sort by</span>
+          <select
+            value={sortKey}
+            onChange={e => setSortKey(e.target.value as CommanderSortKey)}
+            className="bg-slate-800 border border-slate-700 rounded px-2 py-1 text-xs text-white"
+          >
+            {COMMANDER_SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+          </select>
+        </div>
+
+        <div className="flex items-center gap-0.5 bg-slate-800 rounded-md p-0.5">
           <button
             type="button"
             onClick={() => setView('grid')}

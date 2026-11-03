@@ -27,6 +27,7 @@ interface ComboAccum {
   games: number
   colorSet: Set<string>
   image: string | null
+  lastPlayed: string
 }
 
 export default function OneVOnePage() {
@@ -81,8 +82,10 @@ export default function OneVOnePage() {
           games: 0,
           colorSet: new Set(),
           image: cards.find(c => c.imageURLs?.[0])?.imageURLs?.[0] ?? null,
+          lastPlayed: game.date,
         }
       }
+      if (game.date > comboMap[key].lastPlayed) comboMap[key].lastPlayed = game.date
       comboMap[key].games++
       if (part.didWin) comboMap[key].wins++
       for (const c of part.resolvedColorIdentity ?? []) comboMap[key].colorSet.add(c)

@@ -179,8 +179,9 @@ export function commanderPlacementsByPilot(games: GameData[], commanderName: str
   const pilots = new Set<string>()
   for (const g of games) {
     if (!g.participants.some(p => p.placement > 0)) continue
-    const part = g.participants.find(isCommander)
-    if (part?.playerName) pilots.add(part.playerName)
+    for (const part of g.participants.filter(isCommander)) {
+      if (part.playerName) pilots.add(part.playerName)
+    }
   }
   return Array.from(pilots)
     .map(pilot => {
@@ -193,8 +194,8 @@ export function commanderPlacementsByPilot(games: GameData[], commanderName: str
 function placementStatsFor(games: GameData[], isMine: (p: GameData['participants'][number]) => boolean): PlacementStats {
   const withPlacementData = games.filter(g => g.participants.some(p => p.placement > 0))
   const mine = withPlacementData
-    .map(g => g.participants.find(isMine))
-    .filter((p): p is GameData['participants'][number] => !!p)
+    // filter, not find: two players can pilot the same commander in one game (e.g. both on Atraxa).
+    .flatMap(g => g.participants.filter(isMine))
 
   const counts: Record<number, number> = {}
   for (const p of mine) {

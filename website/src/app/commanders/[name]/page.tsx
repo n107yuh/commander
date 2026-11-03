@@ -21,11 +21,13 @@ export default function CommanderDetail({ params }: { params: { name: string } }
   // Pilot breakdown
   const pilotMap: Record<string, { wins: number; games: number }> = {}
   for (const game of cmdGames) {
-    const part = game.participants.find(p => p.commanderName === name || p.partnerCommanderName === name)
-    if (!part || !part.playerName) continue
-    if (!pilotMap[part.playerName]) pilotMap[part.playerName] = { wins: 0, games: 0 }
-    pilotMap[part.playerName].games++
-    if (part.didWin) pilotMap[part.playerName].wins++
+    // Every matching participant, not just the first: two players can pilot the same commander in one game.
+    for (const part of game.participants.filter(p => p.commanderName === name || p.partnerCommanderName === name)) {
+      if (!part.playerName) continue
+      if (!pilotMap[part.playerName]) pilotMap[part.playerName] = { wins: 0, games: 0 }
+      pilotMap[part.playerName].games++
+      if (part.didWin) pilotMap[part.playerName].wins++
+    }
   }
   const pilots = Object.entries(pilotMap)
     .map(([pName, s]) => ({ name: pName, ...s, winRate: s.games > 0 ? s.wins / s.games : 0 }))

@@ -120,11 +120,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/3\/9\/390c96b3-68da-4a42-89ab-d9ccc79ce0dd.jpg?1783910745"
       ],
-      "losses" : 3,
+      "losses" : 2,
       "name" : "Bria, Riptide Rogue",
       "totalGames" : 4,
-      "winRate" : 0.25,
-      "wins" : 1
+      "winRate" : 0.5,
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -304,11 +304,11 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/5\/a\/5a3dfd71-9ec0-4842-b99d-c1833679f0c5.jpg?1783908855"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Dionus, Elvish Archdruid",
       "totalGames" : 5,
-      "winRate" : 0.2,
-      "wins" : 1
+      "winRate" : 0,
+      "wins" : 0
     },
     {
       "colorIdentity" : [
@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-03T05:48:38Z",
+  "exportedAt" : "2026-11-03T05:49:11Z",
   "games" : [
     {
       "date" : "2026-11-03T04:38:12Z",
@@ -1668,39 +1668,10 @@
       "notes" : "In a last ditch effort, Pertman top-decked a card that made him 192 tokes with haste to win the game",
       "participants" : [
         {
-          "commanderName" : "Dionus, Elvish Archdruid",
+          "commanderName" : "Bria, Riptide Rogue",
           "didWin" : true,
           "openingHandSize" : 6,
           "placement" : 0,
-          "playerName" : "Noah",
-          "resolvedColorIdentity" : [
-            "G"
-          ],
-          "triggeredAchievements" : [
-            {
-              "description" : "Consecutive wins since your last loss.",
-              "id" : "winstreak",
-              "title" : "Win Streak"
-            },
-            {
-              "description" : "Win a game after going first.",
-              "id" : "firstblood",
-              "title" : "First Blood"
-            },
-            {
-              "description" : "Win a remote game.",
-              "id" : "digitalchampion",
-              "title" : "Digital Champion"
-            }
-          ],
-          "turnOrder" : 0,
-          "turnsPlayed" : 7
-        },
-        {
-          "commanderName" : "Bria, Riptide Rogue",
-          "didWin" : false,
-          "openingHandSize" : 6,
-          "placement" : 1,
           "playerName" : "Pertman",
           "resolvedColorIdentity" : [
             "U",
@@ -1708,12 +1679,27 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Consecutive losses since your last win.",
-              "id" : "lossstreak",
-              "title" : "Loss Streak"
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
             }
           ],
           "turnOrder" : 1,
+          "turnsPlayed" : 7
+        },
+        {
+          "commanderName" : "Dionus, Elvish Archdruid",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 1,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "G"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
           "turnsPlayed" : 7
         },
         {
@@ -10226,14 +10212,14 @@
           "title" : "50 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10396,11 +10382,11 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 58,
+      "losses" : 59,
       "name" : "Noah",
       "totalGames" : 79,
-      "winRate" : 0.26582278481012656,
-      "wins" : 21
+      "winRate" : 0.25316455696202533,
+      "wins" : 20
     },
     {
       "achievements" : [
@@ -10415,14 +10401,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10565,11 +10551,11 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 39,
+      "losses" : 38,
       "name" : "Pertman",
       "totalGames" : 74,
-      "winRate" : 0.47297297297297297,
-      "wins" : 35
+      "winRate" : 0.4864864864864865,
+      "wins" : 36
     }
   ]
 }

@@ -795,10 +795,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/a\/6\/a6f2ba13-cd72-4f7a-8443-8e3962f2ac46.jpg?1783920539"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Magar of the Magic Strings",
-      "totalGames" : 3,
-      "winRate" : 0.6666666666666666,
+      "totalGames" : 4,
+      "winRate" : 0.5,
       "wins" : 2
     },
     {
@@ -927,9 +927,9 @@
       ],
       "losses" : 0,
       "name" : "Narci, Fable Singer",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 1,
-      "wins" : 1
+      "wins" : 2
     },
     {
       "colorIdentity" : [
@@ -982,10 +982,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/1\/d\/1db600b2-9b8b-4c21-8d8b-8033ec680a35.jpg?1783908176"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Odric, Lunarch Marshal",
-      "totalGames" : 3,
-      "winRate" : 0.6666666666666666,
+      "totalGames" : 4,
+      "winRate" : 0.5,
       "wins" : 2
     },
     {
@@ -1659,8 +1659,87 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-03T05:49:49Z",
+  "exportedAt" : "2026-11-07T05:09:39Z",
   "games" : [
+    {
+      "date" : "2026-11-07T03:20:00Z",
+      "durationSeconds" : 5100,
+      "isInPerson" : true,
+      "notes" : "Noah refused to make a deal with Pertman which he admits was probably the right choice. This game was played for a Star Trek collector boosty and we pulled a Benedict Cumbersnatch art card",
+      "participants" : [
+        {
+          "commanderName" : "Narci, Fable Singer",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win an in-person game.",
+              "id" : "irlchampion",
+              "title" : "IRL Champion"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Odric, Lunarch Marshal",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Margolis",
+          "resolvedColorIdentity" : [
+            "W"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 0
+        },
+        {
+          "commanderName" : "Magar of the Magic Strings",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Play 75 total games.",
+              "id" : "games-75",
+              "title" : "75 Games"
+            },
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 0
+        }
+      ]
+    },
     {
       "date" : "2026-11-03T04:38:12Z",
       "durationSeconds" : 4162.924423933029,
@@ -10124,10 +10203,10 @@
           "title" : "Connoisseur"
         }
       ],
-      "losses" : 16,
+      "losses" : 17,
       "name" : "Margolis",
-      "totalGames" : 20,
-      "winRate" : 0.2,
+      "totalGames" : 21,
+      "winRate" : 0.19047619047619047,
       "wins" : 4
     },
     {
@@ -10212,14 +10291,14 @@
           "title" : "50 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10384,9 +10463,9 @@
       ],
       "losses" : 59,
       "name" : "Noah",
-      "totalGames" : 79,
-      "winRate" : 0.25316455696202533,
-      "wins" : 20
+      "totalGames" : 80,
+      "winRate" : 0.2625,
+      "wins" : 21
     },
     {
       "achievements" : [
@@ -10401,14 +10480,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10526,9 +10605,9 @@
           "title" : "Assassino!"
         },
         {
-          "description" : "Play 50 total games.",
-          "id" : "games-50",
-          "title" : "50 Games"
+          "description" : "Play 75 total games.",
+          "id" : "games-75",
+          "title" : "75 Games"
         },
         {
           "description" : "Play 250 total turns.",
@@ -10551,10 +10630,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 38,
+      "losses" : 39,
       "name" : "Pertman",
-      "totalGames" : 74,
-      "winRate" : 0.4864864864864865,
+      "totalGames" : 75,
+      "winRate" : 0.48,
       "wins" : 36
     }
   ]

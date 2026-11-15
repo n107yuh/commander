@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T15:50:43Z",
+  "exportedAt" : "2026-11-15T15:51:25Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -9542,7 +9542,7 @@
       "date" : "2026-06-21T18:40:27Z",
       "durationSeconds" : 5100,
       "isInPerson" : false,
-      "notes" : "Pertman cheated the entire game saying his arcane signet was a sol ring",
+      "notes" : "Pertman cheated the entire game saying his [[Arcane Signet]] was a [[Sol Ring]]",
       "participants" : [
         {
           "commanderName" : "Dr. Eggman",

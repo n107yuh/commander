@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:12:40Z",
+  "exportedAt" : "2026-11-15T16:13:51Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -6553,7 +6553,7 @@
       "date" : "2026-08-03T03:08:13Z",
       "durationSeconds" : 2880,
       "isInPerson" : false,
-      "notes" : "Pertman had a turn 1 sol ring. Justin dealt 15 rat damage to Noah. Justin dealt 33 rat damage to Pertman. Jake killed all 3 opponents",
+      "notes" : "Pertman had a turn 1 [[Sol Ring]]. Justin dealt 15 rat damage to Noah. Justin dealt 33 rat damage to Pertman. Jake killed all 3 opponents",
       "participants" : [
         {
           "commanderName" : "Ishai, Ojutai Dragonspeaker",
@@ -6642,6 +6642,11 @@
               "description" : "Go last and finish last.",
               "id" : "wentlast",
               "title" : "Doomed From The Start"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
             },
             {
               "description" : "Play 25 total games.",
@@ -10602,6 +10607,11 @@
           "description" : "Roll a natural 20 at the start of the game and win.",
           "id" : "nat20-win",
           "title" : "Critical Success"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Eliminate another player with 21+ commander damage.",

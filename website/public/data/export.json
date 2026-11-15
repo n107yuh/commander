@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:21:04Z",
+  "exportedAt" : "2026-11-15T16:21:52Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -4980,7 +4980,7 @@
       "date" : "2026-08-31T00:37:22Z",
       "durationSeconds" : 9389.975222945213,
       "isInPerson" : false,
-      "notes" : "Noah rolled at nat 20. Noah had a turn 1 sol ring. Pertman got up to 200+ life. For some reason, Jake kept saying “Tahlismin”",
+      "notes" : "Noah rolled at nat 20. Noah had a turn 1 [[Sol Ring]]. Pertman got up to 200+ life. For some reason, Jake kept saying “Tahlismin”",
       "participants" : [
         {
           "commanderName" : "Katara, the Fearless",
@@ -5039,6 +5039,11 @@
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
             }
           ],
           "turnOrder" : 0,

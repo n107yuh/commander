@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:21:52Z",
+  "exportedAt" : "2026-11-15T16:22:44Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -4869,7 +4869,7 @@
       "date" : "2026-08-31T03:17:46Z",
       "durationSeconds" : 9463.360444068909,
       "isInPerson" : false,
-      "notes" : "Justin yet again found a way to make everything more complicated with Knowledge Pool. Justin killed himself with a Goblin Game. Justin ended with 18 turns and Noah ended with 17",
+      "notes" : "Justin yet again found a way to make everything more complicated with [[Knowledge Pool]]. Justin killed himself with a [[Goblin Game]].",
       "participants" : [
         {
           "commanderName" : "Syr Vondam, Sunstar Exemplar",

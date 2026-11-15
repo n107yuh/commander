@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T15:53:31Z",
+  "exportedAt" : "2026-11-15T15:54:21Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -9073,7 +9073,7 @@
       "date" : "2026-07-03T03:22:28Z",
       "durationSeconds" : 5820,
       "isInPerson" : true,
-      "notes" : "Josh punted the game via oversimplification. Josh jumpscared many times. Max copied Tinybones. We listened to ABBA",
+      "notes" : "Josh punted the game via [[Oversimplification]]. Josh jumpscared many times. Max copied Noah’s commander. We listened to ABBA",
       "participants" : [
         {
           "commanderName" : "Tinybones, Bauble Burglar",

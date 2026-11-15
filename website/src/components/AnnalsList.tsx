@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { formatDate, formatTime, formatDuration, commanderLabel } from '@/lib/format'
 import { AchievementPill } from './AchievementPill'
 import { ColorDots } from './ColorDots'
+import { NotesWithCards } from './NotesWithCards'
 import type { GameData } from '@/lib/types'
 
 export function AnnalsList({ games }: { games: GameData[] }) {
@@ -221,7 +222,7 @@ export function AnnalsList({ games }: { games: GameData[] }) {
 
                   {game.notes.trim() && (
                     <div className="mt-3 text-slate-500 text-xs border-t border-slate-800 pt-3">
-                      {game.notes}
+                      <NotesWithCards notes={game.notes} />
                     </div>
                   )}
                 </div>

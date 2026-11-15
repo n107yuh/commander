@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:23:38Z",
+  "exportedAt" : "2026-11-15T16:24:22Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -4686,7 +4686,7 @@
       "date" : "2026-09-06T03:35:10Z",
       "durationSeconds" : 3205.9551980495453,
       "isInPerson" : false,
-      "notes" : "Justin flipped a coin for an extra turn, and lost. Justin played Forced Fruition so everyone drew 7 cards every time they cast a spell, which Pertman then turned against the table to have everyone take 2 for each card he discards, dealing a total of 102 damage to everyone at the table",
+      "notes" : "Justin flipped a coin for an extra turn, and lost. Justin played [[Forced Fruition]], which Pertman then turned against the table to have everyone take 2 for each card he discards, dealing a total of 102 damage to everyone at the table",
       "participants" : [
         {
           "commanderName" : "Norman Osborn \/\/ Green Goblin",

@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:30:00Z",
+  "exportedAt" : "2026-11-15T16:30:36Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -3559,7 +3559,7 @@
       "date" : "2026-09-22T04:00:29Z",
       "durationSeconds" : 3004.9185959100723,
       "isInPerson" : false,
-      "notes" : "Noah killed Jake with commander damage. Noah chose the victor of the game by overkilling Jake instead of killing Justin. Justin won with an alternate win con via Leveler + Laboratory Maniac",
+      "notes" : "Noah killed Jake with commander damage. Noah chose the victor of the game by overkilling Jake instead of killing Justin. Justin won with an alternate win con via [[Leveler]] + [[Laboratory Maniac]]",
       "participants" : [
         {
           "commanderName" : "Chromium",

@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T15:55:15Z",
+  "exportedAt" : "2026-11-15T15:58:23Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -2202,11 +2202,6 @@
               "description" : "Consecutive wins since your last loss.",
               "id" : "winstreak",
               "title" : "Win Streak"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Win a game after going first.",
@@ -3212,11 +3207,7 @@
             "B"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
-            }
+
           ],
           "turnOrder" : 2,
           "turnsPlayed" : 7
@@ -3513,11 +3504,6 @@
               "description" : "Roll a natural 20 at the start of the game and still lose.",
               "id" : "nat20-loss",
               "title" : "Rolled Well, Played Poorly"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
             }
           ],
           "turnOrder" : 0,
@@ -3706,11 +3692,6 @@
               "title" : "Digital Champion"
             },
             {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
-            },
-            {
               "description" : "Eliminate another player with 21+ commander damage.",
               "id" : "commanderdamagekill",
               "title" : "Commander Damage!"
@@ -3858,11 +3839,7 @@
             "R"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
-            }
+
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 6
@@ -4533,11 +4510,6 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
-            },
-            {
               "description" : "Win a game in the fewest turns on record.",
               "id" : "blitzkrieg",
               "title" : "Blitzkrieg"
@@ -5067,11 +5039,6 @@
               "description" : "Lose the pod's longest game on record.",
               "id" : "marathonsurvivor",
               "title" : "Marathon Defeat"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
             }
           ],
           "turnOrder" : 0,
@@ -5388,11 +5355,7 @@
             "U"
           ],
           "triggeredAchievements" : [
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
-            }
+
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 9
@@ -5968,11 +5931,6 @@
               "description" : "Go first but finish last.",
               "id" : "botchedit",
               "title" : "Botched It"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
             },
             {
               "description" : "Get eliminated by 21+ commander damage.",
@@ -6684,11 +6642,6 @@
               "description" : "Go last and finish last.",
               "id" : "wentlast",
               "title" : "Doomed From The Start"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
             },
             {
               "description" : "Play 25 total games.",
@@ -7472,11 +7425,6 @@
           ],
           "triggeredAchievements" : [
             {
-              "description" : "Play Sol Ring on turn 1 and still lose.",
-              "id" : "solring1-loss",
-              "title" : "Sol Ring Wasn't Enough"
-            },
-            {
               "description" : "Play 25 total games.",
               "id" : "games-25",
               "title" : "25 Games"
@@ -7973,11 +7921,6 @@
               "description" : "Consecutive wins since your last loss.",
               "id" : "winstreak",
               "title" : "Win Streak"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Win a game with a 5-color (WUBRG) commander.",
@@ -8734,7 +8677,7 @@
       "date" : "2026-07-08T02:07:28Z",
       "durationSeconds" : 3840,
       "isInPerson" : false,
-      "notes" : "Jake did choose to discard a Teferi’s Protection, which was very honorable. Justin rankled nonstop, forcing everyone to constantly sacrifice creatures",
+      "notes" : "Jake did choose to discard a [[Teferi’s Protection]], which was very honorable. Justin [[Rankle, Master of Pranks]]ed nonstop, forcing everyone to constantly sacrifice creatures",
       "participants" : [
         {
           "commanderName" : "Quintorius, History Chaser",
@@ -8930,6 +8873,11 @@
               "description" : "Win a game after going last.",
               "id" : "comefrombehind",
               "title" : "Come From Behind"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Win a remote game.",
@@ -10056,11 +10004,6 @@
           "title" : "Sol Ring, GG"
         },
         {
-          "description" : "Play Sol Ring on turn 1 and still lose.",
-          "id" : "solring1-loss",
-          "title" : "Sol Ring Wasn't Enough"
-        },
-        {
           "description" : "Eliminate another player with 21+ commander damage.",
           "id" : "commanderdamagekill",
           "title" : "Commander Damage!"
@@ -10173,11 +10116,6 @@
           "description" : "Roll a natural 1 at the start of the game and lose.",
           "id" : "nat1-loss",
           "title" : "Critical Failure"
-        },
-        {
-          "description" : "Play Sol Ring on turn 1 and still lose.",
-          "id" : "solring1-loss",
-          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Get eliminated by being milled out of cards.",
@@ -10482,16 +10420,6 @@
           "title" : "Critical Failure"
         },
         {
-          "description" : "Play Sol Ring on turn 1 and win the game.",
-          "id" : "solring1-win",
-          "title" : "Sol Ring, GG"
-        },
-        {
-          "description" : "Play Sol Ring on turn 1 and still lose.",
-          "id" : "solring1-loss",
-          "title" : "Sol Ring Wasn't Enough"
-        },
-        {
           "description" : "Eliminate another player with 21+ commander damage.",
           "id" : "commanderdamagekill",
           "title" : "Commander Damage!"
@@ -10659,16 +10587,6 @@
           "description" : "Roll a natural 20 at the start of the game and win.",
           "id" : "nat20-win",
           "title" : "Critical Success"
-        },
-        {
-          "description" : "Play Sol Ring on turn 1 and win the game.",
-          "id" : "solring1-win",
-          "title" : "Sol Ring, GG"
-        },
-        {
-          "description" : "Play Sol Ring on turn 1 and still lose.",
-          "id" : "solring1-loss",
-          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Eliminate another player with 21+ commander damage.",

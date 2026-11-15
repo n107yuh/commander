@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T15:54:21Z",
+  "exportedAt" : "2026-11-15T15:55:15Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -7975,6 +7975,11 @@
               "title" : "Win Streak"
             },
             {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
+            },
+            {
               "description" : "Win a game with a 5-color (WUBRG) commander.",
               "id" : "tastetherainbow",
               "title" : "Taste the Rainbow"
@@ -7983,11 +7988,6 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
             }
           ],
           "turnOrder" : 1,
@@ -8912,7 +8912,7 @@
       "date" : "2026-07-06T02:48:46Z",
       "durationSeconds" : 2280,
       "isInPerson" : false,
-      "notes" : "Jake played a turn 1 sol ring into an arcane signet. The other two never stood a chance. Justin loves to skullclamp his rats",
+      "notes" : "Jake played a turn 1 [[Sol Ring]] into an [[Arcane Signet]]. The other two never stood a chance. Justin loves to [[Skullclamp]] his rats",
       "participants" : [
         {
           "commanderName" : "Edgar Markov",
@@ -8930,11 +8930,6 @@
               "description" : "Win a game after going last.",
               "id" : "comefrombehind",
               "title" : "Come From Behind"
-            },
-            {
-              "description" : "Play Sol Ring on turn 1 and win the game.",
-              "id" : "solring1-win",
-              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Win a remote game.",

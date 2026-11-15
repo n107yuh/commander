@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:15:22Z",
+  "exportedAt" : "2026-11-15T16:15:54Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -6197,7 +6197,7 @@
       "date" : "2026-08-08T23:24:05Z",
       "durationSeconds" : 3813.299660086632,
       "isInPerson" : true,
-      "notes" : "Pertman played exsanguinate and gained 30 life. This game was practice to win a collector boosty",
+      "notes" : "Pertman played [[Exsanguinate]] and gained 30 life. This game was practice to win a collector boosty",
       "participants" : [
         {
           "commanderName" : "Giada, Font of Hope",

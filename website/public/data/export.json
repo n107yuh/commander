@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:19:42Z",
+  "exportedAt" : "2026-11-15T16:20:22Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -5312,7 +5312,7 @@
       "date" : "2026-08-22T19:41:56Z",
       "durationSeconds" : 3865.4293550252914,
       "isInPerson" : false,
-      "notes" : "Jake played a turn 1 sol ring. It does seem very much like Pertman did not shuffle his deck",
+      "notes" : "Jake played a turn 1 [[Sol Ring]]. It does seem very much like Pertman did not shuffle his deck",
       "participants" : [
         {
           "commanderName" : "Y'shtola, Night's Blessed",
@@ -5355,7 +5355,11 @@
             "U"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 9
@@ -10022,6 +10026,11 @@
           "description" : "Play Sol Ring on turn 1 and win the game.",
           "id" : "solring1-win",
           "title" : "Sol Ring, GG"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Eliminate another player with 21+ commander damage.",

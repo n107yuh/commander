@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:34:14Z",
+  "exportedAt" : "2026-11-15T16:35:09Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -2181,7 +2181,7 @@
       "date" : "2026-10-25T03:21:41Z",
       "durationSeconds" : 3729.571172952652,
       "isInPerson" : false,
-      "notes" : "Justin rolled a nat 1. Pertman played a turn 1 sol ring. Pertman tried to kill Justin but he played “Stunning Reversal” to survive. Noah and Jake checked out after turn 3 and made lots of progress with their respective video games",
+      "notes" : "Justin rolled a nat 1. Pertman played a turn 1 [[Sol Ring]]. Pertman tried to kill Justin but he played [[Stunning Reversal”]]to survive. Noah and Jake checked out after turn 3 and made lots of progress with their respective video games",
       "participants" : [
         {
           "commanderName" : "Leonardo, the Balance",
@@ -2202,6 +2202,11 @@
               "description" : "Consecutive wins since your last loss.",
               "id" : "winstreak",
               "title" : "Win Streak"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Win a game after going first.",
@@ -10669,6 +10674,11 @@
           "description" : "Roll a natural 20 at the start of the game and win.",
           "id" : "nat20-win",
           "title" : "Critical Success"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and win the game.",
+          "id" : "solring1-win",
+          "title" : "Sol Ring, GG"
         },
         {
           "description" : "Play Sol Ring on turn 1 and still lose.",

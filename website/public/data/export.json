@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:20:22Z",
+  "exportedAt" : "2026-11-15T16:21:04Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -5216,7 +5216,7 @@
       "date" : "2026-08-24T01:44:27Z",
       "durationSeconds" : 3429.8405619859695,
       "isInPerson" : false,
-      "notes" : "All commanders are white. Noah stole Pertman’s 20\/20 commander but the cost was tremendous. Pertman ruined Noah’s chances at the hat trick. Justin’s Grip of Chaos caused exactly that. Pertman won the game by dealing damage to himself and then sharing that damage with the other two players",
+      "notes" : "All commanders are white. Noah stole Pertman’s 20\/20 commander but the cost was tremendous. Pertman ruined Noah’s chances at the hat trick. Justin’s [[Grip of Chaos]] caused exactly that. Pertman won the game by dealing damage to himself and then sharing that damage with the other two players",
       "participants" : [
         {
           "commanderName" : "Karlov of the Ghost Council",

@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:28:45Z",
+  "exportedAt" : "2026-11-15T16:29:29Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -3769,7 +3769,7 @@
       "date" : "2026-09-21T02:32:26Z",
       "durationSeconds" : 3675.121171951294,
       "isInPerson" : true,
-      "notes" : "Noah played a turn 1 sol ring. Pertman spent 5 minutes doing so much math, then immediately realized he didn’t need to play a certain card and that changed all of the math. 3 swords were equipped, including the sword of feast and famine",
+      "notes" : "Noah played a turn 1 [[Sol Ring]]. Pertman spent 5 minutes doing so much math, then immediately realized he didn’t need to play a certain card and that changed all of the math. 3 swords were equipped, including the [[Sword of Feast and Famine]]",
       "participants" : [
         {
           "commanderName" : "Noctis, Heir Apparent",
@@ -3839,7 +3839,11 @@
             "R"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
           ],
           "turnOrder" : 1,
           "turnsPlayed" : 6

@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T15:58:23Z",
+  "exportedAt" : "2026-11-15T15:59:51Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -7901,7 +7901,7 @@
       "date" : "2026-07-21T01:40:40Z",
       "durationSeconds" : 4260,
       "isInPerson" : false,
-      "notes" : "Jake had a first turn sol ring. Pertman yelled wait. Jake betrayed his values and played a planeswalker. Pertman: “i’m gonna sit here and eat my nuts” buuuuts. Jake played 10 dragons with one card and obliterated everyone’s breasts",
+      "notes" : "Jake had a first turn [[Sol Ring]]. Pertman yelled wait. Jake betrayed his values and played a planeswalker. Pertman: “i’m gonna sit here and eat my nuts” buuuuts. Jake played 10 dragons with one card and obliterated everyone’s breasts",
       "participants" : [
         {
           "commanderName" : "The Ur-Dragon",
@@ -7931,6 +7931,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             }
           ],
           "turnOrder" : 1,

@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:33:02Z",
+  "exportedAt" : "2026-11-15T16:33:46Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -2646,7 +2646,7 @@
       "date" : "2026-10-22T01:47:03Z",
       "durationSeconds" : 2997,
       "isInPerson" : false,
-      "notes" : "Jake rolled a nat 1. Pertman made 12x tokens and dropped his dice. Justin played a limp Gigantasaurus",
+      "notes" : "Jake rolled a nat 1. Pertman made 12x tokens and dropped his dice. Justin played a limp [[Gigantasaurus]]",
       "participants" : [
         {
           "commanderName" : "Caesar, Legion's Emperor",

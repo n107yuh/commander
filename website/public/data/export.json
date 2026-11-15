@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:35:33Z",
+  "exportedAt" : "2026-11-15T16:36:07Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -2063,7 +2063,7 @@
       "date" : "2026-10-25T04:32:55Z",
       "durationSeconds" : 3493.166820883751,
       "isInPerson" : false,
-      "notes" : "Noah had a leyline of hope in his opening hand. Jake killed Noah with commander damage. Justin won with -103 life",
+      "notes" : "Noah had a [[Leyline of Hope]] in his opening hand. Jake killed Noah with commander damage. Justin won with -103 life",
       "participants" : [
         {
           "commanderName" : "Chromium",

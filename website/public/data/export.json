@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:31:12Z",
+  "exportedAt" : "2026-11-15T16:32:03Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -3143,7 +3143,7 @@
       "date" : "2026-10-10T01:46:43Z",
       "durationSeconds" : 3346.8855489492416,
       "isInPerson" : false,
-      "notes" : "Noah rolled a nat 1. Pertman rolled a nat 20. Jake played a turn 1 sol ring. His camera was facing the vent, and so nothing could be confirmed",
+      "notes" : "Noah rolled a nat 1. Pertman rolled a nat 20. Jake played a turn 1 [[Sol Ring]]. His camera was facing the vent, and so nothing could be confirmed",
       "participants" : [
         {
           "commanderName" : "Magar of the Magic Strings",
@@ -3207,7 +3207,11 @@
             "B"
           ],
           "triggeredAchievements" : [
-
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            }
           ],
           "turnOrder" : 2,
           "turnsPlayed" : 7

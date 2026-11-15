@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:17:13Z",
+  "exportedAt" : "2026-11-15T16:17:42Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -5770,7 +5770,7 @@
       "date" : "2026-08-12T02:19:26Z",
       "durationSeconds" : 2115.103428006172,
       "isInPerson" : false,
-      "notes" : "Everyone agreed Noah had a very strong strike. It was later determined that Jake cheated with his Gemstone Caverns",
+      "notes" : "Everyone agreed Noah had a very strong strike. It was later determined that Jake cheated with his [[Gemstone Caverns]]",
       "participants" : [
         {
           "commanderName" : "Ashling, the Limitless",

@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:14:46Z",
+  "exportedAt" : "2026-11-15T16:15:22Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -6274,7 +6274,7 @@
       "date" : "2026-08-07T16:01:32Z",
       "durationSeconds" : 4740,
       "isInPerson" : false,
-      "notes" : "Justin dealt 6 rat damage to Pertman. Jake dropped his cards on the floor. There was an unwind that Justin found to be quite controversial, as it made his rankle impotent twice",
+      "notes" : "Justin dealt 6 rat damage to Pertman. Jake dropped his cards on the floor. There was an unwind that Justin found to be quite controversial, as it made his [[Rankle, Master of Pranks]] impotent twice",
       "participants" : [
         {
           "commanderName" : "Cloud, Ex-SOLDIER",

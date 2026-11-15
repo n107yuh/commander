@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:02:32Z",
+  "exportedAt" : "2026-11-15T16:03:04Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -7368,7 +7368,7 @@
       "date" : "2026-07-31T01:10:56Z",
       "durationSeconds" : 2880,
       "isInPerson" : false,
-      "notes" : "Noah had to mulligan 5 times, but then Noah played a turn 1 sol ring",
+      "notes" : "Noah had to mulligan 5 times, but then Noah played a turn 1 [[Sol Ring]]",
       "participants" : [
         {
           "commanderName" : "Satya, Aetherflux Genius",
@@ -7424,6 +7424,11 @@
             "G"
           ],
           "triggeredAchievements" : [
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
+            },
             {
               "description" : "Play 25 total games.",
               "id" : "games-25",
@@ -10423,6 +10428,11 @@
           "description" : "Roll a natural 1 at the start of the game and lose.",
           "id" : "nat1-loss",
           "title" : "Critical Failure"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Eliminate another player with 21+ commander damage.",

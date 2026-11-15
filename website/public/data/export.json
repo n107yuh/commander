@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:30:36Z",
+  "exportedAt" : "2026-11-15T16:31:12Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -3455,7 +3455,7 @@
       "date" : "2026-09-29T02:34:45Z",
       "durationSeconds" : 7162.124560952187,
       "isInPerson" : false,
-      "notes" : "Justin rolled a nat 20. Justin played a turn 1 sol ring. Jake could have potentially won the game but was Swan Song-ed by Justin",
+      "notes" : "Justin rolled a nat 20. Justin played a turn 1 [[Sol Ring]]. Jake could have potentially won the game but was [[Swan Song]]ed by Justin",
       "participants" : [
         {
           "commanderName" : "Satya, Aetherflux Genius",
@@ -3504,6 +3504,11 @@
               "description" : "Roll a natural 20 at the start of the game and still lose.",
               "id" : "nat20-loss",
               "title" : "Rolled Well, Played Poorly"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
             }
           ],
           "turnOrder" : 0,
@@ -10169,6 +10174,11 @@
           "description" : "Roll a natural 1 at the start of the game and lose.",
           "id" : "nat1-loss",
           "title" : "Critical Failure"
+        },
+        {
+          "description" : "Play Sol Ring on turn 1 and still lose.",
+          "id" : "solring1-loss",
+          "title" : "Sol Ring Wasn't Enough"
         },
         {
           "description" : "Win a game with only 1 life remaining.",

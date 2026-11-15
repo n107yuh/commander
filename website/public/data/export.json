@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:03:55Z",
+  "exportedAt" : "2026-11-15T16:10:45Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -7186,7 +7186,7 @@
       "date" : "2026-07-31T03:48:09Z",
       "durationSeconds" : 2340,
       "isInPerson" : false,
-      "notes" : "Justin dealt 34 rat damage to Jake. Justin dealt 20 rat damage to Noah. Chandra exploded Okaun for 48 damage",
+      "notes" : "Justin dealt 34 rat damage to Jake. Justin dealt 20 rat damage to Noah. [[Chandra’s Ignition]] exploded Okaun for 48 damage",
       "participants" : [
         {
           "commanderName" : "Okaun, Eye of Chaos",

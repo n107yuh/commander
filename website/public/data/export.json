@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:33:46Z",
+  "exportedAt" : "2026-11-15T16:34:14Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -2569,7 +2569,7 @@
       "date" : "2026-10-22T02:39:06Z",
       "durationSeconds" : 3294,
       "isInPerson" : false,
-      "notes" : "Jake's Exsanguinate. Pertman killed Jake with commander damage.",
+      "notes" : "Jake's [[Exsanguinate]]. Pertman killed Jake with commander damage.",
       "participants" : [
         {
           "commanderName" : "The Wise Mothman",

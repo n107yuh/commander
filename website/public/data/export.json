@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:22:44Z",
+  "exportedAt" : "2026-11-15T16:23:38Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -4778,7 +4778,7 @@
       "date" : "2026-09-06T01:48:52Z",
       "durationSeconds" : 6005.2462149858475,
       "isInPerson" : false,
-      "notes" : "Pertman predicted the top card of his deck was a forest, and was absolutely correct. Justin combo’ed Repercussion and Blasphemous Act to deal 52 damage to Pertman (and 13 to each of Justin and Jake). Justin cast Thieve’s Auction and it did resolve",
+      "notes" : "Pertman predicted the top card of his deck was a forest, and was absolutely correct. Justin combo’ed [[Repercussion]] and [[Blasphemous Act]] to deal 52 damage to Pertman (and 13 to each of Justin and Jake). Justin cast [[Thieves’ Auction]] and it did resolve",
       "participants" : [
         {
           "commanderName" : "Kraven the Hunter",

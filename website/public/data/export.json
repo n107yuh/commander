@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T15:25:33Z",
+  "exportedAt" : "2026-11-15T15:50:15Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -9796,7 +9796,7 @@
       "date" : "2026-06-17T01:15:15Z",
       "durationSeconds" : 5400,
       "isInPerson" : false,
-      "notes" : "Noah almost won with Triskaidekaphile but Margolis stopped it with a split-second spell that prevented anyone else from winning the game that turn",
+      "notes" : "Noah almost won with [[Triskaidekaphile]] but Margolis stopped it with a split-second spell that prevented anyone else from winning the game that turn",
       "participants" : [
         {
           "commanderName" : "Círdan the Shipwright",

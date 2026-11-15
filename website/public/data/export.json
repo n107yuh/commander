@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:16:25Z",
+  "exportedAt" : "2026-11-15T16:17:13Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -5864,7 +5864,7 @@
       "date" : "2026-08-12T01:11:26Z",
       "durationSeconds" : 3511.793396949768,
       "isInPerson" : false,
-      "notes" : "Pertman had a turn 1 sol ring. Noah killed Pertman with commander damage",
+      "notes" : "Pertman had a turn 1 [[Sol Ring]]. Noah killed Pertman with commander damage",
       "participants" : [
         {
           "commanderName" : "Lathril, Blade of the Elves",
@@ -5931,6 +5931,11 @@
               "description" : "Go first but finish last.",
               "id" : "botchedit",
               "title" : "Botched It"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and still lose.",
+              "id" : "solring1-loss",
+              "title" : "Sol Ring Wasn't Enough"
             },
             {
               "description" : "Get eliminated by 21+ commander damage.",

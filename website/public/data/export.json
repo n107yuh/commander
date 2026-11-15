@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:29:29Z",
+  "exportedAt" : "2026-11-15T16:30:00Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -3669,7 +3669,7 @@
       "date" : "2026-09-22T02:12:27Z",
       "durationSeconds" : 6313.578586935997,
       "isInPerson" : false,
-      "notes" : "Noah played a turn 1 sol ring. Noah killed Jake with commander damage. Noah promised Justin 2nd place, and upheld that promise",
+      "notes" : "Noah played a turn 1 [[Sol Ring]]. Noah killed Jake with commander damage. Noah promised Justin 2nd place, and upheld that promise",
       "participants" : [
         {
           "commanderName" : "The Sentry, Golden Guardian",
@@ -3690,6 +3690,11 @@
               "description" : "Win a remote game.",
               "id" : "digitalchampion",
               "title" : "Digital Champion"
+            },
+            {
+              "description" : "Play Sol Ring on turn 1 and win the game.",
+              "id" : "solring1-win",
+              "title" : "Sol Ring, GG"
             },
             {
               "description" : "Eliminate another player with 21+ commander damage.",

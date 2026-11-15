@@ -1659,7 +1659,7 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:32:03Z",
+  "exportedAt" : "2026-11-15T16:33:02Z",
   "games" : [
     {
       "date" : "2026-11-15T02:42:43Z",
@@ -2882,7 +2882,7 @@
       "date" : "2026-10-15T02:26:46Z",
       "durationSeconds" : 6326.428140044212,
       "isInPerson" : false,
-      "notes" : "Justin played a card that maybe doesn’t exist, but it was confirmed to be real. Noah generated 9,035 scutes, Justin played “Everybody Lives” to block Noah from winning. Pertman killed Noah with poison.",
+      "notes" : "Justin played a card that maybe doesn’t exist, but it was confirmed to be real. Noah generated 9,035 [[Scute Swarm]]s, Justin played [[Everybody Lives]] to block Noah from winning. Pertman killed Noah with poison.",
       "participants" : [
         {
           "commanderName" : "Grothama, All-Devouring",

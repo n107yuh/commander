@@ -243,10 +243,10 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/4\/c4f23d68-d0de-4b57-b0f9-9c0ca770c3c1.jpg?1686964171"
       ],
-      "losses" : 0,
+      "losses" : 1,
       "name" : "Círdan the Shipwright",
-      "totalGames" : 2,
-      "winRate" : 1,
+      "totalGames" : 3,
+      "winRate" : 0.6666666666666666,
       "wins" : 2
     },
     {
@@ -384,6 +384,13 @@
       "name" : "Gerrard, Weatherlight Hero",
       "totalGames" : 5,
       "winRate" : 0.2,
+      "wins" : 1
+    },
+    {
+      "losses" : 0,
+      "name" : "Ghyrson Starn, Kelermorph",
+      "totalGames" : 1,
+      "winRate" : 1,
       "wins" : 1
     },
     {
@@ -548,9 +555,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/1\/c1f5bcc4-3ec7-42ae-8e4b-80a9b9135ff0.jpg?1744152961"
       ],
-      "losses" : 2,
+      "losses" : 3,
       "name" : "Jasmine Boreal of the Seven",
-      "totalGames" : 2,
+      "totalGames" : 3,
       "winRate" : 0,
       "wins" : 0
     },
@@ -893,9 +900,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/4\/2\/42bbedc1-6b83-46b4-8b3b-a4e05ce77d87.jpg?1721428140"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Ms. Bumbleflower",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1659,8 +1666,108 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-15T16:37:45Z",
+  "exportedAt" : "2026-11-24T03:17:50Z",
   "games" : [
+    {
+      "date" : "2026-11-24T02:33:04Z",
+      "durationSeconds" : 2604.57693195343,
+      "isInPerson" : false,
+      "notes" : "Justin rolled a nat 1. Jake was far too scary. Jake did not attack. Noah did not attack. Jake took no damage across the game.",
+      "participants" : [
+        {
+          "commanderName" : "Ghyrson Starn, Kelermorph",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            },
+            {
+              "description" : "Play an entire game without attacking another player.",
+              "id" : "pacifist",
+              "title" : "Pacifist"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Jasmine Boreal of the Seven",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Roll a natural 1 at the start of the game and lose.",
+              "id" : "nat1-loss",
+              "title" : "Critical Failure"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Ms. Bumbleflower",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play an entire game without attacking another player.",
+              "id" : "pacifist",
+              "title" : "Pacifist"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Círdan the Shipwright",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 3,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "U",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            },
+            {
+              "description" : "Go first but finish last.",
+              "id" : "botchedit",
+              "title" : "Botched It"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        }
+      ]
+    },
     {
       "date" : "2026-11-15T02:42:43Z",
       "durationSeconds" : 11745.335411906242,
@@ -9966,14 +10073,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10108,9 +10215,9 @@
       ],
       "losses" : 49,
       "name" : "Jake",
-      "totalGames" : 64,
-      "winRate" : 0.234375,
-      "wins" : 15
+      "totalGames" : 65,
+      "winRate" : 0.24615384615384617,
+      "wins" : 16
     },
     {
       "achievements" : [
@@ -10235,10 +10342,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 43,
+      "losses" : 44,
       "name" : "Justin",
-      "totalGames" : 48,
-      "winRate" : 0.10416666666666667,
+      "totalGames" : 49,
+      "winRate" : 0.10204081632653061,
       "wins" : 5
     },
     {
@@ -10562,10 +10669,10 @@
           "title" : "Rat Bait"
         }
       ],
-      "losses" : 60,
+      "losses" : 61,
       "name" : "Noah",
-      "totalGames" : 81,
-      "winRate" : 0.25925925925925924,
+      "totalGames" : 82,
+      "winRate" : 0.25609756097560976,
       "wins" : 21
     },
     {
@@ -10581,14 +10688,14 @@
           "title" : "25 Losses"
         },
         {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
-        },
-        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10731,10 +10838,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 39,
+      "losses" : 40,
       "name" : "Pertman",
-      "totalGames" : 76,
-      "winRate" : 0.4868421052631579,
+      "totalGames" : 77,
+      "winRate" : 0.4805194805194805,
       "wins" : 37
     }
   ]

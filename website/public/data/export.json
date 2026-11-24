@@ -387,6 +387,13 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+        "R",
+        "U"
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/f\/a\/fa7349d9-c82f-4cf8-a852-92168d1f4966.jpg?1783920850"
+      ],
       "losses" : 0,
       "name" : "Ghyrson Starn, Kelermorph",
       "totalGames" : 1,
@@ -555,9 +562,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/c\/1\/c1f5bcc4-3ec7-42ae-8e4b-80a9b9135ff0.jpg?1744152961"
       ],
-      "losses" : 3,
+      "losses" : 4,
       "name" : "Jasmine Boreal of the Seven",
-      "totalGames" : 3,
+      "totalGames" : 4,
       "winRate" : 0,
       "wins" : 0
     },
@@ -790,9 +797,9 @@
       ],
       "losses" : 2,
       "name" : "Lightning, Lone Commando",
-      "totalGames" : 2,
-      "winRate" : 0,
-      "wins" : 0
+      "totalGames" : 3,
+      "winRate" : 0.3333333333333333,
+      "wins" : 1
     },
     {
       "colorIdentity" : [
@@ -1254,9 +1261,9 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347",
         "https:\/\/cards.scryfall.io\/normal\/back\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347"
       ],
-      "losses" : 4,
+      "losses" : 5,
       "name" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
-      "totalGames" : 4,
+      "totalGames" : 5,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1639,6 +1646,13 @@
       "wins" : 1
     },
     {
+      "losses" : 1,
+      "name" : "Zhulodok, Void Gorger",
+      "totalGames" : 1,
+      "winRate" : 0,
+      "wins" : 0
+    },
+    {
       "colorIdentity" : [
         "G",
         "U"
@@ -1666,8 +1680,108 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-24T03:17:50Z",
+  "exportedAt" : "2026-11-24T04:15:40Z",
   "games" : [
+    {
+      "date" : "2026-11-24T03:24:45Z",
+      "durationSeconds" : 2909.53297996521,
+      "isInPerson" : false,
+      "notes" : "Justin said that Noah could have the wishclaw talisman and then reneged on the deal. He’ll forever be stained with the mark of a liar.",
+      "participants" : [
+        {
+          "commanderName" : "Lightning, Lone Commando",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Noah",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game in the fewest turns on record.",
+              "id" : "blitzkrieg",
+              "title" : "Blitzkrieg"
+            },
+            {
+              "description" : "Win a game after going last.",
+              "id" : "comefrombehind",
+              "title" : "Come From Behind"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 3,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 6
+        },
+        {
+          "commanderName" : "Jasmine Boreal of the Seven",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "G"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Play 50 total games.",
+              "id" : "games-50",
+              "title" : "50 Games"
+            }
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 5
+        },
+        {
+          "commanderName" : "Zhulodok, Void Gorger",
+          "didWin" : false,
+          "openingHandSize" : 6,
+          "placement" : 3,
+          "playerName" : "Jake",
+          "triggeredAchievements" : [
+            {
+              "description" : "Lose 50 games.",
+              "id" : "losses-50",
+              "title" : "50 Losses"
+            },
+            {
+              "description" : "Consecutive losses since your last win.",
+              "id" : "lossstreak",
+              "title" : "Loss Streak"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 5
+        }
+      ]
+    },
     {
       "date" : "2026-11-24T02:33:04Z",
       "durationSeconds" : 2604.57693195343,
@@ -1680,6 +1794,10 @@
           "openingHandSize" : 7,
           "placement" : 0,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "U",
+            "R"
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Consecutive wins since your last loss.",
@@ -10068,19 +10186,19 @@
           "title" : "10 Wins"
         },
         {
-          "description" : "Lose 25 games.",
-          "id" : "losses-25",
-          "title" : "25 Losses"
-        },
-        {
-          "description" : "Consecutive wins since your last loss.",
-          "id" : "winstreak",
-          "title" : "Win Streak"
+          "description" : "Lose 50 games.",
+          "id" : "losses-50",
+          "title" : "50 Losses"
         },
         {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
+        },
+        {
+          "description" : "Consecutive losses since your last win.",
+          "id" : "lossstreak",
+          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10213,10 +10331,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 49,
+      "losses" : 50,
       "name" : "Jake",
-      "totalGames" : 65,
-      "winRate" : 0.24615384615384617,
+      "totalGames" : 66,
+      "winRate" : 0.24242424242424243,
       "wins" : 16
     },
     {
@@ -10317,9 +10435,9 @@
           "title" : "Dead Man Walking"
         },
         {
-          "description" : "Play 25 total games.",
-          "id" : "games-25",
-          "title" : "25 Games"
+          "description" : "Play 50 total games.",
+          "id" : "games-50",
+          "title" : "50 Games"
         },
         {
           "description" : "Play 250 total turns.",
@@ -10342,10 +10460,10 @@
           "title" : "Rat King"
         }
       ],
-      "losses" : 44,
+      "losses" : 45,
       "name" : "Justin",
-      "totalGames" : 49,
-      "winRate" : 0.10204081632653061,
+      "totalGames" : 50,
+      "winRate" : 0.1,
       "wins" : 5
     },
     {
@@ -10499,14 +10617,14 @@
           "title" : "50 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10671,9 +10789,9 @@
       ],
       "losses" : 61,
       "name" : "Noah",
-      "totalGames" : 82,
-      "winRate" : 0.25609756097560976,
-      "wins" : 21
+      "totalGames" : 83,
+      "winRate" : 0.26506024096385544,
+      "wins" : 22
     },
     {
       "achievements" : [
@@ -10838,10 +10956,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 40,
+      "losses" : 41,
       "name" : "Pertman",
-      "totalGames" : 77,
-      "winRate" : 0.4805194805194805,
+      "totalGames" : 78,
+      "winRate" : 0.47435897435897434,
       "wins" : 37
     }
   ]

@@ -203,9 +203,9 @@
       ],
       "losses" : 7,
       "name" : "Chromium",
-      "totalGames" : 9,
-      "winRate" : 0.2222222222222222,
-      "wins" : 2
+      "totalGames" : 10,
+      "winRate" : 0.3,
+      "wins" : 3
     },
     {
       "colorIdentity" : [
@@ -638,9 +638,9 @@
       "imageURLs" : [
         "https:\/\/cards.scryfall.io\/normal\/front\/e\/7\/e71c8c39-3fbb-4a42-9cf6-b3224f5a56fc.jpg?1783911211"
       ],
-      "losses" : 1,
+      "losses" : 2,
       "name" : "Kaalia of the Vast",
-      "totalGames" : 1,
+      "totalGames" : 2,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1261,9 +1261,9 @@
         "https:\/\/cards.scryfall.io\/normal\/front\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347",
         "https:\/\/cards.scryfall.io\/normal\/back\/8\/2\/8234ea77-9ed6-4f3e-acc2-f52fb7003ed2.jpg?1763297347"
       ],
-      "losses" : 5,
+      "losses" : 6,
       "name" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
-      "totalGames" : 5,
+      "totalGames" : 6,
       "winRate" : 0,
       "wins" : 0
     },
@@ -1646,6 +1646,12 @@
       "wins" : 1
     },
     {
+      "colorIdentity" : [
+
+      ],
+      "imageURLs" : [
+        "https:\/\/cards.scryfall.io\/normal\/front\/a\/0\/a015461d-4214-4feb-8b04-519c537759eb.jpg?1783915492"
+      ],
       "losses" : 1,
       "name" : "Zhulodok, Void Gorger",
       "totalGames" : 1,
@@ -1680,8 +1686,83 @@
       "wins" : 1
     }
   ],
-  "exportedAt" : "2026-11-24T04:15:40Z",
+  "exportedAt" : "2026-11-25T03:15:25Z",
   "games" : [
+    {
+      "date" : "2026-11-24T04:23:00Z",
+      "durationSeconds" : 5820,
+      "isInPerson" : false,
+      "notes" : "This was not the game of the century. It was just a tribute. Jake and Pertman engaged in a side quest to figure out how Jake could use his five mana sources to play spells. Pertman once again was a dickswidth from pulling off a starscream win, but then was killed by Jake using [[Sneak Attack]] to sneak in a [[Rune-Scarred Demon]] and [[Balefire Dragon]], wiping his board and then dying to damage from Justin’s [[Archfiend of the Dross]]. Jake then became very excited because he thought he was going to kill Justin with his [[Sneak Attack]], but Justin played [[Everybody Lives]], which caused multiple different rules interactions that the players had to parse through. Justin then pulled off the ultimate sneak attack by using [[Puca’s Mischief]] to steal Jake’s sneak attack and gifted him the [[Archfiend of the Dross]], killing Jake on his next turn with an archfiend suicide bomb. This game was also notable for being what all players agreed was a thanksgiving miracle, since it was the third game played that night, three different players won a game, and none of those players were Pertman. Those pilgrims can finally rest in peace.",
+      "participants" : [
+        {
+          "commanderName" : "Chromium",
+          "didWin" : true,
+          "openingHandSize" : 7,
+          "placement" : 0,
+          "playerName" : "Justin",
+          "resolvedColorIdentity" : [
+            "W",
+            "U",
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Consecutive wins since your last loss.",
+              "id" : "winstreak",
+              "title" : "Win Streak"
+            },
+            {
+              "description" : "Win a game after going first.",
+              "id" : "firstblood",
+              "title" : "First Blood"
+            },
+            {
+              "description" : "Win a remote game.",
+              "id" : "digitalchampion",
+              "title" : "Digital Champion"
+            }
+          ],
+          "turnOrder" : 0,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Kaalia of the Vast",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 1,
+          "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+            "W",
+            "B",
+            "R"
+          ],
+          "triggeredAchievements" : [
+
+          ],
+          "turnOrder" : 1,
+          "turnsPlayed" : 12
+        },
+        {
+          "commanderName" : "Starscream, Power Hungry \/\/ Starscream, Seeker Leader",
+          "didWin" : false,
+          "openingHandSize" : 7,
+          "placement" : 2,
+          "playerName" : "Pertman",
+          "resolvedColorIdentity" : [
+            "B"
+          ],
+          "triggeredAchievements" : [
+            {
+              "description" : "Go last and finish last.",
+              "id" : "wentlast",
+              "title" : "Doomed From The Start"
+            }
+          ],
+          "turnOrder" : 2,
+          "turnsPlayed" : 9
+        }
+      ]
+    },
     {
       "date" : "2026-11-24T03:24:45Z",
       "durationSeconds" : 2909.53297996521,
@@ -1765,6 +1846,9 @@
           "openingHandSize" : 6,
           "placement" : 3,
           "playerName" : "Jake",
+          "resolvedColorIdentity" : [
+
+          ],
           "triggeredAchievements" : [
             {
               "description" : "Lose 50 games.",
@@ -10331,10 +10415,10 @@
           "title" : "Taste the Rainbow"
         }
       ],
-      "losses" : 50,
+      "losses" : 51,
       "name" : "Jake",
-      "totalGames" : 66,
-      "winRate" : 0.24242424242424243,
+      "totalGames" : 67,
+      "winRate" : 0.23880597014925373,
       "wins" : 16
     },
     {
@@ -10350,14 +10434,14 @@
           "title" : "25 Losses"
         },
         {
+          "description" : "Consecutive wins since your last loss.",
+          "id" : "winstreak",
+          "title" : "Win Streak"
+        },
+        {
           "description" : "Your longest winning streak ever.",
           "id" : "bestwinstreak",
           "title" : "Best Win Streak"
-        },
-        {
-          "description" : "Consecutive losses since your last win.",
-          "id" : "lossstreak",
-          "title" : "Loss Streak"
         },
         {
           "description" : "Your longest losing streak ever.",
@@ -10462,9 +10546,9 @@
       ],
       "losses" : 45,
       "name" : "Justin",
-      "totalGames" : 50,
-      "winRate" : 0.1,
-      "wins" : 5
+      "totalGames" : 51,
+      "winRate" : 0.11764705882352941,
+      "wins" : 6
     },
     {
       "achievements" : [
@@ -10956,10 +11040,10 @@
           "title" : "WAIT!"
         }
       ],
-      "losses" : 41,
+      "losses" : 42,
       "name" : "Pertman",
-      "totalGames" : 78,
-      "winRate" : 0.47435897435897434,
+      "totalGames" : 79,
+      "winRate" : 0.46835443037974683,
       "wins" : 37
     }
   ]
